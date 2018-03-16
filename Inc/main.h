@@ -69,6 +69,12 @@
 #define SPI_MISO_GPIO_Port GPIOA
 #define SPI_MOSI_Pin GPIO_PIN_7
 #define SPI_MOSI_GPIO_Port GPIOA
+#define Vcn_Pin GPIO_PIN_5
+#define Vcn_GPIO_Port GPIOC
+#define Van_Pin GPIO_PIN_0
+#define Van_GPIO_Port GPIOB
+#define VcnB1_Pin GPIO_PIN_1
+#define VcnB1_GPIO_Port GPIOB
 #define LED1_Pin GPIO_PIN_8
 #define LED1_GPIO_Port GPIOA
 #define UART_TX_Pin GPIO_PIN_9

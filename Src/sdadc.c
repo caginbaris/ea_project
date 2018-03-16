@@ -41,6 +41,7 @@
 #include "sdadc.h"
 
 #include "gpio.h"
+#include "dma.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -49,10 +50,14 @@
 SDADC_HandleTypeDef hsdadc1;
 SDADC_HandleTypeDef hsdadc2;
 SDADC_HandleTypeDef hsdadc3;
+DMA_HandleTypeDef hdma_sdadc1;
+DMA_HandleTypeDef hdma_sdadc2;
+DMA_HandleTypeDef hdma_sdadc3;
 
 /* SDADC1 init function */
 void MX_SDADC1_Init(void)
 {
+  SDADC_ConfParamTypeDef ConfParamStruct;
 
     /**Configure the SDADC low power mode, fast conversion mode,
     slow clock mode and SDADC1 reference voltage 
@@ -62,7 +67,49 @@ void MX_SDADC1_Init(void)
   hsdadc1.Init.FastConversionMode = SDADC_FAST_CONV_DISABLE;
   hsdadc1.Init.SlowClockMode = SDADC_SLOW_CLOCK_DISABLE;
   hsdadc1.Init.ReferenceVoltage = SDADC_VREF_EXT;
+  hsdadc1.InjectedTrigger = SDADC_EXTERNAL_TRIGGER;
+  hsdadc1.ExtTriggerEdge = SDADC_EXT_TRIG_RISING_EDGE;
   if (HAL_SDADC_Init(&hsdadc1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Mode 
+    */
+  if (HAL_SDADC_SelectInjectedDelay(&hsdadc1, SDADC_INJECTED_DELAY_NONE) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_SelectInjectedExtTrigger(&hsdadc1, SDADC_EXT_TRIG_TIM19_CC2, SDADC_EXT_TRIG_RISING_EDGE) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc1, SDADC_EXTERNAL_TRIGGER) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_InjectedConfigChannel(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONTINUOUS_CONV_OFF) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Set parameters for SDADC configuration 2 Register 
+    */
+  ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
+  ConfParamStruct.Gain = SDADC_GAIN_1;
+  ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
+  ConfParamStruct.Offset = 0;
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc1, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Channel 
+    */
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONF_INDEX_2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -71,6 +118,7 @@ void MX_SDADC1_Init(void)
 /* SDADC2 init function */
 void MX_SDADC2_Init(void)
 {
+  SDADC_ConfParamTypeDef ConfParamStruct;
 
     /**Configure the SDADC low power mode, fast conversion mode,
     slow clock mode and SDADC1 reference voltage 
@@ -80,7 +128,43 @@ void MX_SDADC2_Init(void)
   hsdadc2.Init.FastConversionMode = SDADC_FAST_CONV_DISABLE;
   hsdadc2.Init.SlowClockMode = SDADC_SLOW_CLOCK_DISABLE;
   hsdadc2.Init.ReferenceVoltage = SDADC_VREF_EXT;
+  hsdadc2.InjectedTrigger = SDADC_SYNCHRONOUS_TRIGGER;
   if (HAL_SDADC_Init(&hsdadc2) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Mode 
+    */
+  if (HAL_SDADC_SelectInjectedDelay(&hsdadc2, SDADC_INJECTED_DELAY_NONE) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc2, SDADC_SYNCHRONOUS_TRIGGER) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_InjectedConfigChannel(&hsdadc2, SDADC_CHANNEL_7, SDADC_CONTINUOUS_CONV_OFF) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Set parameters for SDADC configuration 2 Register 
+    */
+  ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
+  ConfParamStruct.Gain = SDADC_GAIN_1;
+  ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
+  ConfParamStruct.Offset = 0;
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc2, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Channel 
+    */
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc2, SDADC_CHANNEL_7, SDADC_CONF_INDEX_2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -89,6 +173,7 @@ void MX_SDADC2_Init(void)
 /* SDADC3 init function */
 void MX_SDADC3_Init(void)
 {
+  SDADC_ConfParamTypeDef ConfParamStruct;
 
     /**Configure the SDADC low power mode, fast conversion mode,
     slow clock mode and SDADC1 reference voltage 
@@ -98,7 +183,43 @@ void MX_SDADC3_Init(void)
   hsdadc3.Init.FastConversionMode = SDADC_FAST_CONV_DISABLE;
   hsdadc3.Init.SlowClockMode = SDADC_SLOW_CLOCK_DISABLE;
   hsdadc3.Init.ReferenceVoltage = SDADC_VREF_EXT;
+  hsdadc3.InjectedTrigger = SDADC_SYNCHRONOUS_TRIGGER;
   if (HAL_SDADC_Init(&hsdadc3) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Mode 
+    */
+  if (HAL_SDADC_SelectInjectedDelay(&hsdadc3, SDADC_INJECTED_DELAY_NONE) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc3, SDADC_SYNCHRONOUS_TRIGGER) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_InjectedConfigChannel(&hsdadc3, SDADC_CHANNEL_8, SDADC_CONTINUOUS_CONV_OFF) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Set parameters for SDADC configuration 2 Register 
+    */
+  ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
+  ConfParamStruct.Gain = SDADC_GAIN_1;
+  ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
+  ConfParamStruct.Offset = 0;
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc3, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**Configure the Injected Channel 
+    */
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc3, SDADC_CHANNEL_8, SDADC_CONF_INDEX_2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -125,6 +246,23 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+    /* SDADC1 DMA Init */
+    /* SDADC1 Init */
+    hdma_sdadc1.Instance = DMA2_Channel3;
+    hdma_sdadc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_sdadc1.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_sdadc1.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_sdadc1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_sdadc1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_sdadc1.Init.Mode = DMA_CIRCULAR;
+    hdma_sdadc1.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    if (HAL_DMA_Init(&hdma_sdadc1) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+
+    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc1);
+
   /* USER CODE BEGIN SDADC1_MspInit 1 */
 
   /* USER CODE END SDADC1_MspInit 1 */
@@ -145,6 +283,23 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
+    /* SDADC2 DMA Init */
+    /* SDADC2 Init */
+    hdma_sdadc2.Instance = DMA2_Channel4;
+    hdma_sdadc2.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_sdadc2.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_sdadc2.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_sdadc2.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_sdadc2.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_sdadc2.Init.Mode = DMA_CIRCULAR;
+    hdma_sdadc2.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    if (HAL_DMA_Init(&hdma_sdadc2) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+
+    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc2);
+
   /* USER CODE BEGIN SDADC2_MspInit 1 */
 
   /* USER CODE END SDADC2_MspInit 1 */
@@ -164,6 +319,23 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* SDADC3 DMA Init */
+    /* SDADC3 Init */
+    hdma_sdadc3.Instance = DMA2_Channel5;
+    hdma_sdadc3.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_sdadc3.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_sdadc3.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_sdadc3.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_sdadc3.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_sdadc3.Init.Mode = DMA_CIRCULAR;
+    hdma_sdadc3.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    if (HAL_DMA_Init(&hdma_sdadc3) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+
+    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc3);
 
   /* USER CODE BEGIN SDADC3_MspInit 1 */
 
@@ -187,6 +359,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_2);
 
+    /* SDADC1 DMA DeInit */
+    HAL_DMA_DeInit(sdadcHandle->hdma);
   /* USER CODE BEGIN SDADC1_MspDeInit 1 */
 
   /* USER CODE END SDADC1_MspDeInit 1 */
@@ -204,6 +378,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOE, GPIO_PIN_9);
 
+    /* SDADC2 DMA DeInit */
+    HAL_DMA_DeInit(sdadcHandle->hdma);
   /* USER CODE BEGIN SDADC2_MspDeInit 1 */
 
   /* USER CODE END SDADC2_MspDeInit 1 */
@@ -221,6 +397,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_14);
 
+    /* SDADC3 DMA DeInit */
+    HAL_DMA_DeInit(sdadcHandle->hdma);
   /* USER CODE BEGIN SDADC3_MspDeInit 1 */
 
   /* USER CODE END SDADC3_MspDeInit 1 */
