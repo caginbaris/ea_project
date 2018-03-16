@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Fri Mar 16 11:41:05 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Fri Mar 16 13:50:25 2018
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -666,6 +666,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedConvCpltCallback
 </UL>
 
+<P><STRONG><a name="[80]"></a>HAL_SDADC_InjectedStart_IT</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_InjectedStart_IT))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_SDADC_InjectedStart_IT &rArr; SDADC_InjConvStart &rArr; SDADC_EnterInitMode
+</UL>
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_InjConvStart
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[7d]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, sdadc.o(i.HAL_SDADC_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
@@ -676,7 +685,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 </UL>
 
-<P><STRONG><a name="[80]"></a>HAL_SDADC_PrepareChannelConfig</STRONG> (Thumb, 262 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_PrepareChannelConfig))
+<P><STRONG><a name="[82]"></a>HAL_SDADC_PrepareChannelConfig</STRONG> (Thumb, 262 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_PrepareChannelConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_SDADC_PrepareChannelConfig &rArr; SDADC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -688,7 +697,7 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
 </UL>
 
-<P><STRONG><a name="[81]"></a>HAL_SDADC_SelectInjectedDelay</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedDelay))
+<P><STRONG><a name="[83]"></a>HAL_SDADC_SelectInjectedDelay</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_SDADC_SelectInjectedDelay &rArr; SDADC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -700,7 +709,7 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
 </UL>
 
-<P><STRONG><a name="[82]"></a>HAL_SDADC_SelectInjectedExtTrigger</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedExtTrigger))
+<P><STRONG><a name="[84]"></a>HAL_SDADC_SelectInjectedExtTrigger</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedExtTrigger))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_SDADC_SelectInjectedExtTrigger &rArr; SDADC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -710,7 +719,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
 </UL>
 
-<P><STRONG><a name="[83]"></a>HAL_SDADC_SelectInjectedTrigger</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedTrigger))
+<P><STRONG><a name="[85]"></a>HAL_SDADC_SelectInjectedTrigger</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_SelectInjectedTrigger))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_SDADC_SelectInjectedTrigger
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -718,15 +727,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC3_Init
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC2_Init
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
-</UL>
-
-<P><STRONG><a name="[84]"></a>HAL_SDADC_Start_IT</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_Start_IT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_SDADC_Start_IT &rArr; SDADC_RegConvStart &rArr; SDADC_EnterInitMode
-</UL>
-<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_RegConvStart
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[86]"></a>HAL_SPI_Init</STRONG> (Thumb, 512 bytes, Stack size 24 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_Init))
@@ -955,10 +955,10 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>MX_SDADC1_Init</STRONG> (Thumb, 176 bytes, Stack size 32 bytes, sdadc.o(i.MX_SDADC1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MX_SDADC1_Init &rArr; HAL_SDADC_Init &rArr; HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedConfigChannel
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
@@ -970,9 +970,9 @@ Global Symbols
 <P><STRONG><a name="[a6]"></a>MX_SDADC2_Init</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, sdadc.o(i.MX_SDADC2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MX_SDADC2_Init &rArr; HAL_SDADC_Init &rArr; HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedConfigChannel
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
@@ -984,9 +984,9 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>MX_SDADC3_Init</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, sdadc.o(i.MX_SDADC3_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MX_SDADC3_Init &rArr; HAL_SDADC_Init &rArr; HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedConfigChannel
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
@@ -1263,10 +1263,10 @@ Global Symbols
 <P><STRONG><a name="[54]"></a>assert_failed</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.assert_failed))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedTrigger
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedConfigChannel
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
@@ -1283,7 +1283,7 @@ Global Symbols
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Start_IT
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedStart_IT
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
@@ -1321,7 +1321,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Start_IT
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedStart_IT
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
@@ -1369,28 +1369,28 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_RegConvStart
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_InjConvStart
 </UL>
 
 <P><STRONG><a name="[76]"></a>SDADC_ExitInitMode</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f3xx_hal_sdadc.o(i.SDADC_ExitInitMode))
-<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
+<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedExtTrigger
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_SelectInjectedDelay
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_PrepareChannelConfig
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_AssociateChannelConfig
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_RegConvStart
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_InjConvStart
 </UL>
 
-<P><STRONG><a name="[85]"></a>SDADC_RegConvStart</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, stm32f3xx_hal_sdadc.o(i.SDADC_RegConvStart))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SDADC_RegConvStart &rArr; SDADC_EnterInitMode
+<P><STRONG><a name="[81]"></a>SDADC_InjConvStart</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, stm32f3xx_hal_sdadc.o(i.SDADC_InjConvStart))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SDADC_InjConvStart &rArr; SDADC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_ExitInitMode
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_EnterInitMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Start_IT
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_InjectedStart_IT
 </UL>
 <P>
 <H3>

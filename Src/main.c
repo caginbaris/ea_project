@@ -118,10 +118,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	HAL_TIM_Base_Start_IT(&htim19);
-	HAL_SDADC_Start_IT(&hsdadc3);
-	HAL_SDADC_Start_IT(&hsdadc2);
-	HAL_SDADC_Start_IT(&hsdadc1);
-
+	HAL_SDADC_InjectedStart_IT(&hsdadc3);
+	HAL_SDADC_InjectedStart_IT(&hsdadc2);
+	HAL_SDADC_InjectedStart_IT(&hsdadc1);
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
