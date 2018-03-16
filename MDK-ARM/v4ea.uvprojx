@@ -10,7 +10,7 @@
       <TargetName>v4ea</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060183::V5.06 update 2 (build 183)::ARMCC</pCCUsed>
+      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F373R8</Device>
@@ -330,11 +330,12 @@
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
+            <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F373xC</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;  ../Drivers/STM32F3xx_HAL_Driver/Inc;  ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include;  ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;    ../Drivers/STM32F3xx_HAL_Driver/Inc;    ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;    ../Drivers/CMSIS/Device/ST/STM32F3xx/Include;    ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -347,6 +348,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -386,6 +388,13 @@
         </Group>
         <Group>
           <GroupName>conversion</GroupName>
+          <Files>
+            <File>
+              <FileName>converison.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\converison.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>LCD_driver</GroupName>
@@ -571,9 +580,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
           <GroupName>Drivers/CMSIS</GroupName>
           <Files>
             <File>
@@ -582,6 +588,9 @@
               <FilePath>..//Src/system_stm32f3xx.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>

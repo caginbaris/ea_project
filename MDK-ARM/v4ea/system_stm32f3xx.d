@@ -1,4 +1,4 @@
-v4ea\system_stm32f3xx.o: ../Src/system_stm32f3xx.c
+v4ea\system_stm32f3xx.o: ..//Src/system_stm32f3xx.c
 v4ea\system_stm32f3xx.o: ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
 v4ea\system_stm32f3xx.o: ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h
 v4ea\system_stm32f3xx.o: ../Drivers/CMSIS/Include/core_cm4.h

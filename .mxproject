@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Viva/Dropbox/energy analyzer archives/ea_project/Inc
+HeaderPath=C:/Users/baris.cengiz/Dropbox/energy analyzer archives/ea_project/Inc
 HeaderFiles=gpio.h;adc.h;rtc.h;sdadc.h;spi.h;tim.h;usart.h;stm32f3xx_it.h;stm32f3xx_hal_conf.h;main.h;dma.h;
-SourcePath=C:/Users/Viva/Dropbox/energy analyzer archives/ea_project/Src
+SourcePath=C:/Users/baris.cengiz/Dropbox/energy analyzer archives/ea_project/Src
 SourceFiles=gpio.c;adc.c;rtc.c;sdadc.c;spi.c;tim.c;usart.c;stm32f3xx_it.c;stm32f3xx_hal_msp.c;main.c;dma.c;
 
 [PreviousLibFiles]

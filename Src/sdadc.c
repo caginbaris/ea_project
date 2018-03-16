@@ -41,7 +41,6 @@
 #include "sdadc.h"
 
 #include "gpio.h"
-#include "dma.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -50,9 +49,6 @@
 SDADC_HandleTypeDef hsdadc1;
 SDADC_HandleTypeDef hsdadc2;
 SDADC_HandleTypeDef hsdadc3;
-DMA_HandleTypeDef hdma_sdadc1;
-DMA_HandleTypeDef hdma_sdadc2;
-DMA_HandleTypeDef hdma_sdadc3;
 
 /* SDADC1 init function */
 void MX_SDADC1_Init(void)
@@ -246,23 +242,9 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    /* SDADC1 DMA Init */
-    /* SDADC1 Init */
-    hdma_sdadc1.Instance = DMA2_Channel3;
-    hdma_sdadc1.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_sdadc1.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_sdadc1.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sdadc1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_sdadc1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_sdadc1.Init.Mode = DMA_CIRCULAR;
-    hdma_sdadc1.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    if (HAL_DMA_Init(&hdma_sdadc1) != HAL_OK)
-    {
-      _Error_Handler(__FILE__, __LINE__);
-    }
-
-    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc1);
-
+    /* SDADC1 interrupt Init */
+    HAL_NVIC_SetPriority(SDADC1_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(SDADC1_IRQn);
   /* USER CODE BEGIN SDADC1_MspInit 1 */
 
   /* USER CODE END SDADC1_MspInit 1 */
@@ -283,23 +265,9 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-    /* SDADC2 DMA Init */
-    /* SDADC2 Init */
-    hdma_sdadc2.Instance = DMA2_Channel4;
-    hdma_sdadc2.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_sdadc2.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_sdadc2.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sdadc2.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_sdadc2.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_sdadc2.Init.Mode = DMA_CIRCULAR;
-    hdma_sdadc2.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    if (HAL_DMA_Init(&hdma_sdadc2) != HAL_OK)
-    {
-      _Error_Handler(__FILE__, __LINE__);
-    }
-
-    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc2);
-
+    /* SDADC2 interrupt Init */
+    HAL_NVIC_SetPriority(SDADC2_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(SDADC2_IRQn);
   /* USER CODE BEGIN SDADC2_MspInit 1 */
 
   /* USER CODE END SDADC2_MspInit 1 */
@@ -320,23 +288,9 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    /* SDADC3 DMA Init */
-    /* SDADC3 Init */
-    hdma_sdadc3.Instance = DMA2_Channel5;
-    hdma_sdadc3.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_sdadc3.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_sdadc3.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sdadc3.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_sdadc3.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_sdadc3.Init.Mode = DMA_CIRCULAR;
-    hdma_sdadc3.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    if (HAL_DMA_Init(&hdma_sdadc3) != HAL_OK)
-    {
-      _Error_Handler(__FILE__, __LINE__);
-    }
-
-    __HAL_LINKDMA(sdadcHandle,hdma,hdma_sdadc3);
-
+    /* SDADC3 interrupt Init */
+    HAL_NVIC_SetPriority(SDADC3_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(SDADC3_IRQn);
   /* USER CODE BEGIN SDADC3_MspInit 1 */
 
   /* USER CODE END SDADC3_MspInit 1 */
@@ -359,8 +313,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_2);
 
-    /* SDADC1 DMA DeInit */
-    HAL_DMA_DeInit(sdadcHandle->hdma);
+    /* SDADC1 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(SDADC1_IRQn);
   /* USER CODE BEGIN SDADC1_MspDeInit 1 */
 
   /* USER CODE END SDADC1_MspDeInit 1 */
@@ -378,8 +332,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOE, GPIO_PIN_9);
 
-    /* SDADC2 DMA DeInit */
-    HAL_DMA_DeInit(sdadcHandle->hdma);
+    /* SDADC2 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(SDADC2_IRQn);
   /* USER CODE BEGIN SDADC2_MspDeInit 1 */
 
   /* USER CODE END SDADC2_MspDeInit 1 */
@@ -397,8 +351,8 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     */
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_14);
 
-    /* SDADC3 DMA DeInit */
-    HAL_DMA_DeInit(sdadcHandle->hdma);
+    /* SDADC3 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(SDADC3_IRQn);
   /* USER CODE BEGIN SDADC3_MspDeInit 1 */
 
   /* USER CODE END SDADC3_MspDeInit 1 */

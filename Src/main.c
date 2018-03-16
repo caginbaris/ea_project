@@ -57,6 +57,8 @@
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -115,7 +117,10 @@ int main(void)
   MX_TIM19_Init();
   /* USER CODE BEGIN 2 */
 	
-	//HAL_SDADC_Start_IT(&hsdadc1);
+	HAL_TIM_Base_Start_IT(&htim19);
+	HAL_SDADC_Start_IT(&hsdadc3);
+	HAL_SDADC_Start_IT(&hsdadc2);
+	HAL_SDADC_Start_IT(&hsdadc1);
 
   /* USER CODE END 2 */
 

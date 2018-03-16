@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-<ProjectName>C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\\v4ea</ProjectName>
+<ProjectName>C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\\v4ea</ProjectName>
 <ProjectNature>C</ProjectNature> 
 <CMSIS>..\Drivers\CMSIS</CMSIS>
-<HAL_Driver>C:\Users\Viva\STM32Cube\Repository\STM32Cube_FW_F3_V1.9.0\Drivers\CMSIS</HAL_Driver>
+<HAL_Driver>C:\Users\SVC\STM32Cube\Repository\STM32Cube_FW_F3_V1.9.0\Drivers\CMSIS</HAL_Driver>
 <Toolchain>MDK-ARM</Toolchain>
 	<Toolversion>5</Toolversion>
 <Version>0</Version>
@@ -11,7 +11,6 @@
 <filestoremove>
     <file>
     <name>..\Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\arm\startup_stm32f373xc.s</name>
-    <name>..\Src\system_stm32f3xx.c</name>
     </file>
 </filestoremove>
 

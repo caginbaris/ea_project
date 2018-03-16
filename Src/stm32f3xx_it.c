@@ -41,9 +41,9 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
-extern DMA_HandleTypeDef hdma_sdadc1;
-extern DMA_HandleTypeDef hdma_sdadc2;
-extern DMA_HandleTypeDef hdma_sdadc3;
+extern SDADC_HandleTypeDef hsdadc1;
+extern SDADC_HandleTypeDef hsdadc2;
+extern SDADC_HandleTypeDef hsdadc3;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
@@ -210,45 +210,45 @@ void DMA1_Channel1_IRQHandler(void)
 }
 
 /**
-* @brief This function handles DMA2 channel3 global interrupt.
+* @brief This function handles SDADC1 global interrupt.
 */
-void DMA2_Channel3_IRQHandler(void)
+void SDADC1_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA2_Channel3_IRQn 0 */
+  /* USER CODE BEGIN SDADC1_IRQn 0 */
 
-  /* USER CODE END DMA2_Channel3_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sdadc1);
-  /* USER CODE BEGIN DMA2_Channel3_IRQn 1 */
+  /* USER CODE END SDADC1_IRQn 0 */
+  HAL_SDADC_IRQHandler(&hsdadc1);
+  /* USER CODE BEGIN SDADC1_IRQn 1 */
 
-  /* USER CODE END DMA2_Channel3_IRQn 1 */
+  /* USER CODE END SDADC1_IRQn 1 */
 }
 
 /**
-* @brief This function handles DMA2 channel4 global interrupt.
+* @brief This function handles SDADC2 global interrupt.
 */
-void DMA2_Channel4_IRQHandler(void)
+void SDADC2_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA2_Channel4_IRQn 0 */
+  /* USER CODE BEGIN SDADC2_IRQn 0 */
 
-  /* USER CODE END DMA2_Channel4_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sdadc2);
-  /* USER CODE BEGIN DMA2_Channel4_IRQn 1 */
+  /* USER CODE END SDADC2_IRQn 0 */
+  HAL_SDADC_IRQHandler(&hsdadc2);
+  /* USER CODE BEGIN SDADC2_IRQn 1 */
 
-  /* USER CODE END DMA2_Channel4_IRQn 1 */
+  /* USER CODE END SDADC2_IRQn 1 */
 }
 
 /**
-* @brief This function handles DMA2 channel5 global interrupt.
+* @brief This function handles SDADC3 global interrupt.
 */
-void DMA2_Channel5_IRQHandler(void)
+void SDADC3_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
+  /* USER CODE BEGIN SDADC3_IRQn 0 */
 
-  /* USER CODE END DMA2_Channel5_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_sdadc3);
-  /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
+  /* USER CODE END SDADC3_IRQn 0 */
+  HAL_SDADC_IRQHandler(&hsdadc3);
+  /* USER CODE BEGIN SDADC3_IRQn 1 */
 
-  /* USER CODE END DMA2_Channel5_IRQn 1 */
+  /* USER CODE END SDADC3_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

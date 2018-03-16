@@ -40,4 +40,3 @@ v4ea\sdadc.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 v4ea\sdadc.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\sdadc.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\sdadc.o: ../Inc/gpio.h
-v4ea\sdadc.o: ../Inc/dma.h
