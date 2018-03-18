@@ -56,8 +56,9 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
-
+	uint16_t mp_counter=0;
+	uint16_t adc_start=0;
+	extern uint8_t calibration_completed;
 
 /* USER CODE END PV */
 
@@ -118,9 +119,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	HAL_TIM_Base_Start_IT(&htim19);
-	HAL_SDADC_InjectedStart_IT(&hsdadc3);
-	HAL_SDADC_InjectedStart_IT(&hsdadc2);
-	HAL_SDADC_InjectedStart_IT(&hsdadc1);
+	
+	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
+	HAL_SDADC_CalibrationStart_IT(&hsdadc2,SDADC_CALIBRATION_SEQ_1);
+	HAL_SDADC_CalibrationStart_IT(&hsdadc3,SDADC_CALIBRATION_SEQ_1);
+	
+
+
 	
   /* USER CODE END 2 */
 
@@ -132,6 +137,20 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
+		
+		mp_counter++;
+		
+		if(calibration_completed){
+		
+		HAL_SDADC_InjectedStart_IT(&hsdadc1);	
+		HAL_SDADC_InjectedStart_IT(&hsdadc2);	
+		HAL_SDADC_InjectedStart_IT(&hsdadc3);
+		
+		
+			
+		calibration_completed=0;
+		
+		}
 
   }
   /* USER CODE END 3 */

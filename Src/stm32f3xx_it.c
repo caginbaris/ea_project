@@ -44,6 +44,7 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern SDADC_HandleTypeDef hsdadc1;
 extern SDADC_HandleTypeDef hsdadc2;
 extern SDADC_HandleTypeDef hsdadc3;
+extern TIM_HandleTypeDef htim19;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
@@ -249,6 +250,25 @@ void SDADC3_IRQHandler(void)
   /* USER CODE BEGIN SDADC3_IRQn 1 */
 
   /* USER CODE END SDADC3_IRQn 1 */
+}
+
+/**
+* @brief This function handles TIM19 global interrupt.
+*/
+void TIM19_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM19_IRQn 0 */
+	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
+	
+	HAL_SDADC_InjectedStart_IT(&hsdadc1);
+	HAL_SDADC_InjectedStart_IT(&hsdadc2);
+	HAL_SDADC_InjectedStart_IT(&hsdadc3);
+	
+  /* USER CODE END TIM19_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim19);
+  /* USER CODE BEGIN TIM19_IRQn 1 */
+
+  /* USER CODE END TIM19_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

@@ -36,7 +36,7 @@
 "v4ea\stm32f3xx_hal_spi_ex.o"
 "v4ea\stm32f3xx_hal_flash_ex.o"
 "v4ea\system_stm32f3xx.o"
---library_type=microlib --strict --scatter "v4ea\v4ea.sct"
+--strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "v4ea.map" -o v4ea\v4ea.axf

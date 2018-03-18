@@ -60,6 +60,7 @@ void DMA1_Channel1_IRQHandler(void);
 void SDADC1_IRQHandler(void);
 void SDADC2_IRQHandler(void);
 void SDADC3_IRQHandler(void);
+void TIM19_IRQHandler(void);
 
 #ifdef __cplusplus
 }

@@ -63,8 +63,7 @@ void MX_SDADC1_Init(void)
   hsdadc1.Init.FastConversionMode = SDADC_FAST_CONV_DISABLE;
   hsdadc1.Init.SlowClockMode = SDADC_SLOW_CLOCK_DISABLE;
   hsdadc1.Init.ReferenceVoltage = SDADC_VREF_EXT;
-  hsdadc1.InjectedTrigger = SDADC_EXTERNAL_TRIGGER;
-  hsdadc1.ExtTriggerEdge = SDADC_EXT_TRIG_RISING_EDGE;
+  hsdadc1.InjectedTrigger = SDADC_SOFTWARE_TRIGGER;
   if (HAL_SDADC_Init(&hsdadc1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -77,12 +76,7 @@ void MX_SDADC1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  if (HAL_SDADC_SelectInjectedExtTrigger(&hsdadc1, SDADC_EXT_TRIG_TIM19_CC2, SDADC_EXT_TRIG_RISING_EDGE) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc1, SDADC_EXTERNAL_TRIGGER) != HAL_OK)
+  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc1, SDADC_SOFTWARE_TRIGGER) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -92,20 +86,20 @@ void MX_SDADC1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-    /**Set parameters for SDADC configuration 2 Register 
+    /**Set parameters for SDADC configuration 0 Register 
     */
-  ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
+  ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_OFFSET;
   ConfParamStruct.Gain = SDADC_GAIN_1;
   ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
   ConfParamStruct.Offset = 0;
-  if (HAL_SDADC_PrepareChannelConfig(&hsdadc1, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc1, SDADC_CONF_INDEX_0, &ConfParamStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
     /**Configure the Injected Channel 
     */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONF_INDEX_2) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -147,20 +141,20 @@ void MX_SDADC2_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-    /**Set parameters for SDADC configuration 2 Register 
+    /**Set parameters for SDADC configuration 0 Register 
     */
   ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
   ConfParamStruct.Gain = SDADC_GAIN_1;
   ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
   ConfParamStruct.Offset = 0;
-  if (HAL_SDADC_PrepareChannelConfig(&hsdadc2, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc2, SDADC_CONF_INDEX_0, &ConfParamStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
     /**Configure the Injected Channel 
     */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc2, SDADC_CHANNEL_7, SDADC_CONF_INDEX_2) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc2, SDADC_CHANNEL_7, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -202,20 +196,20 @@ void MX_SDADC3_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-    /**Set parameters for SDADC configuration 2 Register 
+    /**Set parameters for SDADC configuration 0 Register 
     */
   ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_ZERO_REFERENCE;
   ConfParamStruct.Gain = SDADC_GAIN_1;
   ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
   ConfParamStruct.Offset = 0;
-  if (HAL_SDADC_PrepareChannelConfig(&hsdadc3, SDADC_CONF_INDEX_2, &ConfParamStruct) != HAL_OK)
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc3, SDADC_CONF_INDEX_0, &ConfParamStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
     /**Configure the Injected Channel 
     */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc3, SDADC_CHANNEL_8, SDADC_CONF_INDEX_2) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc3, SDADC_CHANNEL_8, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }

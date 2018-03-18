@@ -3,7 +3,8 @@
 #include "sdadc.h"
 
 uint32_t sd_adc_values[3]={0};
-uint32_t sd_channel[3]={0};
+uint32_t sd_channel[3]={4};
+uint8_t calibration_completed=0;
 
 void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
@@ -14,3 +15,18 @@ void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
 	
 }
+
+
+
+void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
+
+	if(hsdadc->Instance ==SDADC1){
+		
+	calibration_completed=1;
+	
+	}
+	
+}
+
+
+
