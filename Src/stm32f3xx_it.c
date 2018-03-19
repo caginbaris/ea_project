@@ -260,9 +260,7 @@ void TIM19_IRQHandler(void)
   /* USER CODE BEGIN TIM19_IRQn 0 */
 	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 	
-	HAL_SDADC_InjectedStart_IT(&hsdadc1);
-	HAL_SDADC_InjectedStart_IT(&hsdadc2);
-	HAL_SDADC_InjectedStart_IT(&hsdadc3);
+
 	
   /* USER CODE END TIM19_IRQn 0 */
   HAL_TIM_IRQHandler(&htim19);

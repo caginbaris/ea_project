@@ -119,6 +119,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	HAL_TIM_Base_Start_IT(&htim19);
+	HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
+	
 	
 	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
 	HAL_SDADC_CalibrationStart_IT(&hsdadc2,SDADC_CALIBRATION_SEQ_1);

@@ -63,7 +63,8 @@ void MX_SDADC1_Init(void)
   hsdadc1.Init.FastConversionMode = SDADC_FAST_CONV_DISABLE;
   hsdadc1.Init.SlowClockMode = SDADC_SLOW_CLOCK_DISABLE;
   hsdadc1.Init.ReferenceVoltage = SDADC_VREF_EXT;
-  hsdadc1.InjectedTrigger = SDADC_SOFTWARE_TRIGGER;
+  hsdadc1.InjectedTrigger = SDADC_EXTERNAL_TRIGGER;
+  hsdadc1.ExtTriggerEdge = SDADC_EXT_TRIG_RISING_EDGE;
   if (HAL_SDADC_Init(&hsdadc1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -76,7 +77,12 @@ void MX_SDADC1_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc1, SDADC_SOFTWARE_TRIGGER) != HAL_OK)
+  if (HAL_SDADC_SelectInjectedExtTrigger(&hsdadc1, SDADC_EXT_TRIG_TIM19_CC2, SDADC_EXT_TRIG_RISING_EDGE) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if (HAL_SDADC_SelectInjectedTrigger(&hsdadc1, SDADC_EXTERNAL_TRIGGER) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
