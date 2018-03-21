@@ -260,7 +260,14 @@ void TIM19_IRQHandler(void)
   /* USER CODE BEGIN TIM19_IRQn 0 */
 	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 	
-
+	if(__HAL_TIM_GET_FLAG(&htim19,TIM_IT_CC2)){
+		
+		
+	__HAL_TIM_CLEAR_IT(&htim19,TIM_IT_CC2);
+	
+	
+	}
+	
 	
   /* USER CODE END TIM19_IRQn 0 */
   HAL_TIM_IRQHandler(&htim19);
