@@ -128,9 +128,9 @@ void MX_TIM19_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim19.Instance = TIM19;
-  htim19.Init.Prescaler = 1999;
+  htim19.Init.Prescaler = 0;
   htim19.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim19.Init.Period = 35999;
+  htim19.Init.Period = 3599;
   htim19.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim19.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim19) != HAL_OK)
@@ -149,14 +149,14 @@ void MX_TIM19_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE ;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim19, &sMasterConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sConfigOC.OCMode = TIM_OCMODE_ACTIVE;
+  sConfigOC.OCMode = TIM_OCMODE_TOGGLE;
   sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;

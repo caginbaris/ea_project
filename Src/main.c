@@ -118,8 +118,12 @@ int main(void)
   MX_TIM19_Init();
   /* USER CODE BEGIN 2 */
 	
-	HAL_TIM_Base_Start_IT(&htim19);
-	HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
+	//HAL_TIM_Base_Start_IT(&htim19);
+	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
+	__HAL_TIM_CLEAR_IT(&htim19,TIM_IT_CC2);
+	__HAL_TIM_ENABLE_IT(&htim19,TIM_IT_CC2);
+	
+	
 	
 	
 	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
@@ -147,7 +151,7 @@ int main(void)
 		HAL_SDADC_InjectedStart_IT(&hsdadc1);	
 		HAL_SDADC_InjectedStart_IT(&hsdadc2);	
 		HAL_SDADC_InjectedStart_IT(&hsdadc3);
-		
+		HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
 		
 			
 		calibration_completed=0;
