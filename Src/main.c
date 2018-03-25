@@ -66,7 +66,9 @@
 void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
+
 /* Private function prototypes -----------------------------------------------*/
+void init_conversion(void);
 
 /* USER CODE END PFP */
 
@@ -117,26 +119,14 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM19_Init();
   /* USER CODE BEGIN 2 */
-	
-	//HAL_TIM_Base_Start_IT(&htim19);
-	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
-	__HAL_TIM_CLEAR_IT(&htim19,TIM_IT_CC2);
-	__HAL_TIM_ENABLE_IT(&htim19,TIM_IT_CC2);
-	
-	
-	
-	
-	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
-	HAL_SDADC_CalibrationStart_IT(&hsdadc2,SDADC_CALIBRATION_SEQ_1);
-	HAL_SDADC_CalibrationStart_IT(&hsdadc3,SDADC_CALIBRATION_SEQ_1);
-	
-
-
-	
+		
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	
+	init_conversion();
+	
   while (1)
   {
 
@@ -146,17 +136,6 @@ int main(void)
 		
 		mp_counter++;
 		
-		if(calibration_completed){
-		
-		HAL_SDADC_InjectedStart_IT(&hsdadc1);	
-		HAL_SDADC_InjectedStart_IT(&hsdadc2);	
-		HAL_SDADC_InjectedStart_IT(&hsdadc3);
-		HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
-		
-			
-		calibration_completed=0;
-		
-		}
 
   }
   /* USER CODE END 3 */
