@@ -4,32 +4,40 @@
 #include "adc.h"
 #include "stm32f3xx_hal_adc_ex.h"
 #include "tim.h"
+#include "conversion.h"
 
-uint32_t sd_adc_values[3]={0};
-uint32_t adc_values[3]={0};
-uint32_t sd_channel[3]={4};
-uint8_t calibration_completed=0;
+
+
+struct calibrationFlags calFlags	={0};
+union  uConversionFlags 	convFlags	={0};
+union  uAdcData rawAdc	={0};
+union  uAdcData AN			={0};
+
+
+
+
+
 
 
 void init_conversion(void){
 
 	//sdadc
+	
 	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
 	HAL_SDADC_CalibrationStart_IT(&hsdadc2,SDADC_CALIBRATION_SEQ_1);
 	HAL_SDADC_CalibrationStart_IT(&hsdadc3,SDADC_CALIBRATION_SEQ_1);
 	
-	while(!calibration_completed)
+	while(!calFlags.calibration_completed)
 	
 	HAL_SDADC_InjectedStart_IT(&hsdadc1);	
 	HAL_SDADC_InjectedStart_IT(&hsdadc2);
 	HAL_SDADC_InjectedStart_IT(&hsdadc3);
 		
 	
-	
 	//adc
 
 	while(HAL_ADCEx_Calibration_Start(&hadc1)!=HAL_OK);
-	HAL_ADC_Start_DMA(&hadc1,adc_values,3);
+	HAL_ADC_Start_DMA(&hadc1,&rawAdc.uBuffer[3],3);
 	
 	// triggers
 	
@@ -50,25 +58,14 @@ void init_conversion(void){
 
 }
 
-void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
-	
-	if(hsdadc->Instance==SDADC1){ sd_adc_values[0]=HAL_SDADC_InjectedGetValue(&hsdadc1,&sd_channel[0]);HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);}
-	if(hsdadc->Instance==SDADC2){ sd_adc_values[1]=HAL_SDADC_InjectedGetValue(&hsdadc2,&sd_channel[1]);}
-	if(hsdadc->Instance==SDADC3){ sd_adc_values[2]=HAL_SDADC_InjectedGetValue(&hsdadc3,&sd_channel[2]);}
-	
-	
-}
-
-
-
 void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
-	static uint8_t sdadc1_calibrated=0,sdadc2_calibrated=0,sdadc3_calibrated=0;
+	
 	
 	
 	if(hsdadc->Instance ==SDADC1){
 		
-		sdadc1_calibrated=1;
+		calFlags.sd_adc1_calibrated=1;
 
 	
 	}
@@ -76,7 +73,7 @@ void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
 	if(hsdadc->Instance ==SDADC2){
 		
-		sdadc2_calibrated=1;
+		calFlags.sd_adc2_calibrated=1;
 	
 	}
 	
@@ -84,17 +81,17 @@ void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	if(hsdadc->Instance ==SDADC3){
 		
 		
-		sdadc3_calibrated=1;
+		calFlags.sd_adc3_calibrated=1;
 		
-		
-		
-	
+
 	}
 	
 	
-	if(sdadc1_calibrated==1 && sdadc2_calibrated==1 && sdadc3_calibrated==1){
+	if(	calFlags.sd_adc1_calibrated==1 && 
+			calFlags.sd_adc2_calibrated==1 && 
+			calFlags.sd_adc3_calibrated==1){
 		
-		calibration_completed=1;
+			calFlags.calibration_completed=1;
 		
 		//cau: error routine req. for improper calibration sequence
 	
@@ -104,6 +101,60 @@ void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 
 	
 }
+
+
+
+
+void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
+	
+	uint32_t sd_channel=0;
+	
+	if(hsdadc->Instance==SDADC1){ 
+	
+	rawAdc.uBuffer[0]=HAL_SDADC_InjectedGetValue(&hsdadc1,&sd_channel);
+	convFlags.bit.sd_adc1_completed=1;}
+	
+	
+	if(hsdadc->Instance==SDADC2){ 
+	
+	rawAdc.uBuffer[1]=HAL_SDADC_InjectedGetValue(&hsdadc2,&sd_channel);
+	convFlags.bit.sd_adc2_completed=1;}
+
+	if(hsdadc->Instance==SDADC3){ 
+	
+	rawAdc.uBuffer[2]=HAL_SDADC_InjectedGetValue(&hsdadc3,&sd_channel);
+	convFlags.bit.sd_adc3_completed=1;
+	}
+	
+	
+	
+	
+}
+
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+	
+	convFlags.bit.sar_adc_completed=1;
+	
+	
+	if(convFlags.all & 0x0F){
+	
+	convFlags.bit.conversion_completed=1;
+	convFlags.all &= 0x10;	
+	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
 
 
 

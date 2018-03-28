@@ -41,3 +41,4 @@ v4ea\converison.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\converison.o: ../Inc/sdadc.h
 v4ea\converison.o: ../Inc/adc.h
 v4ea\converison.o: ../Inc/tim.h
+v4ea\converison.o: ..\header_files\conversion.h
