@@ -17,10 +17,18 @@ void init_conversion(void){
 	HAL_SDADC_CalibrationStart_IT(&hsdadc1,SDADC_CALIBRATION_SEQ_1);
 	HAL_SDADC_CalibrationStart_IT(&hsdadc2,SDADC_CALIBRATION_SEQ_1);
 	HAL_SDADC_CalibrationStart_IT(&hsdadc3,SDADC_CALIBRATION_SEQ_1);
-
+	
+	while(!calibration_completed)
+	
+	HAL_SDADC_InjectedStart_IT(&hsdadc1);	
+	HAL_SDADC_InjectedStart_IT(&hsdadc2);
+	HAL_SDADC_InjectedStart_IT(&hsdadc3);
+		
+	
+	
 	//adc
 
-	HAL_ADCEx_Calibration_Start(&hadc1);
+	while(HAL_ADCEx_Calibration_Start(&hadc1)!=HAL_OK);
 	HAL_ADC_Start_DMA(&hadc1,adc_values,3);
 	
 	// triggers
@@ -38,12 +46,11 @@ void init_conversion(void){
 	// adc start compare
 	
 	HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_3);
+	HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
 
 }
 
 void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
-	
-	
 	
 	if(hsdadc->Instance==SDADC1){ sd_adc_values[0]=HAL_SDADC_InjectedGetValue(&hsdadc1,&sd_channel[0]);HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);}
 	if(hsdadc->Instance==SDADC2){ sd_adc_values[1]=HAL_SDADC_InjectedGetValue(&hsdadc2,&sd_channel[1]);}
@@ -58,9 +65,11 @@ void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
 	static uint8_t sdadc1_calibrated=0,sdadc2_calibrated=0,sdadc3_calibrated=0;
 	
+	
 	if(hsdadc->Instance ==SDADC1){
 		
 		sdadc1_calibrated=1;
+
 	
 	}
 	
@@ -74,17 +83,16 @@ void HAL_SDADC_CalibrationCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
 	if(hsdadc->Instance ==SDADC3){
 		
+		
 		sdadc3_calibrated=1;
+		
+		
+		
 	
 	}
 	
 	
-	if(sdadc1_calibrated==1 && sdadc2_calibrated==1 && sdadc3_calibrated){
-	
-		HAL_SDADC_InjectedStart_IT(&hsdadc1);	
-		HAL_SDADC_InjectedStart_IT(&hsdadc2);	
-		HAL_SDADC_InjectedStart_IT(&hsdadc3);
-		HAL_TIM_OC_Start_IT(&htim19,TIM_CHANNEL_2);
+	if(sdadc1_calibrated==1 && sdadc2_calibrated==1 && sdadc3_calibrated==1){
 		
 		calibration_completed=1;
 		
