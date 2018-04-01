@@ -42,3 +42,4 @@ v4ea\converison.o: ../Inc/sdadc.h
 v4ea\converison.o: ../Inc/adc.h
 v4ea\converison.o: ../Inc/tim.h
 v4ea\converison.o: ..\header_files\conversion.h
+v4ea\converison.o: prefilter.h

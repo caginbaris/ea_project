@@ -5,7 +5,7 @@
 #include "stm32f3xx_hal_adc_ex.h"
 #include "tim.h"
 #include "conversion.h"
-
+#include "prefilter.h"
 
 
 struct calibrationFlags calFlags	={0};
@@ -145,7 +145,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 		
 		
-	AN.data.Van=(uBuffer[3]-	sar_adc_offset);
+	AN.data.Van=offset_cancellation((uBuffer[3]-	sar_adc_offset),&oc_buff[0]);
 	AN.data.Vbn=(uBuffer[4]-	sar_adc_offset);	
 	AN.data.Vcn=(uBuffer[5]-	sar_adc_offset);
 

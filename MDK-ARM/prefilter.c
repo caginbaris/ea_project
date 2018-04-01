@@ -1,20 +1,13 @@
 
-#define b_oc 0.999685939389360f
-#define a_oc 0.999371878778719f
+
+#include "prefilter.h"
 
 
-struct offset_cancellation__filter_parameters{
 
-	float xz;
-	float yz;
-	
-	
-};
-
-struct offset_cancellation__filter_parameters offsetCancel[6]={0};
+struct offset_cancellation_filter_parameters oc_buff[6]={0};
 
 
-float offset_cancellation(float rtInput, struct offset_cancellation__filter_parameters *buf)
+float offset_cancellation(float rtInput, struct offset_cancellation_filter_parameters *buf)
 {
 	float y;
 	

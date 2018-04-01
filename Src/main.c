@@ -58,6 +58,7 @@
 /* Private variables ---------------------------------------------------------*/
 	uint16_t mp_counter=0;
 	uint16_t adc_start=0;
+	
 	extern uint8_t calibration_completed;
 
 /* USER CODE END PV */
@@ -69,7 +70,9 @@ void SystemClock_Config(void);
 
 /* Private function prototypes -----------------------------------------------*/
 void init_conversion(void);
-
+void init_LCD(void);
+void init_backlight(void);
+void write_lcd();
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -126,17 +129,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	
 	init_conversion();
+	init_LCD();
+	init_backlight();
+	write_lcd();
+	
 	
   while (1)
   {
 
   /* USER CODE END WHILE */
-		
-		
 
   /* USER CODE BEGIN 3 */
 		
 		mp_counter++;
+		
+
 		
 
   }

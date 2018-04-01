@@ -334,7 +334,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F373xC</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F3xx_HAL_Driver/Inc;../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F3xx/Include;../Drivers/CMSIS/Include;..\header_files</IncludePath>
+              <IncludePath>../Inc;  ../Drivers/STM32F3xx_HAL_Driver/Inc;  ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include;  ../Drivers/CMSIS/Include;  ..\header_files</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -401,6 +401,18 @@
         </Group>
         <Group>
           <GroupName>LCD_driver</GroupName>
+          <Files>
+            <File>
+              <FileName>LCD_routines.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD_routines.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD_data.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Application/User</GroupName>
