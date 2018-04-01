@@ -392,6 +392,11 @@
               <FileType>1</FileType>
               <FilePath>.\converison.c</FilePath>
             </File>
+            <File>
+              <FileName>prefilter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\prefilter.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

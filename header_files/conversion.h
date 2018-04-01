@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+#define sd_adc_offset 32767.0f
+#define sar_adc_offset 0.0f
+
 struct calibrationFlags{
 	
 	uint16_t sd_adc1_calibrated:1;
@@ -24,7 +27,7 @@ struct conversionFlags{
 	uint8_t sd_adc2_completed:1;
 	uint8_t sd_adc3_completed:1;
 	
-	uint8_t conversion_completed:1;
+	
 
 };
 
@@ -52,13 +55,15 @@ union uAdcData{
 	
 	struct adcData data;
 	float  buffer[6];
-	uint32_t  uBuffer[6];
+	
 };
 
 extern struct calibrationFlags calFlags;
 extern union  uConversionFlags convFlags;
 extern union  uAdcData rawAdc;
 extern union  uAdcData AN;
+
+
 
 
 
