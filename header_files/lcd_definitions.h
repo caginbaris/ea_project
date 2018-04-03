@@ -15,4 +15,21 @@
 extern const uint8_t LCD_batch_init_array[14];
 extern uint8_t display_buffer[8][128];
 
+
+extern const uint8_t arial_14ptBitmaps[]; 
+extern const uint8_t Descriptors[][2];
+
+enum letter_codes{
+
+	A,
+	B, 
+	C
+
+};
+
+
+extern enum letter_codes letter;
+
+
+
 #endif

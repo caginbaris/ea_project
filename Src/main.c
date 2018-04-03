@@ -72,7 +72,9 @@ void SystemClock_Config(void);
 void init_conversion(void);
 void init_LCD(void);
 void init_backlight(void);
-void write_lcd();
+void write_lcd(void);
+void font_transfer(void);
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -131,6 +133,7 @@ int main(void)
 	init_conversion();
 	init_LCD();
 	init_backlight();
+	font_transfer();
 	write_lcd();
 	
 	

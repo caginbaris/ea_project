@@ -412,6 +412,11 @@
               <FileType>1</FileType>
               <FilePath>.\LCD_data.c</FilePath>
             </File>
+            <File>
+              <FileName>LCD_fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD_fonts.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -601,6 +606,16 @@
               <FileName>system_stm32f3xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..//Src/system_stm32f3xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MENU_handles</GroupName>
+          <Files>
+            <File>
+              <FileName>Menu_routines.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Menu_routines.c</FilePath>
             </File>
           </Files>
         </Group>

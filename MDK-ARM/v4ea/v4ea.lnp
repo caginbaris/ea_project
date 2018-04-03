@@ -4,6 +4,7 @@
 "v4ea\prefilter.o"
 "v4ea\lcd_routines.o"
 "v4ea\lcd_data.o"
+"v4ea\lcd_fonts.o"
 "v4ea\adc.o"
 "v4ea\main.o"
 "v4ea\tim.o"
@@ -39,6 +40,7 @@
 "v4ea\stm32f3xx_hal_spi_ex.o"
 "v4ea\stm32f3xx_hal_flash_ex.o"
 "v4ea\system_stm32f3xx.o"
+"v4ea\menu_routines.o"
 --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
