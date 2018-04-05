@@ -1,16 +1,29 @@
 #include "menu_definitions.h"
 
 
-struct menu_handles Vpn={
 
-	{A,C,A,B,A},/*title*/				 // single line  and reverted
+
+
+
+
+
+
+
+
+
+void (*menu_functions[])(struct push_buttons pb)={
+
+	voltagesPhase2Neutral,
+	voltagesPhase2Phase,
+	currents,
 	
-	{A,B},	/*first-line*/					
-	{B,C},/*second-line*/		
-	{C,A},	/*third-line*/	
+	apparentPower,
+	activePower,
+	reactivePower,
+	totalPower,
 	
-	{A,A,A,A,A}/*symbols*/ 
-	/*dynamic data transfer*/
-
-
+	apparentEnergy,
+	activeEnergy,
+	reactiveEnergy,
+	
 };

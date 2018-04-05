@@ -32,19 +32,29 @@ extern enum units unit;
 
 
 
-struct menu_handles{
+struct display_menu_handles{
+	
+	//dynamic data
+	float values[3];
+	
+	//static data
 	
 	int16_t title[16];
+	
 	int16_t first_line[3];
 	int16_t second_line[3];
 	int16_t third_line[3];
+	
 	int16_t symbols[5];
 	
-	//void (*dynamicDataTransfer)(float* val, enum units unit);
+	int16_t button_pressed;
+	
+	void (*dynamicDataTransfer)(float* val, enum units unit);
+	
 	
 };
 
-
+extern struct display_menu_handles Vpn_Menu_trueRMS,Vpn_Menu_fundRMS;
 
 
 
@@ -71,25 +81,9 @@ void totalPower(struct push_buttons pb);
 
 void apparentEnergy(struct push_buttons pb);
 void activeEnergy(struct push_buttons pb);
-void reactiveEnergy(struct push_buttons pb);s
+void reactiveEnergy(struct push_buttons pb);
 
-
-void (*menu_functions[])(struct push_buttons pb)={
-
-	voltagesPhase2Neutral,
-	voltagesPhase2Phase,
-	currents,
-	
-	apparentPower,
-	activePower,
-	reactivePower,
-	totalPower,
-	
-	apparentEnergy,
-	activeEnergy,
-	reactiveEnergy,
-	
-};
+void dynamicData(float* val,enum units unit);
 
 
 

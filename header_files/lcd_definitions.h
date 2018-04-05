@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define upperCaseLargeLetterWidth 12
+
 #define LCD_CS HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET)
 #define LCD_CD HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET)
 
@@ -30,6 +32,6 @@ enum letter_codes{
 
 extern enum letter_codes letter;
 
-
+void letter_transfer(enum letter_codes x, uint8_t page, uint8_t column);
 
 #endif
