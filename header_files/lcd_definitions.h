@@ -24,29 +24,94 @@ extern const uint8_t Descriptors[][2];
 extern const uint8_t arial_8ptBitmaps[]; 
 extern const uint8_t Descriptors2[][2];
 
-enum letter_codes{
 
-	A,
-	B, 
-	C
+
+enum letter_codes_14pt{
+A,
+B,
+C,
+D,
+E,
+F,
+G,
+H,
+I,
+J,
+K,
+L,
+M,
+N,
+O,
+P,
+Q,
+R,
+S,
+T,
+U,
+V,
+W,
+X,
+Y,
+Z,
+__,
+}; //enum for uppercase letters
+
+enum letter_codes_8pt{
+a,
+b,
+c,
+d,
+e,
+f,
+g,
+h,
+i,
+j,
+k,
+l,
+m,
+n,
+o,
+p,
+q,
+r,
+s,
+t,
+u,
+v,
+w,
+x,
+y,
+z,
+_,
+}; //enum for lowercase letters
+
+
+enum digit_codes_14pt{
+	
+	_0,
+	_1,
+	_2,
+	_3,
+	_4,
+	_5,
+	_6,
+	_7,
+	_8,
+	_9,
+
 
 };
 
-enum letter_codes2{
-
-	a,
-	b, 
-	c
-
-};
 
 
 
-extern enum letter_codes letter;
-extern enum letter_codes letter2;
 
-void letter_transfer(enum letter_codes x, uint8_t page, uint8_t column);
-void letter_transfer2(enum letter_codes2 x, uint8_t page, uint8_t column);
+extern enum letter_codes_14pt letter;
+extern enum letter_codes_14pt letter2;
+
+void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
+void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 
 void font_transfer();
 void font_transfer2();

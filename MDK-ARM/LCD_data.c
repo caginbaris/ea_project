@@ -23,7 +23,7 @@ const uint8_t LCD_batch_init_array[]={
 };
 
 
-uint8_t display_buffer[8][128]={0xAA};
+uint8_t display_buffer[8][128]={0x00};
 
 
 

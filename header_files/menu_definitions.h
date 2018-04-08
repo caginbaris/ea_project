@@ -5,6 +5,7 @@
 #include "lcd_definitions.h"
 
 
+
 enum menu_list {
 
 Vpn_true,Vpn_fund,
@@ -18,13 +19,14 @@ Ip_true,Ip_fund
 extern enum menu_list current_menu;
 extern enum menu_list next_menu;
 
-enum symbols {
+enum menu_symbols {
 
-enter,	
-left,
-right,
-down,
-up
+menu_enter,
+menu_escape,		
+menu_left,
+menu_right,
+menu_down,
+menu_up
 
 };
 
@@ -32,11 +34,9 @@ up
 
 enum units {
 
-V,
-kV,
-
-I,
-kI
+u_K,
+u_M,
+u_G	
 
 };
 
@@ -48,19 +48,19 @@ extern enum units unit;
 struct display_menu_handles{
 	
 	//dynamic data
-	float values[3];
+	float* values;
 	
 	//static data
 	
-	int16_t title[16];
+	enum letter_codes_8pt title[20];
 	
-	int16_t first_line[3];
-	int16_t second_line[3];
-	int16_t third_line[3];
+	enum letter_codes_14pt first_line[3];
+	enum letter_codes_14pt second_line[3];
+	enum letter_codes_14pt third_line[3];
 	
-	int16_t symbols[5];
+	enum menu_symbols symbol[5];
 	
-	int16_t button_pressed;
+	enum menu_list id;
 	
 	void (*dynamicDataTransfer)();
 	void (*staticDataTransfer)();
@@ -121,7 +121,7 @@ struct MENU_TRANSITION{
 void dynamicData(float* val,enum units unit);
 
 
-extern struct display_menu_handles Vpn_Menu;
+extern struct display_menu_handles Vpn_true_Menu;
 
 
 

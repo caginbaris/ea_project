@@ -81,7 +81,7 @@ void write_lcd(){
 }
 
 
-void letter_transfer(enum letter_codes x, uint8_t page, uint8_t column){
+void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column){
 	
 	uint16_t i;
 	uint8_t page_plus;
@@ -103,7 +103,7 @@ void letter_transfer(enum letter_codes x, uint8_t page, uint8_t column){
 }
 
 
-void letter_transfer2(enum letter_codes2 x, uint8_t page, uint8_t column){
+void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column){
 	
 	uint16_t i;
 	uint8_t letter_width;
@@ -144,12 +144,12 @@ void font_transfer(){
 	uint16_t page=1;
 	uint16_t column=0;
 	
-	letter_transfer(C,page,0);
-	letter_transfer(B,page,13);
-	letter_transfer(A,page,26);
+	letter_transfer_14pt(C,page,0);
+	letter_transfer_14pt(B,page,13);
+	letter_transfer_14pt(A,page,26);
 	
-	letter_transfer(C,page+2,26);
-	letter_transfer(C,page+2,0);
+	letter_transfer_14pt(C,page+2,26);
+	letter_transfer_14pt(C,page+2,0);
 	
 
 }
@@ -161,13 +161,13 @@ void font_transfer2(){
 	uint16_t page=0;
 	uint16_t column=0;
 	
-	letter_transfer2(a,0,2);
-	letter_transfer2(b,0,8);
-	letter_transfer2(c,0,14);
+	letter_transfer_8pt(a,0,2);
+	letter_transfer_8pt(b,0,8);
+	letter_transfer_8pt(c,0,14);
 	
-	letter_transfer2(c,1,0);
-	letter_transfer2(b,1,6);
-	letter_transfer2(a,1,12);
+	letter_transfer_8pt(c,1,0);
+	letter_transfer_8pt(b,1,6);
+	letter_transfer_8pt(a,1,12);
 	line_highlighter(0, 127);
 
 }

@@ -1,5 +1,7 @@
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
+#include "measurement_definitions.h"
+
 
 
 
@@ -8,21 +10,21 @@ enum menu_list next_menu=Vpn_true;
 enum input pressed;
 
 
-struct display_menu_handles Vpn_Menu= {
+struct display_menu_handles Vpn_true_Menu= {
 	
-	/*dynamicData*/	{0.0f,0.0f,0.0f},
+	/*dynamicData*/	&(rms.AN.Vpn_true_a),
 	
-	/*title*/      	{0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0}, 
+	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,g,e,r,c,e,k}, 
 	
-	/*fist line*/ 	{0,0,0},
-	/*second line*/ {0,0,0},
-	/*third line*/ 	{0,0,0},
+	/*fist line*/ 	{V,A,N},
+	/*second line*/ {V,B,N},
+	/*third line*/ 	{V,C,N},
 	
-	/*symbols*/			{0,0,0,0,0},
-	/*button*/			0,
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*menu-id*/			Vpn_true,
 	
-	/*functionPointers*/ font_transfer,
-	/*functionPointers*/ font_transfer2 // cau
+	/*dynamic data*/ font_transfer,
+	/*static data*/  font_transfer2 // cau
 
 
 

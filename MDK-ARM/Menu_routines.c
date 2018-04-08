@@ -1,13 +1,31 @@
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
 
-float values[3]={0};
-enum units unit=V;
+
+
 
 
 	
-void dynamicData(float* val,enum units unit){
+void dynamicDataTripple(float* val){
+	
+	float first,second,third;
+	enum units first_unit,second_unit,third_unit;
+	
+	
+	first=*val++;
+	second=*val++;
+	third=*val;
+	
+	
+	//format
+	
+	
+	if(first>1000.0f && first<10000.0f){first=first*0.001f;first_unit=u_K;}
+	if(first>1000.0f && first<10000.0f){first=first*0.001f;first_unit=u_K;}
 
+	
+	
+	//unit
 
 };
 	

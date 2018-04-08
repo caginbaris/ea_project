@@ -139,7 +139,7 @@ int main(void)
 	init_LCD();
 	init_backlight();
 	//font_transfer2();
-	DISPLAY_MENU(Vpn_Menu);
+	DISPLAY_MENU(Vpn_true_Menu);
 		
 	write_lcd();
 	
