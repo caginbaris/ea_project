@@ -50,6 +50,9 @@
 
 /* USER CODE BEGIN Includes */
 
+#include "menu_definitions.h"
+#include "lcd_definitions.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -74,6 +77,8 @@ void init_LCD(void);
 void init_backlight(void);
 void write_lcd(void);
 void font_transfer(void);
+void font_transfer2(void);
+void DISPLAY_MENU( struct display_menu_handles menu_item);
 
 /* USER CODE END PFP */
 
@@ -133,7 +138,9 @@ int main(void)
 	init_conversion();
 	init_LCD();
 	init_backlight();
-	font_transfer();
+	//font_transfer2();
+	DISPLAY_MENU(Vpn_Menu);
+		
 	write_lcd();
 	
 	

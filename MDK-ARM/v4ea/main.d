@@ -46,3 +46,5 @@ v4ea\main.o: ../Inc/spi.h
 v4ea\main.o: ../Inc/tim.h
 v4ea\main.o: ../Inc/usart.h
 v4ea\main.o: ../Inc/gpio.h
+v4ea\main.o: ..\header_files\menu_definitions.h
+v4ea\main.o: ..\header_files\lcd_definitions.h

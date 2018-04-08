@@ -73,7 +73,50 @@ const uint8_t Descriptors[][2] =
 	{12, 50}, 		/* C */ 
 };
 
+const uint8_t arial_8ptBitmaps[] = 
+{
+	/* @0 'a' (5 pixels wide) */
+	//      
+	//      
+	//  ### 
+	// #   #
+	//  ####
+	// #   #
+	// #  ##
+	//  ## #
+	0x68, 0x94, 0x94, 0x54, 0xF8, 
 
+	/* @5 'b' (5 pixels wide) */
+	// #    
+	// #    
+	// # ## 
+	// ##  #
+	// #   #
+	// #   #
+	// ##  #
+	// # ## 
+	0xFF, 0x48, 0x84, 0x84, 0x78, 
+
+	/* @10 'c' (5 pixels wide) */
+	//      
+	//      
+	//  ### 
+	// #   #
+	// #    
+	// #    
+	// #   #
+	//  ### 
+	0x78, 0x84, 0x84, 0x84, 0x48, 
+};
+
+/* Character descriptors for Arial 8pt */
+/* { [Char width in bits], [Offset into arial_8ptCharBitmaps in bytes] } */
+const uint8_t Descriptors2[][2] = 
+{
+	{5, 0}, 		/* a */ 
+	{5, 5}, 		/* b */ 
+	{5, 10}, 		/* c */ 
+};
 
 
 

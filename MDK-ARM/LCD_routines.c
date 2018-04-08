@@ -103,6 +103,27 @@ void letter_transfer(enum letter_codes x, uint8_t page, uint8_t column){
 }
 
 
+void letter_transfer2(enum letter_codes2 x, uint8_t page, uint8_t column){
+	
+	uint16_t i;
+	uint8_t letter_width;
+	uint16_t letter_offset;
+	
+	letter_width=Descriptors2[x][0];
+	letter_offset=Descriptors2[x][1];
+	
+	
+	
+	for(i=0;i<letter_width;i++){
+		
+		display_buffer[page][column+i]			=arial_8ptBitmaps[i+letter_offset];
+
+	}
+
+
+}
+
+
 void line_highlighter(uint8_t page, uint8_t column){
 	
 	uint8_t i;
@@ -120,19 +141,35 @@ void line_highlighter(uint8_t page, uint8_t column){
 void font_transfer(){
 	
 	uint16_t i;
+	uint16_t page=1;
+	uint16_t column=0;
+	
+	letter_transfer(C,page,0);
+	letter_transfer(B,page,13);
+	letter_transfer(A,page,26);
+	
+	letter_transfer(C,page+2,26);
+	letter_transfer(C,page+2,0);
+	
+
+}
+
+
+void font_transfer2(){
+	
+	uint16_t i;
 	uint16_t page=0;
 	uint16_t column=0;
 	
-	letter_transfer(C,0,0);
-	letter_transfer(B,0,13);
-	letter_transfer(A,0,26);
+	letter_transfer2(a,0,2);
+	letter_transfer2(b,0,8);
+	letter_transfer2(c,0,14);
 	
-	letter_transfer(C,2,26);
-	
-	letter_transfer(C,4,0);
-	
-	line_highlighter(0, 100);
-	line_highlighter(1, 100);
+	letter_transfer2(c,1,0);
+	letter_transfer2(b,1,6);
+	letter_transfer2(a,1,12);
+	line_highlighter(0, 127);
+
 }
 
 
