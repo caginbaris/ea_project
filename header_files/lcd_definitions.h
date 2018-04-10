@@ -4,6 +4,9 @@
 #include <stdint.h>
 
 #define upperCaseLargeLetterWidth 12
+#define digit_width_14pt 14
+#define lowerCaseSmallLetterWidth 5;
+
 
 #define LCD_CS HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET)
 #define LCD_CD HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET)
@@ -13,6 +16,8 @@
 
 #define LCD_control_data_enable HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_RESET)
 #define LCD_display_data_enable HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET)
+
+
 
 extern const uint8_t LCD_batch_init_array[14];
 extern uint8_t display_buffer[8][128];
@@ -24,7 +29,8 @@ extern const uint8_t Descriptors[][2];
 extern const uint8_t arial_8ptBitmaps[]; 
 extern const uint8_t Descriptors2[][2];
 
-
+extern const uint8_t bookAntiqua_14ptBitmaps[];
+extern const uint16_t Descriptors3[][2];
 
 enum letter_codes_14pt{
 A,
@@ -103,17 +109,37 @@ enum digit_codes_14pt{
 
 };
 
+enum units {
+	
+u_N,
+u_K,
+u_M,
+u_G	
+
+};
+
+
+struct digit_format{
+
+	uint16_t int1:4;
+	uint16_t int10:4;
+	uint16_t int100:4;
+	
+	uint16_t fraction:4;
+	
+	enum units range;
+	
+};
 
 
 
-
+extern enum units unit;
 extern enum letter_codes_14pt letter;
 extern enum letter_codes_14pt letter2;
 
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 
-void font_transfer();
-void font_transfer2();
+
 
 #endif

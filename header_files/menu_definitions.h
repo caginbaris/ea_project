@@ -31,24 +31,11 @@ menu_up
 };
 
 
-
-enum units {
-
-u_K,
-u_M,
-u_G	
-
-};
-
-extern enum units unit;
-
-
-
-
 struct display_menu_handles{
 	
-	//dynamic data
-	float* values;
+	/*dynamic data*/ 
+	
+	float *values;
 	
 	//static data
 	
@@ -62,13 +49,36 @@ struct display_menu_handles{
 	
 	enum menu_list id;
 	
-	void (*dynamicDataTransfer)();
-	void (*staticDataTransfer)();
+	void (*staticDataTransfer)(struct display_menu_handles menu_item);
+	void (*dynamicDataTransfer)(struct display_menu_handles menu_item);
+	
 	
 };
 
 extern struct display_menu_handles Vpn_Menu_trueRMS,Vpn_Menu_fundRMS;
 
+
+union display_menu_union{
+	
+	
+	struct{
+		
+	struct display_menu_handles Vpn_true;
+	struct display_menu_handles Vpn_fund;
+
+	struct display_menu_handles Vpp_true;
+	struct display_menu_handles Vpp_fund;
+	
+	struct display_menu_handles Ip_true;
+	struct display_menu_handles Ip_fund;
+	
+	}handle;
+	
+	
+	struct display_menu_handles all[6]; 
+
+
+};
 
 
 
@@ -118,11 +128,17 @@ struct MENU_TRANSITION{
 
 
 
-void dynamicData(float* val,enum units unit);
+
 
 
 extern struct display_menu_handles Vpn_true_Menu;
 
 
+void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
+void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
+void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
+
+void dynamicDataTripple(struct display_menu_handles menu_item);
+void staticDataTripple(struct display_menu_handles menu_item);
 
 #endif

@@ -1,57 +1,129 @@
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
+#include "ch_format.h"
+#include "measurement_definitions.h"
+
+
+
+
+
+struct digit_format  formatDynamicData(float x){
+	
+	struct digit_format formatted_digit;
+	int32_t transferred;
+	
+	if(x<_e3){formatted_digit.range=u_N;}
+	if(x>=_e3 && x<_e6){formatted_digit.range=u_K;x=x*_em3;}
+	if(x>=_e6 && x<_e9){formatted_digit.range=u_M;x=x*_em6;}
+	if(x>=_e9 && x<_e9){formatted_digit.range=u_G;x=x*_em9;}
+
+	formatted_digit.fraction=10.0f*(x-(int16_t)x);
+	formatted_digit.int100	=(x*_em2); 
+	formatted_digit.int10		=((int16_t)(x*_em1) % 10);
+	formatted_digit.int1		=((int16_t)x % 10);
+
+	return formatted_digit;
+	
+}
 
 
 
 
 
 	
-void dynamicDataTripple(float* val){
+void dynamicDataTripple(struct display_menu_handles menu_item){
 	
-	float first,second,third;
-	enum units first_unit,second_unit,third_unit;
-	
-	
-	first=*val++;
-	second=*val++;
-	third=*val;
-	
-	
-	//format
-	
-	
-	if(first>1000.0f && first<10000.0f){first=first*0.001f;first_unit=u_K;}
-	if(first>1000.0f && first<10000.0f){first=first*0.001f;first_unit=u_K;}
+	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+	float *fp;
 
+	uint8_t page,column; 
+	
+	/*
+	switch(current_menu){
+	
+		case Vpn_true: fp=&(rms.AN.Vpn_true_a);
+		case Vpn_fund: fp=&(rms.AN.Vpn_fund_a);
+		case Vpp_true: fp=&(rms.AN.Vpp_true_a);
+		case Vpp_fund: fp=&(rms.AN.Vpp_fund_a);
+		case Ip_true : fp=&(rms.AN.Ip_true_a);
+		case Ip_fund : fp=&(rms.AN.Ip_fund_a);
+		
+	}*/
+	
+	fp=menu_item.values;
+	
+	//format-unit
+	lcd_row1=formatDynamicData(*fp);
+	lcd_row2=formatDynamicData(*fp++);
+	lcd_row3=formatDynamicData(*fp++);
+	
+	//digit-transfer
+	
+	page=1;
+	column=64;
+	
+	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
+	if(lcd_row1.int10!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
+																								digit_transfer_14pt(lcd_row1.int1,page,column+2*digit_width_14pt);
+																								//symbol transfer for fraction dot (may be excluded from dynamic part)
+																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
 	
 	
-	//unit
+									
 
 };
+
+
+
+void staticDataTripple(struct display_menu_handles menu_item){
+	
+	int i;
+	int column=0;
+	int page=0;
+
+	for(i=0;i<20;i++){
+		
+	letter_transfer_8pt(menu_item.title[i],page,a);
+	column=column+lowerCaseSmallLetterWidth;	
+		
+	}
+	
+	column=0;
+	
+	page=1;
+	
+	letter_transfer_14pt(menu_item.first_line[0],page,column);
+	letter_transfer_14pt(menu_item.first_line[1],page,column+  upperCaseLargeLetterWidth);
+	letter_transfer_14pt(menu_item.first_line[2],page,column+2*upperCaseLargeLetterWidth);
+	
+	
+	page=3;
+	
+	letter_transfer_14pt(menu_item.second_line[0],page,column);
+	letter_transfer_14pt(menu_item.second_line[1],page,column+  upperCaseLargeLetterWidth);
+	letter_transfer_14pt(menu_item.second_line[2],page,column+2*upperCaseLargeLetterWidth);
+	
+	
+	page=5;
+	
+	letter_transfer_14pt(menu_item.third_line[0],page,column);
+	letter_transfer_14pt(menu_item.third_line[1],page,column+  upperCaseLargeLetterWidth);
+	letter_transfer_14pt(menu_item.third_line[2],page,column+2*upperCaseLargeLetterWidth);
+	
+
+	// symbols should be generated
+	
+}
 	
 
 
 
 void DISPLAY_MENU( struct display_menu_handles menu_item){
 
-	uint8_t page=1;
-
-	// define function for title data
 	
-	menu_item.staticDataTransfer();
-	menu_item.dynamicDataTransfer();
+	menu_item.staticDataTransfer(menu_item);
+	menu_item.dynamicDataTransfer(menu_item);
 
 	
-	//define function for button definition symbols
-	
-	// befor transferring real dynamic data it should be formatted accordingly)
-
-	
-	// define function for button evaluation for transition between menus
-	
-	
-	
-	
-
 
 };

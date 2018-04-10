@@ -5,14 +5,25 @@
 
 
 
+union display_menu_union display_menu={0};
+
+
 enum menu_list current_menu=Vpn_true;
 enum menu_list next_menu=Vpn_true;
 enum input pressed;
 
 
+
+
+
+
+
+
+
+
 struct display_menu_handles Vpn_true_Menu= {
 	
-	/*dynamicData*/	&(rms.AN.Vpn_true_a),
+	/*dynamic data*/ &(rms.AN.Vpn_true_a),
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,g,e,r,c,e,k}, 
 	
@@ -23,8 +34,10 @@ struct display_menu_handles Vpn_true_Menu= {
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
 	/*menu-id*/			Vpn_true,
 	
-	/*dynamic data*/ font_transfer,
-	/*static data*/  font_transfer2 // cau
+	
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
 
 
 
@@ -35,7 +48,7 @@ struct display_menu_handles Vpn_true_Menu= {
 // menu transition
 
 
-struct MENU_TRANSITION menu_transItion[][3]={
+struct MENU_TRANSITION menu_transition[][3]={
 	
 	//	current menu----input-----------next menu
 	
@@ -62,7 +75,13 @@ struct MENU_TRANSITION menu_transItion[][3]={
 
 
 
+void Menu_init(){
 
+
+	
+
+
+}
 
 
 
