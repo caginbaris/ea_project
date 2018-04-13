@@ -47,15 +47,13 @@ struct display_menu_handles{
 	
 	enum menu_symbols symbol[5];
 	
-	enum menu_list id;
-	
 	void (*staticDataTransfer)(struct display_menu_handles menu_item);
 	void (*dynamicDataTransfer)(struct display_menu_handles menu_item);
 	
 	
 };
 
-extern struct display_menu_handles Vpn_Menu_trueRMS,Vpn_Menu_fundRMS;
+
 
 
 union display_menu_union{
@@ -79,6 +77,9 @@ union display_menu_union{
 
 
 };
+
+
+extern union display_menu_union MENU;
 
 
 

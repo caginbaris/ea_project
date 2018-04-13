@@ -38,17 +38,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 
 	uint8_t page,column; 
 	
-	/*
-	switch(current_menu){
-	
-		case Vpn_true: fp=&(rms.AN.Vpn_true_a);
-		case Vpn_fund: fp=&(rms.AN.Vpn_fund_a);
-		case Vpp_true: fp=&(rms.AN.Vpp_true_a);
-		case Vpp_fund: fp=&(rms.AN.Vpp_fund_a);
-		case Ip_true : fp=&(rms.AN.Ip_true_a);
-		case Ip_fund : fp=&(rms.AN.Ip_fund_a);
-		
-	}*/
+
 	
 	fp=menu_item.values;
 	
@@ -118,12 +108,40 @@ void staticDataTripple(struct display_menu_handles menu_item){
 
 
 
-void DISPLAY_MENU( struct display_menu_handles menu_item){
 
+
+void SELECT_MENU(enum menu_list current){
 	
-	menu_item.staticDataTransfer(menu_item);
-	menu_item.dynamicDataTransfer(menu_item);
+	enum menu_list i;
+	
+	
+		for(i=Vpn_true;i<Vpp_true;i++){
+			
+			
+			
+			
+		
+		
+		
+		}
+	
+	
+	
 
+
+
+}
+
+
+void DISPLAY_MENU(){
+
+	struct display_menu_handles local_menu={0};
+	
+	local_menu=MENU.all[current_menu];
+
+	MENU.all[current_menu].staticDataTransfer(local_menu);
+	MENU.all[current_menu].dynamicDataTransfer(local_menu);
 	
 
 };
+

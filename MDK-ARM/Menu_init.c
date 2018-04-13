@@ -5,18 +5,14 @@
 
 
 
-union display_menu_union display_menu={0};
+
 
 
 enum menu_list current_menu=Vpn_true;
 enum menu_list next_menu=Vpn_true;
 enum input pressed;
 
-
-
-
-
-
+union display_menu_union MENU={0};
 
 
 
@@ -32,15 +28,68 @@ struct display_menu_handles Vpn_true_Menu= {
 	/*third line*/ 	{V,C,N},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
-	/*menu-id*/			Vpn_true,
-	
-	
+
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
 
+};
 
 
+struct display_menu_handles Vpn_fund_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Vpn_fund_a),
+	
+	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_}, 
+	
+	/*fist line*/ 	{V,A,N},
+	/*second line*/ {V,B,N},
+	/*third line*/ 	{V,C,N},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+
+struct display_menu_handles Vpp_true_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Vpp_true_a),
+	
+	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,g,e,r,c,e,k}, 
+	
+	/*fist line*/ 	{V,A,B},
+	/*second line*/ {V,B,C},
+	/*third line*/ 	{V,C,A},
+	
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Vpp_fund_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Vpn_true_a),
+	
+	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_}, 
+	
+	/*fist line*/ 	{V,A,N},
+	/*second line*/ {V,B,N},
+	/*third line*/ 	{V,C,N},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
 
 };
 
@@ -48,7 +97,7 @@ struct display_menu_handles Vpn_true_Menu= {
 // menu transition
 
 
-struct MENU_TRANSITION menu_transition[][3]={
+struct MENU_TRANSITION menu_transition[]={
 	
 	//	current menu----input-----------next menu
 	
@@ -72,11 +121,19 @@ struct MENU_TRANSITION menu_transition[][3]={
 
 };
 
+extern struct MENU_TRANSITION menu_transition[];
 
 
 
-void Menu_init(){
 
+void init_Menu(){
+	
+	
+	MENU.handle.Vpn_true=	Vpn_true_Menu;
+	MENU.handle.Vpn_fund=	Vpn_fund_Menu;
+	
+	MENU.handle.Vpp_true=	Vpp_true_Menu;
+	MENU.handle.Vpp_true=	Vpp_fund_Menu;
 
 	
 
