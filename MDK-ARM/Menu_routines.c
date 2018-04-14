@@ -110,25 +110,26 @@ void staticDataTripple(struct display_menu_handles menu_item){
 
 
 
-void SELECT_MENU(enum menu_list current){
+enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 	
-	enum menu_list i;
+	uint8_t i;
+	enum menu_list new_menu;
 	
 	
-		for(i=Vpn_true;i<Vpp_true;i++){
+	new_menu=current;
+	
+	for(i=0;i<TotalMenuTransitionNo;i++){
+				
+			if( menu_transition[i].current_menu==current &&
+					menu_transition[i].pressed==button){
+						
+					new_menu=	menu_transition[i].next_menu;
+					break;
+			}
 			
-			
-			
-			
-		
-		
-		
-		}
+	}
 	
-	
-	
-
-
+	return new_menu;
 
 }
 

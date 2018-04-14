@@ -79,11 +79,11 @@ struct display_menu_handles Vpp_fund_Menu= {
 	
 	/*dynamic data*/ &(rms.AN.Vpn_true_a),
 	
-	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_}, 
+	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,a,n,a,_,_,_}, 
 	
-	/*fist line*/ 	{V,A,N},
-	/*second line*/ {V,B,N},
-	/*third line*/ 	{V,C,N},
+	/*fist line*/ 	{V,A,B},
+	/*second line*/ {V,B,C},
+	/*third line*/ 	{V,C,A},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
 
@@ -97,21 +97,30 @@ struct display_menu_handles Vpp_fund_Menu= {
 // menu transition
 
 
-struct MENU_TRANSITION menu_transition[]={
+
+
+
+
+
+
+
+const struct MENU_TRANSITION menu_transition[]={
 	
 	//	current menu----input-----------next menu
 	
 		{	Vpn_true,				right_pressed,	Vpn_fund},
-		{	Vpn_fund,				left_pressed,		Vpn_true},
 		{	Vpn_true,				down_pressed,		Vpp_true},
+		
+		{	Vpn_fund,				left_pressed,		Vpn_true},
 		{	Vpn_fund,				down_pressed,		Vpp_fund},
 		
 		{	Vpp_true,				right_pressed,	Vpp_fund},
-		{	Vpp_fund,				left_pressed,		Vpp_true},
 		{	Vpp_true,				down_pressed,		Ip_true},
-		{	Vpp_fund,				down_pressed,		Ip_fund},
 		{	Vpp_true,				up_pressed,			Vpn_true},
+		
+		{	Vpp_fund,				down_pressed,		Ip_fund},
 		{	Vpp_fund,				up_pressed,		  Vpn_fund},
+		{	Vpp_fund,				left_pressed,		Vpp_true},
 		
 		{	Ip_true,				right_pressed,	Ip_fund},
 		{	Ip_fund,				left_pressed,		Ip_true},
@@ -121,7 +130,7 @@ struct MENU_TRANSITION menu_transition[]={
 
 };
 
-extern struct MENU_TRANSITION menu_transition[];
+
 
 
 

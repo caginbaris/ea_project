@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-
+#define TotalMenuTransitionNo 14
 
 enum menu_list {
 
@@ -125,6 +125,8 @@ struct MENU_TRANSITION{
 
 
 };
+
+extern const struct MENU_TRANSITION menu_transition[TotalMenuTransitionNo];
 
 
 
