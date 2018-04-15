@@ -28,6 +28,7 @@ struct display_menu_handles Vpn_true_Menu= {
 	/*third line*/ 	{V,C,N},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*menu units*/	{m_V,m_,m_,m_},
 
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -47,7 +48,7 @@ struct display_menu_handles Vpn_fund_Menu= {
 	/*third line*/ 	{V,C,N},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
-
+	/*menu units*/	{m_V,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -67,7 +68,7 @@ struct display_menu_handles Vpp_true_Menu= {
 	/*third line*/ 	{V,C,A},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
-
+	/*menu units*/	{m_V,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -77,7 +78,7 @@ struct display_menu_handles Vpp_true_Menu= {
 
 struct display_menu_handles Vpp_fund_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Vpn_true_a),
+	/*dynamic data*/ &(rms.AN.Vpp_fund_a),
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,a,n,a,_,_,_}, 
 	
@@ -86,7 +87,7 @@ struct display_menu_handles Vpp_fund_Menu= {
 	/*third line*/ 	{V,C,A},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
-
+	/*menu units*/	{m_V,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	

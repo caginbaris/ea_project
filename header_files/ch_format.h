@@ -12,11 +12,13 @@
 #define _e7 10000000.0f
 #define _e8 100000000.0f
 #define _e9 1000000000.0f
+#define _e12 1000000000000.0f
 
 #define _em1 0.1f
 #define _em2 0.01f
 #define _em3 0.001f
 #define _em6 0.000001f
 #define _em9 0.000000001f
+#define _em12 0.000000000001f
 
 #endif

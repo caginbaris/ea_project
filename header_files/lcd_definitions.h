@@ -32,6 +32,12 @@ extern const uint16_t Descriptors2[][2];
 extern const uint8_t bookAntiqua_14ptBitmaps[];
 extern const uint16_t Descriptors3[][2];
 
+extern const uint8_t unit_charecters[];
+extern const uint16_t Descriptors4[][2];
+
+extern const uint8_t menu_units_ch[];
+extern const uint16_t Descriptors5[][2];
+
 extern const uint8_t button_symbols[][8];
 
 enum letter_codes_14pt{
@@ -112,11 +118,26 @@ enum digit_codes_14pt{
 };
 
 enum units {
-	
-u_N,
+
+u_G,		
 u_K,
 u_M,
-u_G	
+u_N
+
+
+};
+
+
+enum menu_units{
+	
+	m_percent,
+	m_A,
+	m_R,
+	m_V,
+	m_W,
+	m_h,
+	m_
+
 
 };
 
@@ -154,6 +175,7 @@ extern enum letter_codes_14pt letter2;
 
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
+void put_dot2x2(uint8_t page,uint8_t column);
 void line_highlighter(uint8_t page, uint8_t column);
 
 

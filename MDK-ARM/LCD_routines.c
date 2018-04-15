@@ -132,8 +132,8 @@ void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column){
 	uint8_t letter_width;
 	uint16_t letter_offset;
 	
-	letter_width=Descriptors[x][0];
-	letter_offset=Descriptors[x][1];
+	letter_width=Descriptors3[x][0];
+	letter_offset=Descriptors3[x][1];
 	
 	page_plus=page+1;
 	
@@ -146,6 +146,54 @@ void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column){
 
 }
 
+
+
+void unit_transfer(enum units x, uint8_t page, uint8_t column){
+	
+	uint16_t i;
+	uint8_t page_plus;
+	uint8_t letter_width;
+	uint16_t letter_offset;
+	
+	letter_width=Descriptors4[x][0];
+	letter_offset=Descriptors4[x][1];
+	
+	page_plus=page+1;
+	
+	for(i=0;i<letter_width;i++){
+		
+		display_buffer[page][column+i]			=unit_charecters[i+letter_offset];
+		display_buffer[page_plus][column+i]	=unit_charecters[i+letter_offset +letter_width];
+	}
+
+
+}
+
+
+void menu_unit_transfer(enum menu_units x, uint8_t page, uint8_t column){
+	
+	uint16_t i;
+	uint8_t page_plus;
+	uint8_t letter_width;
+	uint16_t letter_offset;
+	
+	letter_width=Descriptors5[x][0];
+	letter_offset=Descriptors5[x][1];
+	
+	page_plus=page+1;
+	
+	for(i=0;i<letter_width;i++){
+		
+		display_buffer[page][column+i]			=menu_units_ch[i+letter_offset];
+		display_buffer[page_plus][column+i]	=menu_units_ch[i+letter_offset +letter_width];
+	}
+
+
+}
+
+
+
+
 void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column){
 
 	uint16_t i;
@@ -156,6 +204,14 @@ void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column){
 	
 	}
 
+
+}
+
+
+void put_dot2x2(uint8_t page,uint8_t column){
+
+	display_buffer[page][column]=0x0C;
+	display_buffer[page][column+1]=0x0C;
 
 }
 

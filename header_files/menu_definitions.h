@@ -5,6 +5,7 @@
 #include "lcd_definitions.h"
 
 #define TotalMenuTransitionNo 14
+#define menu_unit_vertical_position 100
 
 enum menu_list {
 
@@ -37,6 +38,7 @@ struct display_menu_handles{
 	enum letter_codes_14pt third_line[3];
 	
 	enum menu_symbols symbol[5];
+	enum menu_units menu_chars[4];
 	
 	void (*staticDataTransfer)(struct display_menu_handles menu_item);
 	void (*dynamicDataTransfer)(struct display_menu_handles menu_item);
@@ -131,6 +133,8 @@ extern struct display_menu_handles Vpn_true_Menu;
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
+void unit_transfer(enum units x, uint8_t page, uint8_t column);
+void menu_unit_transfer(enum menu_units x, uint8_t page, uint8_t column);
 void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column);
 
 void dynamicDataTripple(struct display_menu_handles menu_item);
