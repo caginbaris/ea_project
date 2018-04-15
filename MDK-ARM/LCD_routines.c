@@ -146,6 +146,22 @@ void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column){
 
 }
 
+void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column){
+
+	uint16_t i;
+
+	for(i=0;i<8;i++){
+	
+		display_buffer[page][column+i]=button_symbols[x][i];
+	
+	}
+
+
+}
+
+
+
+
 
 
 

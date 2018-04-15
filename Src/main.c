@@ -78,7 +78,7 @@ void init_backlight(void);
 void write_lcd(void);
 void font_transfer(void);
 void font_transfer2(void);
-void DISPLAY_MENU( struct display_menu_handles menu_item);
+
 
 /* USER CODE END PFP */
 
@@ -138,8 +138,8 @@ int main(void)
 	init_conversion();
 	init_LCD();
 	init_backlight();
-	//font_transfer2();
-	DISPLAY_MENU(Vpn_true_Menu);
+	init_Menu();
+	DISPLAY_MENU();
 		
 	write_lcd();
 	

@@ -19,16 +19,7 @@ Ip_true,Ip_fund
 extern enum menu_list current_menu;
 extern enum menu_list next_menu;
 
-enum menu_symbols {
 
-menu_enter,
-menu_escape,		
-menu_left,
-menu_right,
-menu_down,
-menu_up
-
-};
 
 
 struct display_menu_handles{
@@ -140,8 +131,12 @@ extern struct display_menu_handles Vpn_true_Menu;
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
+void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column);
 
 void dynamicDataTripple(struct display_menu_handles menu_item);
 void staticDataTripple(struct display_menu_handles menu_item);
+
+void init_Menu();
+void DISPLAY_MENU();
 
 #endif

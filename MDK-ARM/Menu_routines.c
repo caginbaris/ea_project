@@ -67,16 +67,18 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 
 void staticDataTripple(struct display_menu_handles menu_item){
 	
-	int i;
-	int column=0;
-	int page=0;
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
 
-	for(i=0;i<20;i++){
+	for(i=0;i<17;i++){
 		
-	letter_transfer_8pt(menu_item.title[i],page,a);
+	letter_transfer_8pt(menu_item.title[i],page,column);
 	column=column+lowerCaseSmallLetterWidth;	
 		
 	}
+	
+	line_highlighter(0,128);
 	
 	column=0;
 	
@@ -102,6 +104,18 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 
 	// symbols should be generated
+	
+	
+	
+
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+	
+	
 	
 }
 	
@@ -137,6 +151,8 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
+	
+	current_menu=Vpn_fund;
 	
 	local_menu=MENU.all[current_menu];
 

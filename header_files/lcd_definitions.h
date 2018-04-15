@@ -5,7 +5,7 @@
 
 #define upperCaseLargeLetterWidth 12
 #define digit_width_14pt 14
-#define lowerCaseSmallLetterWidth 5;
+#define lowerCaseSmallLetterWidth 7;
 
 
 #define LCD_CS HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET)
@@ -24,13 +24,15 @@ extern uint8_t display_buffer[8][128];
 
 
 extern const uint8_t arial_14ptBitmaps[]; 
-extern const uint8_t Descriptors[][2];
+extern const uint16_t Descriptors[][2];
 
 extern const uint8_t arial_8ptBitmaps[]; 
-extern const uint8_t Descriptors2[][2];
+extern const uint16_t Descriptors2[][2];
 
 extern const uint8_t bookAntiqua_14ptBitmaps[];
 extern const uint16_t Descriptors3[][2];
+
+extern const uint8_t button_symbols[][8];
 
 enum letter_codes_14pt{
 A,
@@ -119,6 +121,19 @@ u_G
 };
 
 
+enum menu_symbols {
+
+menu_blank,
+menu_enter,
+menu_escape,		
+menu_left,
+menu_right,
+menu_down,
+menu_up
+
+};
+
+
 struct digit_format{
 
 	uint16_t int1:4;
@@ -139,7 +154,7 @@ extern enum letter_codes_14pt letter2;
 
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
-
+void line_highlighter(uint8_t page, uint8_t column);
 
 
 #endif
