@@ -80,7 +80,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	
 
 	page=5;
-	//second row
+	//third row
 	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
 	if(lcd_row3.int10!=0 || lcd_row2.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row3.int1,page,column+2*digit_width_14pt);
@@ -138,7 +138,6 @@ void staticDataTripple(struct display_menu_handles menu_item){
 			
 		}
 		
-		
 	}
 	
 	
@@ -151,11 +150,42 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	letter_transfer_14pt(menu_item.second_line[2],page,column+2*upperCaseLargeLetterWidth);
 	
 	
+		menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
+	
+	
+	for(i=1;i<4;i++){
+		
+		
+		if(menu_item.menu_chars[i]==m_){break;}
+		if(menu_item.menu_chars[0]==m_W){menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+11);}else{
+		
+		menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+7*i);
+			
+		}
+		
+	}
+	
+	
 	page=5;
 	
 	letter_transfer_14pt(menu_item.third_line[0],page,column);
 	letter_transfer_14pt(menu_item.third_line[1],page,column+  upperCaseLargeLetterWidth);
 	letter_transfer_14pt(menu_item.third_line[2],page,column+2*upperCaseLargeLetterWidth);
+	
+	menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
+	
+	
+	for(i=1;i<4;i++){
+		
+		
+		if(menu_item.menu_chars[i]==m_){break;}
+		if(menu_item.menu_chars[0]==m_W){menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+11);}else{
+		
+		menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+7*i);
+			
+		}
+		
+	}
 	
 
 	// symbols should be generated
@@ -209,7 +239,7 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	current_menu=Vpn_true;
+	current_menu=Ip_fund;
 	
 	local_menu=MENU.all[current_menu];
 

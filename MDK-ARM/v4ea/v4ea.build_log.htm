@@ -27,7 +27,54 @@ Project File Date:  04/15/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
-"v4ea\v4ea.axf" - 0 Error(s), 0 Warning(s).
+compiling Menu_routines.c...
+..\header_files\menu_definitions.h(143): warning:  #1295-D: Deprecated declaration init_Menu - give arg types
+  void init_Menu();
+..\header_files\menu_definitions.h(144): warning:  #1295-D: Deprecated declaration DISPLAY_MENU - give arg types
+  void DISPLAY_MENU();
+..\header_files\ch_format.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\header_files\measurement_definitions.h(35): warning:  #1-D: last line of file ends without a newline
+  #endif
+Menu_routines.c(13): warning:  #177-D: variable "transferred" was declared but never referenced
+  	int32_t transferred;
+Menu_routines.c(57): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
+Menu_routines.c(58): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int10!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(59): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(61): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(70): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(71): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int10!=0 || lcd_row2.int10!=0	){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(72): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(74): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(84): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
+Menu_routines.c(85): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int10!=0 || lcd_row2.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(86): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(88): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c: 17 warnings, 0 errors
+linking...
+Program Size: Code=28630 RO-data=1946 RW-data=404 ZI-data=4036  
+"v4ea\v4ea.axf" - 0 Error(s), 17 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +92,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

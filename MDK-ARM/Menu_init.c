@@ -95,6 +95,50 @@ struct display_menu_handles Vpp_fund_Menu= {
 };
 
 
+
+struct display_menu_handles Ip_true_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Ip_true_a),
+	
+	/*title*/      	{a,k,i,m,_,g,e,r,c,e,k,_,r,m,s,_,_}, 
+	
+	/*fist line*/ 	{I,A,P},
+	/*second line*/ {I,B,P},
+	/*third line*/ 	{I,C,P},
+	
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*menu units*/	{m_A,m_,m_,m_,},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Ip_fund_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	
+	/*title*/      	{a,k,i,m,_,_,a,n,a,_,_,r,m,s,_,_,_} ,
+	
+	/*fist line*/ 	{I,A,P},
+	/*second line*/ {I,B,P},
+	/*third line*/ 	{I,C,P},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+
+
+
+
+
 // menu transition
 
 
@@ -143,9 +187,10 @@ void init_Menu(){
 	MENU.handle.Vpn_fund=	Vpn_fund_Menu;
 	
 	MENU.handle.Vpp_true=	Vpp_true_Menu;
-	MENU.handle.Vpp_true=	Vpp_fund_Menu;
+	MENU.handle.Vpp_fund=	Vpp_fund_Menu;
 
-	
+	MENU.handle.Ip_true=	Ip_true_Menu;
+	MENU.handle.Ip_fund=	Ip_fund_Menu;
 
 
 }
