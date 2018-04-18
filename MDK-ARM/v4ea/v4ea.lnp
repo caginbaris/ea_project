@@ -45,6 +45,7 @@
 "v4ea\menu_init.o"
 "v4ea\measurement_data.o"
 "v4ea\measurement_functions.o"
+"v4ea\pb_handling.o"
 --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

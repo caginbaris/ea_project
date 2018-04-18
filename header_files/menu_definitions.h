@@ -107,7 +107,7 @@ union push_buttons{
 };
 
 
-extern union push_buttons pb;
+
 
 
 struct MENU_TRANSITION{
