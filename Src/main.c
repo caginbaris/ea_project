@@ -79,6 +79,11 @@ void write_lcd(void);
 void font_transfer(void);
 void font_transfer2(void);
 
+enum menu_list SELECT_MENU(enum menu_list current,enum input button);
+void DISPLAY_MENU(void);
+enum input  pushButtonHandling(void);
+
+
 
 /* USER CODE END PFP */
 
@@ -139,9 +144,9 @@ int main(void)
 	init_LCD();
 	init_backlight();
 	init_Menu();
-	DISPLAY_MENU();
+	
 		
-	write_lcd();
+
 	
 	
   while (1)
@@ -152,6 +157,23 @@ int main(void)
   /* USER CODE BEGIN 3 */
 		
 		mp_counter++;
+		
+		HAL_Delay(100);
+		
+		pressed_button=pushButtonHandling();
+		
+		
+		if(pressed_button!=invalid){
+			
+		current_menu=SELECT_MENU(current_menu,pressed_button);	
+			
+		}
+		
+		DISPLAY_MENU();
+		
+		
+		write_lcd();
+		
 		
 
 		

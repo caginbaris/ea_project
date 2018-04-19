@@ -2,8 +2,7 @@
 #include "lcd_definitions.h"
 #include "ch_format.h"
 #include "measurement_definitions.h"
-
-
+#include  <string.h>
 
 
 
@@ -239,7 +238,9 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	current_menu=Ip_fund;
+	
+	memset(display_buffer,0,1024);
+	
 	
 	local_menu=MENU.all[current_menu];
 
@@ -248,4 +249,6 @@ void DISPLAY_MENU(){
 	
 
 };
+
+
 

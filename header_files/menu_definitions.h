@@ -18,7 +18,7 @@ Ip_true,Ip_fund
 
 
 extern enum menu_list current_menu;
-extern enum menu_list next_menu;
+
 
 
 
@@ -79,6 +79,8 @@ extern union display_menu_union MENU;
 
 enum input{
 	
+	
+		invalid=0,
 		enter_pressed=1,
 		left_pressed=2,
 		right_pressed=4,
@@ -87,6 +89,9 @@ enum input{
 
 
 };
+
+
+extern enum input pressed_button;
 
 
 union push_buttons{
