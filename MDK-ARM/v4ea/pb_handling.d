@@ -40,3 +40,4 @@ v4ea\pb_handling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\pb_handling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\pb_handling.o: ..\header_files\menu_definitions.h
 v4ea\pb_handling.o: ..\header_files\lcd_definitions.h
+v4ea\pb_handling.o: ..\header_files\aux_functions.h
