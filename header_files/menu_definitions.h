@@ -11,9 +11,9 @@ enum menu_list {
 
 Vpn_true,Vpn_fund,
 Vpp_true,Vpp_fund,
-Ip_true,Ip_fund
+Ip_true,Ip_fund,
 
-
+main_menu
 };
 
 
@@ -43,6 +43,22 @@ struct display_menu_handles{
 	void (*staticDataTransfer)(struct display_menu_handles menu_item);
 	void (*dynamicDataTransfer)(struct display_menu_handles menu_item);
 	
+	
+};
+
+
+struct main_menu_handle{
+	
+	enum letter_codes_8pt title[20];
+	enum letter_codes_8pt first_line[20];
+	enum letter_codes_8pt second_line[20];
+	enum letter_codes_8pt third_line[20];
+	enum letter_codes_8pt fourth_line[20];
+	enum letter_codes_8pt fifth_line[20];
+	enum letter_codes_8pt sixth_line[20];
+	
+	enum menu_symbols symbol[5];
+	uint8_t scroll_position;
 	
 };
 
@@ -136,7 +152,7 @@ extern struct display_menu_handles Vpn_true_Menu;
 
 
 void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
-void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
+uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
 void unit_transfer(enum units x, uint8_t page, uint8_t column);
 void menu_unit_transfer(enum menu_units x, uint8_t page, uint8_t column);

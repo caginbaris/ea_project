@@ -67,7 +67,7 @@ struct display_menu_handles Vpp_true_Menu= {
 	/*second line*/ {V,B,C},
 	/*third line*/ 	{V,C,A},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -86,7 +86,7 @@ struct display_menu_handles Vpp_fund_Menu= {
 	/*second line*/ {V,B,C},
 	/*third line*/ 	{V,C,A},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -106,7 +106,7 @@ struct display_menu_handles Ip_true_Menu= {
 	/*second line*/ {I,B,P},
 	/*third line*/ 	{I,C,P},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -125,7 +125,7 @@ struct display_menu_handles Ip_fund_Menu= {
 	/*second line*/ {I,B,P},
 	/*third line*/ 	{I,C,P},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -159,18 +159,21 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Vpn_fund,				left_pressed,		Vpn_true},
 		{	Vpn_fund,				down_pressed,		Vpp_fund},
 		
+		
 		{	Vpp_true,				right_pressed,	Vpp_fund},
 		{	Vpp_true,				down_pressed,		Ip_true},
 		{	Vpp_true,				up_pressed,			Vpn_true},
 		
+		{	Vpp_fund,				left_pressed,		Vpp_true},
 		{	Vpp_fund,				down_pressed,		Ip_fund},
 		{	Vpp_fund,				up_pressed,		  Vpn_fund},
-		{	Vpp_fund,				left_pressed,		Vpp_true},
+
 		
 		{	Ip_true,				right_pressed,	Ip_fund},
+		{	Ip_true,				up_pressed,			Vpp_true},
+		
 		{	Ip_fund,				left_pressed,		Ip_true},
-		{	Ip_true,				up_pressed,			Ip_true},
-		{	Ip_fund,				up_pressed,			Ip_fund},
+		{	Ip_fund,				up_pressed,			Vpp_fund},
 		
 
 };

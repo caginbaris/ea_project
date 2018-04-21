@@ -109,8 +109,10 @@ void staticDataTripple(struct display_menu_handles menu_item){
 
 	for(i=0;i<17;i++){
 		
-	letter_transfer_8pt(menu_item.title[i],page,column);
-	column=column+lowerCaseSmallLetterWidth;	
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	//cau column parameter should returened for stiff font transfer	
 		
 	}
 	

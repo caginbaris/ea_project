@@ -103,7 +103,7 @@ void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column
 }
 
 
-void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column){
+uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column){
 	
 	uint16_t i;
 	uint8_t letter_width;
@@ -119,6 +119,9 @@ void letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column){
 		display_buffer[page][column+i]			=arial_8ptBitmaps[i+letter_offset];
 
 	}
+	
+	
+	return (column+i);
 
 
 }
