@@ -162,7 +162,6 @@ int main(void)
 		
 		pressed_button=pushButtonHandling();
 		
-		
 		if(pressed_button!=invalid){
 			
 		current_menu=SELECT_MENU(current_menu,pressed_button);	

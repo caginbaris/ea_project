@@ -209,6 +209,45 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 
 
+void toMainDetect(){
+	
+	switch(previous_menu){
+		
+		case main_menu: break;
+		
+		case Vpn_true:			main_menu_entry=Vpn_main; break;
+		case Vpn_fund:			main_menu_entry=Vpn_main; break;
+		
+		case Vpp_true:			main_menu_entry=Vpp_main; break;
+		case Vpp_fund:			main_menu_entry=Vpp_main; break;
+		
+		case Ip_true:				main_menu_entry=Ip_main; break;
+		case Ip_fund:				main_menu_entry=Ip_main; break;
+		
+		case Active_Power		:main_menu_entry=	Active_Power_main; break;
+		case Reactive_Power	:main_menu_entry=Reactive_Power_main; break;
+		case Apparent_Power	:main_menu_entry=Apparent_Power_main; break;
+		case Total_Power		:main_menu_entry=Total_Power_main; break;
+		
+		case Power_Factors:main_menu_entry=Power_Factors_main; break;
+		case Total_Power_Factor:main_menu_entry=Total_Power_Factor_main; break;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
+
+void atMainOperation(){
+	
+	
+
+}
 
 
 
@@ -230,6 +269,9 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 			}
 			
 	}
+	
+	
+	if(new_menu!=current_menu){previous_menu=current_menu;}
 	
 	return new_menu;
 

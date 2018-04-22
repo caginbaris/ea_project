@@ -1,6 +1,7 @@
-#include "menu_definitions.h"
+#include "menu_definitions.h" 
 #include "lcd_definitions.h"
 #include "measurement_definitions.h"
+#include <stdlib.h>
 
 
 
@@ -9,13 +10,38 @@
 
 
 enum menu_list current_menu=Vpn_true;
-enum menu_list next_menu=Vpn_true;
-enum input pressed;
-
+enum menu_list previous_menu=Vpn_true;
+enum main_menu_list main_menu_entry=Vpn_main;
 union display_menu_union MENU={0};
 
+/*for main menu listing*/
+enum letter_codes_8pt main_menu_entries[][20]={
+{_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},
+{f,a,z,_,n,o,t,r,_,g,e,r,i,l,i,m,_,r,m,s},
+{f,a,z,_,f,a,z,_,_,g,e,r,i,l,i,m,_,r,m,s},
+{f,a,z,_,a,k,i,m,_,r,m,s,_,_,_,_,_,_,_,_},
+{a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_,_,_},
+{r,e,a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_},
+{g,o,r,u,n,e,n,_,g,u,c,l,e,r,_,_,_,_,_,_},
+{t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_},
+{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},
+{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},		
+};
 
+ 
 
+struct display_menu_handles Main_Menu={
+
+	/*null pointer*/NULL,
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*null pointer*/toMainDetect,
+	/*null pointer*/atMainOperation,
+};
 
 struct display_menu_handles Vpn_true_Menu= {
 	

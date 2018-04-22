@@ -12,12 +12,35 @@ enum menu_list {
 Vpn_true,Vpn_fund,
 Vpp_true,Vpp_fund,
 Ip_true,Ip_fund,
-
+Active_Power,
+Reactive_Power,
+Apparent_Power,
+Total_Power,
+Power_Factors,	
+Total_Power_Factor,
+	
 main_menu
 };
 
+enum main_menu_list {
+
+	Vpn_main,
+	Vpp_main,
+	Ip_main,
+	Active_Power_main,
+	Reactive_Power_main,
+	Apparent_Power_main,
+	Total_Power_main,
+	Power_Factors_main,
+	Total_Power_Factor_main
+};
+
+
 
 extern enum menu_list current_menu;
+extern enum menu_list previous_menu;
+extern enum main_menu_list main_menu_entry;
+
 
 
 
@@ -47,24 +70,6 @@ struct display_menu_handles{
 };
 
 
-struct main_menu_handle{
-	
-	enum letter_codes_8pt title[20];
-	enum letter_codes_8pt first_line[20];
-	enum letter_codes_8pt second_line[20];
-	enum letter_codes_8pt third_line[20];
-	enum letter_codes_8pt fourth_line[20];
-	enum letter_codes_8pt fifth_line[20];
-	enum letter_codes_8pt sixth_line[20];
-	
-	enum menu_symbols symbol[5];
-	uint8_t scroll_position;
-	
-};
-
-
-
-
 union display_menu_union{
 	
 	
@@ -78,11 +83,21 @@ union display_menu_union{
 	
 	struct display_menu_handles Ip_true;
 	struct display_menu_handles Ip_fund;
-	
+		
+	struct display_menu_handles Active_Power;
+	struct display_menu_handles Reactive_Power;
+	struct display_menu_handles Apparent_Power;		
+	struct display_menu_handles Total_Power;
+			
+	struct display_menu_handles Power_Factors;
+	struct display_menu_handles Total_Power_Factor;
+
+	struct display_menu_handles main_menu;		
+		
 	}handle;
 	
 	
-	struct display_menu_handles all[6]; 
+	struct display_menu_handles all[13]; 
 
 
 };
@@ -160,8 +175,12 @@ void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column);
 
 void dynamicDataTripple(struct display_menu_handles menu_item);
 void staticDataTripple(struct display_menu_handles menu_item);
+void toMainDetect();
+void atMainOperation();
 
 void init_Menu();
 void DISPLAY_MENU();
+
+
 
 #endif
