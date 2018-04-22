@@ -35,6 +35,19 @@ enum main_menu_list {
 	Total_Power_Factor_main
 };
 
+struct main_menu_rows{
+	
+	enum letter_codes_8pt *row1;
+	enum letter_codes_8pt *row2;
+	enum letter_codes_8pt *row3;
+	enum letter_codes_8pt *row4;
+	enum letter_codes_8pt *row5;
+	enum letter_codes_8pt *row6;
+	enum letter_codes_8pt *row7;
+};
+
+extern struct main_menu_rows main_lines;
+extern enum letter_codes_8pt main_menu_entries[][20];
 
 
 extern enum menu_list current_menu;

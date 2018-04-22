@@ -211,6 +211,9 @@ void staticDataTripple(struct display_menu_handles menu_item){
 
 void toMainDetect(){
 	
+	uint8_t i;
+	uint8_t column;
+	
 	switch(previous_menu){
 		
 		case main_menu: break;
@@ -235,9 +238,25 @@ void toMainDetect(){
 	}
 	
 	
+	main_menu_entry--;
 	
+	main_lines.row1=&main_menu_entries[main_menu_entry][20];
+	main_lines.row2=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row3=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row4=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row5=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row6=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row7=&main_menu_entries[main_menu_entry++][20];
 	
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row1,0,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row2,1,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row3,2,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row4,3,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row5,4,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row6,5,column);}
+	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row7,6,column);}
 	
+	line_highlighter(2,0); // previous menu placed on 2nd row
 	
 	
 

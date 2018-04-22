@@ -12,6 +12,7 @@
 enum menu_list current_menu=Vpn_true;
 enum menu_list previous_menu=Vpn_true;
 enum main_menu_list main_menu_entry=Vpn_main;
+struct main_menu_rows main_lines;
 union display_menu_union MENU={0};
 
 /*for main menu listing*/
@@ -27,6 +28,8 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},
 {t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},		
 };
+
+
 
  
 
