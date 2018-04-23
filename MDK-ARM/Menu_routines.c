@@ -275,7 +275,7 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 	uint8_t i;
 	enum menu_list new_menu;
 	
-	
+	previous_menu=current_menu;
 	new_menu=current;
 	
 	for(i=0;i<TotalMenuTransitionNo;i++){
@@ -290,8 +290,6 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 	}
 	
 	
-	if(new_menu!=current_menu){previous_menu=current_menu;}
-	
 	return new_menu;
 
 }
@@ -301,16 +299,18 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	
 	memset(display_buffer,0,1024);
-	
 	
 	local_menu=MENU.all[current_menu];
 
+	if(previous_menu!=current_menu){
+	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
+	
+	}
+	
 	MENU.all[current_menu].dynamicDataTransfer(local_menu);
 	
-
 };
 
 
