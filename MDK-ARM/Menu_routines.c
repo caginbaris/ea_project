@@ -38,6 +38,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	uint8_t page,column; 
 	
 
+	#if 0
 	
 	fp=menu_item.values;
 	
@@ -92,7 +93,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	if(lcd_row3.range==u_G){unit_transfer(u_G,page,column+(3*digit_width_14pt+digit_width_14pt));}		
 	
 	
-	
+	#endif
 									
 
 };
@@ -105,7 +106,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	uint8_t column=1;
 	uint8_t page=0;
 	
-
+	#if 0
 
 	for(i=0;i<17;i++){
 		
@@ -202,7 +203,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	//menu units
 	
 	
-	
+	#endif
 	
 	
 }
@@ -235,34 +236,68 @@ void toMainDetect(){
 		case Power_Factors:main_menu_entry=Power_Factors_main; break;
 		case Total_Power_Factor:main_menu_entry=Total_Power_Factor_main; break;
 		
+		default							:main_menu_entry=Vpn_main;break;
+		
 	}
 	
 	
 	main_menu_entry--;
 	
-	main_lines.row1=&main_menu_entries[main_menu_entry][20];
+	
+	main_lines.row1=&main_menu_entries[main_menu_entry++][20];
 	main_lines.row2=&main_menu_entries[main_menu_entry++][20];
 	main_lines.row3=&main_menu_entries[main_menu_entry++][20];
 	main_lines.row4=&main_menu_entries[main_menu_entry++][20];
 	main_lines.row5=&main_menu_entries[main_menu_entry++][20];
 	main_lines.row6=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row7=&main_menu_entries[main_menu_entry++][20];
+	main_lines.row7=&main_menu_entries[main_menu_entry][20];
 	
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row1,0,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row2,1,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row3,2,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row4,3,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row5,4,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row6,5,column);}
-	for(i=0;i<20;i++){column=letter_transfer_8pt(*main_lines.row7,6,column);}
+	main_menu_entry=main_menu_entry-6;
 	
-	line_highlighter(2,0); // previous menu placed on 2nd row
+	//cau can be functionized
+	//cau 2 posnters for row operation required
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row1++,0,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row2++,1,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row3++,2,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row4++,3,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row5++,4,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row6++,5,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row7++,6,column);}column=1;
+	
+
 	
 	
+	symbol_transfer(MENU.handle.main_menu.symbol[0],7,1);
+	symbol_transfer(MENU.handle.main_menu.symbol[1],7,28);
+	symbol_transfer(MENU.handle.main_menu.symbol[2],7,59);
+	symbol_transfer(MENU.handle.main_menu.symbol[3],7,88);
+	symbol_transfer(MENU.handle.main_menu.symbol[4],7,119);
+	
+	line_highlighter(1,128);
+	
+	previous_menu=current_menu;
 
 }
 
 void atMainOperation(){
+	
+	uint8_t i;
+	uint8_t column;
+	static enum main_menu_list cursor;
+	
+	cursor=main_menu_entry;
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	
+	
 	
 	
 
@@ -299,7 +334,7 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	memset(display_buffer,0,1024);
+	//memset(display_buffer,0,1024);
 	
 	local_menu=MENU.all[current_menu];
 

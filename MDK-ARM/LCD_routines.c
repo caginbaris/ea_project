@@ -121,7 +121,7 @@ uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t colum
 	}
 	
 	
-	return (column+i);
+	return (column+i+1);
 
 
 }

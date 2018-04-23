@@ -145,7 +145,6 @@ int main(void)
 	init_backlight();
 	init_Menu();
 	
-		
 
 	
 	

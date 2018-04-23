@@ -800,6 +800,12 @@ const uint8_t arial_8ptBitmaps[] =
 	//  #    
 	// ######
 	0x80, 0xC1, 0xB1, 0x8D, 0x83, 0x81, 
+	
+	//space
+	
+	0x00,0x00,0x00,0x00
+	
+	
 
 };
 
@@ -833,6 +839,7 @@ const uint16_t Descriptors2[][2] =
 	{6, 137}, 		/* X */ 
 	{7, 143}, 		/* Y */ 
 	{6, 150}, 		/* Z */ 
+	{4, 156}, 		/* space */ 
 };
 
 

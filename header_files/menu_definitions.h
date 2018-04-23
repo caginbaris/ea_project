@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 14
+#define TotalMenuTransitionNo 30
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -24,6 +24,7 @@ main_menu
 
 enum main_menu_list {
 
+	tail_bar,
 	Vpn_main,
 	Vpp_main,
 	Ip_main,
