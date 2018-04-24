@@ -240,15 +240,7 @@ void toMainDetect(){
 		
 	}
 	
-	
 
-	symbol_transfer(MENU.handle.main_menu.symbol[0],7,1);
-	symbol_transfer(MENU.handle.main_menu.symbol[1],7,28);
-	symbol_transfer(MENU.handle.main_menu.symbol[2],7,59);
-	symbol_transfer(MENU.handle.main_menu.symbol[3],7,88);
-	symbol_transfer(MENU.handle.main_menu.symbol[4],7,119);
-	
-	
 	previous_menu=current_menu;
 
 }
@@ -260,7 +252,7 @@ void atMainOperation(){
 	enum main_menu_list cursor;
 	
 	enum main_menu_list last_menu=Total_Power_Factor_main;
-	enum main_menu_list first_menu=Total_Power_Factor_main;
+	
 	
 	cursor=main_menu_entry-1;
 	
@@ -309,6 +301,13 @@ void atMainOperation(){
 	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row7++,6,column);}column=1;
 	
 	
+	symbol_transfer(MENU.handle.main_menu.symbol[0],7,1);
+	symbol_transfer(MENU.handle.main_menu.symbol[1],7,28);
+	symbol_transfer(MENU.handle.main_menu.symbol[2],7,59);
+	symbol_transfer(MENU.handle.main_menu.symbol[3],7,88);
+	symbol_transfer(MENU.handle.main_menu.symbol[4],7,119);
+	
+	
 	line_highlighter(1,128);
 	
 	
@@ -346,7 +345,7 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	memset(display_buffer,0,1024);
+	memset(display_buffer,0,1024); // DMA can be used
 	
 	local_menu=MENU.all[current_menu];
 

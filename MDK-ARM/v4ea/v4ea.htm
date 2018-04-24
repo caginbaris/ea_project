@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Apr 24 18:02:53 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Apr 25 00:44:19 2018
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -438,7 +438,7 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 </UL>
 
@@ -557,7 +557,7 @@ Global Symbols
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Enable
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[79]"></a>HAL_ADCEx_InjectedConfigChannel</STRONG> (Thumb, 754 bytes, Stack size 32 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADCEx_InjectedConfigChannel))
@@ -642,7 +642,7 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[76]"></a>HAL_DMA_IRQHandler</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, stm32f3xx_hal_dma.o(i.HAL_DMA_IRQHandler))
@@ -696,7 +696,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
 </UL>
 
 <P><STRONG><a name="[7b]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, stm32f3xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
@@ -713,9 +713,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
 </UL>
 
 <P><STRONG><a name="[6d]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal.o(i.HAL_GetTick))
@@ -922,7 +922,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_ExitInitMode
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_EnterInitMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[a6]"></a>HAL_SDADC_ConvCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_ConvCpltCallback))
@@ -990,7 +990,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_InjConvStart
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[ab]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, sdadc.o(i.HAL_SDADC_MspInit))
@@ -1047,8 +1047,8 @@ Global Symbols
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
 </UL>
 
-<P><STRONG><a name="[f7]"></a>HAL_SPI_GetState</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_GetState))
-<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<P><STRONG><a name="[f8]"></a>HAL_SPI_GetState</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_GetState))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
 </UL>
 
 <P><STRONG><a name="[b4]"></a>HAL_SPI_Init</STRONG> (Thumb, 512 bytes, Stack size 24 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_Init))
@@ -1076,10 +1076,10 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
+<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
 </UL>
 
 <P><STRONG><a name="[b8]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f3xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
@@ -1154,7 +1154,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
 </UL>
 
 <P><STRONG><a name="[c0]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 1140 bytes, Stack size 40 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_ConfigClockSource))
@@ -1232,7 +1232,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[d7]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 494 bytes, Stack size 32 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
@@ -1273,7 +1273,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
 </UL>
 
 <P><STRONG><a name="[c9]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_PeriodElapsedCallback))
@@ -1507,7 +1507,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f373xc.o(RESET)
 </UL>
-<P><STRONG><a name="[fc]"></a>SELECT_MENU</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, menu_routines.o(i.SELECT_MENU))
+<P><STRONG><a name="[fd]"></a>SELECT_MENU</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, menu_routines.o(i.SELECT_MENU))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SELECT_MENU
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1729,37 +1729,38 @@ Global Symbols
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
 </UL>
 
-<P><STRONG><a name="[3]"></a>atMainOperation</STRONG> (Thumb, 488 bytes, Stack size 24 bytes, menu_routines.o(i.atMainOperation))
+<P><STRONG><a name="[3]"></a>atMainOperation</STRONG> (Thumb, 546 bytes, Stack size 24 bytes, menu_routines.o(i.atMainOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = atMainOperation &rArr; letter_transfer_8pt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[f5]"></a>column_change</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, lcd_routines.o(i.column_change))
+<P><STRONG><a name="[f6]"></a>column_change</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, lcd_routines.o(i.column_change))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = column_change &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
 </UL>
 
 <P><STRONG><a name="[5]"></a>dynamicDataTripple</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, menu_routines.o(i.dynamicDataTripple))
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[f6]"></a>init_LCD</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, lcd_routines.o(i.init_LCD))
+<P><STRONG><a name="[f7]"></a>init_LCD</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, lcd_routines.o(i.init_LCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = init_LCD &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_GetState
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_GetState
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f8]"></a>init_Menu</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
+<P><STRONG><a name="[f9]"></a>init_Menu</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = init_Menu &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
@@ -1767,7 +1768,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f9]"></a>init_backlight</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, lcd_routines.o(i.init_backlight))
+<P><STRONG><a name="[fa]"></a>init_backlight</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, lcd_routines.o(i.init_backlight))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = init_backlight &rArr; HAL_TIM_PWM_Start &rArr; TIM_CCxChannelCmd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
@@ -1776,7 +1777,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fa]"></a>init_conversion</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, converison.o(i.init_conversion))
+<P><STRONG><a name="[fb]"></a>init_conversion</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, converison.o(i.init_conversion))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = init_conversion &rArr; HAL_ADC_Start_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_OC_Start_IT
@@ -1794,16 +1795,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
-<P><STRONG><a name="[f4]"></a>line_highlighter</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, lcd_routines.o(i.line_highlighter))
+<P><STRONG><a name="[f5]"></a>line_highlighter</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, lcd_routines.o(i.line_highlighter))
 <BR><BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
 <P><STRONG><a name="[60]"></a>main</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SELECT_MENU
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SELECT_MENU
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM5_Init
@@ -1822,10 +1823,10 @@ Global Symbols
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1834,26 +1835,26 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
 
-<P><STRONG><a name="[ff]"></a>on_delay</STRONG> (Thumb, 40 bytes, Stack size 12 bytes, aux_functions.o(i.on_delay))
+<P><STRONG><a name="[100]"></a>on_delay</STRONG> (Thumb, 40 bytes, Stack size 12 bytes, aux_functions.o(i.on_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = on_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
 </UL>
 
-<P><STRONG><a name="[fe]"></a>page_change</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, lcd_routines.o(i.page_change))
+<P><STRONG><a name="[ff]"></a>page_change</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, lcd_routines.o(i.page_change))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = page_change &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
 </UL>
 
-<P><STRONG><a name="[fb]"></a>pushButtonHandling</STRONG> (Thumb, 224 bytes, Stack size 16 bytes, pb_handling.o(i.pushButtonHandling))
+<P><STRONG><a name="[fc]"></a>pushButtonHandling</STRONG> (Thumb, 224 bytes, Stack size 16 bytes, pb_handling.o(i.pushButtonHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = pushButtonHandling &rArr; HAL_GPIO_ReadPin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1861,25 +1862,23 @@ Global Symbols
 <P><STRONG><a name="[4]"></a>staticDataTripple</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, menu_routines.o(i.staticDataTripple))
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[100]"></a>symbol_transfer</STRONG> (Thumb, 32 bytes, Stack size 12 bytes, lcd_routines.o(i.symbol_transfer))
+<P><STRONG><a name="[f4]"></a>symbol_transfer</STRONG> (Thumb, 32 bytes, Stack size 12 bytes, lcd_routines.o(i.symbol_transfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = symbol_transfer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;toMainDetect
+<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
-<P><STRONG><a name="[2]"></a>toMainDetect</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, menu_routines.o(i.toMainDetect))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = toMainDetect &rArr; symbol_transfer
-</UL>
-<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
+<P><STRONG><a name="[2]"></a>toMainDetect</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, menu_routines.o(i.toMainDetect))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = toMainDetect
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[fd]"></a>write_lcd</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, lcd_routines.o(i.write_lcd))
+<P><STRONG><a name="[fe]"></a>write_lcd</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, lcd_routines.o(i.write_lcd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = write_lcd &rArr; page_change &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_change
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;column_change
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
