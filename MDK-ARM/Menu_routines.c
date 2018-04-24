@@ -241,39 +241,13 @@ void toMainDetect(){
 	}
 	
 	
-	main_menu_entry--;
-	
-	
-	main_lines.row1=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row2=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row3=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row4=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row5=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row6=&main_menu_entries[main_menu_entry++][20];
-	main_lines.row7=&main_menu_entries[main_menu_entry][20];
-	
-	main_menu_entry=main_menu_entry-6;
-	
-	//cau can be functionized
-	//cau 2 posnters for row operation required
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row1++,0,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row2++,1,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row3++,2,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row4++,3,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row5++,4,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row6++,5,column);}column=1;
-	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row7++,6,column);}column=1;
-	
 
-	
-	
 	symbol_transfer(MENU.handle.main_menu.symbol[0],7,1);
 	symbol_transfer(MENU.handle.main_menu.symbol[1],7,28);
 	symbol_transfer(MENU.handle.main_menu.symbol[2],7,59);
 	symbol_transfer(MENU.handle.main_menu.symbol[3],7,88);
 	symbol_transfer(MENU.handle.main_menu.symbol[4],7,119);
 	
-	line_highlighter(1,128);
 	
 	previous_menu=current_menu;
 
@@ -283,24 +257,62 @@ void atMainOperation(){
 	
 	uint8_t i;
 	uint8_t column;
-	static enum main_menu_list cursor;
+	enum main_menu_list cursor;
 	
-	cursor=main_menu_entry;
+	enum main_menu_list last_menu=Total_Power_Factor_main;
+	enum main_menu_list first_menu=Total_Power_Factor_main;
 	
-	
-	
-
-	
+	cursor=main_menu_entry-1;
 	
 
 	
+	if(pressed_button==enter_pressed){
+		
+		switch(main_menu_entry){
+		
+		case Vpn_main:											current_menu=Vpn_true; 						break;
+		case Vpp_main:											current_menu=Vpp_true; 						break;
+		case Ip_main:												current_menu=Ip_true; 						break;
+		case Active_Power_main:							current_menu=Active_Power; 				break;
+		case Reactive_Power_main:						current_menu=Reactive_Power;			break;
+		case Apparent_Power_main:						current_menu=Apparent_Power; 			break;
+		case Total_Power_main:							current_menu=Total_Power; 				break;
+		case Power_Factors_main:						current_menu=Power_Factors; 			break;
+		case Total_Power_Factor_main:				current_menu=Total_Power_Factor; 	break;
+		
+		default:	;break;
+		
+		}
+	
+	}
+	
+	if(pressed_button==down_pressed){main_menu_entry++;}
+	if(pressed_button==up_pressed)	{main_menu_entry--;}
+	
+	cursor=cursor%last_menu;
+	
+	main_lines.row1=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row2=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row3=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row4=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row5=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row6=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
+	main_lines.row7=&main_menu_entries[cursor][20];
+	
+	
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row1++,0,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row2++,1,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row3++,2,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row4++,3,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row5++,4,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row6++,5,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row7++,6,column);}column=1;
+	
+	
+	line_highlighter(1,128);
 	
 	
 	
-	
-	
-	
-
 }
 
 
@@ -334,7 +346,7 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	//memset(display_buffer,0,1024);
+	memset(display_buffer,0,1024);
 	
 	local_menu=MENU.all[current_menu];
 
