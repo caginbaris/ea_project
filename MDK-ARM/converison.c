@@ -152,7 +152,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Ib=(uBuffer[0]+	sd_adc_offset)*3.0f/(65536.0f);
 	AN.data.Ia=(uBuffer[1]+	sd_adc_offset)*3.0f/(65536.0f);
 	AN.data.Ic=(uBuffer[2]+	sd_adc_offset)*3.0f/(65536.0f);
-	
+		
+		
+	AN.data.Vab=AN.data.Van-AN.data.Vbn;
+	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
+	AN.data.Vca=AN.data.Vcn-AN.data.Van;
 			
 		
 	}

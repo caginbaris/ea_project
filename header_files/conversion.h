@@ -4,7 +4,12 @@
 #include <stdint.h>
 
 #define sd_adc_offset 32767.0f
+
 #define sar_adc_offset 0.0f
+#define sampling_rate 10000
+#define fundamental_freq 50
+
+#define periodSampleNo sampling_rate/fundamental_freq  
 
 struct calibrationFlags{
 	
@@ -49,12 +54,16 @@ struct adcData{
 	float Ib;
 	float Ic;
 	
+	float Vab;
+	float Vbc;
+	float Vca;
+	
 };
 
 union uAdcData{
 	
 	struct adcData data;
-	float  buffer[6];
+	float  buffer[9];
 	
 };
 
