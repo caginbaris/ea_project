@@ -4,8 +4,8 @@
 #include "measurement_definitions.h"
 #include  <string.h>
 
-
-
+//extern volatile enum main_menu_list cursor;
+volatile int  cursor;
 struct digit_format  formatDynamicData(float x){
 	
 	struct digit_format formatted_digit;
@@ -106,7 +106,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	uint8_t column=1;
 	uint8_t page=0;
 	
-	#if 0
+	#if 1
 
 	for(i=0;i<17;i++){
 		
@@ -242,6 +242,8 @@ void toMainDetect(){
 	
 
 	previous_menu=current_menu;
+	current_menu=main_menu ;
+	pressed_button=invalid;
 
 }
 
@@ -249,13 +251,14 @@ void atMainOperation(){
 	
 	uint8_t i;
 	uint8_t column;
-	enum main_menu_list cursor;
 	
-	enum main_menu_list last_menu=Total_Power_Factor_main;
+	int last_menu=9;
 	
 	
-	cursor=main_menu_entry-1;
 	
+	
+	
+
 
 	
 	if(pressed_button==enter_pressed){
@@ -278,10 +281,12 @@ void atMainOperation(){
 	
 	}
 	
-	if(pressed_button==down_pressed){main_menu_entry++;}
-	if(pressed_button==up_pressed)	{main_menu_entry--;}
+	if(pressed_button==down_pressed){main_menu_entry++;main_menu_entry=(int)(main_menu_entry)%last_menu;}
+	if(pressed_button==up_pressed)	{main_menu_entry--;main_menu_entry=(int)(main_menu_entry)%last_menu;}
 	
-	cursor=cursor%last_menu;
+	
+	cursor=((int)main_menu_entry-(int)Vpp_main);
+	cursor=cursor%(4);
 	
 	main_lines.row1=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
 	main_lines.row2=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
@@ -291,6 +296,7 @@ void atMainOperation(){
 	main_lines.row6=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
 	main_lines.row7=&main_menu_entries[cursor][20];
 	
+
 	
 	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row1++,0,column);}column=1;
 	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row2++,1,column);}column=1;

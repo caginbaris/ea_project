@@ -10,9 +10,10 @@
 
 
 enum menu_list current_menu=main_menu;
-enum menu_list previous_menu=Vpn_fund;//cau should be different at startup wrt current menu
+enum menu_list previous_menu=main_menu;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
-struct main_menu_rows main_lines;
+//volatile enum main_menu_list cursor=Vpp_main;
+struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 union display_menu_union MENU={0};
 
 /*for main menu listing*/
@@ -26,7 +27,8 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {g,o,r,u,n,e,n,_,g,u,c,l,e,r,_,_,_,_,_,_},
 {t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_},
 {g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},
-{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},		
+{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},
+{_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},	
 };
 
 
@@ -268,7 +270,7 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Ip_fund,				enter_pressed,	main_menu},
 		
 		{	Active_Power,		up_pressed,		Ip_true},
-		
+		{	Active_Power,		enter_pressed,main_menu},
 		
 		
 		

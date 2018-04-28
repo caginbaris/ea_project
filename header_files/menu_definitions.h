@@ -24,7 +24,7 @@ main_menu
 
 enum main_menu_list {
 
-	tail_bar,
+	tail_bar=0,
 	Vpn_main,
 	Vpp_main,
 	Ip_main,
@@ -33,7 +33,8 @@ enum main_menu_list {
 	Apparent_Power_main,
 	Total_Power_main,
 	Power_Factors_main,
-	Total_Power_Factor_main
+	Total_Power_Factor_main,
+	modulo_main,
 };
 
 struct main_menu_rows{
