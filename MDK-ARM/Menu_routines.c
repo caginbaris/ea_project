@@ -4,7 +4,7 @@
 #include "measurement_definitions.h"
 #include  <string.h>
 
-//extern volatile enum main_menu_list cursor;
+
 volatile int  cursor;
 struct digit_format  formatDynamicData(float x){
 	
@@ -32,13 +32,14 @@ struct digit_format  formatDynamicData(float x){
 	
 void dynamicDataTripple(struct display_menu_handles menu_item){
 	
+	#if 0
 	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
 	float *fp;
 
 	uint8_t page,column; 
 	
 
-	#if 0
+	
 	
 	fp=menu_item.values;
 	
@@ -106,7 +107,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	uint8_t column=1;
 	uint8_t page=0;
 	
-	#if 1
+	#if 0
 
 	for(i=0;i<17;i++){
 		
@@ -254,7 +255,7 @@ void atMainOperation(){
 	
 	int last_menu=9;
 	
-	
+	struct main_menu_rows main_line;
 	
 	
 	
@@ -281,22 +282,53 @@ void atMainOperation(){
 	
 	}
 	
-	if(pressed_button==down_pressed){main_menu_entry++;main_menu_entry=(int)(main_menu_entry)%last_menu;}
-	if(pressed_button==up_pressed)	{main_menu_entry--;main_menu_entry=(int)(main_menu_entry)%last_menu;}
+	if(pressed_button==down_pressed){
+	
+		main_menu_entry++;
+		
+		if(main_menu_entry>end_bar){main_menu_entry=start_bar;}
+	
+	}
+	
+	if(pressed_button==up_pressed){
+	
+		main_menu_entry--;
+		
+		if(main_menu_entry<start_bar){main_menu_entry=end_bar;}
+	
+	}
 	
 	
-	cursor=((int)main_menu_entry-(int)Vpp_main);
-	cursor=cursor%(4);
 	
-	main_lines.row1=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row2=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row3=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row4=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row5=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row6=&main_menu_entries[cursor++][20];cursor=cursor%last_menu;
-	main_lines.row7=&main_menu_entries[cursor][20];
+	
+	
+	cursor=(int)main_menu_entry-2;
+	
+	if(main_menu_entry!=Vpn_main){
+	
+	if(cursor>last_menu){cursor-=last_menu;}
+	if(cursor<0){cursor+=last_menu;}
+	
+	}else{
+	
+	cursor=0;
+		
+	}
+	
+	
+	
 	
 
+	
+	main_lines.row1=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row2=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row3=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row4=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row5=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row6=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row7=&main_menu_entries[cursor][20];
+	
+	
 	
 	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row1++,0,column);}column=1;
 	for(i=1;i<21;i++){column=letter_transfer_8pt(*main_lines.row2++,1,column);}column=1;
