@@ -19,16 +19,16 @@ union display_menu_union MENU={0};
 /*for main menu listing*/
 enum letter_codes_8pt main_menu_entries[][20]={
 {_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//0
-{f,a,z,_,n,o,t,r,_,g,e,r,i,l,i,m,_,r,m,s},//1
-{f,a,z,_,f,a,z,_,_,g,e,r,i,l,i,m,_,r,m,s},//2
-{f,a,z,_,a,k,i,m,_,r,m,s,_,_,_,_,_,_,_,_},//3
+{f,a,z,_,n,o,t,r,_,g,e,r,i,l,i,m,_,_,_,_},//1
+{f,a,z,_,f,a,z,_,_,g,e,r,i,l,i,m,_,_,_,_},//2
+{h,a,t,_,a,k,i,m,l,a,r,i,_,_,_,_,_,_,_,_},//3
 {a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_,_,_},//4
 {r,e,a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_},//5
 {g,o,r,u,n,e,n,_,g,u,c,l,e,r,_,_,_,_,_,_},//6
 {t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_},//7
 {g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},//8
 {t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},//9
-{_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//10
+
 };
 
 

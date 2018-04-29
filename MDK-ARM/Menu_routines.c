@@ -253,9 +253,10 @@ void atMainOperation(){
 	uint8_t i;
 	uint8_t column;
 	
-	int last_menu=9;
+	int last_menu=10;
 	
 	struct main_menu_rows main_line;
+	enum main_menu_list last_menu_entry=Total_Power_Factor_main;
 	
 	
 	
@@ -286,7 +287,7 @@ void atMainOperation(){
 	
 		main_menu_entry++;
 		
-		if(main_menu_entry>end_bar){main_menu_entry=start_bar;}
+		if(main_menu_entry>last_menu_entry){main_menu_entry=start_bar;}
 	
 	}
 	
@@ -294,7 +295,7 @@ void atMainOperation(){
 	
 		main_menu_entry--;
 		
-		if(main_menu_entry<start_bar){main_menu_entry=end_bar;}
+		if(main_menu_entry<start_bar){main_menu_entry=last_menu_entry;}
 	
 	}
 	
@@ -302,17 +303,18 @@ void atMainOperation(){
 	
 	
 	
-	cursor=(int)main_menu_entry-2;
+	cursor=(int)main_menu_entry-1;//cau 2->1
 	
-	if(main_menu_entry!=Vpn_main){
+	if(main_menu_entry!=start_bar){
 	
-	if(cursor>last_menu){cursor-=last_menu;}
-	if(cursor<0){cursor+=last_menu;}
+	if(cursor==last_menu){cursor-=last_menu;}
+	if(cursor==0){cursor+=last_menu;}
 	
 	}else{
 	
-	cursor=0;
+		cursor=9;
 		
+	
 	}
 	
 	
@@ -320,12 +322,12 @@ void atMainOperation(){
 	
 
 	
-	main_lines.row1=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
-	main_lines.row2=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
-	main_lines.row3=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
-	main_lines.row4=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
-	main_lines.row5=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
-	main_lines.row6=&main_menu_entries[cursor][20];cursor++;if(cursor>last_menu){cursor-=last_menu;};
+	main_lines.row1=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
+	main_lines.row2=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
+	main_lines.row3=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
+	main_lines.row4=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
+	main_lines.row5=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
+	main_lines.row6=&main_menu_entries[cursor][20];cursor++;if(cursor==last_menu){cursor-=last_menu;};
 	main_lines.row7=&main_menu_entries[cursor][20];
 	
 	

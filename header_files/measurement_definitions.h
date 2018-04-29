@@ -1,6 +1,7 @@
 #ifndef __measurement_definitions_H
 #define __measurement_definitions_H
 
+#include <stdint.h>
 
 union RMS{
 	
@@ -24,8 +25,21 @@ union RMS{
 extern union RMS rms;
 
 
+struct SOS{
+	
+	float xz2;
+	float yz2;		
+	float yz1;
+	
+};
+
+extern struct SOS AnalogParameters[9]; 
 
 
+
+// functions prototypes
+
+union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 
 
 

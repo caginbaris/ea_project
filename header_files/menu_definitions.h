@@ -34,7 +34,7 @@ enum main_menu_list {
 	Total_Power_main,//7
 	Power_Factors_main,//8
 	Total_Power_Factor_main,//9
-	end_bar,//10
+
 };
 
 struct main_menu_rows{

@@ -1,9 +1,10 @@
 
 
 #include "conversion.h"
+#include "measurement_definitions.h"
 #include <math.h>
 
-//#include "arm_math.h"
+
 
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
@@ -18,7 +19,7 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 	
 	
 	
-	for(i=0;i<8;i++){
+	for(i=0;i<9;i++){
 	
 		rms_sum.buffer[i]+=input.buffer[i];
 	
@@ -38,18 +39,53 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 		case 7:rms.buffer[7]=sqrtf(rms_sum.buffer[7]*inverse_avg_sample);rms_sum.buffer[7]=0.0f;break;
 		case 8:rms.buffer[8]=sqrtf(rms_sum.buffer[8]*inverse_avg_sample);rms_sum.buffer[8]=0.0f;break;
 		
-	
+		default: break;
 	}
-	
-	
-	//arm_sqrt_f32(5.0f,&inverse_avg_sample);
-		
 	
 	
 	
 	if(counter++>=periodSampleNo*numberOfPeriod){counter=0;}
 
 	return rms;
+}
+
+//def second order section filter implementations 
+//1 	coeff is sequenced sos coefficents suxh --> b1,b2,b3,a2,a3 order
+//2.0 function invocation shown below  
+//2.1 "output=sos_implementation(input(real-time),output(lef-side),coeff_data(array_name),SOS2data(different for all parameters ));
+
+float sos_implementation(float x,float xBack, float *coeffs, struct SOS *back){
+
+	float y;
+	float *coeff;
+	
+	coeff=coeffs;
+	
+	y=x*(*coeff)	+	xBack*(*coeff++)					+	(back->xz2)*(*coeff++)
+								- (back->yz1)*(*coeff++)		+	(back->yz2)*(*coeff++);
+
+	back->yz2=back->yz1;
+	back->yz1=y;
+	back->xz2=xBack;
+	
+	return y;
+}
+
+
+//inphase and quadrature  parameters derivation part
+
+void iq_generation( union uAdcData input,union uAdcData *iq,float *iq_coeffs,struct SOS *all){
+
+	uint8_t i;
+	
+	
+	for (i=0;i<9;i++){
+	
+		iq->buffer[i]		=sos_implementation(input.buffer[i],iq->buffer[i],iq_coeffs,&all[i]);
+		
+	}
+	
+	
 }
 
 
