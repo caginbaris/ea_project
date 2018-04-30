@@ -633,8 +633,8 @@ erwork --depend=v4ea\startup_stm32f373xc.d -ov4ea\startup_stm32f373xc.o -I.\RTE
 \_v4ea -IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\S
 TM32F3xx\Include -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM3
 2F3xx_DFP\2.1.0\Device\Include --predefine="__EVAL SETA 1" --predefine="__UVISI
-ON_VERSION SETA 525" --predefine="STM32F373xC SETA 1" --predefine="STM32F373xC 
-SETA 1" --list=startup_stm32f373xc.lst startup_stm32f373xc.s
+ON_VERSION SETA 525" --predefine="STM32F373xC SETA 1" --list=startup_stm32f373x
+c.lst startup_stm32f373xc.s
 
 
 

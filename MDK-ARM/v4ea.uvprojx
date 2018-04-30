@@ -646,6 +646,11 @@
               <FileType>1</FileType>
               <FilePath>.\measurement_functions.c</FilePath>
             </File>
+            <File>
+              <FileName>measurement_routines.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\measurement_routines.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

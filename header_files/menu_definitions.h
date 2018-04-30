@@ -25,8 +25,8 @@ main_menu
 enum main_menu_list {
 
 	start_bar,//0
-	Vpn_main=11,//1
-	Vpp_main=12,//2
+	Vpn_main,//1
+	Vpp_main,//2
 	Ip_main,//3
 	Active_Power_main,//4
 	Reactive_Power_main,//5

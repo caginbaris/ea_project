@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+#define i2 0.5f
+#define indefinite 0
+
 union RMS{
 	
 	struct{
@@ -33,17 +36,57 @@ struct SOS{
 	
 };
 
-extern struct SOS AnalogParameters[9]; 
+
+
+
+union powerParameters{
+	
+	struct{
+	
+		float Pa;
+		float Pb;
+		float Pc;
+			
+		float Qa;
+		float Qb;		
+		float Qc;
+		
+		float Sa;
+		float Sb;
+		float Sc;
+		
+		float Ptotal;
+		float Qtotal;
+		float Stotal;
+		
+		float PFa;
+		float PFb;
+		float PFc;
+		
+		float PFtotal;
+	
+	}Power;
+	
+	
+	float buffer[16];
+	
+	
+
+
+};
 
 
 
 // functions prototypes
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
+void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all);
+void power_calculations(union uAdcData inphase,union uAdcData quad, union powerParameters *x );
+void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 
 
-
-
-
+// extern data
+extern const float inphase_coeffs[];
+extern const float quad_coeffs[];
 
 #endif
