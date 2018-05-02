@@ -5,7 +5,7 @@
 #include  <string.h>
 
 
-volatile int  cursor;
+
 
 
 
@@ -257,12 +257,12 @@ void atMainOperation(){
 	uint8_t i;
 	uint8_t column;
 	
-	int last_menu=10;
+	
 	
 	struct main_menu_rows main_line;
 	
 	enum main_menu_list current_entry;
-	enum main_menu_list last_menu_entry=Total_Power_Factor_main;
+	enum main_menu_list last_menu_entry=pos_guard;
 	
 	
 	
@@ -308,18 +308,18 @@ void atMainOperation(){
 	if(main_menu_entry>last_menu_entry){main_menu_entry=start_bar;}
 	if(main_menu_entry<start_bar){main_menu_entry=last_menu_entry;}
 	
-	current_entry=main_menu_entry-2+last_menu_entry; 
+	current_entry=main_menu_entry-1+last_menu_entry; 
 	current_entry%=last_menu_entry;
 	
 	
 	
-	main_lines.row1=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row2=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row3=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row4=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row5=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row6=&main_menu_entries[current_entry][20];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
-	main_lines.row7=&main_menu_entries[current_entry][20];
+	main_lines.row1=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row2=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row3=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row4=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row5=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row6=&main_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	main_lines.row7=&main_menu_entries[current_entry][0];
 	
 	
 	

@@ -163,7 +163,7 @@
           <Type>0</Type>
           <LineNumber>185</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134239832</Address>
+          <Address>134240012</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -200,6 +200,11 @@
           <count>4</count>
           <WinNumber>1</WinNumber>
           <ItemText>cursor</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rms</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

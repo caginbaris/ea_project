@@ -98,6 +98,7 @@ x,
 y,
 z,
 _,
+
 }; //enum for lowercase letters
 
 
