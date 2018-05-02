@@ -24,17 +24,18 @@ main_menu
 
 enum main_menu_list {
 
-	start_bar,//0
-	Vpn_main,//1
-	Vpp_main,//2
-	Ip_main,//3
-	Active_Power_main,//4
-	Reactive_Power_main,//5
-	Apparent_Power_main,//6
-	Total_Power_main,//7
-	Power_Factors_main,//8
-	Total_Power_Factor_main,//9
-
+	neg_guard=-1,
+	start_bar=0,//0
+	Vpn_main=1,//1
+	Vpp_main=2,//2
+	Ip_main=3,//3
+	Active_Power_main=4,//4
+	Reactive_Power_main=5,//5
+	Apparent_Power_main=6,//6
+	Total_Power_main=7,//7
+	Power_Factors_main=8,//8
+	Total_Power_Factor_main=9,//9
+	pos_guard=10,
 };
 
 struct main_menu_rows{

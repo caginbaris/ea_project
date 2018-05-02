@@ -222,6 +222,44 @@ struct display_menu_handles Apparent_Power_Menu= {
 };
 
 
+struct display_menu_handles Power_Factors_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	
+	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	
+	/*fist line*/ 	{I,A,P},
+	/*second line*/ {I,B,P},
+	/*third line*/ 	{I,C,P},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Total_Power_Factor_Menu= {
+	
+	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	
+	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	
+	/*fist line*/ 	{I,A,P},
+	/*second line*/ {I,B,P},
+	/*third line*/ 	{I,C,P},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
 
 
 
@@ -298,6 +336,9 @@ void init_Menu(){
 	MENU.handle.Active_Power=Active_Power_Menu;
 	MENU.handle.Reactive_Power=Reactive_Power_Menu;
 	MENU.handle.Apparent_Power=Apparent_Power_Menu;
+	
+	MENU.handle.Power_Factors=Power_Factors_Menu;
+	MENU.handle.Total_Power_Factor=Total_Power_Factor_Menu;
 	
 }
 
