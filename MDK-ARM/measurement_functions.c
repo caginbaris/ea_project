@@ -103,7 +103,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 }
 
 
-void power_calculations(union uAdcData inphase,union uAdcData quad, union powerParameters *x ){
+void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x ){
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
 		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;
@@ -124,9 +124,57 @@ void power_calculations(union uAdcData inphase,union uAdcData quad, union powerP
 		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : acosf(x->Power.Pa/x->Power.Sa);
 		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : acosf(x->Power.Pb/x->Power.Sb);
 		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : acosf(x->Power.Pc/x->Power.Sc);
-	
 		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : acosf(x->Power.Ptotal/x->Power.Stotal);
 		
+}
+
+void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerParameters *x){
+	
+	
+	static union powerParameters sum={0};
+	static uint16_t counter=0;
+	
+	
+	
+	sum.Power.Pa+=AN.data.Ia*AN.data.Van;
+	sum.Power.Pb+=AN.data.Ib*AN.data.Vbn;
+	sum.Power.Pc+=AN.data.Ic*AN.data.Vcn;
+	
+	
+	//q has to be calc...
+	
+	x->Power.Sa=rms.data.Van*rms.data.Ia;
+	x->Power.Sb=rms.data.Vbn*rms.data.Ib;
+	x->Power.Sc=rms.data.Vcn*rms.data.Ic;
+	
+
+
+	if(++counter==_10period){
+	
+	x->Power.Pa=sum.Power.Pa*_i10period;sum.Power.Pa=0.0f;
+	x->Power.Pb=sum.Power.Pb*_i10period;sum.Power.Pb=0.0f;
+	x->Power.Pc=sum.Power.Pc*_i10period;sum.Power.Pc=0.0f;
+		
+	x->Power.Qa=sum.Power.Qa*_i10period;sum.Power.Qa=0.0f;
+	x->Power.Qb=sum.Power.Qb*_i10period;sum.Power.Qb=0.0f;
+	x->Power.Qc=sum.Power.Qc*_i10period;sum.Power.Qc=0.0f;		
+		
+	counter=0;	
+		
+	}
+	
+	
+	x->Power.Ptotal=	x->Power.Pa + x->Power.Pb + x->Power.Pc;
+	x->Power.Qtotal=	x->Power.Qa + x->Power.Qb + x->Power.Qc;
+	x->Power.Stotal=	x->Power.Sa + x->Power.Sb + x->Power.Sc;
+	
+	
+	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : acosf(x->Power.Pa/x->Power.Sa);
+	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : acosf(x->Power.Pb/x->Power.Sb);
+	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : acosf(x->Power.Pc/x->Power.Sc);
+	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : acosf(x->Power.Ptotal/x->Power.Stotal);
+	
+	
 }
 
 

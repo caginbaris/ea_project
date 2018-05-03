@@ -3,6 +3,11 @@
 
 #include <stdint.h>
 
+#define fs 					10000
+#define period 			fs/50
+#define _10period 	period*10
+#define _i10period 	1/_10period
+
 #define i2 0.5f
 #define indefinite 0
 
@@ -62,14 +67,14 @@ union powerParameters{
 		float PFa;
 		float PFb;
 		float PFc;
-		
 		float PFtotal;
+		
+
 	
 	}Power;
 	
 	
 	float buffer[16];
-	
 	
 
 
@@ -77,11 +82,15 @@ union powerParameters{
 
 
 
+
+
+
 // functions prototypes
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all);
-void power_calculations(union uAdcData inphase,union uAdcData quad, union powerParameters *x );
+void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
+void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 
 
