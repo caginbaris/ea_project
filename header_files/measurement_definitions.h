@@ -97,5 +97,8 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 // extern data
 extern const float inphase_coeffs[];
 extern const float quad_coeffs[];
-
+extern union uAdcData  fundRMS;
+extern union uAdcData  trueRMS;
+extern union powerParameters  power_iq;
+extern union powerParameters  power_true;
 #endif

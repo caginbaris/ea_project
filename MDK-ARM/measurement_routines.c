@@ -10,13 +10,13 @@ struct SOS quad_sos[6]; 		// for inphase parameters
 struct SOS inphase_sos[6]; 	// for inphase parameters
 
 
-union uAdcData  inphaseData;
-union uAdcData  quadData;
-union uAdcData  fundRMS;
-union uAdcData  trueRMS;
+union uAdcData  inphaseData={0};
+union uAdcData  quadData={0};
+union uAdcData  fundRMS={0};
+union uAdcData  trueRMS={0};
 
-union powerParameters  power_iq;
-union powerParameters  power_true;
+union powerParameters  power_iq={0};
+union powerParameters  power_true={0};
 
 void measurement_routines(){
 	

@@ -119,8 +119,6 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
 	
 		
-	//cau column parameter should returened for stiff font transfer	
-		
 	}
 	
 	line_highlighter(0,128);
@@ -129,9 +127,9 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 	page=1;
 	
-	letter_transfer_14pt(menu_item.first_line[0],page,column);
-	letter_transfer_14pt(menu_item.first_line[1],page,column+  upperCaseLargeLetterWidth);
-	letter_transfer_14pt(menu_item.first_line[2],page,column+2*upperCaseLargeLetterWidth);
+	column=letter_transfer_14pt(menu_item.first_line[0],page,column);
+	column=letter_transfer_14pt(menu_item.first_line[1],page,column);
+	column=letter_transfer_14pt(menu_item.first_line[2],page,column);
 	
 	menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
 	
@@ -149,13 +147,11 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	}
 	
 	
-	
-	
 	page=3;
 	
-	letter_transfer_14pt(menu_item.second_line[0],page,column);
-	letter_transfer_14pt(menu_item.second_line[1],page,column+  upperCaseLargeLetterWidth);
-	letter_transfer_14pt(menu_item.second_line[2],page,column+2*upperCaseLargeLetterWidth);
+	column=letter_transfer_14pt(menu_item.second_line[0],page,column);
+	column=letter_transfer_14pt(menu_item.second_line[1],page,column);
+	column=letter_transfer_14pt(menu_item.second_line[2],page,column);
 	
 	
 		menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
@@ -176,9 +172,9 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 	page=5;
 	
-	letter_transfer_14pt(menu_item.third_line[0],page,column);
-	letter_transfer_14pt(menu_item.third_line[1],page,column+  upperCaseLargeLetterWidth);
-	letter_transfer_14pt(menu_item.third_line[2],page,column+2*upperCaseLargeLetterWidth);
+	column=letter_transfer_14pt(menu_item.third_line[0],page,column);
+	column=letter_transfer_14pt(menu_item.third_line[1],page,column);
+	column=letter_transfer_14pt(menu_item.third_line[2],page,column);
 	
 	menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
 	
@@ -196,7 +192,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	}
 	
 
-	// symbols should be generated
+	
 	
 
 	symbol_transfer(menu_item.symbol[0],7,1);
@@ -259,7 +255,7 @@ void atMainOperation(){
 	
 	
 	
-	struct main_menu_rows main_line;
+	
 	
 	enum main_menu_list current_entry;
 	enum main_menu_list last_menu_entry=pos_guard;

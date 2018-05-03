@@ -182,7 +182,7 @@ extern const struct MENU_TRANSITION menu_transition[TotalMenuTransitionNo];
 extern struct display_menu_handles Vpn_true_Menu;
 
 
-void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
+uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
 void unit_transfer(enum units x, uint8_t page, uint8_t column);

@@ -1,5 +1,6 @@
 #include "menu_definitions.h" 
 #include "lcd_definitions.h"
+#include "conversion.h"
 #include "measurement_definitions.h"
 #include <stdlib.h>
 
@@ -50,7 +51,7 @@ struct display_menu_handles Main_Menu={
 
 struct display_menu_handles Vpn_true_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Vpn_true_a),
+	/*dynamic data*/ &(trueRMS.data.Van),
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,g,e,r,c,e,k}, 
 	
@@ -70,7 +71,7 @@ struct display_menu_handles Vpn_true_Menu= {
 
 struct display_menu_handles Vpn_fund_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Vpn_fund_a),
+	/*dynamic data*/ &(fundRMS.data.Van),
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_}, 
 	
@@ -90,7 +91,7 @@ struct display_menu_handles Vpn_fund_Menu= {
 
 struct display_menu_handles Vpp_true_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Vpp_true_a),
+	/*dynamic data*/ &(trueRMS.data.Vab),
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,g,e,r,c,e,k}, 
 	
@@ -109,7 +110,7 @@ struct display_menu_handles Vpp_true_Menu= {
 
 struct display_menu_handles Vpp_fund_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Vpp_fund_a),
+	/*dynamic data*/ &(fundRMS.data.Vab),
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,a,n,a,_,_,_}, 
 	
@@ -129,13 +130,13 @@ struct display_menu_handles Vpp_fund_Menu= {
 
 struct display_menu_handles Ip_true_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_true_a),
+	/*dynamic data*/ &(trueRMS.data.Ia),
 	
 	/*title*/      	{a,k,i,m,_,g,e,r,c,e,k,_,r,m,s,_,_}, 
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{I,A,__},
+	/*second line*/ {I,B,__},
+	/*third line*/ 	{I,C,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_,},
@@ -148,13 +149,13 @@ struct display_menu_handles Ip_true_Menu= {
 
 struct display_menu_handles Ip_fund_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(fundRMS.data.Ia),
 	
 	/*title*/      	{a,k,i,m,_,_,a,n,a,_,_,r,m,s,_,_,_} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{I,A,__},
+	/*second line*/ {I,B,__},
+	/*third line*/ 	{I,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -167,13 +168,13 @@ struct display_menu_handles Ip_fund_Menu= {
 
 struct display_menu_handles Active_Power_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(power_iq.Power.Pa),
 	
 	/*title*/      	{a,k,t,i,f,_,g,u,c,_,_,_,_,_,_,_,_,_} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{P,A,__},
+	/*second line*/ {P,B,__},
+	/*third line*/ 	{P,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -186,13 +187,13 @@ struct display_menu_handles Active_Power_Menu= {
 
 struct display_menu_handles Reactive_Power_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(power_iq.Power.Qa),
 	
 	/*title*/      	{r,e,a,k,t,i,f,_,g,u,c,_,_,_,_,_,_,_} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{Q,A,__},
+	/*second line*/ {Q,B,__},
+	/*third line*/ 	{Q,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -205,13 +206,13 @@ struct display_menu_handles Reactive_Power_Menu= {
 
 struct display_menu_handles Apparent_Power_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(power_iq.Power.Sa),
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{S,A,__},
+	/*second line*/ {S,B,__},
+	/*third line*/ 	{S,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -224,13 +225,13 @@ struct display_menu_handles Apparent_Power_Menu= {
 
 struct display_menu_handles Power_Factors_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{P,F,A},
+	/*second line*/ {P,F,B},
+	/*third line*/ 	{P,F,C},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -243,13 +244,13 @@ struct display_menu_handles Power_Factors_Menu= {
 
 struct display_menu_handles Total_Power_Factor_Menu= {
 	
-	/*dynamic data*/ &(rms.AN.Ip_fund_a),
+	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
 	
-	/*fist line*/ 	{I,A,P},
-	/*second line*/ {I,B,P},
-	/*third line*/ 	{I,C,P},
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},

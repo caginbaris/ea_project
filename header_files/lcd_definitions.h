@@ -174,7 +174,7 @@ extern enum units unit;
 extern enum letter_codes_14pt letter;
 extern enum letter_codes_14pt letter2;
 
-void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
+uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void put_dot2x2(uint8_t page,uint8_t column);
 void line_highlighter(uint8_t page, uint8_t column);

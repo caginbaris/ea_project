@@ -12,10 +12,11 @@ struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
 union  uAdcData rawAdc	={0};
 union  uAdcData AN			={0};
+union  uAdcData scale		 ={0};
 
 uint32_t  uBuffer[6];
 
-
+void measurement_routines();
 
 
 
@@ -40,6 +41,14 @@ void init_conversion(void){
 	HAL_ADC_Start_DMA(&hadc1,&uBuffer[3],3);
 	
 	// triggers
+	
+	scale.data.Van=1;
+	scale.data.Vbn=1;
+	scale.data.Vcn=1;
+	
+	scale.data.Ia=1;
+	scale.data.Ib=1;
+	scale.data.Ic=1;
 	
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_3,1);
@@ -145,20 +154,21 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 		
 		
-	AN.data.Van=(uBuffer[3]-	sar_adc_offset);
-	AN.data.Vbn=(uBuffer[4]-	sar_adc_offset);	
-	AN.data.Vcn=(uBuffer[5]-	sar_adc_offset);
+	AN.data.Van=(uBuffer[3]-sar_adc_offset)	*scale.data.Van;
+	AN.data.Vbn=(uBuffer[4]-sar_adc_offset)	*scale.data.Van;	
+	AN.data.Vcn=(uBuffer[5]-sar_adc_offset)	*scale.data.Van;
 
-	AN.data.Ib=(uBuffer[0]+	sd_adc_offset)*3.0f/(65536.0f);
-	AN.data.Ia=(uBuffer[1]+	sd_adc_offset)*3.0f/(65536.0f);
-	AN.data.Ic=(uBuffer[2]+	sd_adc_offset)*3.0f/(65536.0f);
+	AN.data.Ib=	(uBuffer[0]-sd_adc_offset)	*scale.data.Ia;
+	AN.data.Ia=	(uBuffer[1]-sd_adc_offset)	*scale.data.Ib;
+	AN.data.Ic=	(uBuffer[2]-sd_adc_offset)	*scale.data.Ic;
 		
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
 	AN.data.Vca=AN.data.Vcn-AN.data.Van;
 			
-		
+	measurement_routines();
+	
 	}
 	
 }

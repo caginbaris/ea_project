@@ -81,7 +81,7 @@ void write_lcd(){
 }
 
 
-void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column){
+uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column){
 	
 	uint16_t i;
 	uint8_t page_plus;
@@ -99,7 +99,7 @@ void letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column
 		display_buffer[page_plus][column+i]	=arial_14ptBitmaps[i+letter_offset +letter_width];
 	}
 
-
+	return (column+i+1);
 }
 
 

@@ -477,13 +477,17 @@ const uint8_t arial_14ptBitmaps[] =
 	// ###########
 	0x00, 0x07, 0x07, 0x87, 0xC7, 0xE7, 0xF7, 0x7F, 0x3F, 0x1F, 0x0F, 
 	0x3C, 0x3E, 0x3F, 0x3F, 0x3B, 0x39, 0x38, 0x38, 0x38, 0x38, 0x38, 
+	
+	//space
+	
+	0x00,0x00,0x00,0x00,0x00,0x00
 };
 
 /* Character descriptors for Arial 14pt */
 /* { [Char width in bits], [Offset into arial_14ptCharBitmaps in bytes] } */
 const uint16_t Descriptors[][2] = 
 {
-	{13, 0}, 		/* A */ 
+	{13, 0}, 			/* A */ 
 	{12, 26}, 		/* B */ 
 	{12, 50}, 		/* C */ 
 	{12, 74}, 		/* D */ 
@@ -509,6 +513,7 @@ const uint16_t Descriptors[][2] =
 	{11, 536}, 		/* X */ 
 	{11, 558}, 		/* Y */ 
 	{11, 580}, 		/* Z */ 
+	{3,  586}, 		/* space */ 
 };
 
 
