@@ -220,24 +220,27 @@ void toMainDetect(){
 		
 	
 		
-		case Vpn_true:			main_menu_entry=Vpn_main; break;
-		case Vpn_fund:			main_menu_entry=Vpn_main; break;
+		case Vpn_true:									main_menu_entry=Vpn_main; break;
+		case Vpn_fund:									main_menu_entry=Vpn_main; break;
 		
-		case Vpp_true:			main_menu_entry=Vpp_main; break;
-		case Vpp_fund:			main_menu_entry=Vpp_main; break;
+		case Vpp_true:									main_menu_entry=Vpp_main; break;
+		case Vpp_fund:									main_menu_entry=Vpp_main; break;
 		
-		case Ip_true:				main_menu_entry=Ip_main; break;
-		case Ip_fund:				main_menu_entry=Ip_main; break;
+		case Ip_true:										main_menu_entry=Ip_main; break;
+		case Ip_fund:										main_menu_entry=Ip_main; break;
 		
-		case Active_Power		:main_menu_entry=	Active_Power_main; break;
-		case Reactive_Power	:main_menu_entry=Reactive_Power_main; break;
-		case Apparent_Power	:main_menu_entry=Apparent_Power_main; break;
-		case Total_Power		:main_menu_entry=Total_Power_main; break;
+		case Active_Power		:						main_menu_entry=	Active_Power_main; break;
+		case Reactive_Power	:						main_menu_entry=Reactive_Power_main; break;
+		case Apparent_Power	:						main_menu_entry=Apparent_Power_main; break;
+		case Total_Power		:						main_menu_entry=Total_Power_main; break;
 		
-		case Power_Factors:main_menu_entry=Power_Factors_main; break;
-		case Total_Power_Factor:main_menu_entry=Total_Power_Factor_main; break;
+		case Power_Factors_true:				main_menu_entry=	Power_Factors_main; break;
+		case Total_Power_Factor_true:		main_menu_entry=Total_Power_Factor_main; break;
 		
-		default							:main_menu_entry=Vpn_main;break;
+		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
+		case Total_Power_Factor_fund:		main_menu_entry=Total_Power_Factor_main; break;
+		
+		default:main_menu_entry=Vpn_main;break;
 		
 	}
 	
@@ -270,15 +273,15 @@ void atMainOperation(){
 		
 		switch(main_menu_entry){
 		
-		case Vpn_main:											current_menu=Vpn_true; 						break;
-		case Vpp_main:											current_menu=Vpp_true; 						break;
-		case Ip_main:												current_menu=Ip_true; 						break;
-		case Active_Power_main:							current_menu=Active_Power; 				break;
-		case Reactive_Power_main:						current_menu=Reactive_Power;			break;
-		case Apparent_Power_main:						current_menu=Apparent_Power; 			break;
-		case Total_Power_main:							current_menu=Total_Power; 				break;
-		case Power_Factors_main:						current_menu=Power_Factors; 			break;
-		case Total_Power_Factor_main:				current_menu=Total_Power_Factor; 	break;
+		case Vpn_main:											current_menu=Vpn_true; 									break;
+		case Vpp_main:											current_menu=Vpp_true; 									break;
+		case Ip_main:												current_menu=Ip_true; 									break;
+		case Active_Power_main:							current_menu=Active_Power; 							break;
+		case Reactive_Power_main:						current_menu=Reactive_Power;						break;
+		case Apparent_Power_main:						current_menu=Apparent_Power; 						break;
+		case Total_Power_main:							current_menu=Total_Power; 							break;
+		case Power_Factors_main:						current_menu=Power_Factors_true; 				break;
+		case Total_Power_Factor_main:				current_menu=Total_Power_Factor_true; 	break;
 		
 		default:	;break;
 		

@@ -280,38 +280,69 @@ const struct MENU_TRANSITION menu_transition[]={
 	
 	//	current menu----input-----------next menu
 	
-		{	Vpn_true,				right_pressed,	Vpn_fund},
-		{	Vpn_true,				down_pressed,		Vpp_true},
-		{	Vpn_true,				enter_pressed,	main_menu},
+		{	Vpn_true,								right_pressed,	Vpn_fund},
+		{	Vpn_true,								down_pressed,		Vpp_true},
+		{	Vpn_true,								enter_pressed,	main_menu},
 		
-		{	Vpn_fund,				left_pressed,		Vpn_true},
-		{	Vpn_fund,				down_pressed,		Vpp_fund},
-		{	Vpn_true,				enter_pressed,	main_menu},
+		{	Vpn_fund,								left_pressed,		Vpn_true},
+		{	Vpn_fund,								down_pressed,		Vpp_fund},
+		{	Vpn_true,								enter_pressed,	main_menu},
 		
-		{	Vpp_true,				right_pressed,	Vpp_fund},
-		{	Vpp_true,				down_pressed,		Ip_true},
-		{	Vpp_true,				up_pressed,			Vpn_true},
-		{	Vpp_true,				enter_pressed,	main_menu},
+		{	Vpp_true,								right_pressed,	Vpp_fund},
+		{	Vpp_true,								down_pressed,		Ip_true},
+		{	Vpp_true,								up_pressed,			Vpn_true},
+		{	Vpp_true,								enter_pressed,	main_menu},
 		
-		{	Vpp_fund,				left_pressed,		Vpp_true},
-		{	Vpp_fund,				down_pressed,		Ip_fund},
-		{	Vpp_fund,				up_pressed,		  Vpn_fund},
-		{	Vpp_fund,				enter_pressed,	main_menu},
+		{	Vpp_fund,								left_pressed,		Vpp_true},
+		{	Vpp_fund,								down_pressed,		Ip_fund},
+		{	Vpp_fund,								up_pressed,		  Vpn_fund},
+		{	Vpp_fund,								enter_pressed,	main_menu},
 		
-		{	Ip_true,				right_pressed,	Ip_fund},
-		{	Ip_true,				up_pressed,			Vpp_true},
-		{	Ip_true,				down_pressed,		Active_Power},
-		{	Ip_true,				enter_pressed,	main_menu},
+		{	Ip_true,								right_pressed,	Ip_fund},
+		{	Ip_true,								up_pressed,			Vpp_true},
+		{	Ip_true,								down_pressed,		Active_Power},
+		{	Ip_true,								enter_pressed,	main_menu},
 		
-		{	Ip_fund,				left_pressed,		Ip_true},
-		{	Ip_fund,				up_pressed,			Vpp_fund},
-		{	Ip_fund,				down_pressed,		Active_Power},
-		{	Ip_fund,				enter_pressed,	main_menu},
+		{	Ip_fund,								left_pressed,		Ip_true},
+		{	Ip_fund,								up_pressed,			Vpp_fund},
+		{	Ip_fund,								down_pressed,		Active_Power},
+		{	Ip_fund,								enter_pressed,	main_menu},
 		
-		{	Active_Power,		up_pressed,		Ip_true},
-		{	Active_Power,		enter_pressed,main_menu},
+		{	Active_Power,						up_pressed,			Ip_true},
+		{	Active_Power,						down_pressed,		Reactive_Power},
+		{	Active_Power,						enter_pressed,	main_menu},
 		
+		{	Reactive_Power,					up_pressed,			Active_Power},
+		{	Reactive_Power,					down_pressed,		Apparent_Power},
+		{	Reactive_Power,					enter_pressed,	main_menu},
 		
+		{	Apparent_Power,					up_pressed,			Reactive_Power},
+		{	Apparent_Power,					down_pressed,		Total_Power},
+		{	Apparent_Power,					enter_pressed,	main_menu},
+		
+		{	Total_Power,						up_pressed,			Apparent_Power},
+		{	Total_Power,						down_pressed,		Power_Factors_true},
+		{	Total_Power,						enter_pressed,	main_menu},
+		
+		{	Power_Factors_true,			right_pressed,	Power_Factors_fund},
+		{	Power_Factors_true,			up_pressed,			Total_Power},
+		{	Power_Factors_true,			down_pressed,		Total_Power_Factor_true},
+		{	Power_Factors_true,			enter_pressed,	main_menu},
+		
+		{	Power_Factors_fund,			left_pressed,		Power_Factors_true},
+		{	Power_Factors_fund,			up_pressed,			Total_Power},
+		{	Power_Factors_fund,			down_pressed,		Total_Power_Factor_fund},
+		{	Power_Factors_fund,			enter_pressed,	main_menu},
+		
+		{	Total_Power_Factor_true,up_pressed,			Power_Factors_true},
+		{	Total_Power_Factor_true,down_pressed,		Power_Ratios},
+		{	Total_Power_Factor_true,right_pressed,	Total_Power_Factor_fund},
+		{	Total_Power_Factor_true,enter_pressed,	main_menu},
+		
+		{	Total_Power_Factor_fund,up_pressed,			Power_Factors_fund},
+		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
+		{	Total_Power_Factor_fund,right_pressed,	Total_Power_Factor_true},
+		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
 
 };

@@ -2547,29 +2547,29 @@ Image Symbol Table
     i.staticDataTripple                      0x08007b00   Section        0  menu_routines.o(i.staticDataTripple)
     i.symbol_transfer                        0x08007c98   Section        0  lcd_routines.o(i.symbol_transfer)
     i.toMainDetect                           0x08007cc0   Section        0  menu_routines.o(i.toMainDetect)
-    i.true_RMS                               0x08007d24   Section        0  measurement_functions.o(i.true_RMS)
-    i.unit_transfer                          0x08007e88   Section        0  lcd_routines.o(i.unit_transfer)
-    i.write_lcd                              0x08007ed4   Section        0  lcd_routines.o(i.write_lcd)
-    x$fpl$fpinit                             0x08007f24   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08007f24   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x08007f2e   Section       14  lcd_data.o(.constdata)
-    x$fpl$usenofp                            0x08007f2e   Section        0  usenofp.o(x$fpl$usenofp)
-    .constdata                               0x08007f3c   Section      608  lcd_fonts.o(.constdata)
-    .constdata                               0x0800819c   Section      108  lcd_fonts.o(.constdata)
-    .constdata                               0x08008208   Section      160  lcd_fonts.o(.constdata)
-    .constdata                               0x080082a8   Section      108  lcd_fonts.o(.constdata)
-    .constdata                               0x08008314   Section       56  lcd_fonts.o(.constdata)
-    .constdata                               0x0800834c   Section      220  lcd_fonts.o(.constdata)
-    .constdata                               0x08008428   Section       40  lcd_fonts.o(.constdata)
-    .constdata                               0x08008450   Section       38  lcd_fonts.o(.constdata)
-    .constdata                               0x08008476   Section       12  lcd_fonts.o(.constdata)
-    .constdata                               0x08008482   Section       94  lcd_fonts.o(.constdata)
-    .constdata                               0x080084e0   Section       24  lcd_fonts.o(.constdata)
-    .constdata                               0x080084f8   Section       32  stm32f3xx_hal_rcc.o(.constdata)
-    .constdata                               0x08008518   Section       16  system_stm32f3xx.o(.constdata)
-    .constdata                               0x08008528   Section        8  system_stm32f3xx.o(.constdata)
-    .constdata                               0x08008530   Section       90  menu_init.o(.constdata)
-    .constdata                               0x0800858c   Section       20  measurement_data.o(.constdata)
+    i.true_RMS                               0x08007d28   Section        0  measurement_functions.o(i.true_RMS)
+    i.unit_transfer                          0x08007e8c   Section        0  lcd_routines.o(i.unit_transfer)
+    i.write_lcd                              0x08007ed8   Section        0  lcd_routines.o(i.write_lcd)
+    x$fpl$fpinit                             0x08007f28   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08007f28   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x08007f32   Section       14  lcd_data.o(.constdata)
+    x$fpl$usenofp                            0x08007f32   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x08007f40   Section      608  lcd_fonts.o(.constdata)
+    .constdata                               0x080081a0   Section      108  lcd_fonts.o(.constdata)
+    .constdata                               0x0800820c   Section      160  lcd_fonts.o(.constdata)
+    .constdata                               0x080082ac   Section      108  lcd_fonts.o(.constdata)
+    .constdata                               0x08008318   Section       56  lcd_fonts.o(.constdata)
+    .constdata                               0x08008350   Section      220  lcd_fonts.o(.constdata)
+    .constdata                               0x0800842c   Section       40  lcd_fonts.o(.constdata)
+    .constdata                               0x08008454   Section       38  lcd_fonts.o(.constdata)
+    .constdata                               0x0800847a   Section       12  lcd_fonts.o(.constdata)
+    .constdata                               0x08008486   Section       94  lcd_fonts.o(.constdata)
+    .constdata                               0x080084e4   Section       24  lcd_fonts.o(.constdata)
+    .constdata                               0x080084fc   Section       32  stm32f3xx_hal_rcc.o(.constdata)
+    .constdata                               0x0800851c   Section       16  system_stm32f3xx.o(.constdata)
+    .constdata                               0x0800852c   Section        8  system_stm32f3xx.o(.constdata)
+    .constdata                               0x08008534   Section      150  menu_init.o(.constdata)
+    .constdata                               0x080085cc   Section       20  measurement_data.o(.constdata)
     .data                                    0x20000000   Section        4  converison.o(.data)
     .data                                    0x20000004   Section        2  main.o(.data)
     .data                                    0x20000008   Section        4  stm32f3xx_hal.o(.data)
@@ -2949,34 +2949,34 @@ Image Symbol Table
     sqrtf                                    0x08007ac3   Thumb Code    62  sqrtf.o(i.sqrtf)
     staticDataTripple                        0x08007b01   Thumb Code   406  menu_routines.o(i.staticDataTripple)
     symbol_transfer                          0x08007c99   Thumb Code    32  lcd_routines.o(i.symbol_transfer)
-    toMainDetect                             0x08007cc1   Thumb Code    82  menu_routines.o(i.toMainDetect)
-    true_RMS                                 0x08007d25   Thumb Code   344  measurement_functions.o(i.true_RMS)
-    unit_transfer                            0x08007e89   Thumb Code    64  lcd_routines.o(i.unit_transfer)
-    write_lcd                                0x08007ed5   Thumb Code    66  lcd_routines.o(i.write_lcd)
-    _fp_init                                 0x08007f25   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08007f2d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08007f2d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    LCD_batch_init_array                     0x08007f2e   Data          14  lcd_data.o(.constdata)
-    __I$use$fp                               0x08007f2e   Number         0  usenofp.o(x$fpl$usenofp)
-    arial_14ptBitmaps                        0x08007f3c   Data         608  lcd_fonts.o(.constdata)
-    Descriptors                              0x0800819c   Data         108  lcd_fonts.o(.constdata)
-    arial_8ptBitmaps                         0x08008208   Data         160  lcd_fonts.o(.constdata)
-    Descriptors2                             0x080082a8   Data         108  lcd_fonts.o(.constdata)
-    button_symbols                           0x08008314   Data          56  lcd_fonts.o(.constdata)
-    bookAntiqua_14ptBitmaps                  0x0800834c   Data         220  lcd_fonts.o(.constdata)
-    Descriptors3                             0x08008428   Data          40  lcd_fonts.o(.constdata)
-    unit_charecters                          0x08008450   Data          38  lcd_fonts.o(.constdata)
-    Descriptors4                             0x08008476   Data          12  lcd_fonts.o(.constdata)
-    menu_units_ch                            0x08008482   Data          94  lcd_fonts.o(.constdata)
-    Descriptors5                             0x080084e0   Data          24  lcd_fonts.o(.constdata)
-    aPLLMULFactorTable                       0x080084f8   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x08008508   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    AHBPrescTable                            0x08008518   Data          16  system_stm32f3xx.o(.constdata)
-    APBPrescTable                            0x08008528   Data           8  system_stm32f3xx.o(.constdata)
-    menu_transition                          0x08008530   Data          90  menu_init.o(.constdata)
-    inphase_coeffs                           0x0800858c   Data          20  measurement_data.o(.constdata)
-    Region$$Table$$Base                      0x080085a0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080085c0   Number         0  anon$$obj.o(Region$$Table)
+    toMainDetect                             0x08007cc1   Thumb Code    88  menu_routines.o(i.toMainDetect)
+    true_RMS                                 0x08007d29   Thumb Code   344  measurement_functions.o(i.true_RMS)
+    unit_transfer                            0x08007e8d   Thumb Code    64  lcd_routines.o(i.unit_transfer)
+    write_lcd                                0x08007ed9   Thumb Code    66  lcd_routines.o(i.write_lcd)
+    _fp_init                                 0x08007f29   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08007f31   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08007f31   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    LCD_batch_init_array                     0x08007f32   Data          14  lcd_data.o(.constdata)
+    __I$use$fp                               0x08007f32   Number         0  usenofp.o(x$fpl$usenofp)
+    arial_14ptBitmaps                        0x08007f40   Data         608  lcd_fonts.o(.constdata)
+    Descriptors                              0x080081a0   Data         108  lcd_fonts.o(.constdata)
+    arial_8ptBitmaps                         0x0800820c   Data         160  lcd_fonts.o(.constdata)
+    Descriptors2                             0x080082ac   Data         108  lcd_fonts.o(.constdata)
+    button_symbols                           0x08008318   Data          56  lcd_fonts.o(.constdata)
+    bookAntiqua_14ptBitmaps                  0x08008350   Data         220  lcd_fonts.o(.constdata)
+    Descriptors3                             0x0800842c   Data          40  lcd_fonts.o(.constdata)
+    unit_charecters                          0x08008454   Data          38  lcd_fonts.o(.constdata)
+    Descriptors4                             0x0800847a   Data          12  lcd_fonts.o(.constdata)
+    menu_units_ch                            0x08008486   Data          94  lcd_fonts.o(.constdata)
+    Descriptors5                             0x080084e4   Data          24  lcd_fonts.o(.constdata)
+    aPLLMULFactorTable                       0x080084fc   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x0800850c   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    AHBPrescTable                            0x0800851c   Data          16  system_stm32f3xx.o(.constdata)
+    APBPrescTable                            0x0800852c   Data           8  system_stm32f3xx.o(.constdata)
+    menu_transition                          0x08008534   Data         150  menu_init.o(.constdata)
+    inphase_coeffs                           0x080085cc   Data          20  measurement_data.o(.constdata)
+    Region$$Table$$Base                      0x080085e0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08008600   Number         0  anon$$obj.o(Region$$Table)
     convFlags                                0x20000000   Data           1  converison.o(.data)
     calFlags                                 0x20000002   Data           2  converison.o(.data)
     mp_counter                               0x20000004   Data           2  main.o(.data)
@@ -3038,9 +3038,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00008914, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00008724])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00008954, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00008764])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000085c0, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00008600, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3310,34 +3310,34 @@ Memory Map of the image
     0x08007b00   0x08007b00   0x00000196   Code   RO         5075    i.staticDataTripple  menu_routines.o
     0x08007c96   0x08007c96   0x00000002   PAD
     0x08007c98   0x08007c98   0x00000028   Code   RO          225    i.symbol_transfer   lcd_routines.o
-    0x08007cc0   0x08007cc0   0x00000064   Code   RO         5076    i.toMainDetect      menu_routines.o
-    0x08007d24   0x08007d24   0x00000164   Code   RO         5191    i.true_RMS          measurement_functions.o
-    0x08007e88   0x08007e88   0x0000004c   Code   RO          226    i.unit_transfer     lcd_routines.o
-    0x08007ed4   0x08007ed4   0x00000050   Code   RO          227    i.write_lcd         lcd_routines.o
-    0x08007f24   0x08007f24   0x0000000a   Code   RO         5458    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08007f2e   0x08007f2e   0x00000000   Code   RO         5354    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x08007f2e   0x08007f2e   0x0000000e   Data   RO          316    .constdata          lcd_data.o
-    0x08007f3c   0x08007f3c   0x00000260   Data   RO          325    .constdata          lcd_fonts.o
-    0x0800819c   0x0800819c   0x0000006c   Data   RO          326    .constdata          lcd_fonts.o
-    0x08008208   0x08008208   0x000000a0   Data   RO          327    .constdata          lcd_fonts.o
-    0x080082a8   0x080082a8   0x0000006c   Data   RO          328    .constdata          lcd_fonts.o
-    0x08008314   0x08008314   0x00000038   Data   RO          329    .constdata          lcd_fonts.o
-    0x0800834c   0x0800834c   0x000000dc   Data   RO          330    .constdata          lcd_fonts.o
-    0x08008428   0x08008428   0x00000028   Data   RO          331    .constdata          lcd_fonts.o
-    0x08008450   0x08008450   0x00000026   Data   RO          332    .constdata          lcd_fonts.o
-    0x08008476   0x08008476   0x0000000c   Data   RO          333    .constdata          lcd_fonts.o
-    0x08008482   0x08008482   0x0000005e   Data   RO          334    .constdata          lcd_fonts.o
-    0x080084e0   0x080084e0   0x00000018   Data   RO          335    .constdata          lcd_fonts.o
-    0x080084f8   0x080084f8   0x00000020   Data   RO         3045    .constdata          stm32f3xx_hal_rcc.o
-    0x08008518   0x08008518   0x00000010   Data   RO         5037    .constdata          system_stm32f3xx.o
-    0x08008528   0x08008528   0x00000008   Data   RO         5038    .constdata          system_stm32f3xx.o
-    0x08008530   0x08008530   0x0000005a   Data   RO         5137    .constdata          menu_init.o
-    0x0800858a   0x0800858a   0x00000002   PAD
-    0x0800858c   0x0800858c   0x00000014   Data   RO         5171    .constdata          measurement_data.o
-    0x080085a0   0x080085a0   0x00000020   Data   RO         5526    Region$$Table       anon$$obj.o
+    0x08007cc0   0x08007cc0   0x00000068   Code   RO         5076    i.toMainDetect      menu_routines.o
+    0x08007d28   0x08007d28   0x00000164   Code   RO         5191    i.true_RMS          measurement_functions.o
+    0x08007e8c   0x08007e8c   0x0000004c   Code   RO          226    i.unit_transfer     lcd_routines.o
+    0x08007ed8   0x08007ed8   0x00000050   Code   RO          227    i.write_lcd         lcd_routines.o
+    0x08007f28   0x08007f28   0x0000000a   Code   RO         5458    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08007f32   0x08007f32   0x00000000   Code   RO         5354    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x08007f32   0x08007f32   0x0000000e   Data   RO          316    .constdata          lcd_data.o
+    0x08007f40   0x08007f40   0x00000260   Data   RO          325    .constdata          lcd_fonts.o
+    0x080081a0   0x080081a0   0x0000006c   Data   RO          326    .constdata          lcd_fonts.o
+    0x0800820c   0x0800820c   0x000000a0   Data   RO          327    .constdata          lcd_fonts.o
+    0x080082ac   0x080082ac   0x0000006c   Data   RO          328    .constdata          lcd_fonts.o
+    0x08008318   0x08008318   0x00000038   Data   RO          329    .constdata          lcd_fonts.o
+    0x08008350   0x08008350   0x000000dc   Data   RO          330    .constdata          lcd_fonts.o
+    0x0800842c   0x0800842c   0x00000028   Data   RO          331    .constdata          lcd_fonts.o
+    0x08008454   0x08008454   0x00000026   Data   RO          332    .constdata          lcd_fonts.o
+    0x0800847a   0x0800847a   0x0000000c   Data   RO          333    .constdata          lcd_fonts.o
+    0x08008486   0x08008486   0x0000005e   Data   RO          334    .constdata          lcd_fonts.o
+    0x080084e4   0x080084e4   0x00000018   Data   RO          335    .constdata          lcd_fonts.o
+    0x080084fc   0x080084fc   0x00000020   Data   RO         3045    .constdata          stm32f3xx_hal_rcc.o
+    0x0800851c   0x0800851c   0x00000010   Data   RO         5037    .constdata          system_stm32f3xx.o
+    0x0800852c   0x0800852c   0x00000008   Data   RO         5038    .constdata          system_stm32f3xx.o
+    0x08008534   0x08008534   0x00000096   Data   RO         5137    .constdata          menu_init.o
+    0x080085ca   0x080085ca   0x00000002   PAD
+    0x080085cc   0x080085cc   0x00000014   Data   RO         5171    .constdata          measurement_data.o
+    0x080085e0   0x080085e0   0x00000020   Data   RO         5526    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080085c0, Size: 0x000016d8, Max: 0x00006000, ABSOLUTE, COMPRESSED[0x00000164])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08008600, Size: 0x000016d8, Max: 0x00006000, ABSOLUTE, COMPRESSED[0x00000164])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 

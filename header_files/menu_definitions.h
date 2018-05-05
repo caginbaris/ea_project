@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 30
+#define TotalMenuTransitionNo 50
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -16,8 +16,12 @@ Active_Power,
 Reactive_Power,
 Apparent_Power,
 Total_Power,
-Power_Factors,	
-Total_Power_Factor,
+Power_Factors_true,Power_Factors_fund,		
+Total_Power_Factor_true, Total_Power_Factor_fund,
+Power_Ratios,Total_Power_Ratios,//Q:P instantaneous	
+Active_Energy_import,Active_Energy_export,
+Reactive_Energy_import,Rective_Energy_export,
+Apparent_Energy,	
 	
 main_menu
 };
