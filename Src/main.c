@@ -159,6 +159,7 @@ int main(void)
 		
 		HAL_Delay(100);
 		
+		
 		pressed_button=pushButtonHandling();
 		
 		if(pressed_button!=invalid){

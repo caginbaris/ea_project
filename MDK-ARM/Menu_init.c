@@ -10,8 +10,8 @@
 
 
 
-enum menu_list current_menu=main_menu;
-enum menu_list previous_menu=main_menu;//cau should be different at startup wrt current menu
+enum menu_list current_menu=Vpn_true;
+enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
 struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
@@ -29,6 +29,12 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_},//7
 {g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},//8
 {t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},//9
+{g,u,c,_,o,r,a,n,l,a,r,i,_,_,_,_,_,_,_,_},//10	
+{t,o,p,l,a,m,_,g,u,c,_,o,r,a,n,l,a,r,i,_},//11
+{a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_,_,_},//12
+{r,e,a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_},//13	
+{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//14
+{e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15	
 
 };
 
@@ -222,8 +228,44 @@ struct display_menu_handles Apparent_Power_Menu= {
 
 };
 
+struct display_menu_handles Total_Power_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.Sa),//cau
+	
+	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	
+	/*fist line*/ 	{S,A,__},
+	/*second line*/ {S,B,__},
+	/*third line*/ 	{S,C,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
 
-struct display_menu_handles Power_Factors_Menu= {
+};
+
+
+struct display_menu_handles Power_Factors_true_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
+	
+	/*fist line*/ 	{P,F,A},
+	/*second line*/ {P,F,B},
+	/*third line*/ 	{P,F,C},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+struct display_menu_handles Power_Factors_fund_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
@@ -242,7 +284,7 @@ struct display_menu_handles Power_Factors_Menu= {
 };
 
 
-struct display_menu_handles Total_Power_Factor_Menu= {
+struct display_menu_handles Total_Power_Factor_true_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
@@ -259,6 +301,175 @@ struct display_menu_handles Total_Power_Factor_Menu= {
 	
 
 };
+
+
+struct display_menu_handles Total_Power_Factor_fund_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Power_Ratios_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Total_Power_Ratios_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Active_Energy_Import_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Active_Energy_Export_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+struct display_menu_handles Reactive_Energy_Import_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Reactive_Energy_Export_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+struct display_menu_handles Apparent_Energy_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+struct display_menu_handles Energy_Ratios_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
 
 
 
@@ -368,9 +579,25 @@ void init_Menu(){
 	MENU.handle.Active_Power=Active_Power_Menu;
 	MENU.handle.Reactive_Power=Reactive_Power_Menu;
 	MENU.handle.Apparent_Power=Apparent_Power_Menu;
+	MENU.handle.Total_Power=Total_Power_Menu;
 	
-	MENU.handle.Power_Factors=Power_Factors_Menu;
-	MENU.handle.Total_Power_Factor=Total_Power_Factor_Menu;
+	MENU.handle.Power_Factors_true=Power_Factors_true_Menu;
+	MENU.handle.Power_Factors_fund=Power_Factors_fund_Menu;
+	
+	MENU.handle.Total_Power_Factor_true=Total_Power_Factor_true_Menu;
+	MENU.handle.Total_Power_Factor_fund=Total_Power_Factor_fund_Menu;
+	
+	MENU.handle.Power_Ratios=Power_Ratios_Menu;
+	MENU.handle.Total_Power_Ratios=Total_Power_Ratios_Menu;
+	
+	MENU.handle.Active_Energy_Import=Active_Energy_Import_Menu;
+	MENU.handle.Active_Energy_Export=Active_Energy_Import_Menu;
+	
+	MENU.handle.Reactive_Energy_Import=Reactive_Energy_Import_Menu;
+	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Import_Menu;
+	
+	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
+	MENU.handle.Energy_Ratios=Energy_Ratios_Menu;
 	
 }
 

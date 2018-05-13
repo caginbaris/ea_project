@@ -9,21 +9,21 @@
 
 enum menu_list {
 
-Vpn_true,Vpn_fund,
-Vpp_true,Vpp_fund,
-Ip_true,Ip_fund,
-Active_Power,
-Reactive_Power,
-Apparent_Power,
-Total_Power,
-Power_Factors_true,Power_Factors_fund,		
-Total_Power_Factor_true, Total_Power_Factor_fund,
-Power_Ratios,Total_Power_Ratios,//Q:P instantaneous	
-Active_Energy_import,Active_Energy_export,
-Reactive_Energy_import,Rective_Energy_export,
-Apparent_Energy,	
-	
-main_menu
+Vpn_true,Vpn_fund, //0-1
+Vpp_true,Vpp_fund, //2-3
+Ip_true,Ip_fund,   //4-5
+Active_Power,      //6
+Reactive_Power,    //7
+Apparent_Power,		 //8
+Total_Power,			 //9
+Power_Factors_true,Power_Factors_fund, //10-11		
+Total_Power_Factor_true, Total_Power_Factor_fund,//12-13	
+Power_Ratios,Total_Power_Ratios,//14-15
+Active_Energy_import,Active_Energy_export,//16-17
+Reactive_Energy_import,Rective_Energy_export, //18-19
+Apparent_Energy,	//20
+Energy_Ratios,	//21
+main_menu //22
 };
 
 enum main_menu_list {
@@ -39,7 +39,13 @@ enum main_menu_list {
 	Total_Power_main=7,//7
 	Power_Factors_main=8,//8
 	Total_Power_Factor_main=9,//9
-	pos_guard=10,
+	Power_Ratios_main=10,//10
+	Total_Power_Ratios_main=11,//11
+	Active_Energy_main=12,//12
+	Reactive_Energy_main=13,//13
+	Apparent_Energy_main=14,//14
+	Energy_Ratios_main=15,//15
+	pos_guard=16,
 };
 
 struct main_menu_rows{
@@ -95,29 +101,44 @@ union display_menu_union{
 	
 	struct{
 		
-	struct display_menu_handles Vpn_true;
-	struct display_menu_handles Vpn_fund;
+	struct display_menu_handles Vpn_true;//0
+	struct display_menu_handles Vpn_fund;//1
 
-	struct display_menu_handles Vpp_true;
-	struct display_menu_handles Vpp_fund;
+	struct display_menu_handles Vpp_true;//2
+	struct display_menu_handles Vpp_fund;//3
 	
-	struct display_menu_handles Ip_true;
-	struct display_menu_handles Ip_fund;
+	struct display_menu_handles Ip_true;//4
+	struct display_menu_handles Ip_fund;//5
 		
-	struct display_menu_handles Active_Power;
-	struct display_menu_handles Reactive_Power;
-	struct display_menu_handles Apparent_Power;		
-	struct display_menu_handles Total_Power;
+	struct display_menu_handles Active_Power;//6
+	struct display_menu_handles Reactive_Power;//7
+	struct display_menu_handles Apparent_Power;//8		
+	struct display_menu_handles Total_Power;//9
 			
-	struct display_menu_handles Power_Factors;
-	struct display_menu_handles Total_Power_Factor;
+	struct display_menu_handles Power_Factors_true;//10
+	struct display_menu_handles Power_Factors_fund;//11
+		
+	struct display_menu_handles Total_Power_Factor_true;//12
+	struct display_menu_handles Total_Power_Factor_fund;//13
 
-	struct display_menu_handles main_menu;		
+	struct display_menu_handles Power_Ratios;//14
+	struct display_menu_handles Total_Power_Ratios;	//15
+	
+	struct display_menu_handles Active_Energy_Import;//16
+	struct display_menu_handles Active_Energy_Export;//17
+	
+	struct display_menu_handles Reactive_Energy_Import;//18
+	struct display_menu_handles Reactive_Energy_Export;//19
+	
+	struct display_menu_handles Apparent_Energy;//20
+	struct display_menu_handles Energy_Ratios;//21
+
+	struct display_menu_handles main_menu;//22		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[13]; 
+	struct display_menu_handles all[30]; 
 
 
 };

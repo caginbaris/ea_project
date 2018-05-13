@@ -155,8 +155,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 		
 		
 	AN.data.Van=(uBuffer[3]-sar_adc_offset)	*scale.data.Van;
-	AN.data.Vbn=(uBuffer[4]-sar_adc_offset)	*scale.data.Van;	
-	AN.data.Vcn=(uBuffer[5]-sar_adc_offset)	*scale.data.Van;
+	AN.data.Vbn=(uBuffer[4]-sar_adc_offset)	*scale.data.Vbn;	
+	AN.data.Vcn=(uBuffer[5]-sar_adc_offset)	*scale.data.Vcn;
 
 	AN.data.Ib=	(uBuffer[0]-sd_adc_offset)	*scale.data.Ia;
 	AN.data.Ia=	(uBuffer[1]-sd_adc_offset)	*scale.data.Ib;

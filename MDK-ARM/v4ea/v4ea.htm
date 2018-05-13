@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat May 05 23:35:30 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun May 13 23:41:10 2018
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -109,8 +109,8 @@ Function Pointers
  <LI><a href="#[10]">WWDG_IRQHandler</a> from startup_stm32f373xc.o(.text) referenced from startup_stm32f373xc.o(RESET)
  <LI><a href="#[55]">__main</a> from __main.o(!!!main) referenced from startup_stm32f373xc.o(.text)
  <LI><a href="#[3]">atMainOperation</a> from menu_routines.o(i.atMainOperation) referenced 2 times from menu_init.o(.data)
- <LI><a href="#[5]">dynamicDataTripple</a> from menu_routines.o(i.dynamicDataTripple) referenced 22 times from menu_init.o(.data)
- <LI><a href="#[4]">staticDataTripple</a> from menu_routines.o(i.staticDataTripple) referenced 22 times from menu_init.o(.data)
+ <LI><a href="#[5]">dynamicDataTripple</a> from menu_routines.o(i.dynamicDataTripple) referenced 40 times from menu_init.o(.data)
+ <LI><a href="#[4]">staticDataTripple</a> from menu_routines.o(i.staticDataTripple) referenced 40 times from menu_init.o(.data)
  <LI><a href="#[2]">toMainDetect</a> from menu_routines.o(i.toMainDetect) referenced 2 times from menu_init.o(.data)
 </UL>
 <P>
@@ -605,7 +605,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[71]"></a>HAL_ADC_ConvCpltCallback</STRONG> (Thumb, 204 bytes, Stack size 8 bytes, converison.o(i.HAL_ADC_ConvCpltCallback))
+<P><STRONG><a name="[71]"></a>HAL_ADC_ConvCpltCallback</STRONG> (Thumb, 228 bytes, Stack size 8 bytes, converison.o(i.HAL_ADC_ConvCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; true_RMS &rArr; __hardfp_sqrtf &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
@@ -634,7 +634,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[82]"></a>HAL_ADC_Init</STRONG> (Thumb, 466 bytes, Stack size 24 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADC_Init))
+<P><STRONG><a name="[82]"></a>HAL_ADC_Init</STRONG> (Thumb, 468 bytes, Stack size 24 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -1839,7 +1839,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[105]"></a>init_Menu</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
+<P><STRONG><a name="[105]"></a>init_Menu</STRONG> (Thumb, 308 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = init_Menu &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
@@ -2002,8 +2002,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_acosf
 </UL>
 
-<P><STRONG><a name="[4]"></a>staticDataTripple</STRONG> (Thumb, 406 bytes, Stack size 40 bytes, menu_routines.o(i.staticDataTripple))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = staticDataTripple &rArr; menu_unit_transfer
+<P><STRONG><a name="[4]"></a>staticDataTripple</STRONG> (Thumb, 398 bytes, Stack size 32 bytes, menu_routines.o(i.staticDataTripple))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = staticDataTripple &rArr; menu_unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer

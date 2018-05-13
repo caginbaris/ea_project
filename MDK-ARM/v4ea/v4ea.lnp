@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu Cortex-M4.fp
 "v4ea\startup_stm32f373xc.o"
 "v4ea\converison.o"
 "v4ea\prefilter.o"
@@ -49,6 +49,6 @@
 "v4ea\pb_handling.o"
 "v4ea\aux_functions.o"
 --strict --scatter "v4ea\v4ea.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "v4ea.map" -o v4ea\v4ea.axf

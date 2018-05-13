@@ -147,6 +147,8 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	}
 	
 	
+	column=0;
+	
 	page=3;
 	
 	column=letter_transfer_14pt(menu_item.second_line[0],page,column);
@@ -169,6 +171,8 @@ void staticDataTripple(struct display_menu_handles menu_item){
 		
 	}
 	
+	
+	column=0;
 	
 	page=5;
 	
