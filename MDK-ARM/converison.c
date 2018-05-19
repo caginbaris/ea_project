@@ -42,13 +42,13 @@ void init_conversion(void){
 	
 	// triggers
 	
-	scale.data.Van=1;
-	scale.data.Vbn=1;
-	scale.data.Vcn=1;
+	scale.data.Van=0.09660669;
+	scale.data.Vbn=0.09660669;
+	scale.data.Vcn=0.09660669;
 	
-	scale.data.Ia=1;
-	scale.data.Ib=1;
-	scale.data.Ic=1;
+	scale.data.Ia=0.000280217;
+	scale.data.Ib=0.000280217;
+	scale.data.Ic=0.000280217;
 	
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_3,1);
@@ -120,18 +120,18 @@ void HAL_SDADC_InjectedConvCpltCallback(SDADC_HandleTypeDef* hsdadc){
 	
 	if(hsdadc->Instance==SDADC1){ 
 	
-	uBuffer[0]=HAL_SDADC_InjectedGetValue(&hsdadc1,&sd_channel);
+	uBuffer[0]=HAL_SDADC_InjectedGetValue( &hsdadc1,(uint32_t *)&sd_channel);
 	convFlags.bit.sd_adc1_completed=1;}
 	
 	
 	if(hsdadc->Instance==SDADC2){ 
 	
-	uBuffer[1]=HAL_SDADC_InjectedGetValue(&hsdadc2,&sd_channel);
+	uBuffer[1]=HAL_SDADC_InjectedGetValue(&hsdadc2,(uint32_t *)&sd_channel);
 	convFlags.bit.sd_adc2_completed=1;}
 
 	if(hsdadc->Instance==SDADC3){ 
 	
-	uBuffer[2]=HAL_SDADC_InjectedGetValue(&hsdadc3,&sd_channel);
+	uBuffer[2]=HAL_SDADC_InjectedGetValue(&hsdadc3,(uint32_t *) &sd_channel);
 	convFlags.bit.sd_adc3_completed=1;
 	}
 	
@@ -154,14 +154,20 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 		
 		
-	AN.data.Van=(uBuffer[3]-sar_adc_offset)	*scale.data.Van;
-	AN.data.Vbn=(uBuffer[4]-sar_adc_offset)	*scale.data.Vbn;	
-	AN.data.Vcn=(uBuffer[5]-sar_adc_offset)	*scale.data.Vcn;
-
-	AN.data.Ib=	(uBuffer[0]-sd_adc_offset)	*scale.data.Ia;
-	AN.data.Ia=	(uBuffer[1]-sd_adc_offset)	*scale.data.Ib;
-	AN.data.Ic=	(uBuffer[2]-sd_adc_offset)	*scale.data.Ic;
+	AN.data.Van=offset_cancellation((uBuffer[3]),&oc_buff[0])*scale.data.Van;
+	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
+	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 		
+	//AN.data.Van=(uBuffer[3]-sar_adc_offset)*scale.data.Van;
+	//AN.data.Vbn=(uBuffer[4]-sar_adc_offset)*scale.data.Vbn;	
+	//AN.data.Vcn=(uBuffer[5]-sar_adc_offset)*scale.data.Vcn;			
+
+	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ia;
+	AN.data.Ia=	offset_cancellation(uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ib;
+	AN.data.Ic=	offset_cancellation(uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
+		
+	//AN.data.Ib=offset_cancellation(((uBuffer[0] + 32768) * 3) / (1* 65535),&oc_buff[3]);
+	//AN.data.Ib=((uBuffer[0] + 32768) * 3) / (1* 65535);
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	

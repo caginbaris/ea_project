@@ -9,19 +9,21 @@
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 
-	static union uAdcData rms_sum,rms;
+	
+	static union uAdcData rms={0};
+	static union uAdcData rms_sum={0};
 	static uint16_t counter=0;
 	float inverse_avg_sample=1.0f;
-	uint8_t i=0;
+	uint8_t i;
 	
 	
-	inverse_avg_sample=1/(periodSampleNo*numberOfPeriod);
+	inverse_avg_sample=1/(float)(periodSampleNo*numberOfPeriod);
 	
 	
 	
 	for(i=0;i<9;i++){
 	
-		rms_sum.buffer[i]+=input.buffer[i];
+		rms_sum.buffer[i]+=input.buffer[i]*input.buffer[i];
 	
 	}
 	

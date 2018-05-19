@@ -61,9 +61,9 @@ struct display_menu_handles Vpn_true_Menu= {
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,g,e,r,c,e,k}, 
 	
-	/*fist line*/ 	{V,A,N},
-	/*second line*/ {V,B,N},
-	/*third line*/ 	{V,C,N},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
 	/*menu units*/	{m_V,m_,m_,m_},
@@ -81,9 +81,9 @@ struct display_menu_handles Vpn_fund_Menu= {
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_}, 
 	
-	/*fist line*/ 	{V,A,N},
-	/*second line*/ {V,B,N},
-	/*third line*/ 	{V,C,N},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
 	/*menu units*/	{m_V,m_,m_,m_,},
@@ -101,9 +101,9 @@ struct display_menu_handles Vpp_true_Menu= {
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,g,e,r,c,e,k}, 
 	
-	/*fist line*/ 	{V,A,B},
-	/*second line*/ {V,B,C},
-	/*third line*/ 	{V,C,A},
+	/*fist line*/ 	{A,B,__},
+	/*second line*/ {B,C,__},
+	/*third line*/ 	{C,A,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_,},
@@ -120,9 +120,9 @@ struct display_menu_handles Vpp_fund_Menu= {
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,a,n,a,_,_,_}, 
 	
-	/*fist line*/ 	{V,A,B},
-	/*second line*/ {V,B,C},
-	/*third line*/ 	{V,C,A},
+	/*fist line*/ 	{A,B,__},
+	/*second line*/ {B,C,__},
+	/*third line*/ 	{C,A,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_},
@@ -253,9 +253,9 @@ struct display_menu_handles Power_Factors_true_Menu= {
 	
 	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
 	
-	/*fist line*/ 	{P,F,A},
-	/*second line*/ {P,F,B},
-	/*third line*/ 	{P,F,C},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -271,9 +271,9 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 	
 	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
 	
-	/*fist line*/ 	{P,F,A},
-	/*second line*/ {P,F,B},
-	/*third line*/ 	{P,F,C},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},

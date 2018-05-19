@@ -23,7 +23,7 @@ struct digit_format  formatDynamicData(float x){
 
 	formatted_digit.fraction=10.0f*(x-(int16_t)x);
 	formatted_digit.int100	=(x*_em2); 
-	formatted_digit.int10		=((int16_t)(x*_em1) % 10);
+	formatted_digit.int10		=(int16_t)(x*_em1) % 10;
 	formatted_digit.int1		=((int16_t)x % 10);
 
 	return formatted_digit;
@@ -61,7 +61,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	
 	//first row
 	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
-	if(lcd_row1.int10!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
+	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row1.int1,page,column+2*digit_width_14pt);
 																								put_dot2x2(page+1,column+3*digit_width_14pt);
 																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
@@ -74,7 +74,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	page=3;
 	//second row
 	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
-	if(lcd_row2.int10!=0 || lcd_row2.int10!=0	){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
+	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row2.int1,page,column+2*digit_width_14pt);
 																								put_dot2x2(page+1,column+3*digit_width_14pt);
 																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
@@ -88,7 +88,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	page=5;
 	//third row
 	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
-	if(lcd_row3.int10!=0 || lcd_row2.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
+	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row3.int1,page,column+2*digit_width_14pt);
 																								put_dot2x2(page+1,column+3*digit_width_14pt);
 																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space

@@ -6,8 +6,8 @@
 #define sd_adc_offset 32767.0f
 
 #define sar_adc_offset 2048.0f
-#define sampling_rate 10000
-#define fundamental_freq 50
+#define sampling_rate 10000.0f
+#define fundamental_freq 50.0f
 
 #define periodSampleNo sampling_rate/fundamental_freq  
 

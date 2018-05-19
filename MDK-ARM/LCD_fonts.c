@@ -513,7 +513,7 @@ const uint16_t Descriptors[][2] =
 	{11, 536}, 		/* X */ 
 	{11, 558}, 		/* Y */ 
 	{11, 580}, 		/* Z */ 
-	{3,  586}, 		/* space */ 
+	{3,  602}, 		/* space */ 
 };
 
 
@@ -808,7 +808,7 @@ const uint8_t arial_8ptBitmaps[] =
 	
 	//space
 	
-	0x00,0x00,0x00,0x00,
+	0x00,0x00,0x00,
 	
 	// line maybe
 	
@@ -846,7 +846,7 @@ const uint16_t Descriptors2[][2] =
 	{6, 137}, 		/* X */ 
 	{7, 143}, 		/* Y */ 
 	{6, 150}, 		/* Z */ 
-	{4, 156}, 		/* space */
+	{3, 156}, 		/* space */
 	
 };
 
