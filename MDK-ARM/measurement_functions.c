@@ -3,7 +3,7 @@
 #include "conversion.h"
 #include "measurement_definitions.h"
 #include <math.h>
-
+#include "arm_math.h" //cau should transferred
 
 
 
@@ -40,6 +40,8 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 		case 6:rms.buffer[6]=sqrtf(rms_sum.buffer[6]*inverse_avg_sample);rms_sum.buffer[6]=0.0f;break;
 		case 7:rms.buffer[7]=sqrtf(rms_sum.buffer[7]*inverse_avg_sample);rms_sum.buffer[7]=0.0f;break;
 		case 8:rms.buffer[8]=sqrtf(rms_sum.buffer[8]*inverse_avg_sample);rms_sum.buffer[8]=0.0f;break;
+		
+		//case 9:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[0]);rms_sum.buffer[8]=0.0f;break;  //cau math.h-->arm.math.h geçisi yap
 		
 		default: break;
 	}

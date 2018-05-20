@@ -2,8 +2,10 @@
 #ifndef __prefilter_H
 #define __prefilter_H
 
-#define b_oc 0.999685939389360f
-#define a_oc 0.999371878778719f
+// hpf @ 0.5Hz for offset removal
+
+#define b_oc 0.999842945036165f
+#define a_oc 0.999685890072330f
 
 
 struct offset_cancellation_filter_parameters{

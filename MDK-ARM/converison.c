@@ -157,17 +157,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Van=offset_cancellation((uBuffer[3]),&oc_buff[0])*scale.data.Van;
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
-		
-	//AN.data.Van=(uBuffer[3]-sar_adc_offset)*scale.data.Van;
-	//AN.data.Vbn=(uBuffer[4]-sar_adc_offset)*scale.data.Vbn;	
-	//AN.data.Vcn=(uBuffer[5]-sar_adc_offset)*scale.data.Vcn;			
 
 	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ia;
-	AN.data.Ia=	offset_cancellation(uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ib;
-	AN.data.Ic=	offset_cancellation(uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
-		
-	//AN.data.Ib=offset_cancellation(((uBuffer[0] + 32768) * 3) / (1* 65535),&oc_buff[3]);
-	//AN.data.Ib=((uBuffer[0] + 32768) * 3) / (1* 65535);
+	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ib;
+	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
