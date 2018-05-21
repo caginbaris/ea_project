@@ -27,12 +27,14 @@ void measurement_routines(){
 	
 	//fund rms
 	
-	//fund_RMS(inphaseData,quadData,&fundRMS);
+	iq_generation(AN,&inphaseData	,inphase_coeffs,inphase_sos);
+	iq_generation(AN,&quadData		,quad_coeffs,quad_sos);
+	
+	fund_RMS(inphaseData,quadData,&fundRMS);
 	
 	//iq components fund calculations
 	
-	//iq_generation(AN,&inphaseData	,inphase_coeffs,quad_sos);
-	//iq_generation(AN,&quadData		,inphase_coeffs,inphase_sos);
+
 	//power_calculations_iq(inphaseData,quadData,&power_iq);
 
 	//power elements true calcualtions

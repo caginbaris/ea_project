@@ -65,8 +65,8 @@ float sos_implementation(float x,float xBack, const float *coeffs, struct SOS *b
 	
 	coeff=coeffs;
 	
-	y=x*(*coeff)	+	xBack*(*coeff++)					+	(back->xz2)*(*coeff++)
-								- (back->yz1)*(*coeff++)		+	(back->yz2)*(*coeff++);
+	y=x*(*coeff)	+	xBack*(*(coeff+1))					+	(back->xz2)*(*(coeff+2))
+								- (back->yz1)*(*(coeff+3))		+	(back->yz2)*(*(coeff+4));
 
 	back->yz2=back->yz1;
 	back->yz1=y;

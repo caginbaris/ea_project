@@ -46,9 +46,9 @@ void init_conversion(void){
 	scale.data.Vbn=0.09660669;
 	scale.data.Vcn=0.09660669;
 	
-	scale.data.Ia=0.000280217;
-	scale.data.Ib=0.000280217;
-	scale.data.Ic=0.000280217;
+	scale.data.Ia=0.000198143;
+	scale.data.Ib=0.000198143;
+	scale.data.Ic=0.000198143;
 	
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_3,1);
