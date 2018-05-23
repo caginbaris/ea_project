@@ -67,6 +67,25 @@ union uAdcData{
 	
 };
 
+
+enum adcChannel{
+	
+	Van,
+	Vbn,
+	Vcn,
+	
+	Ia,
+	Ib,
+	Ic,
+	
+	Vab,
+	Vbc,
+	Vca,
+
+
+};
+
+extern enum adcChannel ch;
 extern struct calibrationFlags calFlags;
 extern union  uConversionFlags convFlags;
 extern union  uAdcData rawAdc;

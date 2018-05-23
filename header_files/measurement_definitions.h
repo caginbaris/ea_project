@@ -10,6 +10,7 @@
 
 #define i2 0.5f
 #define indefinite 0
+#define iq_rms_scale 1.0f
 
 union RMS{
 	
@@ -36,8 +37,9 @@ extern union RMS rms;
 struct SOS{
 	
 	float xz2;
+	float xz1;
 	float yz2;		
-	float yz1;
+	
 	
 };
 

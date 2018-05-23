@@ -13,6 +13,7 @@ union  uConversionFlags 	convFlags	={0};
 union  uAdcData rawAdc	={0};
 union  uAdcData AN			={0};
 union  uAdcData scale		 ={0};
+enum adcChannel ch=Van;
 
 uint32_t  uBuffer[6];
 

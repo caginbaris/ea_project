@@ -9,10 +9,9 @@
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 
-	
+	static uint16_t counter=0;
 	static union uAdcData rms={0};
 	static union uAdcData rms_sum={0};
-	static uint16_t counter=0;
 	float inverse_avg_sample=1.0f;
 	uint8_t i;
 	
@@ -29,6 +28,19 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 	
 	switch(counter){
 	
+		case 0:arm_sqrt_f32(rms_sum.buffer[0]*inverse_avg_sample,&rms.buffer[0]);rms_sum.buffer[0]=0.0f;break;
+		case 1:arm_sqrt_f32(rms_sum.buffer[1]*inverse_avg_sample,&rms.buffer[1]);rms_sum.buffer[1]=0.0f;break;
+		case 2:arm_sqrt_f32(rms_sum.buffer[2]*inverse_avg_sample,&rms.buffer[2]);rms_sum.buffer[2]=0.0f;break;
+		
+		case 3:arm_sqrt_f32(rms_sum.buffer[3]*inverse_avg_sample,&rms.buffer[3]);rms_sum.buffer[3]=0.0f;break;
+		case 4:arm_sqrt_f32(rms_sum.buffer[4]*inverse_avg_sample,&rms.buffer[4]);rms_sum.buffer[4]=0.0f;break;
+		case 5:arm_sqrt_f32(rms_sum.buffer[5]*inverse_avg_sample,&rms.buffer[5]);rms_sum.buffer[5]=0.0f;break;
+		
+		case 6:arm_sqrt_f32(rms_sum.buffer[6]*inverse_avg_sample,&rms.buffer[6]);rms_sum.buffer[6]=0.0f;break;
+		case 7:arm_sqrt_f32(rms_sum.buffer[7]*inverse_avg_sample,&rms.buffer[7]);rms_sum.buffer[7]=0.0f;break;
+		case 8:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[8]);rms_sum.buffer[8]=0.0f;break;
+		
+		#if 0
 		case 0:rms.buffer[0]=sqrtf(rms_sum.buffer[0]*inverse_avg_sample);rms_sum.buffer[0]=0.0f;break;
 		case 1:rms.buffer[1]=sqrtf(rms_sum.buffer[1]*inverse_avg_sample);rms_sum.buffer[1]=0.0f;break;
 		case 2:rms.buffer[2]=sqrtf(rms_sum.buffer[2]*inverse_avg_sample);rms_sum.buffer[2]=0.0f;break;
@@ -40,8 +52,8 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 		case 6:rms.buffer[6]=sqrtf(rms_sum.buffer[6]*inverse_avg_sample);rms_sum.buffer[6]=0.0f;break;
 		case 7:rms.buffer[7]=sqrtf(rms_sum.buffer[7]*inverse_avg_sample);rms_sum.buffer[7]=0.0f;break;
 		case 8:rms.buffer[8]=sqrtf(rms_sum.buffer[8]*inverse_avg_sample);rms_sum.buffer[8]=0.0f;break;
+		#endif
 		
-		//case 9:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[0]);rms_sum.buffer[8]=0.0f;break;  //cau math.h-->arm.math.h geçisi yap
 		
 		default: break;
 	}
@@ -58,21 +70,21 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 //2.0 function invocation shown below  
 //2.1 "output=sos_implementation(input(real-time),output(lef-side),coeff_data(array_name),SOS2data(different for all parameters ));
 
-float sos_implementation(float x,float xBack, const float *coeffs, struct SOS *back){
+float sos_implementation(float x ,float yBack, const float *coeffs, struct SOS *back){
 
 	float y;
-	const float *coeff;
-	
-	coeff=coeffs;
-	
-	y=x*(*coeff)	+	xBack*(*(coeff+1))					+	(back->xz2)*(*(coeff+2))
-								- (back->yz1)*(*(coeff+3))		+	(back->yz2)*(*(coeff+4));
 
-	back->yz2=back->yz1;
-	back->yz1=y;
-	back->xz2=xBack;
+	
+	y=x*(*coeffs)	+	(back->xz1)	*(*(coeffs+1))		+	(back->xz2)*(*(coeffs+2))
+								- (yBack)			*(*(coeffs+3))		+	(back->yz2)*(*(coeffs+4));
+
+	
+	back->yz2=yBack;
+	back->xz2=back->xz1;
+	back->xz1=x;
 	
 	return y;
+	
 }
 
 
@@ -89,19 +101,35 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 		
 	}
 	
+	iq->data.Vab=iq->data.Van-iq->data.Vbn;
+	iq->data.Vbc=iq->data.Vbn-iq->data.Vcn;
+	iq->data.Vca=iq->data.Vcn-iq->data.Van;
 	
 }
 
 
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	
+	uint8_t counter=0;
 	uint8_t i;
 	
-	for (i=0;i<6;i++){
 	
-		rms->buffer[i]=inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i];
 	
+	//for (i=0;i<9;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
+	
+	
+	//alternative path
+	switch(counter){
+	
+	case 0:for (i=0;i<3;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
+	case 1:for (i=counter;i<6;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
+	case 2:for (i=counter;i<9;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}	
 	}
+	
+	if(++counter==3){counter=0;}
+		
+
+	
 	
 
 }
@@ -125,10 +153,10 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
 		x->Power.Stotal=x->Power.Sa + x->Power.Sb + x->Power.Sc;
 	
-		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : acosf(x->Power.Pa/x->Power.Sa);
-		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : acosf(x->Power.Pb/x->Power.Sb);
-		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : acosf(x->Power.Pc/x->Power.Sc);
-		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : acosf(x->Power.Ptotal/x->Power.Stotal);
+		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : x->Power.Pa/x->Power.Sa;
+		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : x->Power.Pb/x->Power.Sb;
+		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : x->Power.Pc/x->Power.Sc;
+		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : x->Power.Ptotal/x->Power.Stotal;
 		
 }
 
