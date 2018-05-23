@@ -70,16 +70,17 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 //2.0 function invocation shown below  
 //2.1 "output=sos_implementation(input(real-time),output(lef-side),coeff_data(array_name),SOS2data(different for all parameters ));
 
-float sos_implementation(float x ,float yBack, const float *coeffs, struct SOS *back){
+float sos_implementation(float x , const float *coeffs, struct SOS *back){
 
 	float y;
 
 	
 	y=x*(*coeffs)	+	(back->xz1)	*(*(coeffs+1))		+	(back->xz2)*(*(coeffs+2))
-								- (yBack)			*(*(coeffs+3))		+	(back->yz2)*(*(coeffs+4));
+								- (back->yz1)			*(*(coeffs+3))		-	(back->yz2)*(*(coeffs+4));
 
 	
-	back->yz2=yBack;
+	back->yz2=back->yz1;
+	back->yz1=y;
 	back->xz2=back->xz1;
 	back->xz1=x;
 	
@@ -97,7 +98,7 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 	
 	for (i=0;i<6;i++){
 	
-		iq->buffer[i]		=sos_implementation(input.buffer[i],iq->buffer[i],iq_coeffs,&all[i]);
+		iq->buffer[i]		=sos_implementation(input.buffer[i],iq_coeffs,&all[i]);
 		
 	}
 	
@@ -115,10 +116,10 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	
 	
 	
-	//for (i=0;i<9;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
+	for (i=0;i<6;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
 	
 	
-	//alternative path
+	#if 0
 	switch(counter){
 	
 	case 0:for (i=0;i<3;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
@@ -128,7 +129,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	
 	if(++counter==3){counter=0;}
 		
-
+	#endif
 	
 	
 

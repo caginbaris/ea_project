@@ -6,8 +6,8 @@
 
 
 
-struct SOS quad_sos[6]; 		// for inphase parameters
-struct SOS inphase_sos[6]; 	// for inphase parameters
+struct SOS quad_sos[6]={0}; 		// for inphase parameters
+struct SOS inphase_sos[6]={0}; 	// for inphase parameters
 
 
 union uAdcData  inphaseData={0};
