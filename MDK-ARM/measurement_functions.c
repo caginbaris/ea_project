@@ -70,17 +70,16 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 //2.0 function invocation shown below  
 //2.1 "output=sos_implementation(input(real-time),output(lef-side),coeff_data(array_name),SOS2data(different for all parameters ));
 
-float sos_implementation(float x , const float *coeffs, struct SOS *back){
+float sos_implementation(float x ,float yBack, const float *coeffs, struct SOS *back){
 
 	float y;
 
 	
 	y=x*(*coeffs)	+	(back->xz1)	*(*(coeffs+1))		+	(back->xz2)*(*(coeffs+2))
-								- (back->yz1)			*(*(coeffs+3))		-	(back->yz2)*(*(coeffs+4));
+								- (yBack)			*(*(coeffs+3))		-	(back->yz2)*(*(coeffs+4));
 
 	
-	back->yz2=back->yz1;
-	back->yz1=y;
+	back->yz2=yBack;
 	back->xz2=back->xz1;
 	back->xz1=x;
 	
@@ -98,7 +97,7 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 	
 	for (i=0;i<6;i++){
 	
-		iq->buffer[i]		=sos_implementation(input.buffer[i],iq_coeffs,&all[i]);
+		iq->buffer[i]		=sos_implementation(input.buffer[i],iq->buffer[i],iq_coeffs,&all[i]);
 		
 	}
 	
@@ -152,7 +151,8 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 	
 		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
-		x->Power.Stotal=x->Power.Sa + x->Power.Sb + x->Power.Sc;
+		x->Power.Stotal=sqrtf(x->Power.Ptotal*x->Power.Ptotal+
+										x->Power.Qtotal*x->Power.Qtotal);
 	
 		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : x->Power.Pa/x->Power.Sa;
 		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : x->Power.Pb/x->Power.Sb;
@@ -174,8 +174,6 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 	sum.Power.Pc+=AN.data.Ic*AN.data.Vcn;
 	
 	
-	//q has to be calc...
-	
 	x->Power.Sa=rms.data.Van*rms.data.Ia;
 	x->Power.Sb=rms.data.Vbn*rms.data.Ib;
 	x->Power.Sc=rms.data.Vcn*rms.data.Ic;
@@ -188,26 +186,64 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 	x->Power.Pb=sum.Power.Pb*_i10period;sum.Power.Pb=0.0f;
 	x->Power.Pc=sum.Power.Pc*_i10period;sum.Power.Pc=0.0f;
 		
-	x->Power.Qa=sum.Power.Qa*_i10period;sum.Power.Qa=0.0f;
-	x->Power.Qb=sum.Power.Qb*_i10period;sum.Power.Qb=0.0f;
-	x->Power.Qc=sum.Power.Qc*_i10period;sum.Power.Qc=0.0f;		
+
 		
 	counter=0;	
 		
 	}
 	
+	x->Power.Qa=sqrtf(x->Power.Sa*x->Power.Sa-x->Power.Pa*x->Power.Pa);
+	x->Power.Qb=sqrtf(x->Power.Sb*x->Power.Sb-x->Power.Pb*x->Power.Pb);
+	x->Power.Qc=sqrtf(x->Power.Sc*x->Power.Sc-x->Power.Pc*x->Power.Pc);
 	
 	x->Power.Ptotal=	x->Power.Pa + x->Power.Pb + x->Power.Pc;
 	x->Power.Qtotal=	x->Power.Qa + x->Power.Qb + x->Power.Qc;
 	x->Power.Stotal=	x->Power.Sa + x->Power.Sb + x->Power.Sc;
 	
 	
-	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : acosf(x->Power.Pa/x->Power.Sa);
-	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : acosf(x->Power.Pb/x->Power.Sb);
-	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : acosf(x->Power.Pc/x->Power.Sc);
-	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : acosf(x->Power.Ptotal/x->Power.Stotal);
+	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : x->Power.Pa/x->Power.Sa;
+	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : x->Power.Pb/x->Power.Sb;
+	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : x->Power.Pc/x->Power.Sc;
+	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : x->Power.Ptotal/x->Power.Stotal;
 	
 	
 }
 
 
+//88
+
+void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x){
+
+uint8_t i=0;	
+float temp_r,temp_i;
+	
+	
+//********	
+temp_r=	inphase.data.Van + inphase.data.Vbn*sym_r + inphase.data.Vcn*sym_r;
+temp_i=	sym_i*(quad.data.Vbn-quad.data.Vcn);
+	
+	
+x->data.Vpn_0  =(inphase.data.Van + inphase.data.Vbn + 	inphase.data.Vcn)*sym_i3;
+x->data.Vpn_1  =(temp_r - temp_i)*sym_i3;
+x->data.Vpn_2 = (temp_r + temp_i)*sym_i3;	
+	
+//********
+temp_r=	inphase.data.Ia + inphase.data.Ib*sym_r + inphase.data.Ic*sym_r;
+temp_i=	sym_i*(quad.data.Ib-quad.data.Ic);
+	
+	
+x->data.Vpn_0  =(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
+x->data.Vpn_1  =(temp_r - temp_i)*sym_i3;
+x->data.Vpn_2 = (temp_r + temp_i)*sym_i3;		
+	
+	
+//********	
+temp_r=	inphase.data.Vab + inphase.data.Vbc*sym_r + inphase.data.Vca*sym_r;
+temp_i=	sym_i*(quad.data.Vbc-quad.data.Vca);
+	
+	
+x->data.Vpp_0  =(inphase.data.Vab + inphase.data.Vbc + 	inphase.data.Vca)*sym_i3;
+x->data.Vpp_1  =(temp_r - temp_i)*sym_i3;
+x->data.Vpp_2 = (temp_r + temp_i)*sym_i3;		
+
+}

@@ -35,10 +35,10 @@ void measurement_routines(){
 	//iq components fund calculations
 	
 
-	//power_calculations_iq(inphaseData,quadData,&power_iq);
+	power_calculations_iq(inphaseData,quadData,&power_iq);
 
 	//power elements true calcualtions
 	
-	//power_calculations_true(AN,trueRMS,&power_true);
+	power_calculations_true(AN,trueRMS,&power_true);
 	
 }

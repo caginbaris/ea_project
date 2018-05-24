@@ -183,7 +183,7 @@ struct display_menu_handles Active_Power_Menu= {
 	/*third line*/ 	{P,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_W,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -202,7 +202,7 @@ struct display_menu_handles Reactive_Power_Menu= {
 	/*third line*/ 	{Q,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_V,m_A,m_R,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -221,7 +221,7 @@ struct display_menu_handles Apparent_Power_Menu= {
 	/*third line*/ 	{S,C,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_V,m_A,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -234,9 +234,9 @@ struct display_menu_handles Total_Power_Menu= {
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
 	
-	/*fist line*/ 	{S,A,__},
-	/*second line*/ {S,B,__},
-	/*third line*/ 	{S,C,__},
+	/*fist line*/ 	{P,T,__}, //cau different units needed
+	/*second line*/ {Q,T,__},
+	/*third line*/ 	{S,T,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
@@ -251,14 +251,14 @@ struct display_menu_handles Power_Factors_true_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
+	/*title*/      	{g,u,c,_,f,a,k,t,o,r,_,g,e,r,c,e,k,_,_,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -269,14 +269,14 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_} ,
+	/*title*/      	{g,u,c,_,f,a,k,t,o,r,_,a,n,a,_,_,_,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -286,16 +286,16 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 
 struct display_menu_handles Total_Power_Factor_true_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(power_true.Power.PFtotal),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,o,p,l,a,m,_,g,f,_,g,e,r,c,e,k,_,_,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -305,16 +305,16 @@ struct display_menu_handles Total_Power_Factor_true_Menu= {
 
 struct display_menu_handles Total_Power_Factor_fund_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(power_iq.Power.PFtotal),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,o,p,l,a,m,_,g,f,_,a,n,a,_,_,_,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -326,14 +326,14 @@ struct display_menu_handles Power_Ratios_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{g,u,c,_,o,r,a,n,l,a,r,i,_,q,_,p} , //cau divide can be added
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
+	/*fist line*/ 	{Q,P,A},
+	/*second line*/ {Q,P,B},
+	/*third line*/ 	{Q,P,C},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_}, // percent can be added
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -345,14 +345,14 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,o,r,a,n,i,_,q,_,p},
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	

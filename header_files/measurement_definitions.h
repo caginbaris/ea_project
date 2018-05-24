@@ -11,6 +11,9 @@
 #define i2 0.5f
 #define indefinite 0
 #define iq_rms_scale 0.5f
+#define sym_r  			-0.5f
+#define sym_i  			0.8660254037844386f
+#define sym_i3 			0.333333333333333f
 
 union RMS{
 	
@@ -38,7 +41,7 @@ struct SOS{
 	
 	float xz2;
 	float xz1;
-	float yz1;
+	//float yz1;
 	float yz2;		
 	
 	
@@ -87,6 +90,32 @@ union powerParameters{
 
 
 
+
+
+
+union symmetricalComponents{
+
+	struct{
+		
+	float Vpn_0;
+	float Vpn_1;
+	float Vpn_2;
+	
+	float I_0;
+	float I_1;
+	float I_2;
+	
+	float Vpp_0;
+	float Vpp_1;
+	float Vpp_2;}data;
+	
+	
+	float buffer[9];
+		
+	
+};
+
+extern union symmetricalComponents sym;
 
 // functions prototypes
 
