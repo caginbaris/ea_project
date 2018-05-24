@@ -296,8 +296,8 @@ struct display_menu_handles Total_Power_Factor_true_Menu= {
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };

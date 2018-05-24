@@ -213,7 +213,118 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 	
 }
+
+
+
+
+void dynamicDataSingle(struct display_menu_handles menu_item){
 	
+	#if 1
+	struct digit_format lcd_row2={0};
+	float *fp;
+
+	uint8_t page,column; 
+	
+
+
+	fp=menu_item.values;
+	
+	//format-unit
+	lcd_row2=formatDynamicData(*fp);
+	//digit and unit transfer
+	
+	column=38;
+	
+
+	page=3;
+	//second row
+	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
+																								digit_transfer_14pt(lcd_row2.int1,page,column+2*digit_width_14pt);
+																								put_dot2x2(page+1,column+3*digit_width_14pt);
+																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+	
+	
+	if(lcd_row2.range==u_K){unit_transfer(u_K,page,column+(3*digit_width_14pt+digit_width_14pt));}
+	if(lcd_row2.range==u_M){unit_transfer(u_M,page,column+(3*digit_width_14pt+digit_width_14pt));}	
+	if(lcd_row2.range==u_G){unit_transfer(u_G,page,column+(3*digit_width_14pt+digit_width_14pt));}		
+	
+	
+	
+	
+	#endif
+									
+
+};
+	
+void staticDataSingle(struct display_menu_handles menu_item){
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+	#if 1
+
+	for(i=0;i<17;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+
+	
+	
+	column=0;
+	
+	page=3;
+	
+	column=letter_transfer_14pt(menu_item.second_line[0],page,column);
+	column=letter_transfer_14pt(menu_item.second_line[1],page,column);
+	column=letter_transfer_14pt(menu_item.second_line[2],page,column);
+	
+	
+		menu_unit_transfer(menu_item.menu_chars[0],page, menu_unit_vertical_position);
+	
+	
+	for(i=1;i<4;i++){
+		
+		
+		if(menu_item.menu_chars[i]==m_){break;}
+		if(menu_item.menu_chars[0]==m_W){menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+11);}else{
+		
+		menu_unit_transfer(menu_item.menu_chars[i],page, menu_unit_vertical_position+7*i);
+			
+		}
+		
+	}
+	
+	
+	
+	
+
+	
+
+	
+	
+
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+	
+	
+	//menu units
+	
+	
+	#endif
+	
+	
+}
+
 
 
 void toMainDetect(){

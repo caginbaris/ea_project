@@ -216,6 +216,8 @@ void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column);
 
 void dynamicDataTripple(struct display_menu_handles menu_item);
 void staticDataTripple(struct display_menu_handles menu_item);
+void dynamicDataSingle(struct display_menu_handles menu_item);
+void staticDataSingle(struct display_menu_handles menu_item);
 void toMainDetect();
 void atMainOperation();
 
