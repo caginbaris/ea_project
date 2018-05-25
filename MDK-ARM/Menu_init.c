@@ -258,7 +258,7 @@ struct display_menu_handles Power_Factors_true_Menu= {
 	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
+	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -276,7 +276,7 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
+	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -294,8 +294,8 @@ struct display_menu_handles Total_Power_Factor_true_Menu= {
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
 	
@@ -314,9 +314,9 @@ struct display_menu_handles Total_Power_Factor_fund_Menu= {
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };

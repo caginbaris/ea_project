@@ -816,6 +816,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>graphing</GroupName>
+          <Files>
+            <File>
+              <FileName>graphing_fuctions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\graphing_fuctions.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>
