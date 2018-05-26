@@ -9,7 +9,11 @@
 #define vLineRowStart 15
 #define vLineRowEnd 15
 
-union LCD_map bitmap;
+union LCD_map bitmap={0xFF};
+
+
+uint8_t xpos=0;
+uint8_t ypos=0;
 
 //graphing lines
 
@@ -29,20 +33,7 @@ void setbit(uint8_t x,uint8_t y){
 	page=(uint8_t)(x/8);
 	xBit=x%8;
 	
-	switch(xBit){
-	
-		case 0: xData=bitmap.bit.b0;
-		case 1: xData=bitmap.bit.b1;
-		case 2: xData=bitmap.bit.b2;
-		case 3: xData=bitmap.bit.b3;
-		case 4: xData=bitmap.bit.b4;
-		case 5: xData=bitmap.bit.b5;
-		case 6: xData=bitmap.bit.b6;
-		case 7: xData=bitmap.bit.b7;
-	
-	}
-		
-	display_buffer[page][y]=xData;
+	display_buffer[page][y]=1<<xBit;
 
 
 }
@@ -56,23 +47,10 @@ void hline(uint8_t x, uint8_t lineStart,uint8_t lineEnd){
 	xPage=(uint8_t)(x/8);
 	xBit=x%8;
 	
-	switch(xBit){
-	
-		case 0: xData=bitmap.bit.b0;
-		case 1: xData=bitmap.bit.b1;
-		case 2: xData=bitmap.bit.b2;
-		case 3: xData=bitmap.bit.b3;
-		case 4: xData=bitmap.bit.b4;
-		case 5: xData=bitmap.bit.b5;
-		case 6: xData=bitmap.bit.b6;
-		case 7: xData=bitmap.bit.b7;
-	
-	}
-	
 	
 	for(i=lineStart;i<lineEnd;i++){
 	
-	display_buffer[xPage][i]=xData;
+	display_buffer[xPage][i]=1<<xBit;
 	
 	}
 	
@@ -92,18 +70,7 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	startPage=(uint8_t)(lineStart/8);
 	startBit=lineStart%8;
 	
-	switch(startBit){
-	
-		case 0: startData=0xFF; //cau row sequnce has to be checked
-		case 1: startData=0xFE;
-		case 2: startData=bitmap.bit.b2;
-		case 3: startData=bitmap.bit.b3;
-		case 4: startData=bitmap.bit.b4;
-		case 5: startData=bitmap.bit.b5;
-		case 6: startData=bitmap.bit.b6;
-		case 7: startData=bitmap.bit.b7;
-	
-	}
+
 	
 	
 	display_buffer[startPage][y]=startData;
@@ -143,6 +110,18 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 
 
 void graphBaseLining(){
+	
+	
+	setbit(xpos,ypos);
+	
+
+}
+
+
+void graphDataTransfer(){
+	
+	
+	hline(0, xpos,ypos);
 	
 
 }

@@ -490,7 +490,7 @@ void DISPLAY_MENU(){
 
 	struct display_menu_handles local_menu={0};
 	
-	memset(display_buffer,0,1024); // DMA can be used
+	//memset(display_buffer,0,1024); // DMA can be used
 	
 	local_menu=MENU.all[current_menu];
 

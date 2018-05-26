@@ -33,7 +33,8 @@ uint8_t all;
 
 
 
-
+void graphBaseLining();
+void graphDataTransfer();
 
 
 #endif

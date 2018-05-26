@@ -23,7 +23,8 @@ Active_Energy_import,Active_Energy_export,//16-17
 Reactive_Energy_import,Rective_Energy_export, //18-19
 Apparent_Energy,	//20
 Energy_Ratios,	//21
-main_menu //22
+Scope,	//22	
+main_menu //23
 };
 
 enum main_menu_list {
@@ -45,7 +46,8 @@ enum main_menu_list {
 	Reactive_Energy_main=13,//13
 	Apparent_Energy_main=14,//14
 	Energy_Ratios_main=15,//15
-	pos_guard=16,
+	Scope_main=16,//16
+	pos_guard=17,
 };
 
 struct main_menu_rows{
@@ -132,8 +134,10 @@ union display_menu_union{
 	
 	struct display_menu_handles Apparent_Energy;//20
 	struct display_menu_handles Energy_Ratios;//21
+	
+	struct display_menu_handles Scope;//22
 
-	struct display_menu_handles main_menu;//22		
+	struct display_menu_handles main_menu;//23		
 		
 	}handle;
 	

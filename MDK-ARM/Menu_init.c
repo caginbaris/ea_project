@@ -2,6 +2,7 @@
 #include "lcd_definitions.h"
 #include "conversion.h"
 #include "measurement_definitions.h"
+#include "graphing_definitions.h"
 #include <stdlib.h>
 
 
@@ -10,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Vpn_true;
+enum menu_list current_menu=Scope;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
@@ -34,7 +35,8 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_,_,_},//12
 {r,e,a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_},//13	
 {g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//14
-{e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15	
+{e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15
+{d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//15	
 
 };
 
@@ -470,6 +472,26 @@ struct display_menu_handles Energy_Ratios_Menu= {
 
 };
 
+struct display_menu_handles Scope_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
+
+
+
 
 
 
@@ -598,6 +620,8 @@ void init_Menu(){
 	
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
 	MENU.handle.Energy_Ratios=Energy_Ratios_Menu;
+	
+	MENU.handle.Scope=Scope_Menu;
 	
 }
 
