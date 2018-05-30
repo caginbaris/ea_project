@@ -61,7 +61,7 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 
 	uint8_t startPage;
 	uint8_t startBit;
-	uint8_t startData;
+	uint8_t Data=0;
 	uint8_t endPage;
 	uint8_t endBit;
 	uint8_t i;
@@ -70,36 +70,23 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	startPage=(uint8_t)(lineStart/8);
 	startBit=lineStart%8;
 	
-
+	for(i=0;i<(8-startBit);i++){Data|=(1<<startBit);}
 	
-	
-	display_buffer[startPage][y]=startData;
+	display_buffer[startPage++][y]=Data;
 	
 	endPage=(uint8_t)(lineEnd/8);
 	endBit=lineEnd%8;
 	
+	Data=0;
 	
 	
+	for(i=startPage;i<endPage;i++){display_buffer[i][y]=0xFF;}
 	
+	for(i=0;i<(endBit+1);i++){	Data|=(1<<endBit);}
 	
+  display_buffer[endPage][y]=Data;
 	
-	
-	for(i=startPage;i<endPage;i++){
-	
-	display_buffer[i][y]=0xFF;
-	
-	}
-	
-	
-	
-
-
-
-
 }
-
-
-
 
 
 
@@ -112,7 +99,7 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 void graphBaseLining(){
 	
 	
-	setbit(xpos,ypos);
+	
 	
 
 }
