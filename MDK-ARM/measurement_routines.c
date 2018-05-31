@@ -14,6 +14,7 @@ union uAdcData  inphaseData={0};
 union uAdcData  quadData={0};
 union uAdcData  fundRMS={0};
 union uAdcData  trueRMS={0};
+union uAdcData  phase={0};
 
 union powerParameters  power_iq={0};
 union powerParameters  power_true={0};
@@ -40,5 +41,9 @@ void measurement_routines(){
 	//power elements true calcualtions
 	
 	power_calculations_true(AN,trueRMS,&power_true);
+	
+	//phase detection
+	
+	phaseDetect(inphaseData,quadData,&phase);
 	
 }

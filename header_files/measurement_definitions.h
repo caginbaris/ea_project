@@ -124,6 +124,7 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
 void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
+void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
 
 
 // extern data
@@ -133,4 +134,5 @@ extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
 extern union powerParameters  power_true;
+extern union uAdcData  phase;
 #endif

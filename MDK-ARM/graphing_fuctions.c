@@ -1,15 +1,12 @@
-
+#include "conversion.h"
 #include "graphing_definitions.h"
 #include "LCD_definitions.h"
+#include "aux_functions.h"
+#include "measurement_definitions.h"
 
-#define hLineRow 15
-#define hLineRowStart 15
 
-#define vLineRow 15
-#define vLineRowStart 15
-#define vLineRowEnd 15
 
-union LCD_map bitmap={0xFF};
+float scope_array[100];
 
 
 uint8_t xpos=0;
@@ -86,6 +83,46 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	
   display_buffer[endPage][y]=Data;
 	
+}
+
+
+void plot_data_formatting(float x){
+
+	static uint8_t decimator=0;
+	static uint8_t snap_flag=0;
+	static long gap_counter=0;
+	static uint8_t i=0,j=0;
+	
+	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;i=0;}
+	
+	
+	if(snap_flag){
+		
+		i++;
+	
+	}
+	
+	
+	
+	
+	
+
+	
+	
+
+
+}
+
+
+void scope_plotting(){
+
+
+
+
+
+
+
+
 }
 
 

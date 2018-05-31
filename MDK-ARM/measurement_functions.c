@@ -247,3 +247,13 @@ x->data.Vpp_1  =(temp_r - temp_i)*sym_i3;
 x->data.Vpp_2 = (temp_r + temp_i)*sym_i3;		
 
 }
+
+
+void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase){
+
+
+	phase->data.Van=atan2f(inphase.data.Van,quad.data.Van);
+	
+
+
+}
