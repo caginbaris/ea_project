@@ -4,9 +4,12 @@
 #include "aux_functions.h"
 #include "measurement_definitions.h"
 
+#define scope_xpos1 1
+#define scope_xpos2 1
+#define scope_ypos1 27
+#define scope_ypos2 127
 
-
-float scope_array[100];
+float scope_array[100]={0};
 
 
 uint8_t xpos=0;
@@ -67,61 +70,82 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	startPage=(uint8_t)(lineStart/8);
 	startBit=lineStart%8;
 	
-	for(i=0;i<(8-startBit);i++){Data|=(1<<startBit);}
-	
-	display_buffer[startPage++][y]=Data;
-	
 	endPage=(uint8_t)(lineEnd/8);
 	endBit=lineEnd%8;
 	
-	Data=0;
+	if(startPage==endPage){
 	
 	
-	for(i=startPage;i<endPage;i++){display_buffer[i][y]=0xFF;}
+	for(i=(startBit);i<endBit;i++){
 	
-	for(i=0;i<(endBit+1);i++){	Data|=(1<<endBit);}
+		Data|=(1<<(i));
+		
+	}
 	
-  display_buffer[endPage][y]=Data;
+	display_buffer[startPage][y]=Data;
+		
+		
+	
+	}else{
+		
+		
+	for(i=(startBit);i<8;i++){Data|=(1<<(i));}
+		
+	display_buffer[startPage][y]=Data;
+	startPage++;
+
+
+	for(i=(startPage);i<endPage;i++){
+	
+	display_buffer[i][y]=0xFF;
+	
+	}	
+	
+	for(i=0;i<endBit;i++){Data|=(1<<(i));}
+	
+	display_buffer[endPage][y]=Data;
+	
+	
+	}
 	
 }
 
 
-void plot_data_formatting(float x){
+void plot_data_formatting(float x,float rms){
 
-	static uint8_t decimator=0;
 	static uint8_t snap_flag=0;
 	static long gap_counter=0;
 	static uint8_t i=0,j=0;
 	
-	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;i=0;}
+	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
 	
 	
 	if(snap_flag){
+
+		if((i++)%2){scope_array[j++]=20.0f*x/(rms*1.414213f);}
 		
-		i++;
+		if(i==200){i=0;j=0;snap_flag=0;}
 	
 	}
 	
 	
 	
-	
-	
-
-	
-	
-
-
 }
 
 
 void scope_plotting(){
-
-
-
-
-
-
-
+	
+	
+	static uint8_t i;
+	int8_t val;
+	
+	val=scope_array[i];
+	
+	i_limiter(-25,25,&val);
+	
+	setbit(25-val,i++);
+	
+	if(i==scope_ypos2){i=scope_ypos1;}
 
 }
 
@@ -145,7 +169,7 @@ void graphBaseLining(){
 void graphDataTransfer(){
 	
 	
-	hline(0, xpos,ypos);
+	
 	
 
 }

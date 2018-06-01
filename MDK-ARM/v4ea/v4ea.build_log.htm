@@ -22,11 +22,15 @@ Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
 C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  05/31/2018
+Project File Date:  06/01/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
+compiling aux_functions.c...
+..\header_files\aux_functions.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif
+aux_functions.c: 1 warning, 0 errors
 compiling graphing_fuctions.c...
 ..\header_files\graphing_definitions.h(36): warning:  #1295-D: Deprecated declaration graphBaseLining - give arg types
   void graphBaseLining();
@@ -36,33 +40,23 @@ compiling graphing_fuctions.c...
   #endif
 ..\header_files\measurement_definitions.h(138): warning:  #1-D: last line of file ends without a newline
   #endif
-graphing_fuctions.c(26): warning:  #177-D: variable "column" was declared but never referenced
+graphing_fuctions.c(28): warning:  #177-D: variable "column" was declared but never referenced
   	uint8_t column;
-graphing_fuctions.c(28): warning:  #177-D: variable "xData" was declared but never referenced
+graphing_fuctions.c(30): warning:  #177-D: variable "xData" was declared but never referenced
   	uint8_t xData;
-graphing_fuctions.c(41): warning:  #177-D: variable "xData" was declared but never referenced
+graphing_fuctions.c(43): warning:  #177-D: variable "xData" was declared but never referenced
   	uint8_t xData;
-graphing_fuctions.c(91): warning:  #177-D: variable "decimator" was declared but never referenced
-  	static uint8_t decimator=0;
-graphing_fuctions.c(93): warning:  #177-D: variable "gap_counter" was declared but never referenced
+graphing_fuctions.c(116): warning:  #177-D: variable "gap_counter" was declared but never referenced
   	static long gap_counter=0;
-graphing_fuctions.c(94): warning:  #177-D: variable "j" was declared but never referenced
-  	static uint8_t i=0,j=0;
-graphing_fuctions.c(151): warning:  #1-D: last line of file ends without a newline
+graphing_fuctions.c(139): warning:  #550-D: variable "val" was set but never used
+  	int8_t val;
+graphing_fuctions.c(179): warning:  #1-D: last line of file ends without a newline
   }
-graphing_fuctions.c: 11 warnings, 0 errors
-compiling measurement_functions.c...
-..\header_files\measurement_definitions.h(138): warning:  #1-D: last line of file ends without a newline
-  #endif
-measurement_functions.c(113): warning:  #177-D: variable "counter" was declared but never referenced
-  	uint8_t counter=0;
-measurement_functions.c(217): warning:  #177-D: variable "i" was declared but never referenced
-  uint8_t i=0;	
-measurement_functions.c: 3 warnings, 0 errors
+graphing_fuctions.c: 10 warnings, 0 errors
 linking...
 v4ea\v4ea.axf: error: L6050U: The code size of this image (33186 bytes) exceeds the maximum allowed for this version of the linker.
 Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
-"v4ea\v4ea.axf" - 1 Error(s), 14 Warning(s).
+"v4ea\v4ea.axf" - 1 Error(s), 11 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
@@ -70,7 +64,7 @@ Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
 
 <h2>Collection of Component Files used:</h2>
 Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:11
 </pre>
 </body>
 </html>

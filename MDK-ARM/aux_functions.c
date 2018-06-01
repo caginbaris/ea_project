@@ -102,4 +102,12 @@ uint8_t on_off_delay( uint8_t input,  uint8_t mem, uint16_t qual_sample, uint32_
 }
 
 
+void i_limiter(int8_t down_limit,int8_t up_limit,int8_t *value ){
+	
+	if(*value>up_limit)		{*value	=	 up_limit;}
+	if(*value<down_limit)	{*value	=down_limit;}
+
+}
+
+
 
