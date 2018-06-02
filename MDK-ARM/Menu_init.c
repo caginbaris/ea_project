@@ -474,12 +474,12 @@ struct display_menu_handles Energy_Ratios_Menu= {
 
 struct display_menu_handles Scope_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(AN.data.Van),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{v,a,n} ,
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
+	/*fist line*/ 	{A,__,__},
+	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},

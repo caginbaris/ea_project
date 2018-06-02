@@ -35,6 +35,6 @@ uint8_t all;
 
 void graphBaseLining();
 void graphDataTransfer();
-
+void scope_routine();
 
 #endif

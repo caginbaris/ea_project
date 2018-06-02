@@ -1,6 +1,7 @@
 
 #include "conversion.h"
 #include "measurement_definitions.h"
+#include "graphing_definitions.h"
 
 /*measuremnt parameters declarations*/
 
@@ -45,5 +46,9 @@ void measurement_routines(){
 	//phase detection
 	
 	phaseDetect(inphaseData,quadData,&phase);
+	
+	//scope routines
+	
+	scope_routine();
 	
 }

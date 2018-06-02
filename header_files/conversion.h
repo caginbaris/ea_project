@@ -70,7 +70,7 @@ union uAdcData{
 
 enum adcChannel{
 	
-	Van,
+	Van=0,
 	Vbn,
 	Vcn,
 	

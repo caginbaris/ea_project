@@ -3,6 +3,8 @@
 #include "LCD_definitions.h"
 #include "aux_functions.h"
 #include "measurement_definitions.h"
+#include "menu_definitions.h"
+#include <math.h>
 
 #define scope_xpos1 1
 #define scope_xpos2 1
@@ -29,9 +31,16 @@ void setbit(uint8_t x,uint8_t y){
 	uint8_t column;
 	uint8_t xBit;
 	uint8_t xData;
+	uint8_t i;
 	
 	page=(uint8_t)(x/8);
 	xBit=x%8;
+	
+	for(i=0;i<8;i++){
+	
+	display_buffer[i][y]=0;
+		
+	}
 	
 	display_buffer[page][y]=1<<xBit;
 
@@ -50,7 +59,7 @@ void hline(uint8_t x, uint8_t lineStart,uint8_t lineEnd){
 	
 	for(i=lineStart;i<lineEnd;i++){
 	
-	display_buffer[xPage][i]=1<<xBit;
+	display_buffer[xPage][i]|=1<<xBit;
 	
 	}
 	
@@ -82,8 +91,8 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 		
 	}
 	
-	display_buffer[startPage][y]=Data;
-		
+	display_buffer[startPage][y]|=Data;
+	Data=0;	
 		
 	
 	}else{
@@ -91,19 +100,23 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 		
 	for(i=(startBit);i<8;i++){Data|=(1<<(i));}
 		
-	display_buffer[startPage][y]=Data;
+	display_buffer[startPage][y]|=Data;
 	startPage++;
 
-
+	if(startPage!=endPage){
+		
 	for(i=(startPage);i<endPage;i++){
 	
-	display_buffer[i][y]=0xFF;
+	display_buffer[i][y]|=0xFF;
 	
-	}	
+		}
+	}
+
+	Data=0;
 	
 	for(i=0;i<endBit;i++){Data|=(1<<(i));}
 	
-	display_buffer[endPage][y]=Data;
+	display_buffer[endPage][y]|=Data;
 	
 	
 	}
@@ -120,13 +133,18 @@ void plot_data_formatting(float x,float rms){
 	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
 	
 	
+	
+	
 	if(snap_flag){
 
-		if((i++)%2){scope_array[j++]=20.0f*x/(rms*1.414213f);}
+		if((i++)%2){scope_array[j++]=22.0f*x/(rms*1.414213f);}
+		
 		
 		if(i==200){i=0;j=0;snap_flag=0;}
 	
 	}
+	
+	
 	
 	
 	
@@ -136,16 +154,32 @@ void plot_data_formatting(float x,float rms){
 void scope_plotting(){
 	
 	
-	static uint8_t i;
+	static uint8_t i=scope_ypos1;
+	static uint8_t n=0;
 	int8_t val;
 	
-	val=scope_array[i];
+	val=scope_array[n++];
+	if(n==100){n=0;}
+	
 	
 	i_limiter(-25,25,&val);
 	
 	setbit(25-val,i++);
 	
 	if(i==scope_ypos2){i=scope_ypos1;}
+
+}
+
+
+void scope_routine(){
+	
+	
+
+	
+	
+	plot_data_formatting(*MENU.all[current_menu].values,trueRMS.buffer[MENU.all[current_menu].first_line[0]]);
+	
+
 
 }
 
@@ -159,9 +193,18 @@ void scope_plotting(){
 
 void graphBaseLining(){
 	
+	hline(50,25,125);
+	hline(25,24,27);
+	hline(12,24,27);
+	hline(37,24,27);
+	vline(25,0,50);
+	vline(50,49,52);
+	vline(75,49,52);
+	vline(100,49,52);
 	
-	
-	
+	letter_transfer_8pt(v,0,0);
+	letter_transfer_8pt(a,0,8);
+	letter_transfer_8pt(n,0,16);
 
 }
 
@@ -170,6 +213,8 @@ void graphDataTransfer(){
 	
 	
 	
+	scope_plotting();
 	
+
 
 }
