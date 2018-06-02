@@ -129,10 +129,28 @@ void plot_data_formatting(float x,float rms){
 	static uint8_t snap_flag=0;
 	static long gap_counter=0;
 	static uint8_t i=0,j=0;
+	float pass_level=0;
 	
-	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
+	
+	if(fundRMS.data.Van>20.0 && (phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
 	
 	
+	switch(current_menu){
+	
+		case Scope_Van:pass_level=10;break;
+		case Scope_Vbn:pass_level=10;break;
+		case Scope_Vcn:pass_level=10;break;
+		
+		case Scope_Ia:pass_level=0.1;break;
+		case Scope_Ib:pass_level=0.1;break;
+		case Scope_Ic:pass_level=0.1;break;
+		
+		default: pass_level=0;break;
+	
+	}
+	
+	
+	if(rms>pass_level){
 	
 	
 	if(snap_flag){
@@ -143,6 +161,16 @@ void plot_data_formatting(float x,float rms){
 		if(i==200){i=0;j=0;snap_flag=0;}
 	
 	}
+
+}else{
+
+
+	scope_array[j++]=0;
+	
+	if(j==100){j=0;}
+
+
+}
 	
 	
 	
@@ -193,6 +221,8 @@ void scope_routine(){
 
 void graphBaseLining(){
 	
+	uint8_t i;
+	
 	hline(50,25,125);
 	hline(25,24,27);
 	hline(12,24,27);
@@ -202,9 +232,28 @@ void graphBaseLining(){
 	vline(75,49,52);
 	vline(100,49,52);
 	
-	letter_transfer_8pt(v,0,0);
-	letter_transfer_8pt(a,0,8);
-	letter_transfer_8pt(n,0,16);
+	
+	for(i=6;i<14;i++){
+	
+	
+		display_buffer[1][i]=0;
+		display_buffer[3][i]=0;
+		display_buffer[5][i]=0;
+	
+	}
+	
+	letter_transfer_8pt(MENU.all[current_menu].title[0],1,6);
+	letter_transfer_8pt(MENU.all[current_menu].title[1],3,6);
+	letter_transfer_8pt(MENU.all[current_menu].title[2],5,6);
+	
+	
+	symbol_transfer(MENU.all[current_menu].symbol[0],7,1);
+	symbol_transfer(MENU.all[current_menu].symbol[1],7,28);
+	symbol_transfer(MENU.all[current_menu].symbol[2],7,59);
+	symbol_transfer(MENU.all[current_menu].symbol[3],7,88);
+	symbol_transfer(MENU.all[current_menu].symbol[4],7,119);
+	
+	
 
 }
 

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 50
+#define TotalMenuTransitionNo 80
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -23,8 +23,9 @@ Active_Energy_import,Active_Energy_export,//16-17
 Reactive_Energy_import,Rective_Energy_export, //18-19
 Apparent_Energy,	//20
 Energy_Ratios,	//21
-Scope,	//22	
-main_menu //23
+Scope_Van,Scope_Vbn,Scope_Vcn,//22-23-24
+Scope_Ia,Scope_Ib,Scope_Ic,//25-26-27	
+main_menu //28
 };
 
 enum main_menu_list {
@@ -135,9 +136,15 @@ union display_menu_union{
 	struct display_menu_handles Apparent_Energy;//20
 	struct display_menu_handles Energy_Ratios;//21
 	
-	struct display_menu_handles Scope;//22
+	struct display_menu_handles Scope_Van;//22
+	struct display_menu_handles Scope_Vbn;//23
+	struct display_menu_handles Scope_Vcn;//24
+	
+	struct display_menu_handles Scope_Ia;//25
+	struct display_menu_handles Scope_Ib;//26
+	struct display_menu_handles Scope_Ic;//27
 
-	struct display_menu_handles main_menu;//23		
+	struct display_menu_handles main_menu;//28		
 		
 	}handle;
 	

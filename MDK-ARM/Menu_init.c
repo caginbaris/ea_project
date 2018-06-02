@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Scope;
+enum menu_list current_menu=Scope_Van;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
@@ -472,7 +472,7 @@ struct display_menu_handles Energy_Ratios_Menu= {
 
 };
 
-struct display_menu_handles Scope_Menu= {
+struct display_menu_handles Scope_Van_Menu= {
 	
 	/*dynamic data*/ &(AN.data.Van),
 	
@@ -482,8 +482,8 @@ struct display_menu_handles Scope_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*symbols*/			{menu_escape,0,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
 	
@@ -491,12 +491,99 @@ struct display_menu_handles Scope_Menu= {
 };
 
 
+struct display_menu_handles Scope_Vbn_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Vbn),
+	
+	/*title*/      	{v,b,n} ,
+	
+	/*fist line*/ 	{B,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
 
 
+struct display_menu_handles Scope_Vcn_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Vcn),
+	
+	/*title*/      	{v,c,n} ,
+	
+	/*fist line*/ 	{C,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
 
 
+struct display_menu_handles Scope_Ia_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Van),
+	
+	/*title*/      	{i,a,_} ,
+	
+	/*fist line*/ 	{D,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
 
 
+struct display_menu_handles Scope_Ib_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Vbn),
+	
+	/*title*/      	{i,b,_} ,
+	
+	/*fist line*/ 	{E,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
+
+
+struct display_menu_handles Scope_Ic_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Vcn),
+	
+	/*title*/      	{i,c,_} ,
+	
+	/*fist line*/ 	{F,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
 
 
 // menu transition
@@ -577,6 +664,41 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Total_Power_Factor_fund,right_pressed,	Total_Power_Factor_true},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
+		
+		//cau gap here,down req for follawing
+		
+		{	Scope_Van,up_pressed,Energy_Ratios},
+		{	Scope_Van,right_pressed,Scope_Vbn},
+		{	Scope_Van,enter_pressed,main_menu},
+		
+		
+		{	Scope_Vbn,up_pressed,Energy_Ratios},
+		{	Scope_Vbn,right_pressed,Scope_Vcn},
+		{	Scope_Vbn,left_pressed,Scope_Van},
+		{	Scope_Vbn,enter_pressed,main_menu},
+		
+		
+		{	Scope_Vcn,up_pressed,Energy_Ratios},
+		{	Scope_Vcn,right_pressed,Scope_Ia},
+		{	Scope_Vcn,left_pressed,Scope_Vbn},
+		{	Scope_Vcn,enter_pressed,main_menu},
+		
+		
+		{	Scope_Ia,up_pressed,Energy_Ratios},
+		{	Scope_Ia,right_pressed,Scope_Ib},
+		{	Scope_Ia,left_pressed,Scope_Vcn},
+		{	Scope_Ia,enter_pressed,main_menu},
+		
+		
+		{	Scope_Ib,up_pressed,Energy_Ratios},
+		{	Scope_Ib,right_pressed,Scope_Ic},
+		{	Scope_Ib,left_pressed,Scope_Ia},
+		{	Scope_Ib,enter_pressed,main_menu},
+		
+		
+		{	Scope_Ic,up_pressed,Energy_Ratios},
+		{	Scope_Ic,left_pressed,Scope_Ib},
+		{	Scope_Ic,enter_pressed,main_menu},
 
 };
 
@@ -621,7 +743,13 @@ void init_Menu(){
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
 	MENU.handle.Energy_Ratios=Energy_Ratios_Menu;
 	
-	MENU.handle.Scope=Scope_Menu;
+	MENU.handle.Scope_Van=Scope_Van_Menu;
+	MENU.handle.Scope_Vbn=Scope_Vbn_Menu;
+	MENU.handle.Scope_Vcn=Scope_Vcn_Menu;
+	
+	MENU.handle.Scope_Ia=Scope_Ia_Menu;
+	MENU.handle.Scope_Ib=Scope_Ib_Menu;
+	MENU.handle.Scope_Ic=Scope_Ic_Menu;
 	
 }
 

@@ -163,7 +163,7 @@
           <Type>0</Type>
           <LineNumber>185</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134240064</Address>
+          <Address>134240152</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -307,6 +307,16 @@
           <count>12</count>
           <WinNumber>2</WinNumber>
           <ItemText>display_buffer</ItemText>
+        </Ww>
+        <Ww>
+          <count>13</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>trueRMS</ItemText>
+        </Ww>
+        <Ww>
+          <count>14</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>fundRMS</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>
@@ -1011,7 +1021,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>49</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\aux_functions.c</PathWithFileName>

@@ -22,51 +22,83 @@ Dialog DLL:      TCM.DLL V1.14.9.0
  
 <h2>Project:</h2>
 C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  06/01/2018
+Project File Date:  06/02/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
-compiling graphing_fuctions.c...
-..\header_files\graphing_definitions.h(36): warning:  #1295-D: Deprecated declaration graphBaseLining - give arg types
-  void graphBaseLining();
-..\header_files\graphing_definitions.h(37): warning:  #1295-D: Deprecated declaration graphDataTransfer - give arg types
-  void graphDataTransfer();
-..\header_files\graphing_definitions.h(38): warning:  #1295-D: Deprecated declaration scope_routine - give arg types
-  void scope_routine();
-..\header_files\aux_functions.h(10): warning:  #1-D: last line of file ends without a newline
+compiling Menu_routines.c...
+..\header_files\menu_definitions.h(232): warning:  #1295-D: Deprecated declaration toMainDetect - give arg types
+  void toMainDetect();
+..\header_files\menu_definitions.h(233): warning:  #1295-D: Deprecated declaration atMainOperation - give arg types
+  void atMainOperation();
+..\header_files\menu_definitions.h(235): warning:  #1295-D: Deprecated declaration init_Menu - give arg types
+  void init_Menu();
+..\header_files\menu_definitions.h(236): warning:  #1295-D: Deprecated declaration DISPLAY_MENU - give arg types
+  void DISPLAY_MENU();
+..\header_files\ch_format.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\header_files\measurement_definitions.h(138): warning:  #1-D: last line of file ends without a newline
   #endif
-..\header_files\menu_definitions.h(225): warning:  #1295-D: Deprecated declaration toMainDetect - give arg types
-  void toMainDetect();
-..\header_files\menu_definitions.h(226): warning:  #1295-D: Deprecated declaration atMainOperation - give arg types
-  void atMainOperation();
-..\header_files\menu_definitions.h(228): warning:  #1295-D: Deprecated declaration init_Menu - give arg types
-  void init_Menu();
-..\header_files\menu_definitions.h(229): warning:  #1295-D: Deprecated declaration DISPLAY_MENU - give arg types
-  void DISPLAY_MENU();
-graphing_fuctions.c(31): warning:  #177-D: variable "column" was declared but never referenced
-  	uint8_t column;
-graphing_fuctions.c(33): warning:  #177-D: variable "xData" was declared but never referenced
-  	uint8_t xData;
-graphing_fuctions.c(53): warning:  #177-D: variable "xData" was declared but never referenced
-  	uint8_t xData;
-graphing_fuctions.c(130): warning:  #177-D: variable "gap_counter" was declared but never referenced
-  	static long gap_counter=0;
-graphing_fuctions.c(220): warning:  #1-D: last line of file ends without a newline
-  }
-graphing_fuctions.c: 14 warnings, 0 errors
+Menu_routines.c(17): warning:  #177-D: variable "transferred" was declared but never referenced
+  	int32_t transferred;
+Menu_routines.c(63): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
+Menu_routines.c(64): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(65): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(67): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(76): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(77): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(78): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(80): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(90): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
+Menu_routines.c(91): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(92): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(94): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(241): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(242): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(243): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(245): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(427): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=main_menu_entry-1+last_menu_entry; 
+Menu_routines.c: 24 warnings, 0 errors
 linking...
-Program Size: Code=33802 RO-data=2154 RW-data=1516 ZI-data=6364  
-"v4ea\v4ea.axf" - 0 Error(s), 14 Warning(s).
+Program Size: Code=34326 RO-data=2242 RW-data=1776 ZI-data=6368  
+"v4ea\v4ea.axf" - 0 Error(s), 24 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\1.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

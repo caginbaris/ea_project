@@ -398,6 +398,8 @@ void atMainOperation(){
 		case Power_Factors_main:						current_menu=Power_Factors_true; 				break;
 		case Total_Power_Factor_main:				current_menu=Total_Power_Factor_true; 	break;
 		
+			//gap
+		case Scope_main:				current_menu=Scope_Van; 	break;
 		default:	;break;
 		
 		}
@@ -487,10 +489,43 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 
 
 void DISPLAY_MENU(){
+	
+	uint8_t scope_menus=0;
+	static uint8_t scope_menu_transition=0;
 
 	struct display_menu_handles local_menu={0};
 	
-	//memset(display_buffer,0,1024); // DMA can be used
+	
+	switch(current_menu){
+	
+		case Scope_Van:scope_menus=1;break;
+		case Scope_Vbn:scope_menus=1;break;
+		case Scope_Vcn:scope_menus=1;break;
+		
+		case Scope_Ia:scope_menus=1;break;
+		case Scope_Ib:scope_menus=1;break;
+		case Scope_Ic:scope_menus=1;break;
+		
+		default:scope_menus=0;
+	
+	}
+	
+	
+	if(!scope_menus){
+	
+	memset(display_buffer,0,1024); scope_menu_transition=0;}else{
+		
+		
+	if(scope_menu_transition==0){memset(display_buffer,0,1024); scope_menu_transition=1;}
+	
+	
+	}
+	
+	
+	
+	
+	
+	
 	
 	local_menu=MENU.all[current_menu];
 
