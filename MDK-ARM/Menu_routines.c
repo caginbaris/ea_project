@@ -355,6 +355,26 @@ void toMainDetect(){
 		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
 		case Total_Power_Factor_fund:		main_menu_entry=Total_Power_Factor_main; break;
 		
+		case Power_Ratios:							main_menu_entry=Power_Ratios_main; break;
+		case Total_Power_Ratios:				main_menu_entry=Total_Power_Ratios_main; break;
+		
+		case Active_Energy_export:			main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_import:			main_menu_entry=	Active_Energy_main; break;
+		
+		case Reactive_Energy_export:		main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_import:		main_menu_entry=	Reactive_Energy_main; break;
+		
+		case Apparent_Energy:						main_menu_entry=	Apparent_Energy_main; break;
+		
+		case Energy_Ratios:							main_menu_entry=	Energy_Ratios_main; break;
+		
+		case Scope_Van:							main_menu_entry=	Scope_main; break;
+		case Scope_Vbn:							main_menu_entry=	Scope_main; break;
+		case Scope_Vcn:							main_menu_entry=	Scope_main; break;
+		case Scope_Ia:							main_menu_entry=	Scope_main; break;
+		case Scope_Ib:							main_menu_entry=	Scope_main; break;
+		case Scope_Ic:							main_menu_entry=	Scope_main; break;
+		
 		default:main_menu_entry=Vpn_main;break;
 		
 	}
@@ -397,9 +417,14 @@ void atMainOperation(){
 		case Total_Power_main:							current_menu=Total_Power; 							break;
 		case Power_Factors_main:						current_menu=Power_Factors_true; 				break;
 		case Total_Power_Factor_main:				current_menu=Total_Power_Factor_true; 	break;
-		
-			//gap
-		case Scope_main:				current_menu=Scope_Van; 	break;
+		case 	Power_Ratios_main:						current_menu=Power_Ratios;							break;				
+		case 	Total_Power_Ratios_main:			current_menu=Total_Power_Ratios;				break;	
+		case 	Active_Energy_main:						current_menu=Active_Energy_import;			break;
+		case 	Reactive_Energy_main:					current_menu=Reactive_Energy_import;		break;
+		case 	Apparent_Energy_main:					current_menu=Apparent_Energy;						break;
+		case 	Energy_Ratios_main:					  current_menu=Energy_Ratios;						  break;	
+		case Scope_main:										current_menu=Scope_Van; 								break;
+			
 		default:	;break;
 		
 		}

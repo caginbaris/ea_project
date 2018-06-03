@@ -20,7 +20,7 @@ Power_Factors_true,Power_Factors_fund, //10-11
 Total_Power_Factor_true, Total_Power_Factor_fund,//12-13	
 Power_Ratios,Total_Power_Ratios,//14-15
 Active_Energy_import,Active_Energy_export,//16-17
-Reactive_Energy_import,Rective_Energy_export, //18-19
+Reactive_Energy_import,Reactive_Energy_export, //18-19
 Apparent_Energy,	//20
 Energy_Ratios,	//21
 Scope_Van,Scope_Vbn,Scope_Vcn,//22-23-24

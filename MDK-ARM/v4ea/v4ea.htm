@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sat Jun 02 23:20:59 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun Jun 03 18:14:16 2018
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1788,7 +1788,7 @@ Global Symbols
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
 </UL>
 
-<P><STRONG><a name="[3]"></a>atMainOperation</STRONG> (Thumb, 552 bytes, Stack size 24 bytes, menu_routines.o(i.atMainOperation))
+<P><STRONG><a name="[3]"></a>atMainOperation</STRONG> (Thumb, 576 bytes, Stack size 24 bytes, menu_routines.o(i.atMainOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = atMainOperation &rArr; letter_transfer_8pt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
@@ -1859,7 +1859,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
 <P><STRONG><a name="[9]"></a>graphDataTransfer</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, graphing_fuctions.o(i.graphDataTransfer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = graphDataTransfer &rArr; scope_plotting &rArr; setbit
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = graphDataTransfer &rArr; scope_plotting &rArr; setbit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
 </UL>
@@ -2061,8 +2061,8 @@ Global Symbols
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicDataSingle
 </UL>
 
-<P><STRONG><a name="[10c]"></a>scope_plotting</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, graphing_fuctions.o(i.scope_plotting))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = scope_plotting &rArr; setbit
+<P><STRONG><a name="[10c]"></a>scope_plotting</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, graphing_fuctions.o(i.scope_plotting))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = scope_plotting &rArr; setbit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setbit
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i_limiter
@@ -2119,8 +2119,8 @@ Global Symbols
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
-<P><STRONG><a name="[2]"></a>toMainDetect</STRONG> (Thumb, 88 bytes, Stack size 20 bytes, menu_routines.o(i.toMainDetect))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = toMainDetect
+<P><STRONG><a name="[2]"></a>toMainDetect</STRONG> (Thumb, 146 bytes, Stack size 28 bytes, menu_routines.o(i.toMainDetect))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = toMainDetect
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>

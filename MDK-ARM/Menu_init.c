@@ -531,7 +531,7 @@ struct display_menu_handles Scope_Vcn_Menu= {
 
 struct display_menu_handles Scope_Ia_Menu= {
 	
-	/*dynamic data*/ &(AN.data.Van),
+	/*dynamic data*/ &(AN.data.Ia),
 	
 	/*title*/      	{i,a,_} ,
 	
@@ -550,7 +550,7 @@ struct display_menu_handles Scope_Ia_Menu= {
 
 struct display_menu_handles Scope_Ib_Menu= {
 	
-	/*dynamic data*/ &(AN.data.Vbn),
+	/*dynamic data*/ &(AN.data.Ib),
 	
 	/*title*/      	{i,b,_} ,
 	
@@ -569,7 +569,7 @@ struct display_menu_handles Scope_Ib_Menu= {
 
 struct display_menu_handles Scope_Ic_Menu= {
 	
-	/*dynamic data*/ &(AN.data.Vcn),
+	/*dynamic data*/ &(AN.data.Ic),
 	
 	/*title*/      	{i,c,_} ,
 	
@@ -587,6 +587,25 @@ struct display_menu_handles Scope_Ic_Menu= {
 
 
 // menu transition
+
+
+struct display_menu_handles Harmonics_Van_Menu= {
+	
+	/*dynamic data*/ &(AN.data.Van),
+	
+	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r} ,
+	
+	/*fist line*/ 	{A,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,0,menu_right,0,0},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  graphBaseLining,
+	/*dynamic data*/ graphDataTransfer
+	
+
+};
 
 
 
@@ -663,6 +682,9 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
 		{	Total_Power_Factor_fund,right_pressed,	Total_Power_Factor_true},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
+		
+		
+		
 		
 		
 		//cau gap here,down req for follawing

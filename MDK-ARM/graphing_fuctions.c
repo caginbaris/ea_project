@@ -183,8 +183,11 @@ void scope_plotting(){
 	
 	
 	static uint8_t i=scope_ypos1;
-	static uint8_t n=0;
+	static uint8_t n=0,s=0;
 	int8_t val;
+	
+	
+	for(s=0;s<5;s++){
 	
 	val=scope_array[n++];
 	if(n==100){n=0;}
@@ -195,6 +198,8 @@ void scope_plotting(){
 	setbit(25-val,i++);
 	
 	if(i==scope_ypos2){i=scope_ypos1;}
+	
+}
 
 }
 
@@ -267,3 +272,5 @@ void graphDataTransfer(){
 
 
 }
+
+
