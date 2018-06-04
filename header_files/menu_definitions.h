@@ -143,8 +143,10 @@ union display_menu_union{
 	struct display_menu_handles Scope_Ia;//25
 	struct display_menu_handles Scope_Ib;//26
 	struct display_menu_handles Scope_Ic;//27
+	
+	struct display_menu_handles Harmonics_Van;//28
 
-	struct display_menu_handles main_menu;//28		
+	struct display_menu_handles main_menu;//29		
 		
 	}handle;
 	

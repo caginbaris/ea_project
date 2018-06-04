@@ -595,7 +595,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 	
 	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r} ,
 	
-	/*fist line*/ 	{A,__,__},
+	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
@@ -772,6 +772,8 @@ void init_Menu(){
 	MENU.handle.Scope_Ia=Scope_Ia_Menu;
 	MENU.handle.Scope_Ib=Scope_Ib_Menu;
 	MENU.handle.Scope_Ic=Scope_Ic_Menu;
+	
+	
 	
 }
 

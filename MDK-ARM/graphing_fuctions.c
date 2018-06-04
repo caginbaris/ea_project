@@ -6,16 +6,15 @@
 #include "menu_definitions.h"
 #include <math.h>
 
-#define scope_xpos1 1
-#define scope_xpos2 1
 #define scope_ypos1 27
 #define scope_ypos2 127
 
+
 float scope_array[100]={0};
+float bin_array[20]={0};
 
 
-uint8_t xpos=0;
-uint8_t ypos=0;
+
 
 //graphing lines
 
@@ -273,4 +272,33 @@ void graphDataTransfer(){
 
 }
 
+
+void harmonicBaseLine(){
+	
+	uint8_t column,i;
+	
+	//title
+	
+	for(i=0;i<17;i++){
+		
+	column=letter_transfer_8pt(MENU.all[current_menu].title[i],0,column);
+	
+	}
+	
+	line_highlighter(0,128);
+	
+	//measurement side border
+	vline(102,9,55);
+	hline(55,0,127);
+	
+	
+	symbol_transfer(MENU.all[current_menu].symbol[0],7,1);
+	symbol_transfer(MENU.all[current_menu].symbol[1],7,28);
+	symbol_transfer(MENU.all[current_menu].symbol[2],7,59);
+	symbol_transfer(MENU.all[current_menu].symbol[3],7,88);
+	symbol_transfer(MENU.all[current_menu].symbol[4],7,119);
+	
+	
+
+}
 
