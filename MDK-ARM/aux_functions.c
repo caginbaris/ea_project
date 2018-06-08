@@ -109,5 +109,11 @@ void i_limiter(int8_t down_limit,int8_t up_limit,int8_t *value ){
 
 }
 
+void ui_limiter(uint8_t down_limit,uint8_t up_limit,uint8_t *value ){
+	
+	if(*value>up_limit)		{*value	=	 up_limit;}
+	if(*value<down_limit)	{*value	=down_limit;}
+
+}
 
 

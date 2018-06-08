@@ -9,6 +9,10 @@
 #define scope_ypos1 27
 #define scope_ypos2 127
 
+#define hBin_start_pos 5
+#define hBin_end_pos 5
+#define hBin_width 5
+
 
 float scope_array[100]={0};
 float bin_array[20]={0};
@@ -122,7 +126,62 @@ void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	
 }
 
+void vline_dotted(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 
+	uint8_t startPage;
+	uint8_t startBit;
+	uint8_t Data=0;
+	uint8_t endPage;
+	uint8_t endBit;
+	uint8_t i;
+	
+	
+	startPage=(uint8_t)(lineStart/8);
+	startBit=lineStart%8;
+	
+	endPage=(uint8_t)(lineEnd/8);
+	endBit=lineEnd%8;
+	
+	if(startPage==endPage){
+	
+	
+	for(i=(startBit);i<endBit;i++){
+	
+		Data|=(1<<(i));
+		
+	}
+	
+	display_buffer[startPage][y]|=Data;
+	Data=0;	
+		
+	
+	}else{
+		
+		
+	for(i=(startBit);i<8;i++){Data|=(1<<(i));}
+		
+	display_buffer[startPage][y]|=Data;
+	startPage++;
+
+	if(startPage!=endPage){
+		
+	for(i=(startPage);i<endPage;i++){
+	
+	display_buffer[i][y]|=0xAA;
+	
+		}
+	}
+
+	Data=0;
+	
+	for(i=0;i<endBit;i++){Data|=(1<<(i));}
+	
+	display_buffer[endPage][y]|=Data;
+	
+	
+	}
+	
+}
 void plot_data_formatting(float x,float rms){
 
 	static uint8_t snap_flag=0;
@@ -292,11 +351,54 @@ void harmonicBaseLine(){
 	hline(55,0,127);
 	
 	
+	menu_unit_transfer(MENU.all[current_menu].menu_chars[0],2,15);
+	
+	
+	
 	symbol_transfer(MENU.all[current_menu].symbol[0],7,1);
 	symbol_transfer(MENU.all[current_menu].symbol[1],7,28);
 	symbol_transfer(MENU.all[current_menu].symbol[2],7,59);
 	symbol_transfer(MENU.all[current_menu].symbol[3],7,88);
 	symbol_transfer(MENU.all[current_menu].symbol[4],7,119);
+	
+	
+
+}
+
+
+
+
+void harmonicBinTransfer(float *bin){
+	
+	uint8_t i;
+	
+	for(i=hBin_start_pos;i<hBin_end_pos;i+=hBin_width){
+		
+	
+	
+	vline(i  ,5,(uint8_t)(*bin));
+	vline(i+1,5,(uint8_t)(*bin));
+	vline(i+2,5,(uint8_t)(*bin++));	
+	
+
+	
+ }
+}
+
+
+void harmonicDataTransfer(){
+	
+	static uint8_t bin_select=0;
+	//bin highlighter
+	
+	
+	
+	vline_dotted(bin_select,9,55);
+	
+	if(pressed_button==right_pressed){bin_select+=5;}
+	if(pressed_button==left_pressed){bin_select-=5;}
+	
+	ui_limiter(0,102,&bin_select);
 	
 	
 

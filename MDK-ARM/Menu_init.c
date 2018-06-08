@@ -600,7 +600,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,0,0},
-	/*menu units*/	{m_,m_,m_,m_},
+	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
 	
