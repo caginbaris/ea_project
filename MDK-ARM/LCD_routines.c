@@ -126,6 +126,29 @@ uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t colum
 
 }
 
+uint8_t digit_transfer_8pt(enum digit_codes_14pt x, uint8_t page, uint8_t column){
+	
+	uint16_t i;
+	uint8_t letter_width;
+	uint16_t letter_offset;
+	
+	letter_width=Descriptors_lowerCaseDigits[x][0];
+	letter_offset=Descriptors_lowerCaseDigits[x][1];
+	
+	
+	
+	for(i=0;i<letter_width;i++){
+		
+		display_buffer[page][column+i]			=arial_8ptBitmaps_lowerCaseDigits[i+letter_offset];
+
+	}
+	
+	
+	return (column+i+1);
+
+
+}
+
 
 
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column){

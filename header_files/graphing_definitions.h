@@ -37,4 +37,7 @@ void graphBaseLining();
 void graphDataTransfer();
 void scope_routine();
 
+void harmonicBaseLine();
+void harmonicDataTransfer();
+
 #endif

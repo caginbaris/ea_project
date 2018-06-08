@@ -538,13 +538,7 @@ void DISPLAY_MENU(){
 	
 	if(!scope_menus){
 	
-	memset(display_buffer,0,1024); scope_menu_transition=0;}else{
-		
-		
-	if(scope_menu_transition==0){memset(display_buffer,0,1024); scope_menu_transition=1;}
-	
-	
-	}
+	memset(display_buffer,0,1024); scope_menu_transition=0;}
 	
 	
 	
@@ -554,7 +548,7 @@ void DISPLAY_MENU(){
 	
 	local_menu=MENU.all[current_menu];
 
-	if(previous_menu!=current_menu){
+	if(previous_menu!=current_menu || current_menu==Harmonics_Van){
 	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
 	

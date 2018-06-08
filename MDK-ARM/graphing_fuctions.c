@@ -9,13 +9,13 @@
 #define scope_ypos1 27
 #define scope_ypos2 127
 
-#define hBin_start_pos 5
-#define hBin_end_pos 5
+#define hBin_start_pos 1
+#define hBin_end_pos 95
 #define hBin_width 5
 
 
 float scope_array[100]={0};
-float bin_array[20]={0};
+float bin_array[20]={50.7,60.2,33,0,99};
 
 
 
@@ -334,7 +334,7 @@ void graphDataTransfer(){
 
 void harmonicBaseLine(){
 	
-	uint8_t column,i;
+	uint8_t column=1,i;
 	
 	//title
 	
@@ -347,12 +347,12 @@ void harmonicBaseLine(){
 	line_highlighter(0,128);
 	
 	//measurement side border
-	vline(102,9,55);
+	vline(101,8,55);
 	hline(55,0,127);
 	
 	
-	menu_unit_transfer(MENU.all[current_menu].menu_chars[0],2,15);
-	
+	menu_unit_transfer(MENU.all[current_menu].menu_chars[0],3,110);
+	letter_transfer_8pt(h,1,105);
 	
 	
 	symbol_transfer(MENU.all[current_menu].symbol[0],7,1);
@@ -368,29 +368,51 @@ void harmonicBaseLine(){
 
 
 
-void harmonicBinTransfer(float *bin){
+void harmonicBinTransfer(){
 	
-	uint8_t i;
+	uint8_t i=hBin_start_pos,a;
+	uint8_t mag;
 	
-	for(i=hBin_start_pos;i<hBin_end_pos;i+=hBin_width){
+	
+	for(i=hBin_start_pos;i<100;i+=hBin_width){
 		
+	mag=bin_array[a++]*(-0.46)+55;
+	
+	vline(i-1 ,mag,55);
+	vline(i		,mag,55);
+	vline(i+1	,mag,55);	
+		
+	ui_limiter(0,20,&a);
+		
+	}
 	
 	
-	vline(i  ,5,(uint8_t)(*bin));
-	vline(i+1,5,(uint8_t)(*bin));
-	vline(i+2,5,(uint8_t)(*bin++));	
 	
 
 	
- }
+ 
 }
 
 
 void harmonicDataTransfer(){
 	
-	static uint8_t bin_select=0;
-	//bin highlighter
+	static uint8_t bin_select=1;
+	uint8_t row;
+	float mag;
 	
+	uint8_t fraction,int100,int10,int1;
+	
+	
+	row=(bin_select/5)+1;
+	
+	if(bin_select<45){
+		
+	digit_transfer_8pt(row,1,112);}else{
+	
+	if(bin_select<95){digit_transfer_8pt(1,1,112);}else{digit_transfer_8pt(2,1,112);}	
+	
+	digit_transfer_8pt((row%10),1,118);
+	}
 	
 	
 	vline_dotted(bin_select,9,55);
@@ -398,8 +420,25 @@ void harmonicDataTransfer(){
 	if(pressed_button==right_pressed){bin_select+=5;}
 	if(pressed_button==left_pressed){bin_select-=5;}
 	
-	ui_limiter(0,102,&bin_select);
+	ui_limiter(1,96,&bin_select);
 	
+	harmonicBinTransfer();
+	
+	
+	
+	//ratio display
+	
+	mag=bin_array[row-1];
+	
+	fraction=10.0f*(mag-(uint8_t)mag);
+	int10		=(uint8_t)(mag*0.1) % 10;
+	int1		=((uint8_t)mag % 10);
+	
+	
+	digit_transfer_8pt(int10,5,104);
+	digit_transfer_8pt(int1,5,110);
+	display_buffer[5][117]=0x80;
+	digit_transfer_8pt(fraction,5,120);
 	
 
 }

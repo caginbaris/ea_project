@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Scope_Van;
+enum menu_list current_menu=Harmonics_Van;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
@@ -36,7 +36,7 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {r,e,a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_},//13	
 {g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//14
 {e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15
-{d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//15	
+{d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//16	
 
 };
 
@@ -593,16 +593,16 @@ struct display_menu_handles Harmonics_Van_Menu= {
 	
 	/*dynamic data*/ &(AN.data.Van),
 	
-	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r} ,
+	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  graphBaseLining,
-	/*dynamic data*/ graphDataTransfer
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
 	
 
 };
@@ -773,8 +773,8 @@ void init_Menu(){
 	MENU.handle.Scope_Ib=Scope_Ib_Menu;
 	MENU.handle.Scope_Ic=Scope_Ic_Menu;
 	
-	
-	
+	MENU.handle.Harmonics_Van=Harmonics_Van_Menu;
+
 }
 
 

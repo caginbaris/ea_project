@@ -38,6 +38,9 @@ extern const uint16_t Descriptors4[][2];
 extern const uint8_t menu_units_ch[];
 extern const uint16_t Descriptors5[][2];
 
+extern const uint8_t arial_8ptBitmaps_lowerCaseDigits[];
+extern const uint16_t Descriptors_lowerCaseDigits[][2];
+
 extern const uint8_t button_symbols[][8];
 
 enum letter_codes_14pt{

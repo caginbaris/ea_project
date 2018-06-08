@@ -25,6 +25,7 @@ Apparent_Energy,	//20
 Energy_Ratios,	//21
 Scope_Van,Scope_Vbn,Scope_Vcn,//22-23-24
 Scope_Ia,Scope_Ib,Scope_Ic,//25-26-27	
+Harmonics_Van,	
 main_menu //28
 };
 
@@ -151,7 +152,7 @@ union display_menu_union{
 	}handle;
 	
 	
-	struct display_menu_handles all[30]; 
+	struct display_menu_handles all[31]; 
 
 
 };
@@ -222,6 +223,7 @@ extern struct display_menu_handles Vpn_true_Menu;
 
 uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t column);
 uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
+uint8_t digit_transfer_8pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
 void digit_transfer_14pt(enum digit_codes_14pt x, uint8_t page, uint8_t column);
 void unit_transfer(enum units x, uint8_t page, uint8_t column);
 void menu_unit_transfer(enum menu_units x, uint8_t page, uint8_t column);
