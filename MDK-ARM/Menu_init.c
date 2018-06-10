@@ -721,6 +721,8 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Scope_Ic,up_pressed,Energy_Ratios},
 		{	Scope_Ic,left_pressed,Scope_Ib},
 		{	Scope_Ic,enter_pressed,main_menu},
+		
+		{Harmonics_Van,enter_pressed,main_menu},
 
 };
 

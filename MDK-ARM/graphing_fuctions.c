@@ -15,7 +15,7 @@
 
 
 float scope_array[100]={0};
-float bin_array[20]={50.7,60.2,33,0,99};
+float bin_array[20]={99.7,60.2,33,0,19};
 
 
 
@@ -344,7 +344,7 @@ void harmonicBaseLine(){
 	
 	}
 	
-	line_highlighter(0,128);
+	line_highlighter(0,102);
 	
 	//measurement side border
 	vline(101,8,55);
@@ -370,13 +370,13 @@ void harmonicBaseLine(){
 
 void harmonicBinTransfer(){
 	
-	uint8_t i=hBin_start_pos,a;
+	uint8_t i=hBin_start_pos,a=0;
 	uint8_t mag;
 	
 	
 	for(i=hBin_start_pos;i<100;i+=hBin_width){
 		
-	mag=bin_array[a++]*(-0.46)+55;
+	mag=bin_array[a++]*(-0.46f)+55.0f;
 	
 	vline(i-1 ,mag,55);
 	vline(i		,mag,55);
@@ -415,12 +415,14 @@ void harmonicDataTransfer(){
 	}
 	
 	
-	vline_dotted(bin_select,9,55);
+	
 	
 	if(pressed_button==right_pressed){bin_select+=5;}
 	if(pressed_button==left_pressed){bin_select-=5;}
 	
 	ui_limiter(1,96,&bin_select);
+	
+	vline_dotted(bin_select,9,55);
 	
 	harmonicBinTransfer();
 	

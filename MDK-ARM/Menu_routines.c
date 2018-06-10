@@ -531,14 +531,19 @@ void DISPLAY_MENU(){
 		case Scope_Ib:scope_menus=1;break;
 		case Scope_Ic:scope_menus=1;break;
 		
-		default:scope_menus=0;
+		default:scope_menus=0;scope_menu_transition=1;
 	
 	}
 	
 	
 	if(!scope_menus){
 	
-	memset(display_buffer,0,1024); scope_menu_transition=0;}
+	memset(display_buffer,0,1024); }else{
+	
+	
+	if(scope_menu_transition){memset(display_buffer,0,1024);scope_menu_transition=0;}	
+		
+	}
 	
 	
 	
