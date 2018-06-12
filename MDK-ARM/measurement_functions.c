@@ -249,11 +249,60 @@ x->data.Vpp_2 = (temp_r + temp_i)*sym_i3;
 }
 
 
+//Scope Menus
+
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase){
 
 
 	phase->data.Van=atan2f(-inphase.data.Van,-quad.data.Van);
 	
+
+
+}
+
+
+
+//harmonic side
+//spectral analysis
+//caution: input structure has to be initialized and used only once
+//external pCounter is needed
+//twfactors truncated to 13th
+ 
+
+
+void signal_spectra(
+	
+	float rtInput, 
+	struct spectra *h,
+	unsigned int qBufferLength,	//updated buffer length
+	float *twBufferReal,				//twiddle factor Real coeffs
+	float *twBufferImag,				//twiddle factor Imag coeffs    
+	unsigned int pCounter)
+
+{
+
+	float x_error;
+	float temp_real,temp_imag;
+	float out_scale;
+	unsigned int i;
+
+	out_scale=sqrt2/(float)qBufferLength;
+
+
+	x_error=h->qBuffer[pCounter]-rtInput;
+	h->qBuffer[pCounter]=rtInput;
+
+	for(i=0;i<20;i++){
+
+	temp_real =twBufferReal[i]* (h->foutReal[i]+x_error)-twBufferImag[i]*h->foutImag[i];
+	temp_imag=twBufferImag[i]*  (h->foutReal[i]+x_error)+twBufferReal[i]*h->foutImag[i];
+
+	h->foutMag[i]=out_scale*sqrtf(temp_real*temp_real+temp_imag*temp_imag);
+
+	h->foutReal[i]=temp_real;
+	h->foutImag[i]=temp_imag;
+	
+	}
 
 
 }

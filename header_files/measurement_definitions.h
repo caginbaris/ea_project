@@ -8,6 +8,7 @@
 #define _10period 	period*10
 #define _i10period 	1/_10period
 
+#define sqrt2 1.4142135623730950488016887242097f
 #define i2 0.5f
 #define indefinite 0
 #define iq_rms_scale 0.5f
@@ -116,6 +117,16 @@ union symmetricalComponents{
 };
 
 extern union symmetricalComponents sym;
+
+
+struct spectra {
+
+	float qBuffer[50];
+	float foutReal[20];
+	float foutImag[20];
+	float foutMag[20];
+
+};
 
 // functions prototypes
 

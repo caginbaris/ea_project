@@ -9,6 +9,8 @@
 
 struct SOS quad_sos[6]={0}; 		// for inphase parameters
 struct SOS inphase_sos[6]={0}; 	// for inphase parameters
+struct spectra h[6]={0}; 				// spectral analysis
+
 
 
 union uAdcData  inphaseData={0};
