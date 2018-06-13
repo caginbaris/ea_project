@@ -41,9 +41,6 @@ enum letter_codes_8pt main_menu_entries[][20]={
 };
 
 
-
- 
-
 struct display_menu_handles Main_Menu={
 
 	/*null pointer*/NULL,
@@ -599,7 +596,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,0},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  harmonicBaseLine,
 	/*dynamic data*/ harmonicDataTransfer
@@ -641,6 +638,102 @@ struct display_menu_handles Harmonics_Vcn_Menu= {
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  harmonicBaseLine,
 	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+
+struct display_menu_handles Harmonics_Ia_Menu= {
+	
+	/*dynamic data*/ harm_percent[Ia].foutMag,
+	
+	/*title*/      	{i,a,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+struct display_menu_handles Harmonics_Ib_Menu= {
+	
+	/*dynamic data*/ harm_percent[Ib].foutMag,
+	
+	/*title*/      	{i,b,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+struct display_menu_handles Harmonics_Ic_Menu= {
+	
+	/*dynamic data*/ harm_percent[Ic].foutMag,
+	
+	/*title*/      	{i,c,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,0,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+struct display_menu_handles thd_Vpn_Menu= {
+	
+	/*dynamic data*/ &(thd.Va),
+	
+	/*title*/      	{v,p,n,_,h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m} ,
+	
+	/*fist line*/ 	{V,A,N},
+	/*second line*/ {V,B,N},
+	/*third line*/ 	{V,C,N},
+	
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles thd_I_Menu= {
+	
+	/*dynamic data*/ &(thd.Ia),
+	
+	/*title*/      	{i,p,_,_,h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m} ,
+	
+	/*fist line*/ 	{I,A,__},
+	/*second line*/ {I,B,__},
+	/*third line*/ 	{I,C,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
 	
 
 };
@@ -760,7 +853,25 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Scope_Ic,left_pressed,Scope_Ib},
 		{	Scope_Ic,enter_pressed,main_menu},
 		
+		{Harmonics_Van,down_pressed,Harmonics_Vbn},
+		{Harmonics_Vbn,down_pressed,Harmonics_Vcn},
+		{Harmonics_Vcn,down_pressed,Harmonics_Ia},
+		{Harmonics_Ia, down_pressed,Harmonics_Ib},
+		{Harmonics_Ib, down_pressed,Harmonics_Ic},
+		
+		
+		{Harmonics_Vbn,up_pressed,Harmonics_Van},
+		{Harmonics_Vcn,up_pressed,Harmonics_Vbn},
+		{Harmonics_Ia, up_pressed,Harmonics_Vcn},
+		{Harmonics_Ib, up_pressed,Harmonics_Ia},
+		{Harmonics_Ic, up_pressed,Harmonics_Ib},
+		
 		{Harmonics_Van,enter_pressed,main_menu},
+		{Harmonics_Vbn,enter_pressed,main_menu},
+		{Harmonics_Vcn,enter_pressed,main_menu},
+		{Harmonics_Ia,enter_pressed,main_menu},
+		{Harmonics_Ib,enter_pressed,main_menu},
+		{Harmonics_Ic,enter_pressed,main_menu},
 
 };
 
@@ -814,7 +925,16 @@ void init_Menu(){
 	MENU.handle.Scope_Ic=Scope_Ic_Menu;
 	
 	MENU.handle.Harmonics_Van=Harmonics_Van_Menu;
-
+	MENU.handle.Harmonics_Vbn=Harmonics_Vbn_Menu;
+	MENU.handle.Harmonics_Vcn=Harmonics_Vcn_Menu;
+	
+	MENU.handle.Harmonics_Ia=Harmonics_Ia_Menu;
+	MENU.handle.Harmonics_Ib=Harmonics_Ib_Menu;
+	MENU.handle.Harmonics_Ic=Harmonics_Ic_Menu;
+	
+	MENU.handle.thd_Vpn=thd_Vpn_Menu;
+	MENU.handle.thd_I=thd_I_Menu;
+	
 }
 
 

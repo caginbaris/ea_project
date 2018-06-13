@@ -12,6 +12,7 @@ struct SOS inphase_sos[6]={0}; 	// for inphase parameters
 
 struct spectra harm[6]={0}; 				// spectral analysis
 struct spectra harm_percent[6]={0}; 			// spectral analysis percent
+struct thd_data thd={0};
 
 
 union uAdcData  inphaseData={0};

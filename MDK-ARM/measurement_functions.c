@@ -307,6 +307,36 @@ void signal_spectra(
 
 }
 
+
+float signal_thd(struct spectra h){
+
+	unsigned int i;
+	float hsum=0.0f,thd=0.0f;
+
+	thd=0.0f;
+	hsum=0.0f;
+
+	if(h.foutMag[0]>1.0f){
+	
+		for(i=1;i<20;i++){hsum+=h.foutMag[i]*h.foutMag[i];}
+		
+		arm_sqrt_f32(hsum,&thd);
+		
+		thd=thd/h.foutMag[0];
+
+	}else{
+
+		thd=0.0f;
+	
+	}
+
+	return thd;
+
+}
+
+
+
+
 void harmonics_routine(){
 	
 	static uint8_t index=0,count=0;
@@ -340,7 +370,6 @@ void harmonics_routine(){
 					for(i=0;i<20;i++){
 					
 						harm_percent[a].foutMag[i]=harm[a].foutMag[i]*percenter;
-
 				}
 			}			
 		}
@@ -351,7 +380,17 @@ void harmonics_routine(){
 	}
 	
 	if(++index==4){index=0;}
-
-
-
+	
+	switch(count){
+	
+	case 5 :thd.Va=signal_thd(harm[Van]);break;
+	case 10:thd.Vb=signal_thd(harm[Vbn]);break;
+	case 15:thd.Vc=signal_thd(harm[Vcn]);break;
+		
+	case 20:thd.Ia=signal_thd(harm[Ia]);break;
+	case 25:thd.Ib=signal_thd(harm[Ib]);break;
+	case 30:thd.Ic=signal_thd(harm[Ic]);break;	
+		
+	}
+	
 }

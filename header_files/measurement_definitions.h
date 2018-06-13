@@ -130,6 +130,18 @@ struct spectra {
 
 };
 
+struct thd_data{
+
+	float Va;
+	float Vb;
+	float Vc;
+	
+	float Ia;
+	float Ib;
+	float Ic;
+
+}	;
+
 
 
 // functions prototypes
@@ -155,4 +167,5 @@ extern const float coeffs_real[];
 extern const float coeffs_imag[];
 extern struct spectra  harm[6]; 					// spectral analysis
 extern struct spectra  harm_percent[6]; 	// spectral analysis percent
+extern struct thd_data thd;
 #endif

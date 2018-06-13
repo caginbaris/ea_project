@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 80
+#define TotalMenuTransitionNo 100
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -25,7 +25,9 @@ Apparent_Energy,	//20
 Energy_Ratios,	//21
 Scope_Van,Scope_Vbn,Scope_Vcn,//22-23-24
 Scope_Ia,Scope_Ib,Scope_Ic,//25-26-27	
-Harmonics_Van,	
+Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,	
+Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,		
+thd_Vpn,thd_I,	
 main_menu //28
 };
 
@@ -49,7 +51,8 @@ enum main_menu_list {
 	Apparent_Energy_main=14,//14
 	Energy_Ratios_main=15,//15
 	Scope_main=16,//16
-	pos_guard=17,
+	THD_main=17,
+	pos_guard=18,
 };
 
 struct main_menu_rows{
@@ -146,13 +149,22 @@ union display_menu_union{
 	struct display_menu_handles Scope_Ic;//27
 	
 	struct display_menu_handles Harmonics_Van;//28
+	struct display_menu_handles Harmonics_Vbn;//29
+	struct display_menu_handles Harmonics_Vcn;//30
+	
+	struct display_menu_handles Harmonics_Ia;//31
+	struct display_menu_handles Harmonics_Ib;//32
+	struct display_menu_handles Harmonics_Ic;//33
+	
+	struct display_menu_handles thd_Vpn;//34
+	struct display_menu_handles thd_I;//35
 
-	struct display_menu_handles main_menu;//29		
+	struct display_menu_handles main_menu;//36		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[31]; 
+	struct display_menu_handles all[40]; 
 
 
 };
