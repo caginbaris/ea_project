@@ -591,9 +591,47 @@ struct display_menu_handles Scope_Ic_Menu= {
 
 struct display_menu_handles Harmonics_Van_Menu= {
 	
-	/*dynamic data*/ &(AN.data.Van),
+	/*dynamic data*/ harm_percent[Van].foutMag,
 	
 	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+struct display_menu_handles Harmonics_Vbn_Menu= {
+	
+	/*dynamic data*/ harm_percent[Vbn].foutMag,
+	
+	/*title*/      	{v,b,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  harmonicBaseLine,
+	/*dynamic data*/ harmonicDataTransfer
+	
+
+};
+
+
+struct display_menu_handles Harmonics_Vcn_Menu= {
+	
+	/*dynamic data*/ harm_percent[Vcn].foutMag,
+	
+	/*title*/      	{v,c,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -687,7 +725,7 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		
 		
-		//cau gap here,down req for follawing
+		//cau gap here,down req for following
 		
 		{	Scope_Van,up_pressed,Energy_Ratios},
 		{	Scope_Van,right_pressed,Scope_Vbn},

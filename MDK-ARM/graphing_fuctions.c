@@ -374,9 +374,11 @@ void harmonicBinTransfer(){
 	uint8_t mag;
 	
 	
+	
+	
 	for(i=hBin_start_pos;i<100;i+=hBin_width){
 		
-	mag=bin_array[a++]*(-0.46f)+55.0f;
+	mag=*(MENU.all[current_menu].values+a++)*(-0.46f)+55.0f;
 	
 	vline(i-1 ,mag,55);
 	vline(i		,mag,55);

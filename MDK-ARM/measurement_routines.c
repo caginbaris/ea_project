@@ -9,8 +9,9 @@
 
 struct SOS quad_sos[6]={0}; 		// for inphase parameters
 struct SOS inphase_sos[6]={0}; 	// for inphase parameters
-struct spectra h[6]={0}; 				// spectral analysis
 
+struct spectra harm[6]={0}; 				// spectral analysis
+struct spectra harm_percent[6]={0}; 			// spectral analysis percent
 
 
 union uAdcData  inphaseData={0};
@@ -52,5 +53,11 @@ void measurement_routines(){
 	//scope routines
 	
 	scope_routine();
+	
+	//harmonics rouutines
+	
+	harmonics_routine();
+	
+	
 	
 }

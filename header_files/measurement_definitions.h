@@ -16,6 +16,8 @@
 #define sym_i  			0.8660254037844386f
 #define sym_i3 			0.333333333333333f
 
+#define fftLength 50
+
 union RMS{
 	
 	struct{
@@ -116,7 +118,7 @@ union symmetricalComponents{
 	
 };
 
-extern union symmetricalComponents sym;
+
 
 
 struct spectra {
@@ -128,6 +130,8 @@ struct spectra {
 
 };
 
+
+
 // functions prototypes
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
@@ -136,7 +140,7 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union po
 void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
-
+void harmonics_routine();
 
 // extern data
 extern const float inphase_coeffs[];
@@ -145,5 +149,10 @@ extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
 extern union powerParameters  power_true;
+extern union symmetricalComponents sym;
 extern union uAdcData  phase;
+extern const float coeffs_real[];
+extern const float coeffs_imag[];
+extern struct spectra  harm[6]; 					// spectral analysis
+extern struct spectra  harm_percent[6]; 	// spectral analysis percent
 #endif

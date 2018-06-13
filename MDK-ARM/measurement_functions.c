@@ -5,7 +5,7 @@
 #include <math.h>
 #include "arm_math.h" //cau should transferred
 
-
+#define eps 1.0f
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 
@@ -214,7 +214,7 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x){
 
-uint8_t i=0;	
+
 float temp_r,temp_i;
 	
 	
@@ -275,8 +275,8 @@ void signal_spectra(
 	float rtInput, 
 	struct spectra *h,
 	unsigned int qBufferLength,	//updated buffer length
-	float *twBufferReal,				//twiddle factor Real coeffs
-	float *twBufferImag,				//twiddle factor Imag coeffs    
+	const float *twBufferReal,				//twiddle factor Real coeffs
+	const float *twBufferImag,				//twiddle factor Imag coeffs    
 	unsigned int pCounter)
 
 {
@@ -303,6 +303,55 @@ void signal_spectra(
 	h->foutImag[i]=temp_imag;
 	
 	}
+
+
+}
+
+void harmonics_routine(){
+	
+	static uint8_t index=0,count=0;
+	uint8_t i,a;
+	
+	float percenter;
+
+	
+	switch (index){
+		
+		
+		case 0: signal_spectra(AN.data.Van,&harm[Van],fftLength,coeffs_real,coeffs_imag,count);			
+						signal_spectra(AN.data.Ia,&harm[Ia],  fftLength,coeffs_real,coeffs_imag,count);  break;	
+		
+		case 1: signal_spectra(AN.data.Vbn,&harm[Vbn],fftLength,coeffs_real,coeffs_imag,count);			
+						signal_spectra(AN.data.Ib,&harm[Ib],  fftLength,coeffs_real,coeffs_imag,count);  break;
+
+		case 2: signal_spectra(AN.data.Vcn,&harm[Vcn],fftLength,coeffs_real,coeffs_imag,count);			
+						signal_spectra(AN.data.Ic,&harm[Ic],  fftLength,coeffs_real,coeffs_imag,count);  break;			
+		
+		case 3:	if(++count==fftLength){count=0;}
+
+		
+		for(a=0;a<6;a++){
+			
+			
+			if(harm[a].foutMag[0]>eps){
+				
+					percenter=1/harm[a].foutMag[0];
+				
+					for(i=0;i<20;i++){
+					
+						harm_percent[a].foutMag[i]=harm[a].foutMag[i]*percenter;
+
+				}
+			}			
+		}
+		
+		break;	
+		
+		
+	}
+	
+	if(++index==4){index=0;}
+
 
 
 }
