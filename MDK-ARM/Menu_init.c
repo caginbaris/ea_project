@@ -451,7 +451,26 @@ struct display_menu_handles Apparent_Energy_Menu= {
 
 };
 
-struct display_menu_handles Energy_Ratios_Menu= {
+struct display_menu_handles Energy_Ratios_Ind_Menu= {
+	
+	/*dynamic data*/ &(power_iq.Power.PFa),
+	
+	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {P,F,T},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_A,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Energy_Ratios_Cap_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.PFa),
 	
@@ -738,6 +757,46 @@ struct display_menu_handles thd_I_Menu= {
 
 };
 
+struct display_menu_handles sym_Vpn_Menu= {
+	
+	/*dynamic data*/ &(sym.data.Vpn_1),
+	
+	/*title*/      	{v,p,n,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
+	
+	/*fist line*/ 	{P,__},
+	/*second line*/ {N,__},
+	/*third line*/ 	{O,__},
+	
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles sym_I_Menu= {
+	
+	/*dynamic data*/ &(sym.data.I_1),
+	
+	/*title*/      	{a,k,i,m,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
+	
+	/*fist line*/ 	{P,__},
+	/*second line*/ {N,__},
+	/*third line*/ 	{O,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+
+
 
 
 
@@ -748,7 +807,7 @@ struct display_menu_handles thd_I_Menu= {
 
 const struct MENU_TRANSITION menu_transition[]={
 	
-	//	current menu----input-----------next menu
+	//	current menu------------input-----------next menu
 	
 		{	Vpn_true,								right_pressed,	Vpn_fund},
 		{	Vpn_true,								down_pressed,		Vpp_true},
@@ -814,42 +873,73 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Total_Power_Factor_fund,right_pressed,	Total_Power_Factor_true},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
+		{	Power_Ratios,up_pressed,		Total_Power_Factor_fund},
+		{	Power_Ratios,down_pressed,	Total_Power_Ratios },
+		{	Power_Ratios,enter_pressed,	main_menu},
 		
+		{	Total_Power_Ratios,up_pressed,		Power_Ratios},
+		{	Total_Power_Ratios,down_pressed,	Active_Energy_import },
+		{	Total_Power_Ratios,enter_pressed,	main_menu},
 		
+		{	Active_Energy_import,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_import,down_pressed,	Reactive_Energy_import },
+		{	Active_Energy_import,right_pressed,	Active_Energy_export },
+		{	Active_Energy_import,enter_pressed,	main_menu},
+		
+		{	Active_Energy_export,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_export,down_pressed,	Reactive_Energy_export },
+		{	Active_Energy_export,left_pressed,	Active_Energy_import },
+		{	Active_Energy_export,enter_pressed,	main_menu},
+		
+		{	Reactive_Energy_import,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_import,down_pressed,  Apparent_Energy },
+		{	Reactive_Energy_import,right_pressed,	Reactive_Energy_export },
+		{	Reactive_Energy_import,enter_pressed,	main_menu},
+		
+		{	Reactive_Energy_export,up_pressed,		Active_Energy_export},
+		{	Reactive_Energy_export,down_pressed,	Apparent_Energy },
+		{	Reactive_Energy_export,left_pressed,	Reactive_Energy_import },
+		{	Reactive_Energy_export,enter_pressed,	main_menu},
+		
+		{	Apparent_Energy,up_pressed,		Reactive_Energy_import},
+		{	Apparent_Energy,down_pressed,	Energy_Ratios_cap },
+		{	Apparent_Energy,enter_pressed,main_menu},
+		
+		//energy ratios analysed
 		
 		
 		//cau gap here,down req for following
 		
-		{	Scope_Van,up_pressed,Energy_Ratios},
+		{	Scope_Van,up_pressed,Energy_Ratios_ind},
 		{	Scope_Van,right_pressed,Scope_Vbn},
 		{	Scope_Van,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vbn,up_pressed,Energy_Ratios},
+		{	Scope_Vbn,up_pressed,Energy_Ratios_ind},
 		{	Scope_Vbn,right_pressed,Scope_Vcn},
 		{	Scope_Vbn,left_pressed,Scope_Van},
 		{	Scope_Vbn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vcn,up_pressed,Energy_Ratios},
+		{	Scope_Vcn,up_pressed,Energy_Ratios_ind},
 		{	Scope_Vcn,right_pressed,Scope_Ia},
 		{	Scope_Vcn,left_pressed,Scope_Vbn},
 		{	Scope_Vcn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ia,up_pressed,Energy_Ratios},
+		{	Scope_Ia,up_pressed,Energy_Ratios_ind},
 		{	Scope_Ia,right_pressed,Scope_Ib},
 		{	Scope_Ia,left_pressed,Scope_Vcn},
 		{	Scope_Ia,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ib,up_pressed,Energy_Ratios},
+		{	Scope_Ib,up_pressed,Energy_Ratios_ind},
 		{	Scope_Ib,right_pressed,Scope_Ic},
 		{	Scope_Ib,left_pressed,Scope_Ia},
 		{	Scope_Ib,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ic,up_pressed,Energy_Ratios},
+		{	Scope_Ic,up_pressed,Energy_Ratios_ind},
 		{	Scope_Ic,left_pressed,Scope_Ib},
 		{	Scope_Ic,enter_pressed,main_menu},
 		
@@ -914,7 +1004,9 @@ void init_Menu(){
 	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Import_Menu;
 	
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
-	MENU.handle.Energy_Ratios=Energy_Ratios_Menu;
+	
+	MENU.handle.Energy_Ratios_cap=Energy_Ratios_Ind_Menu;
+	MENU.handle.Energy_Ratios_cap=Energy_Ratios_Cap_Menu;
 	
 	MENU.handle.Scope_Van=Scope_Van_Menu;
 	MENU.handle.Scope_Vbn=Scope_Vbn_Menu;
@@ -934,6 +1026,9 @@ void init_Menu(){
 	
 	MENU.handle.thd_Vpn=thd_Vpn_Menu;
 	MENU.handle.thd_I=thd_I_Menu;
+	
+	MENU.handle.sym_Vpn=sym_Vpn_Menu;
+	MENU.handle.sym_I=sym_I_Menu;
 	
 }
 

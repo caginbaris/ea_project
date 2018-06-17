@@ -100,20 +100,18 @@ union symmetricalComponents{
 
 	struct{
 		
-	float Vpn_0;
 	float Vpn_1;
 	float Vpn_2;
+	float Vpn_0;	
 	
-	float I_0;
 	float I_1;
 	float I_2;
+	float I_0;
 	
-	float Vpp_0;
-	float Vpp_1;
-	float Vpp_2;}data;
+}data;
 	
 	
-	float buffer[9];
+	float buffer[6];
 		
 	
 };
@@ -151,6 +149,7 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
 void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
+void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
 void harmonics_routine();
 

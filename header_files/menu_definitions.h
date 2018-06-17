@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 100
+#define TotalMenuTransitionNo 130
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -22,13 +22,15 @@ Power_Ratios,Total_Power_Ratios,//14-15
 Active_Energy_import,Active_Energy_export,//16-17
 Reactive_Energy_import,Reactive_Energy_export, //18-19
 Apparent_Energy,	//20
-Energy_Ratios,	//21
-Scope_Van,Scope_Vbn,Scope_Vcn,//22-23-24
-Scope_Ia,Scope_Ib,Scope_Ic,//25-26-27	
-Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,	
-Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,		
-thd_Vpn,thd_I,	
-main_menu //28
+Energy_Ratios_ind,Energy_Ratios_cap,	//21-22
+Scope_Van,Scope_Vbn,Scope_Vcn,//23-24-25
+Scope_Ia,Scope_Ib,Scope_Ic,//26-27-28	
+Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,//29-30-31	
+Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//32-33-34			
+thd_Vpn,thd_I,//35-36-37	
+sym_Vpn,sym_I,//38-39-40	
+	
+main_menu //41
 };
 
 enum main_menu_list {
@@ -51,8 +53,10 @@ enum main_menu_list {
 	Apparent_Energy_main=14,//14
 	Energy_Ratios_main=15,//15
 	Scope_main=16,//16
-	THD_main=17,
-	pos_guard=18,
+	Harmonics_Main=17,
+	THD_main=18,
+	Sym_main=19,
+	pos_guard=20,
 };
 
 struct main_menu_rows{
@@ -87,7 +91,7 @@ struct display_menu_handles{
 	
 	//static data
 	
-	enum letter_codes_8pt title[20];
+	enum letter_codes_8pt title[21];
 	
 	enum letter_codes_14pt first_line[3];
 	enum letter_codes_14pt second_line[3];
@@ -138,11 +142,13 @@ union display_menu_union{
 	struct display_menu_handles Reactive_Energy_Export;//19
 	
 	struct display_menu_handles Apparent_Energy;//20
-	struct display_menu_handles Energy_Ratios;//21
 	
-	struct display_menu_handles Scope_Van;//22
-	struct display_menu_handles Scope_Vbn;//23
-	struct display_menu_handles Scope_Vcn;//24
+	struct display_menu_handles Energy_Ratios_ind;//21
+	struct display_menu_handles Energy_Ratios_cap;//22
+	
+	struct display_menu_handles Scope_Van;//23
+	struct display_menu_handles Scope_Vbn;//24
+	struct display_menu_handles Scope_Vcn;//25
 	
 	struct display_menu_handles Scope_Ia;//25
 	struct display_menu_handles Scope_Ib;//26
@@ -158,6 +164,9 @@ union display_menu_union{
 	
 	struct display_menu_handles thd_Vpn;//34
 	struct display_menu_handles thd_I;//35
+	
+	struct display_menu_handles sym_Vpn;
+	struct display_menu_handles sym_I;
 
 	struct display_menu_handles main_menu;//36		
 		

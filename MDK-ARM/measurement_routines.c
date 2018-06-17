@@ -10,6 +10,8 @@
 struct SOS quad_sos[6]={0}; 		// for inphase parameters
 struct SOS inphase_sos[6]={0}; 	// for inphase parameters
 
+union symmetricalComponents sym;
+
 struct spectra harm[6]={0}; 				// spectral analysis
 struct spectra harm_percent[6]={0}; 			// spectral analysis percent
 struct thd_data thd={0};
@@ -40,12 +42,15 @@ void measurement_routines(){
 	
 	//iq components fund calculations
 	
-
 	power_calculations_iq(inphaseData,quadData,&power_iq);
 
 	//power elements true calcualtions
 	
 	power_calculations_true(AN,trueRMS,&power_true);
+	
+	//symmetrical components
+	
+	symmetrical_components(inphaseData,quadData, &sym);
 	
 	//phase detection
 	

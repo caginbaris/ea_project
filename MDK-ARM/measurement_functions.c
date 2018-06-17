@@ -228,23 +228,16 @@ x->data.Vpn_1  =(temp_r - temp_i)*sym_i3;
 x->data.Vpn_2 = (temp_r + temp_i)*sym_i3;	
 	
 //********
+	
 temp_r=	inphase.data.Ia + inphase.data.Ib*sym_r + inphase.data.Ic*sym_r;
 temp_i=	sym_i*(quad.data.Ib-quad.data.Ic);
 	
 	
-x->data.Vpn_0  =(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
-x->data.Vpn_1  =(temp_r - temp_i)*sym_i3;
-x->data.Vpn_2 = (temp_r + temp_i)*sym_i3;		
+x->data.I_0  =(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
+x->data.I_1  =(temp_r - temp_i)*sym_i3;
+x->data.I_2 = (temp_r + temp_i)*sym_i3;		
 	
 	
-//********	
-temp_r=	inphase.data.Vab + inphase.data.Vbc*sym_r + inphase.data.Vca*sym_r;
-temp_i=	sym_i*(quad.data.Vbc-quad.data.Vca);
-	
-	
-x->data.Vpp_0  =(inphase.data.Vab + inphase.data.Vbc + 	inphase.data.Vca)*sym_i3;
-x->data.Vpp_1  =(temp_r - temp_i)*sym_i3;
-x->data.Vpp_2 = (temp_r + temp_i)*sym_i3;		
 
 }
 

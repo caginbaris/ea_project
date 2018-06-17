@@ -3,164 +3,101 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.21.1.0
-Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Cagin Baris Cengiz, Endoks Energy, LIC=----
+IDE-Version: µVision V5.25.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cagin Baris, --, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.21a
+Toolchain:       MDK-Lite  Version: 5.25.2.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 3 (build 300)
-Assembler:       Armasm.exe V5.06 update 3 (build 300)
-Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
-Library Manager: ArmAr.exe V5.06 update 3 (build 300)
-Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
-CPU DLL:         SARMCM3.DLL V5.21a
-Dialog DLL:      DCM.DLL V1.13.8.0
-Target DLL:      ULP2CM3.DLL V2.206.10.0
-Dialog DLL:      TCM.DLL V1.14.14.0
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.25.2.0
+Dialog DLL:      DCM.DLL V1.17.1.0
+Target DLL:      ULP2CM3.DLL V2.209.20.0
+Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
-C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  06/12/2018
+C:\Users\ReV\Documents\ea_project\MDK-ARM\v4ea.uvprojx
+Project File Date:  06/17/2018
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
-compiling Menu_init.c...
-..\header_files\menu_definitions.h(248): warning:  #1295-D: Deprecated declaration toMainDetect - give arg types
+compiling Menu_routines.c...
+..\header_files\menu_definitions.h(257): warning:  #1295-D: Deprecated declaration toMainDetect - give arg types
   void toMainDetect();
-..\header_files\menu_definitions.h(249): warning:  #1295-D: Deprecated declaration atMainOperation - give arg types
+..\header_files\menu_definitions.h(258): warning:  #1295-D: Deprecated declaration atMainOperation - give arg types
   void atMainOperation();
-..\header_files\menu_definitions.h(251): warning:  #1295-D: Deprecated declaration init_Menu - give arg types
+..\header_files\menu_definitions.h(260): warning:  #1295-D: Deprecated declaration init_Menu - give arg types
   void init_Menu();
-..\header_files\menu_definitions.h(252): warning:  #1295-D: Deprecated declaration DISPLAY_MENU - give arg types
+..\header_files\menu_definitions.h(261): warning:  #1295-D: Deprecated declaration DISPLAY_MENU - give arg types
   void DISPLAY_MENU();
-..\header_files\measurement_definitions.h(155): warning:  #1295-D: Deprecated declaration harmonics_routine - give arg types
-  void harmonics_routine();
-..\header_files\measurement_definitions.h(171): warning:  #1-D: last line of file ends without a newline
+..\header_files\ch_format.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
-..\header_files\graphing_definitions.h(36): warning:  #1295-D: Deprecated declaration graphBaseLining - give arg types
-  void graphBaseLining();
-..\header_files\graphing_definitions.h(37): warning:  #1295-D: Deprecated declaration graphDataTransfer - give arg types
-  void graphDataTransfer();
-..\header_files\graphing_definitions.h(38): warning:  #1295-D: Deprecated declaration scope_routine - give arg types
-  void scope_routine();
-..\header_files\graphing_definitions.h(40): warning:  #1295-D: Deprecated declaration harmonicBaseLine - give arg types
-  void harmonicBaseLine();
-..\header_files\graphing_definitions.h(41): warning:  #1295-D: Deprecated declaration harmonicDataTransfer - give arg types
-  void harmonicDataTransfer();
-Menu_init.c(47): warning:  #188-D: enumerated type mixed with another type
-  	/*no data for main*/{0},
-Menu_init.c(48): warning:  #188-D: enumerated type mixed with another type
-  	/*no data for main*/{0},
-Menu_init.c(49): warning:  #188-D: enumerated type mixed with another type
-  	/*no data for main*/{0},
-Menu_init.c(50): warning:  #188-D: enumerated type mixed with another type
-  	/*no data for main*/{0},
-Menu_init.c(51): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
-Menu_init.c(51): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
-Menu_init.c(52): warning:  #188-D: enumerated type mixed with another type
-  	/*no data for main*/{0},
-Menu_init.c(67): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
-Menu_init.c(67): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
-Menu_init.c(87): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
-Menu_init.c(87): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
-Menu_init.c(107): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-Menu_init.c(126): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(146): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-Menu_init.c(165): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(184): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(203): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(222): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(240): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(259): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(277): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(296): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-Menu_init.c(315): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(334): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(353): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(372): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(391): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(409): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(428): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(446): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(464): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c(482): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,0,0},
-Menu_init.c(482): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,0,0},
-Menu_init.c(482): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,0,0},
-Menu_init.c(501): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(501): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(520): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(520): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(539): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(539): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(558): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(558): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
-Menu_init.c(577): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,0,0},
-Menu_init.c(577): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,0,0},
-Menu_init.c(577): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,0,0},
-Menu_init.c(599): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,0},
-Menu_init.c(695): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,menu_right,0,menu_up},
-Menu_init.c(714): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-Menu_init.c(733): warning:  #188-D: enumerated type mixed with another type
-  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-Menu_init.c: 60 warnings, 0 errors
+..\header_files\measurement_definitions.h(154): warning:  #1295-D: Deprecated declaration harmonics_routine - give arg types
+  void harmonics_routine();
+..\header_files\measurement_definitions.h(170): warning:  #1-D: last line of file ends without a newline
+  #endif
+Menu_routines.c(17): warning:  #177-D: variable "transferred"  was declared but never referenced
+  	int32_t transferred;
+Menu_routines.c(63): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
+Menu_routines.c(64): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
+Menu_routines.c(65): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.int1,page,column+2*digit_width_14pt);
+Menu_routines.c(67): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(76): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(77): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
+Menu_routines.c(78): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*digit_width_14pt);
+Menu_routines.c(80): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(90): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
+Menu_routines.c(91): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
+Menu_routines.c(92): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*digit_width_14pt);
+Menu_routines.c(94): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(241): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(242): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
+Menu_routines.c(243): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*digit_width_14pt);
+Menu_routines.c(245): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+Menu_routines.c(470): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=main_menu_entry-1+last_menu_entry; 
+Menu_routines.c: 25 warnings, 0 errors
 linking...
-v4ea\v4ea.axf: error: L6050U: The code size of this image (37068 bytes) exceeds the maximum allowed for this version of the linker.
+v4ea\v4ea.axf: error: L6050U: The code size of this image (37396 bytes) exceeds the maximum allowed for this version of the linker.
 Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
-"v4ea\v4ea.axf" - 1 Error(s), 60 Warning(s).
+"v4ea\v4ea.axf" - 1 Error(s), 25 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F3xx_DFP.2.1.0.pack
+                Keil.STM32F3xx_DFP.2.1.0
+                STMicroelectronics STM32F3 Series Device Support and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
-  C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\1.3.0\Device\Include
+  .\RTE\_v4ea
+  C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include
 
 <h2>Collection of Component Files used:</h2>
 Target not created.
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
