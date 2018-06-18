@@ -157,7 +157,7 @@ int main(void)
 		
 		mp_counter++;
 		
-		HAL_Delay(75);
+		HAL_Delay(200);
 		
 		
 		pressed_button=pushButtonHandling();

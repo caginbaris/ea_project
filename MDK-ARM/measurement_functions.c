@@ -285,10 +285,10 @@ void signal_spectra(
 	x_error=h->qBuffer[pCounter]-rtInput;
 	h->qBuffer[pCounter]=rtInput;
 
-	for(i=0;i<20;i++){
+	for(i=0;i<5;i++){
 
-	temp_real =twBufferReal[i]* (h->foutReal[i]+x_error)-twBufferImag[i]*h->foutImag[i];
-	temp_imag=twBufferImag[i]*  (h->foutReal[i]+x_error)+twBufferReal[i]*h->foutImag[i];
+	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
+	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
 
 	h->foutMag[i]=out_scale*sqrtf(temp_real*temp_real+temp_imag*temp_imag);
 
@@ -358,9 +358,9 @@ void harmonics_routine(){
 			
 			if(harm[a].foutMag[0]>eps){
 				
-					percenter=1/harm[a].foutMag[0];
+					percenter=100.0f/harm[a].foutMag[0];
 				
-					for(i=0;i<20;i++){
+					for(i=0;i<5;i++){
 					
 						harm_percent[a].foutMag[i]=harm[a].foutMag[i]*percenter;
 				}

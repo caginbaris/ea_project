@@ -432,7 +432,9 @@ void harmonicDataTransfer(){
 	
 	//ratio display
 	
-	mag=bin_array[row-1];
+	//mag=bin_array[row-1];
+	
+	mag=*(MENU.all[current_menu].values+row-1);
 	
 	fraction=10.0f*(mag-(uint8_t)mag);
 	int10		=(uint8_t)(mag*0.1) % 10;

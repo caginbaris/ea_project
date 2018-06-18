@@ -37,6 +37,9 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//14
 {e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15
 {d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//16	
+{h,a,r,m,o,n,i,k,_,b,a,r,_,g,r,a,f,i,k,_},//17
+{h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m,l,a,r,_},//18
+{s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n,l,e,r,_},//18		
 
 };
 
@@ -763,9 +766,9 @@ struct display_menu_handles sym_Vpn_Menu= {
 	
 	/*title*/      	{v,p,n,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
 	
-	/*fist line*/ 	{P,__},
-	/*second line*/ {N,__},
-	/*third line*/ 	{O,__},
+	/*fist line*/ 	{P,__,__},
+	/*second line*/ {N,__,__},
+	/*third line*/ 	{O,__,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
