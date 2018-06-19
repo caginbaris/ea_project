@@ -3,11 +3,11 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Mon Jun 18 23:57:33 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Jun 19 15:05:51 2018
 <BR><P>
-<H3>Maximum Stack Usage =        648 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        516 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-ADC1_IRQHandler &rArr; HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+harmonicDataTransfer &rArr; harmonicBinTransfer &rArr; vline
 <P>
 <H3>
 Functions with no stack information
@@ -447,8 +447,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBinTransfer
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;true_RMS
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
 </UL>
 
 <P><STRONG><a name="[15a]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
@@ -546,7 +546,7 @@ Global Symbols
 <P><STRONG><a name="[169]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[28]"></a>ADC1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_it.o(i.ADC1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = ADC1_IRQHandler &rArr; HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = ADC1_IRQHandler &rArr; HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; true_RMS &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_IRQHandler
 </UL>
@@ -611,7 +611,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[77]"></a>HAL_ADC_ConvCpltCallback</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, converison.o(i.HAL_ADC_ConvCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; true_RMS &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offset_cancellation
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
@@ -630,7 +630,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[74]"></a>HAL_ADC_IRQHandler</STRONG> (Thumb, 284 bytes, Stack size 8 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADC_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; true_RMS &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
@@ -1724,8 +1724,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_spectra
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_true
+<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_true
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_iq
 </UL>
 
@@ -1817,7 +1816,7 @@ Global Symbols
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicDataSingle
 </UL>
 
-<P><STRONG><a name="[112]"></a>digit_transfer_8pt</STRONG> (Thumb, 50 bytes, Stack size 20 bytes, lcd_routines.o(i.digit_transfer_8pt))
+<P><STRONG><a name="[113]"></a>digit_transfer_8pt</STRONG> (Thumb, 50 bytes, Stack size 20 bytes, lcd_routines.o(i.digit_transfer_8pt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = digit_transfer_8pt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -1875,6 +1874,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
+<P><STRONG><a name="[111]"></a>harmonicAmplitudes</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, graphing_fuctions.o(i.harmonicAmplitudes))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = harmonicAmplitudes
+</UL>
+<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBinTransfer
+</UL>
+
 <P><STRONG><a name="[a]"></a>harmonicBaseLine</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, graphing_fuctions.o(i.harmonicBaseLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = harmonicBaseLine &rArr; menu_unit_transfer
 </UL>
@@ -1887,34 +1892,34 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[110]"></a>harmonicBinTransfer</STRONG> (Thumb, 138 bytes, Stack size 32 bytes, graphing_fuctions.o(i.harmonicBinTransfer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = harmonicBinTransfer &rArr; vline
+<P><STRONG><a name="[110]"></a>harmonicBinTransfer</STRONG> (Thumb, 224 bytes, Stack size 472 bytes, graphing_fuctions.o(i.harmonicBinTransfer))
+<BR><BR>[Stack]<UL><LI>Max Depth = 492<LI>Call Chain = harmonicBinTransfer &rArr; vline
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
+<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicAmplitudes
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
 </UL>
 
 <P><STRONG><a name="[b]"></a>harmonicDataTransfer</STRONG> (Thumb, 290 bytes, Stack size 24 bytes, graphing_fuctions.o(i.harmonicDataTransfer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = harmonicDataTransfer &rArr; harmonicBinTransfer &rArr; vline
+<BR><BR>[Stack]<UL><LI>Max Depth = 516<LI>Call Chain = harmonicDataTransfer &rArr; harmonicBinTransfer &rArr; vline
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digit_transfer_8pt
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline_dotted
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digit_transfer_8pt
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline_dotted
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBinTransfer
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[117]"></a>harmonics_routine</STRONG> (Thumb, 468 bytes, Stack size 464 bytes, measurement_functions.o(i.harmonics_routine))
-<BR><BR>[Stack]<UL><LI>Max Depth = 528<LI>Call Chain = harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<P><STRONG><a name="[118]"></a>harmonics_routine</STRONG> (Thumb, 170 bytes, Stack size 20 bytes, measurement_functions.o(i.harmonics_routine))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = harmonics_routine &rArr; signal_spectra
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_thd
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_spectra
+<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_spectra
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
 </UL>
@@ -2034,7 +2039,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[86]"></a>measurement_routines</STRONG> (Thumb, 326 bytes, Stack size 88 bytes, measurement_routines.o(i.measurement_routines))
-<BR><BR>[Stack]<UL><LI>Max Depth = 616<LI>Call Chain = measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = measurement_routines &rArr; true_RMS &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine
@@ -2044,7 +2049,7 @@ Global Symbols
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_iq
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phaseDetect
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iq_generation
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fund_RMS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
@@ -2144,20 +2149,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
 </UL>
 
-<P><STRONG><a name="[118]"></a>signal_spectra</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, measurement_functions.o(i.signal_spectra))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<P><STRONG><a name="[119]"></a>signal_spectra</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, measurement_functions.o(i.signal_spectra))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = signal_spectra
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
-</UL>
-
-<P><STRONG><a name="[119]"></a>signal_thd</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, measurement_functions.o(i.signal_thd))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = signal_thd
-</UL>
-<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_sqrt_f32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
 </UL>
 
 <P><STRONG><a name="[120]"></a>sos_implementation</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, measurement_functions.o(i.sos_implementation))
@@ -2216,7 +2211,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
 </UL>
 
-<P><STRONG><a name="[111]"></a>ui_limiter</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, aux_functions.o(i.ui_limiter))
+<P><STRONG><a name="[112]"></a>ui_limiter</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, aux_functions.o(i.ui_limiter))
 <BR><BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBinTransfer
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
 </UL>
@@ -2236,7 +2231,7 @@ Global Symbols
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;graphBaseLining
 </UL>
 
-<P><STRONG><a name="[113]"></a>vline_dotted</STRONG> (Thumb, 150 bytes, Stack size 20 bytes, graphing_fuctions.o(i.vline_dotted))
+<P><STRONG><a name="[114]"></a>vline_dotted</STRONG> (Thumb, 150 bytes, Stack size 20 bytes, graphing_fuctions.o(i.vline_dotted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = vline_dotted
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2252,7 +2247,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[116]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
+<P><STRONG><a name="[117]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2262,7 +2257,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[115]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[116]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2274,8 +2269,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[131]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfixu
+<BR><BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfixu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 </UL>
 
 <P><STRONG><a name="[133]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
@@ -2283,7 +2278,7 @@ Global Symbols
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 </UL>
 
-<P><STRONG><a name="[114]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[115]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2344,7 +2339,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[58]"></a>ADC_DMAConvCplt</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, stm32f3xx_hal_adc_ex.o(i.ADC_DMAConvCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = ADC_DMAConvCplt &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; harmonics_routine &rArr; signal_spectra &rArr; __hardfp_sqrtf &rArr; __set_errno
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = ADC_DMAConvCplt &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; true_RMS &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
@@ -2433,7 +2428,6 @@ Local Symbols
 
 <P><STRONG><a name="[10b]"></a>arm_sqrt_f32</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, measurement_functions.o(i.arm_sqrt_f32))
 <BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;true_RMS
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_thd
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fund_RMS
 </UL>
 <P>

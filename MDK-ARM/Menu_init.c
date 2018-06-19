@@ -610,7 +610,7 @@ struct display_menu_handles Scope_Ic_Menu= {
 
 struct display_menu_handles Harmonics_Van_Menu= {
 	
-	/*dynamic data*/ harm_percent[Van].foutMag,
+	/*dynamic data*/ &bin_array[Van][20],
 	
 	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -629,7 +629,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 
 struct display_menu_handles Harmonics_Vbn_Menu= {
 	
-	/*dynamic data*/ harm_percent[Vbn].foutMag,
+	/*dynamic data*/ &bin_array[Vbn][20],
 	
 	/*title*/      	{v,b,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -648,7 +648,7 @@ struct display_menu_handles Harmonics_Vbn_Menu= {
 
 struct display_menu_handles Harmonics_Vcn_Menu= {
 	
-	/*dynamic data*/ harm_percent[Vcn].foutMag,
+	/*dynamic data*/ &bin_array[Vcn][20],
 	
 	/*title*/      	{v,c,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -668,7 +668,7 @@ struct display_menu_handles Harmonics_Vcn_Menu= {
 
 struct display_menu_handles Harmonics_Ia_Menu= {
 	
-	/*dynamic data*/ harm_percent[Ia].foutMag,
+	/*dynamic data*/ &bin_array[Ia][20],
 	
 	/*title*/      	{i,a,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -687,7 +687,7 @@ struct display_menu_handles Harmonics_Ia_Menu= {
 
 struct display_menu_handles Harmonics_Ib_Menu= {
 	
-	/*dynamic data*/ harm_percent[Ib].foutMag,
+	/*dynamic data*/ &bin_array[Ib][20],
 	
 	/*title*/      	{i,b,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -706,7 +706,7 @@ struct display_menu_handles Harmonics_Ib_Menu= {
 
 struct display_menu_handles Harmonics_Ic_Menu= {
 	
-	/*dynamic data*/ harm_percent[Ic].foutMag,
+	/*dynamic data*/ &bin_array[Ic][20],
 	
 	/*title*/      	{i,c,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -725,7 +725,7 @@ struct display_menu_handles Harmonics_Ic_Menu= {
 
 struct display_menu_handles thd_Vpn_Menu= {
 	
-	/*dynamic data*/ &(thd.Va),
+	/*dynamic data*/ &(thd.data.Van),
 	
 	/*title*/      	{v,p,n,_,h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m} ,
 	
@@ -744,7 +744,7 @@ struct display_menu_handles thd_Vpn_Menu= {
 
 struct display_menu_handles thd_I_Menu= {
 	
-	/*dynamic data*/ &(thd.Ia),
+	/*dynamic data*/ &(thd.data.Ia),
 	
 	/*title*/      	{i,p,_,_,h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m} ,
 	
@@ -785,9 +785,9 @@ struct display_menu_handles sym_I_Menu= {
 	
 	/*title*/      	{a,k,i,m,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
 	
-	/*fist line*/ 	{P,__},
-	/*second line*/ {N,__},
-	/*third line*/ 	{O,__},
+	/*fist line*/ 	{P,__,__},
+	/*second line*/ {N,__,__},
+	/*third line*/ 	{O,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},

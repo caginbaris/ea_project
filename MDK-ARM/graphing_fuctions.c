@@ -4,6 +4,7 @@
 #include "aux_functions.h"
 #include "measurement_definitions.h"
 #include "menu_definitions.h"
+#include "arm_math.h" 
 #include <math.h>
 
 #define scope_ypos1 27
@@ -13,9 +14,11 @@
 #define hBin_end_pos 95
 #define hBin_width 5
 
+#define fft_scale 0.02828427124746190097603377448419f
+
 
 float scope_array[100]={0};
-float bin_array[20]={99.7,60.2,33,0,19};
+float bin_array[6][20]={0};
 
 
 
@@ -366,19 +369,55 @@ void harmonicBaseLine(){
 }
 
 
+void harmonicAmplitudes(struct spectra h,float* hp){
+	
+
+float first_mag=0.0f,first_imag=0.0f;
+float thd_sum=0;	
+uint8_t i;	
+	
+first_mag=(h.foutReal[0]*h.foutReal[0]+h.foutImag[0]*h.foutImag[0])*(fft_scale);
+	
+
+hp[0]=100.0f;
+	
+	if(first_mag>1.0f){
+		
+	first_imag=1.0f/first_mag;
+	first_imag=1.0f;	
+		
+		
+	for(i=1;i<20;i++){
+	
+		arm_sqrt_f32((h.foutReal[i]*h.foutReal[i]+h.foutImag[i]*h.foutImag[i])*(fft_scale)*first_imag,&hp[i]);
+
+	}
+}
+	
+
+
+
+}
+
+
 
 
 void harmonicBinTransfer(){
 	
-	uint8_t i=hBin_start_pos,a=0;
+	uint8_t i=0,a=0;
 	uint8_t mag;
 	
+	for(i=0;i<6;i++){
+		
+	harmonicAmplitudes(harm[i],MENU.all[current_menu].values);
 	
-	
+	}
 	
 	for(i=hBin_start_pos;i<100;i+=hBin_width){
 		
 	mag=*(MENU.all[current_menu].values+a++)*(-0.46f)+55.0f;
+		
+	ui_limiter(55,119,&mag);	
 	
 	vline(i-1 ,mag,55);
 	vline(i		,mag,55);
@@ -402,7 +441,7 @@ void harmonicDataTransfer(){
 	uint8_t row;
 	float mag;
 	
-	uint8_t fraction,int100,int10,int1;
+	uint8_t fraction,int10,int1;
 	
 	
 	row=(bin_select/5)+1;

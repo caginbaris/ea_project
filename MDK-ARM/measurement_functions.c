@@ -4,6 +4,7 @@
 #include "measurement_definitions.h"
 #include <math.h>
 #include "arm_math.h" //cau should transferred
+#include "graphing_definitions.h"
 
 #define eps 1.0f
 
@@ -285,12 +286,12 @@ void signal_spectra(
 	x_error=h->qBuffer[pCounter]-rtInput;
 	h->qBuffer[pCounter]=rtInput;
 
-	for(i=0;i<5;i++){
+	for(i=0;i<20;i++){
 
 	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
 	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
 
-	h->foutMag[i]=out_scale*sqrtf(temp_real*temp_real+temp_imag*temp_imag);
+	//h->foutMag[i]=out_scale*sqrtf(temp_real*temp_real+temp_imag*temp_imag);
 
 	h->foutReal[i]=temp_real;
 	h->foutImag[i]=temp_imag;
@@ -301,32 +302,27 @@ void signal_spectra(
 }
 
 
-float signal_thd(struct spectra h){
+void thd_calc(union thdData* thd ){
 
-	unsigned int i;
-	float hsum=0.0f,thd=0.0f;
+	static uint8_t index=0;;
+	uint8_t i;
+	float sum=0;
 
-	thd=0.0f;
-	hsum=0.0f;
 
-	if(h.foutMag[0]>1.0f){
-	
-		for(i=1;i<20;i++){hsum+=h.foutMag[i]*h.foutMag[i];}
+	for(i=1;i<20;i++){
 		
-		arm_sqrt_f32(hsum,&thd);
+	sum+=bin_array[index][i]*bin_array[index][i];
 		
-		thd=thd/h.foutMag[0];
-
-	}else{
-
-		thd=0.0f;
-	
 	}
+	
+	arm_sqrt_f32(sum,&(thd->buffer[index]));
+	
+	if(++index==6){index=0;}
+	
+	
 
-	return thd;
 
 }
-
 
 
 
@@ -350,40 +346,14 @@ void harmonics_routine(){
 		case 2: signal_spectra(AN.data.Vcn,&harm[Vcn],fftLength,coeffs_real,coeffs_imag,count);			
 						signal_spectra(AN.data.Ic,&harm[Ic],  fftLength,coeffs_real,coeffs_imag,count);  break;			
 		
-		case 3:	if(++count==fftLength){count=0;}
-
-		
-		for(a=0;a<6;a++){
-			
-			
-			if(harm[a].foutMag[0]>eps){
-				
-					percenter=100.0f/harm[a].foutMag[0];
-				
-					for(i=0;i<5;i++){
-					
-						harm_percent[a].foutMag[i]=harm[a].foutMag[i]*percenter;
-				}
-			}			
-		}
-		
-		break;	
+		case 3:	if(++count==fftLength){count=0;}	break;	
 		
 		
 	}
 	
 	if(++index==4){index=0;}
 	
-	switch(count){
-	
-	case 5 :thd.Va=signal_thd(harm[Van]);break;
-	case 10:thd.Vb=signal_thd(harm[Vbn]);break;
-	case 15:thd.Vc=signal_thd(harm[Vcn]);break;
-		
-	case 20:thd.Ia=signal_thd(harm[Ia]);break;
-	case 25:thd.Ib=signal_thd(harm[Ib]);break;
-	case 30:thd.Ic=signal_thd(harm[Ic]);break;	
-		
-	}
-	
 }
+
+
+

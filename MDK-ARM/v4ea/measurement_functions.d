@@ -10,3 +10,4 @@ v4ea\measurement_functions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 v4ea\measurement_functions.o: ../Drivers/CMSIS/Include/core_cmFunc.h
 v4ea\measurement_functions.o: ../Drivers/CMSIS/Include/core_cmSimd.h
 v4ea\measurement_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+v4ea\measurement_functions.o: ..\header_files\graphing_definitions.h

@@ -128,17 +128,25 @@ struct spectra {
 
 };
 
-struct thd_data{
+union thdData{
 
-	float Va;
-	float Vb;
-	float Vc;
+	struct{
+		
+	float Van;
+	float Vbn;
+	float Vcn;	
 	
 	float Ia;
 	float Ib;
 	float Ic;
-
-}	;
+	
+}data;
+	
+	
+	float buffer[6];
+		
+	
+};
 
 
 
@@ -165,6 +173,6 @@ extern union uAdcData  phase;
 extern const float coeffs_real[];
 extern const float coeffs_imag[];
 extern struct spectra  harm[6]; 					// spectral analysis
-extern struct spectra  harm_percent[6]; 	// spectral analysis percent
-extern struct thd_data thd;
+extern union thdData thd;
+
 #endif

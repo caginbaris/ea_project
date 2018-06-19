@@ -40,4 +40,7 @@ void scope_routine();
 void harmonicBaseLine();
 void harmonicDataTransfer();
 
+
+extern float bin_array[6][20];
+
 #endif
