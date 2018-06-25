@@ -407,15 +407,13 @@ void harmonicBinTransfer(){
 	uint8_t i=0,a=0;
 	uint8_t mag;
 	
-	for(i=0;i<6;i++){
-		
-	harmonicAmplitudes(harm[i],MENU.all[current_menu].values);
-	
-	}
+
 	
 	for(i=hBin_start_pos;i<100;i+=hBin_width){
 		
 	mag=*(MENU.all[current_menu].values+a++)*(-0.46f)+55.0f;
+		
+	
 		
 	ui_limiter(55,119,&mag);	
 	

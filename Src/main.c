@@ -82,6 +82,7 @@ void font_transfer2(void);
 enum menu_list SELECT_MENU(enum menu_list current,enum input button);
 void DISPLAY_MENU(void);
 enum input  pushButtonHandling(void);
+void offline_calculations(void);
 
 
 
@@ -145,6 +146,7 @@ int main(void)
 	init_backlight();
 	init_Menu();
 	
+	
 
 	
 	
@@ -156,6 +158,8 @@ int main(void)
   /* USER CODE BEGIN 3 */
 		
 		mp_counter++;
+		
+		offline_calculations();
 		
 		HAL_Delay(200);
 		

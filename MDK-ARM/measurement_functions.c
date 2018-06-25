@@ -280,13 +280,13 @@ void signal_spectra(
 	float out_scale;
 	unsigned int i;
 
-	out_scale=sqrt2/(float)qBufferLength;
+	//out_scale=sqrt2/(float)qBufferLength;
 
 
 	x_error=h->qBuffer[pCounter]-rtInput;
 	h->qBuffer[pCounter]=rtInput;
 
-	for(i=0;i<20;i++){
+	for(i=0;i<3;i++){
 
 	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
 	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
@@ -329,11 +329,7 @@ void thd_calc(union thdData* thd ){
 void harmonics_routine(){
 	
 	static uint8_t index=0,count=0;
-	uint8_t i,a;
-	
-	float percenter;
 
-	
 	switch (index){
 		
 		
@@ -353,6 +349,41 @@ void harmonics_routine(){
 	
 	if(++index==4){index=0;}
 	
+}
+
+
+void bin_magnitudes(){
+	
+	float first_mag=2.0f,first_imag=1.0f;
+		
+	
+	uint8_t i,j;
+	
+for(i=0;i<6;i++){
+	
+	first_mag=(harm[i].foutReal[0]*harm[i].foutReal[0]+harm[i].foutImag[0]*harm[i].foutImag[0]);
+	
+	if(first_mag>1.0f){
+	
+	
+	first_imag=100.0f/(first_mag);	
+	//bin_array[i][0]=100;
+	
+	for(j=0;j<20;j++){
+	
+	bin_array[i][j]=
+		
+	sqrtf(harm[i].foutReal[j]*harm[i].foutReal[j]+harm[i].foutImag[j]*harm[i].foutImag[j])*first_imag;
+		
+	 }
+  }
+ }
+}
+
+void offline_calculations(){
+
+bin_magnitudes();
+
 }
 
 

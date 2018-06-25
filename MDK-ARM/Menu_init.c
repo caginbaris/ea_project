@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Harmonics_Van;
+enum menu_list current_menu=Harmonics_Vcn;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;

@@ -353,6 +353,11 @@
           <WinNumber>2</WinNumber>
           <ItemText>harm_percent</ItemText>
         </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>bin_array</ItemText>
+        </Ww>
       </WatchWindow2>
       <Tracepoint>
         <THDelay>0</THDelay>
