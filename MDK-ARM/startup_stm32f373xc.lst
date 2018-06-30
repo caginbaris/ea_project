@@ -83,26 +83,26 @@ ARM Macro Assembler    Page 2
    43 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
    44 00000000         ; </h>
    45 00000000         
-   46 00000000 00000400 
+   46 00000000 00000500 
                        Stack_Size
-                               EQU              0x400
+                               EQU              0x500
    47 00000000         
    48 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
    49 00000000         Stack_Mem
                                SPACE            Stack_Size
-   50 00000400         __initial_sp
-   51 00000400         
-   52 00000400         
-   53 00000400         ; <h> Heap Configuration
-   54 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   55 00000400         ; </h>
-   56 00000400         
-   57 00000400 00000200 
+   50 00000500         __initial_sp
+   51 00000500         
+   52 00000500         
+   53 00000500         ; <h> Heap Configuration
+   54 00000500         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   55 00000500         ; </h>
+   56 00000500         
+   57 00000500 00000200 
                        Heap_Size
                                EQU              0x200
-   58 00000400         
-   59 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+   58 00000500         
+   59 00000500                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    60 00000000         __heap_base
    61 00000000         Heap_Mem
@@ -625,7 +625,7 @@ ARM Macro Assembler    Page 10
               00000000 
               00000000 
               00000000 
-              00000400 
+              00000500 
               00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
@@ -657,7 +657,7 @@ Symbol: Stack_Mem
       At line 392 in file startup_stm32f373xc.s
       At line 394 in file startup_stm32f373xc.s
 
-__initial_sp 00000400
+__initial_sp 00000500
 
 Symbol: __initial_sp
    Definitions
@@ -1517,7 +1517,7 @@ Symbol: Heap_Size
       At line 61 in file startup_stm32f373xc.s
       At line 393 in file startup_stm32f373xc.s
 
-Stack_Size 00000400
+Stack_Size 00000500
 
 Symbol: Stack_Size
    Definitions

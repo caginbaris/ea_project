@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 130
+#define TotalMenuTransitionNo 140
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -173,7 +173,7 @@ union display_menu_union{
 	}handle;
 	
 	
-	struct display_menu_handles all[40]; 
+	struct display_menu_handles all[41]; 
 
 
 };

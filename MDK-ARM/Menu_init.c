@@ -610,7 +610,7 @@ struct display_menu_handles Scope_Ic_Menu= {
 
 struct display_menu_handles Harmonics_Van_Menu= {
 	
-	/*dynamic data*/ &bin_array[Van][20],
+	/*dynamic data*/ &bin_array[Van][0],
 	
 	/*title*/      	{v,a,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -629,7 +629,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 
 struct display_menu_handles Harmonics_Vbn_Menu= {
 	
-	/*dynamic data*/ &bin_array[Vbn][20],
+	/*dynamic data*/ &bin_array[Vbn][0],
 	
 	/*title*/      	{v,b,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -648,7 +648,7 @@ struct display_menu_handles Harmonics_Vbn_Menu= {
 
 struct display_menu_handles Harmonics_Vcn_Menu= {
 	
-	/*dynamic data*/ &bin_array[Vcn][20],
+	/*dynamic data*/ &bin_array[Vcn][0],
 	
 	/*title*/      	{v,c,n,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -668,7 +668,7 @@ struct display_menu_handles Harmonics_Vcn_Menu= {
 
 struct display_menu_handles Harmonics_Ia_Menu= {
 	
-	/*dynamic data*/ &bin_array[Ia][20],
+	/*dynamic data*/ &bin_array[Ia][0],
 	
 	/*title*/      	{i,a,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -687,7 +687,7 @@ struct display_menu_handles Harmonics_Ia_Menu= {
 
 struct display_menu_handles Harmonics_Ib_Menu= {
 	
-	/*dynamic data*/ &bin_array[Ib][20],
+	/*dynamic data*/ &bin_array[Ib][0],
 	
 	/*title*/      	{i,b,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -706,7 +706,7 @@ struct display_menu_handles Harmonics_Ib_Menu= {
 
 struct display_menu_handles Harmonics_Ic_Menu= {
 	
-	/*dynamic data*/ &bin_array[Ic][20],
+	/*dynamic data*/ &bin_array[Ic][0],
 	
 	/*title*/      	{i,c,_,_,h,a,r,m,o,n,i,k,l,e,r,_,_} ,
 	
@@ -1023,9 +1023,13 @@ void init_Menu(){
 	MENU.handle.Harmonics_Vbn=Harmonics_Vbn_Menu;
 	MENU.handle.Harmonics_Vcn=Harmonics_Vcn_Menu;
 	
+	
 	MENU.handle.Harmonics_Ia=Harmonics_Ia_Menu;
 	MENU.handle.Harmonics_Ib=Harmonics_Ib_Menu;
 	MENU.handle.Harmonics_Ic=Harmonics_Ic_Menu;
+	
+
+	
 	
 	MENU.handle.thd_Vpn=thd_Vpn_Menu;
 	MENU.handle.thd_I=thd_I_Menu;

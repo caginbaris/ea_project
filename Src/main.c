@@ -161,7 +161,7 @@ int main(void)
 		
 		offline_calculations();
 		
-		HAL_Delay(200);
+		HAL_Delay(350);
 		
 		
 		pressed_button=pushButtonHandling();

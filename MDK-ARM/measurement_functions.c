@@ -286,7 +286,7 @@ void signal_spectra(
 	x_error=h->qBuffer[pCounter]-rtInput;
 	h->qBuffer[pCounter]=rtInput;
 
-	for(i=0;i<3;i++){
+	for(i=0;i<19;i++){
 
 	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
 	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
@@ -361,15 +361,15 @@ void bin_magnitudes(){
 	
 for(i=0;i<6;i++){
 	
-	first_mag=(harm[i].foutReal[0]*harm[i].foutReal[0]+harm[i].foutImag[0]*harm[i].foutImag[0]);
+	first_mag=sqrtf(harm[i].foutReal[0]*harm[i].foutReal[0]+harm[i].foutImag[0]*harm[i].foutImag[0]);
 	
 	if(first_mag>1.0f){
 	
 	
 	first_imag=100.0f/(first_mag);	
-	//bin_array[i][0]=100;
+	bin_array[i][0]=100.0;
 	
-	for(j=0;j<20;j++){
+	for(j=1;j<20;j++){
 	
 	bin_array[i][j]=
 		

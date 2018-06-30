@@ -533,7 +533,8 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 
 void DISPLAY_MENU(){
 	
-	uint8_t scope_menus=0;
+	uint8_t scope_menus=0,harmonic_menus=0;
+	
 	static uint8_t scope_menu_transition=0;
 
 	struct display_menu_handles local_menu={0};
@@ -549,14 +550,27 @@ void DISPLAY_MENU(){
 		case Scope_Ib:scope_menus=1;break;
 		case Scope_Ic:scope_menus=1;break;
 		
-		default:scope_menus=0;scope_menu_transition=1;
+		case Harmonics_Van:harmonic_menus=1;break;
+		case Harmonics_Vbn:harmonic_menus=1;break;
+		case Harmonics_Vcn:harmonic_menus=1;break;
+		
+		case Harmonics_Ia:harmonic_menus=1;break;
+		case Harmonics_Ib:harmonic_menus=1;break;
+		case Harmonics_Ic:harmonic_menus=1;break;
+		
+
+		
+		default:scope_menus=0;harmonic_menus=0;scope_menu_transition=1;
 	
 	}
 	
 	
 	if(!scope_menus){
 	
-	memset(display_buffer,0,1024); }else{
+	memset(display_buffer,0,1024); 
+	
+	
+	}else{
 	
 	
 	if(scope_menu_transition){memset(display_buffer,0,1024);scope_menu_transition=0;}	
@@ -569,13 +583,15 @@ void DISPLAY_MENU(){
 	
 	
 	
-	local_menu=MENU.all[current_menu];
+	
 
-	if(previous_menu!=current_menu || current_menu==Harmonics_Van){
+	if(previous_menu!=current_menu || harmonic_menus==1){
 	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
 	
 	}
+	
+	
 	
 	MENU.all[current_menu].dynamicDataTransfer(local_menu);
 	
