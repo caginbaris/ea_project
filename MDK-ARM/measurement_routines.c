@@ -43,9 +43,9 @@ void measurement_routines(){
 	
 	power_calculations_iq(inphaseData,quadData,&power_iq);
 
-	//power elements true calcualtions
+	//power elements true calcualtions-discarded
 	
-	power_calculations_true(AN,trueRMS,&power_true);
+	//power_calculations_true(AN,trueRMS,&power_true);
 	
 	//symmetrical components
 	

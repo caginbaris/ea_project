@@ -242,7 +242,15 @@ void put_dot2x2(uint8_t page,uint8_t column){
 }
 
 
+void put_minus(uint8_t page,uint8_t column){
 
+	display_buffer[page][column]=0xC0;
+	display_buffer[page][column+1]=0xC0;
+	display_buffer[page][column+2]=0xC0;
+	display_buffer[page][column+3]=0xC0;
+	display_buffer[page][column+4]=0xC0;
+
+}
 
 
 

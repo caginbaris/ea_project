@@ -16,6 +16,8 @@ struct digit_format  formatDynamicData(float x){
 	struct digit_format formatted_digit;
 	int32_t transferred;
 	
+	if(x<0){formatted_digit.sign=1;x=-x;}else{formatted_digit.sign=0;}
+
 	if(x<_e3){formatted_digit.range=u_N;}
 	if(x>=_e3 && x<_e6){formatted_digit.range=u_K;x=x*_em3;}
 	if(x>=_e6 && x<_e9){formatted_digit.range=u_M;x=x*_em6;}
@@ -60,11 +62,12 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 	page=1;
 	
 	//first row
-	if(lcd_row1.int100!=0											){	digit_transfer_14pt(lcd_row1.int100,page,column);}
-	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	){ 	digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
-																								digit_transfer_14pt(lcd_row1.int1,page,column+2*digit_width_14pt);
-																								put_dot2x2(page+1,column+3*digit_width_14pt);
-																								digit_transfer_14pt(lcd_row1.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
+	if(lcd_row1.sign)															{	put_minus(page,column-6);};
+	if(lcd_row1.int100!=0											)		{	digit_transfer_14pt(lcd_row1.int100,page,column);}
+	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	)	{ digit_transfer_14pt(lcd_row1.int10,page,column+digit_width_14pt);}
+																									digit_transfer_14pt(lcd_row1.int1,page,column+2*digit_width_14pt);
+																									put_dot2x2(page+1,column+3*digit_width_14pt);
+																									digit_transfer_14pt(lcd_row1.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
 	
 	
 	if(lcd_row1.range==u_K){unit_transfer(u_K,page,column+(3*digit_width_14pt+digit_width_14pt));}
@@ -73,6 +76,7 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 
 	page=3;
 	//second row
+	if(lcd_row2.sign)													 {	put_minus(page,column-5);}
 	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
 	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row2.int1,page,column+2*digit_width_14pt);
@@ -87,8 +91,9 @@ void dynamicDataTripple(struct display_menu_handles menu_item){
 
 	page=5;
 	//third row
-	if(lcd_row3.int100!=0											){	digit_transfer_14pt(lcd_row3.int100,page,column);}
-	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	){ 	digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
+	if(lcd_row3.sign)															{	put_minus(page,column-5);}
+	if(lcd_row3.int100!=0											)		{	digit_transfer_14pt(lcd_row3.int100,page,column);}
+	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	)	{ digit_transfer_14pt(lcd_row3.int10,page,column+digit_width_14pt);}
 																								digit_transfer_14pt(lcd_row3.int1,page,column+2*digit_width_14pt);
 																								put_dot2x2(page+1,column+3*digit_width_14pt);
 																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*digit_width_14pt+5)); //cau 5 for dot space
@@ -526,6 +531,9 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button){
 	}
 	
 	
+	
+	
+	
 	return new_menu;
 
 }
@@ -569,8 +577,9 @@ void DISPLAY_MENU(){
 	
 	
 	if(!scope_menus){
-	
-	memset(display_buffer,0,1024); 
+		
+	if((previous_menu!=current_menu) || (current_menu==main_menu)){
+	memset(display_buffer,0,1024); }
 	
 	
 	}else{

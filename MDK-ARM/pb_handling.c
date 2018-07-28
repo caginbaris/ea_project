@@ -4,9 +4,8 @@
 #include "menu_definitions.h"
 #include "aux_functions.h"
 
-#define pb_refresh_rate 10.0f
-#define qual_time 0.2f // in second
-#define qual_sample pb_refresh_rate*qual_time
+
+#define qual_sample 2
 
 union push_buttons pb={0};
 enum  input pressed_button=invalid;
@@ -48,6 +47,15 @@ enum input pushButtonHandling(){
 		// switch(pl)
 		
 		return button;
+
+}
+
+
+void pushButtonScan(void){
+	
+
+
+
 
 }
 

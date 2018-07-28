@@ -79,7 +79,6 @@ void write_lcd(void);
 void font_transfer(void);
 void font_transfer2(void);
 
-enum menu_list SELECT_MENU(enum menu_list current,enum input button);
 void DISPLAY_MENU(void);
 enum input  pushButtonHandling(void);
 void offline_calculations(void);
@@ -161,7 +160,8 @@ int main(void)
 		
 		offline_calculations();
 		
-		HAL_Delay(250);
+		HAL_Delay(100);
+		
 		
 		
 		pressed_button=pushButtonHandling();
@@ -172,8 +172,9 @@ int main(void)
 			
 		}
 		
-		DISPLAY_MENU();
+
 		
+		DISPLAY_MENU();
 		
 		write_lcd();
 		

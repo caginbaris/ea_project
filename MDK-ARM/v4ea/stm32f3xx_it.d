@@ -39,3 +39,4 @@ v4ea\stm32f3xx_it.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 v4ea\stm32f3xx_it.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\stm32f3xx_it.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\stm32f3xx_it.o: ../Inc/stm32f3xx_it.h
+v4ea\stm32f3xx_it.o: ..\header_files\sysTick_definitions.h

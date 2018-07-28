@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Harmonics_Ia;
+enum menu_list current_menu=main_menu;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
@@ -38,7 +38,7 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15
 {d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//16	
 {h,a,r,m,o,n,i,k,_,b,a,r,_,g,r,a,f,i,k,_},//17
-{h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m,l,a,r,_},//18
+{h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m,_,_,_,_},//18
 {s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n,l,e,r,_},//18		
 
 };
@@ -184,7 +184,7 @@ struct display_menu_handles Active_Power_Menu= {
 	/*second line*/ {P,B,__},
 	/*third line*/ 	{P,C,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
 	/*menu units*/	{m_W,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -203,7 +203,7 @@ struct display_menu_handles Reactive_Power_Menu= {
 	/*second line*/ {Q,B,__},
 	/*third line*/ 	{Q,C,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_R,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -222,7 +222,7 @@ struct display_menu_handles Apparent_Power_Menu= {
 	/*second line*/ {S,B,__},
 	/*third line*/ 	{S,C,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -234,14 +234,14 @@ struct display_menu_handles Total_Power_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.Sa),//cau
 	
-	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,_,_,_,_,_,_,_} ,
+	/*title*/      	{t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_} ,
 	
-	/*fist line*/ 	{P,T,__}, //cau different units needed
-	/*second line*/ {Q,T,__},
-	/*third line*/ 	{S,T,__},
+	/*fist line*/ 	{P,__,__}, //cau different units needed
+	/*second line*/ {Q,__,__},
+	/*third line*/ 	{S,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_V,m_A,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -818,7 +818,7 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		{	Vpn_fund,								left_pressed,		Vpn_true},
 		{	Vpn_fund,								down_pressed,		Vpp_fund},
-		{	Vpn_true,								enter_pressed,	main_menu},
+		{	Vpn_fund,								enter_pressed,	main_menu},
 		
 		{	Vpp_true,								right_pressed,	Vpp_fund},
 		{	Vpp_true,								down_pressed,		Ip_true},

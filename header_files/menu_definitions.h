@@ -257,8 +257,9 @@ void staticDataSingle(struct display_menu_handles menu_item);
 void toMainDetect();
 void atMainOperation();
 
-void init_Menu();
-void DISPLAY_MENU();
+void init_Menu(void);
+enum menu_list SELECT_MENU(enum menu_list current,enum input button);
+void DISPLAY_MENU(void);
 
 
 
