@@ -537,7 +537,10 @@ void DISPLAY_MENU(){
 	
 	static uint8_t scope_menu_transition=0;
 
-	struct display_menu_handles local_menu={0};
+	struct display_menu_handles local_menu=Vpn_true_Menu;
+	
+	
+	local_menu=MENU.all[current_menu];
 	
 	
 	switch(current_menu){
@@ -582,10 +585,7 @@ void DISPLAY_MENU(){
 	
 	
 	
-	
-	
-
-	if(previous_menu!=current_menu || harmonic_menus==1){
+	if((previous_menu!=current_menu) || harmonic_menus==1){
 	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
 	

@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Harmonics_Vcn;
+enum menu_list current_menu=Harmonics_Ia;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
 enum main_menu_list main_menu_entry=Vpp_main;
 //volatile enum main_menu_list cursor=Vpp_main;
@@ -985,6 +985,7 @@ void init_Menu(){
 
 	MENU.handle.Ip_true=	Ip_true_Menu;
 	MENU.handle.Ip_fund=	Ip_fund_Menu;
+	
 	
 	MENU.handle.Active_Power=Active_Power_Menu;
 	MENU.handle.Reactive_Power=Reactive_Power_Menu;
