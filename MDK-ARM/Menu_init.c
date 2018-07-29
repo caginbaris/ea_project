@@ -465,7 +465,7 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.reactive_import_total),
 	
-	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,_,_,_,_} ,
+	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,t,_,_,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
