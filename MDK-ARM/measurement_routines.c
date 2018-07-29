@@ -25,6 +25,8 @@ union uAdcData  phase={0};
 union powerParameters  power_iq={0};
 union powerParameters  power_true={0};
 
+union energyParameters energy={0};
+
 void measurement_routines(){
 	
 
@@ -45,7 +47,7 @@ void measurement_routines(){
 
 	//power elements true calcualtions-discarded
 	
-	//power_calculations_true(AN,trueRMS,&power_true);
+	power_calculations_true(AN,trueRMS,&power_true);
 	
 	//symmetrical components
 	

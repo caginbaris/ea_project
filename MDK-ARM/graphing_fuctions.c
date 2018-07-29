@@ -195,18 +195,18 @@ void plot_data_formatting(float x,float rms){
 	float pass_level=0;
 	
 	
-	if(fundRMS.data.Van>20.0 && (phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
+	if(fundRMS.data.Van>20.0f && (phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
 	
 	
 	switch(current_menu){
 	
-		case Scope_Van:pass_level=10;break;
-		case Scope_Vbn:pass_level=10;break;
-		case Scope_Vcn:pass_level=10;break;
+		case Scope_Van:pass_level=10.0f;break;
+		case Scope_Vbn:pass_level=10.0f;break;
+		case Scope_Vcn:pass_level=10.0f;break;
 		
-		case Scope_Ia:pass_level=0.1;break;
-		case Scope_Ib:pass_level=0.1;break;
-		case Scope_Ic:pass_level=0.1;break;
+		case Scope_Ia:pass_level=0.1f;break;
+		case Scope_Ib:pass_level=0.1f;break;
+		case Scope_Ic:pass_level=0.1f;break;
 		
 		default: pass_level=0;break;
 	
@@ -447,11 +447,11 @@ void harmonicDataTransfer(){
 	mag=*(MENU.all[current_menu].values+row-1);
 	
 	fraction=10.0f*(mag-(uint8_t)mag);
-	int10		=(uint8_t)(mag*0.1) % 10;
+	int10		=(uint8_t)(mag*0.1f) % 10;
 	int1		=((uint8_t)mag % 10);
 	
 	
-	if(mag>99.9){
+	if(mag>99.9f){
 	
 	digit_transfer_8pt(1,5,102);	
 		

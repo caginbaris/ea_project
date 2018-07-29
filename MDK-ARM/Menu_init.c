@@ -13,7 +13,7 @@
 
 enum menu_list current_menu=main_menu;
 enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
-enum main_menu_list main_menu_entry=Vpp_main;
+enum main_menu_list main_menu_entry=Active_Energy_main;
 //volatile enum main_menu_list cursor=Vpp_main;
 struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 union display_menu_union MENU={0};
@@ -242,8 +242,8 @@ struct display_menu_handles Total_Power_Menu= {
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*static data*/  staticDataTrippleTotalPower,
+	/*dynamic data*/ dynamicDataTrippleTotalPower
 	
 
 };
@@ -251,15 +251,14 @@ struct display_menu_handles Total_Power_Menu= {
 
 struct display_menu_handles Power_Factors_true_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(power_true.Power.PFa),
 	
 	/*title*/      	{g,u,c,_,f,a,k,t,o,r,_,g,e,r,c,e,k,_,_,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
-	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -326,16 +325,16 @@ struct display_menu_handles Total_Power_Factor_fund_Menu= {
 
 struct display_menu_handles Power_Ratios_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(power_iq.Power.ratioA),
 	
-	/*title*/      	{g,u,c,_,o,r,a,n,l,a,r,i,_,q,_,p} , //cau divide can be added
+	/*title*/      	{g,u,c,_,o,r,a,n,l,a,r,i,_,q,i,i,p,_} , //cau divide can be added
 	
-	/*fist line*/ 	{Q,P,A},
-	/*second line*/ {Q,P,B},
-	/*third line*/ 	{Q,P,C},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_}, // percent can be added
+	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_}, // percent can be added
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -345,18 +344,18 @@ struct display_menu_handles Power_Ratios_Menu= {
 
 struct display_menu_handles Total_Power_Ratios_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(power_iq.Power.ratioTotal),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,o,r,a,n,i,_,q,_,p},
+	/*title*/      	{t,o,p,l,a,m,_,q,i,i,p,_,o,r,a,n,i},
 	
 	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
+	/*second line*/ {Q,P,T},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
@@ -364,18 +363,37 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 
 struct display_menu_handles Active_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.active_import_a),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,u,k,e,t,i,l,e,n,_,e,n,e,r,j,i,_} ,
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_W,m_h,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Active_Total_Energy_Import_Menu= {
+	
+	/*dynamic data*/ &(energy.elements.active_import_total),
+	
+	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,_,_,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_W,m_h,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
@@ -383,36 +401,80 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.active_export_a),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{u,r,e,t,i,l,e,n,_,e,n,e,r,j,i,_,_} ,
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_W,m_h,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
 
 };
 
-struct display_menu_handles Reactive_Energy_Import_Menu= {
+
+struct display_menu_handles Active_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.active_export_total),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,u,_,_,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
+	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_W,m_h,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
+	
+
+};
+
+
+
+
+
+
+
+struct display_menu_handles Reactive_Energy_Import_Menu= {
+	
+	/*dynamic data*/ &(energy.elements.reactive_export_a),
+	
+	/*title*/      	{i,n,d,u,k,t,i,f,_,e,n,e,r,j,t,o,r,u} ,
+	
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*menu units*/	{m_V,m_A,m_R,m_h},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+
+struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
+	
+	/*dynamic data*/ &(energy.elements.reactive_import_total),
+	
+	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,_,_,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_V,m_A,m_R,m_h},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
@@ -873,7 +935,7 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		{	Total_Power_Factor_fund,up_pressed,			Power_Factors_fund},
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
-		{	Total_Power_Factor_fund,right_pressed,	Total_Power_Factor_true},
+		{	Total_Power_Factor_fund,left_pressed,	Total_Power_Factor_true},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
 		{	Power_Ratios,up_pressed,		Total_Power_Factor_fund},
@@ -886,13 +948,28 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		{	Active_Energy_import,up_pressed,		Total_Power_Ratios},
 		{	Active_Energy_import,down_pressed,	Reactive_Energy_import },
-		{	Active_Energy_import,right_pressed,	Active_Energy_export },
+		{	Active_Energy_import,right_pressed,	Active_Energy_Total_import },
 		{	Active_Energy_import,enter_pressed,	main_menu},
+		
+		{	Active_Energy_Total_import,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_Total_import,down_pressed,	Reactive_Energy_import },
+		{	Active_Energy_Total_import,right_pressed,	Active_Energy_export },
+		{	Active_Energy_Total_import,left_pressed,	Active_Energy_import },
+		{	Active_Energy_Total_import,enter_pressed,	main_menu},
 		
 		{	Active_Energy_export,up_pressed,		Total_Power_Ratios},
 		{	Active_Energy_export,down_pressed,	Reactive_Energy_export },
-		{	Active_Energy_export,left_pressed,	Active_Energy_import },
+		{	Active_Energy_export,left_pressed,	Active_Energy_Total_import },
+		{	Active_Energy_export,right_pressed,	Active_Energy_Total_export },
 		{	Active_Energy_export,enter_pressed,	main_menu},
+		
+		
+		{	Active_Energy_Total_export,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_Total_export,down_pressed,	Reactive_Energy_import },
+		{	Active_Energy_Total_export,left_pressed,	Active_Energy_export },
+		{	Active_Energy_Total_export,enter_pressed,	main_menu},
+		
+		
 		
 		{	Reactive_Energy_import,up_pressed,	  Active_Energy_import},
 		{	Reactive_Energy_import,down_pressed,  Apparent_Energy },
@@ -1002,7 +1079,10 @@ void init_Menu(){
 	MENU.handle.Total_Power_Ratios=Total_Power_Ratios_Menu;
 	
 	MENU.handle.Active_Energy_Import=Active_Energy_Import_Menu;
-	MENU.handle.Active_Energy_Export=Active_Energy_Import_Menu;
+	MENU.handle.Active_Total_Energy_Import=Active_Total_Energy_Import_Menu;
+	
+	MENU.handle.Active_Energy_Export=Active_Energy_Export_Menu;
+	MENU.handle.Active_Total_Energy_Export=Active_Total_Energy_Export_Menu;
 	
 	MENU.handle.Reactive_Energy_Import=Reactive_Energy_Import_Menu;
 	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Import_Menu;

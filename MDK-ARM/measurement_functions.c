@@ -128,10 +128,17 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Stotal=sqrtf(x->Power.Ptotal*x->Power.Ptotal+
 										x->Power.Qtotal*x->Power.Qtotal);
 	
-		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : x->Power.Pa/x->Power.Sa;
-		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : x->Power.Pb/x->Power.Sb;
-		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : x->Power.Pc/x->Power.Sc;
-		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : x->Power.Ptotal/x->Power.Stotal;
+		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
+		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;
+		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : 100.0f*x->Power.Pc/x->Power.Sc;
+		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : 100.0f*x->Power.Ptotal/x->Power.Stotal;
+		
+		
+		x->Power.ratioA 			= x->Power.Pa==0 			?  indefinite : 100.0f*x->Power.Qa/x->Power.Pa;
+		x->Power.ratioB 			= x->Power.Pb==0 			?  indefinite : 100.0f*x->Power.Qb/x->Power.Pb;
+		x->Power.ratioC 			= x->Power.Pc==0 			?  indefinite : 100.0f*x->Power.Qc/x->Power.Pc;
+		x->Power.ratioTotal 	= x->Power.Ptotal==0 	?  indefinite : 100.0f*x->Power.Qtotal/x->Power.Ptotal;
+		
 		
 }
 
@@ -175,16 +182,27 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 	x->Power.Stotal=	x->Power.Sa + x->Power.Sb + x->Power.Sc;
 	
 	
-	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : x->Power.Pa/x->Power.Sa;
-	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : x->Power.Pb/x->Power.Sb;
-	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : x->Power.Pc/x->Power.Sc;
-	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : x->Power.Ptotal/x->Power.Stotal;
+	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
+	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;
+	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : 100.0f*x->Power.Pc/x->Power.Sc;
+	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : 100.0f*x->Power.Ptotal/x->Power.Stotal;
 	
 	
 }
 
 
-//88
+//energy calculations
+
+
+void energy_calculations(union powerParameters x,union energyParameters *y ){
+
+	
+	
+	
+	
+
+}
+
 
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x){
 
@@ -250,7 +268,7 @@ void signal_spectra(
 
 	float x_error;
 	float temp_real,temp_imag;
-	float out_scale;
+
 	unsigned int i;
 
 	//out_scale=sqrt2/(float)qBufferLength;

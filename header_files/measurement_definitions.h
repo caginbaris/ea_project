@@ -78,13 +78,58 @@ union powerParameters{
 		float PFc;
 		float PFtotal;
 		
-
+		float ratioA;
+		float ratioB;
+		float ratioC;
+		float ratioTotal;
+		
+		
 	
 	}Power;
 	
 	
-	float buffer[16];
+	float buffer[20];
 	
+
+
+};
+
+
+union energyParameters{
+
+
+	struct{
+		
+		float active_import_a;
+		float active_import_b;
+		float active_import_c;
+		float active_import_total;
+
+		float active_export_a;
+		float active_export_b;
+		float active_export_c;
+		float active_export_total;
+		
+		float reactive_import_a;
+		float reactive_import_b;
+		float reactive_import_c;
+		float reactive_import_total;
+		
+		float reactive_export_a;
+		float reactive_export_b;
+		float reactive_export_c;
+		float reactive_export_total;
+		
+		float apparent_energy_a;
+		float apparent_energy_b;
+		float apparent_energy_c;
+	
+	}elements;
+	
+	
+	float energies[5];
+
+
 
 
 };
@@ -159,7 +204,7 @@ void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powe
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
-void harmonics_routine();
+void harmonics_routine(void);
 
 // extern data
 extern const float inphase_coeffs[];
@@ -168,6 +213,7 @@ extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
 extern union powerParameters  power_true;
+extern union energyParameters  energy;
 extern union symmetricalComponents sym;
 extern union uAdcData  phase;
 extern const float coeffs_real[];

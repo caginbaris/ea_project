@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 140
+#define TotalMenuTransitionNo 150
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -19,7 +19,7 @@ Total_Power,			 //9
 Power_Factors_true,Power_Factors_fund, //10-11		
 Total_Power_Factor_true, Total_Power_Factor_fund,//12-13	
 Power_Ratios,Total_Power_Ratios,//14-15
-Active_Energy_import,Active_Energy_export,//16-17
+Active_Energy_import,Active_Energy_Total_import,Active_Energy_export,Active_Energy_Total_export,//16-17
 Reactive_Energy_import,Reactive_Energy_export, //18-19
 Apparent_Energy,	//20
 Energy_Ratios_ind,Energy_Ratios_cap,	//21-22
@@ -136,7 +136,10 @@ union display_menu_union{
 	struct display_menu_handles Total_Power_Ratios;	//15
 	
 	struct display_menu_handles Active_Energy_Import;//16
+	struct display_menu_handles Active_Total_Energy_Import;//16
+	
 	struct display_menu_handles Active_Energy_Export;//17
+	struct display_menu_handles Active_Total_Energy_Export;//17
 	
 	struct display_menu_handles Reactive_Energy_Import;//18
 	struct display_menu_handles Reactive_Energy_Export;//19
@@ -173,7 +176,7 @@ union display_menu_union{
 	}handle;
 	
 	
-	struct display_menu_handles all[41]; 
+	struct display_menu_handles all[46]; 
 
 
 };
@@ -251,7 +254,9 @@ void menu_unit_transfer(enum menu_units x, uint8_t page, uint8_t column);
 void symbol_transfer(enum menu_symbols x, uint8_t page,uint8_t column);
 
 void dynamicDataTripple(struct display_menu_handles menu_item);
+void dynamicDataTrippleTotalPower(struct display_menu_handles menu_item);
 void staticDataTripple(struct display_menu_handles menu_item);
+void staticDataTrippleTotalPower(struct display_menu_handles menu_item);
 void dynamicDataSingle(struct display_menu_handles menu_item);
 void staticDataSingle(struct display_menu_handles menu_item);
 void toMainDetect();

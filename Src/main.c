@@ -160,7 +160,7 @@ int main(void)
 		
 		offline_calculations();
 		
-		HAL_Delay(100);
+		HAL_Delay(200);
 		
 		
 		
