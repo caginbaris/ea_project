@@ -361,7 +361,7 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 
 struct display_menu_handles Active_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.active_import_a),
+	/*dynamic data*/ &(energy.active_import_a),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,a,k,t,i,f,_,_} ,
 	
@@ -380,7 +380,7 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.active_import_total),
+	/*dynamic data*/ &(energy.active_import_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,u,k,_,_} ,
 	
@@ -399,7 +399,7 @@ struct display_menu_handles Active_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.active_export_a),
+	/*dynamic data*/ &(energy.active_export_a),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,a,k,t,i,f,_,_,_} ,
 	
@@ -418,7 +418,7 @@ struct display_menu_handles Active_Energy_Export_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.active_export_total),
+	/*dynamic data*/ &(energy.active_export_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,u,_,_,_,_} ,
 	
@@ -442,7 +442,7 @@ struct display_menu_handles Active_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.reactive_export_a),
+	/*dynamic data*/ &(energy.reactive_export_a),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_} ,
 	
@@ -461,7 +461,7 @@ struct display_menu_handles Reactive_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.reactive_import_total),
+	/*dynamic data*/ &(energy.reactive_import_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,t,_,_} ,
 	
@@ -480,7 +480,7 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.reactive_export_a),
+	/*dynamic data*/ &(energy.reactive_export_a),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_} ,
 	
@@ -498,7 +498,7 @@ struct display_menu_handles Reactive_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.reactive_export_total),
+	/*dynamic data*/ &(energy.reactive_export_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,u,_,_} ,
 	
@@ -516,7 +516,7 @@ struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Apparent_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.apparent_energy_a),
+	/*dynamic data*/ &(energy.apparent_energy_a),
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_} ,
 	
@@ -535,7 +535,7 @@ struct display_menu_handles Apparent_Energy_Menu= {
 
 struct display_menu_handles Apparent_Total_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.elements.reactive_export_total),
+	/*dynamic data*/ &(energy.reactive_export_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,g,o,r,u,n,e,n,_,e,n,_} ,
 	

@@ -18,7 +18,8 @@
 
 #define fftLength 50
 
-#define energy_constant 1.0
+#define energy_constant 1.0f
+#define inc_resolution 1.0f
 
 union RMS{
 	
@@ -97,10 +98,10 @@ union powerParameters{
 };
 
 
-union energyParameters{
+struct energyParameters{
 
 
-	struct{
+
 		
 		float active_import_a;
 		float active_import_b;
@@ -127,10 +128,10 @@ union energyParameters{
 		float apparent_energy_c;
 		float apparent_energy_total;
 		
-	}elements;
-	
-	
-	float energies[20];
+		uint32_t active_import_counter;
+		uint32_t active_export_counter;
+		uint32_t reactive_import_counter;
+		uint32_t reactive_export_counter;
 
 
 
@@ -204,7 +205,7 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all);
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
 void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
-void energy_calculations(union powerParameters x,union energyParameters *y );
+void energy_calculations(union powerParameters x,struct energyParameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
@@ -218,7 +219,7 @@ extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
 extern union powerParameters  power_true;
-extern union energyParameters  energy;
+extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
 extern union uAdcData  phase;
 extern const float coeffs_real[];

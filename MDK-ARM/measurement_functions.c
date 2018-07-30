@@ -194,28 +194,31 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 //energy calculations
 
 
-void energy_calculations(union powerParameters x,union energyParameters *y ){
+void energy_calculations(union powerParameters x,struct energyParameters *y ){
 
 	
-	if(x.Power.Pa>0.0f && x.Power.Qa>0.0f){y->elements.active_import_a+=x.Power.Pa*energy_constant; y->elements.reactive_import_a+=x.Power.Qa*energy_constant;}
-	if(x.Power.Pa>0.0f && x.Power.Qa<0.0f){y->elements.active_import_a+=x.Power.Pa*energy_constant; y->elements.reactive_export_a+=x.Power.Qa*energy_constant;}
-	if(x.Power.Pa<0.0f && x.Power.Qa>0.0f){y->elements.active_export_a+=x.Power.Pa*energy_constant; y->elements.reactive_import_a+=x.Power.Qa*energy_constant;}
-	if(x.Power.Pa<0.0f && x.Power.Qa<0.0f){y->elements.active_export_a+=x.Power.Pa*energy_constant; y->elements.reactive_export_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa>0.0f && x.Power.Qa>0.0f){y->active_import_a+=x.Power.Pa*energy_constant; y->reactive_import_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa>0.0f && x.Power.Qa<0.0f){y->active_import_a+=x.Power.Pa*energy_constant; y->reactive_export_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa<0.0f && x.Power.Qa>0.0f){y->active_export_a+=x.Power.Pa*energy_constant; y->reactive_import_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa<0.0f && x.Power.Qa<0.0f){y->active_export_a+=x.Power.Pa*energy_constant; y->reactive_export_a+=x.Power.Qa*energy_constant;}
 		
-	if(x.Power.Pb>0.0f && x.Power.Qb>0.0f){y->elements.active_import_b+=x.Power.Pb*energy_constant; y->elements.reactive_import_b+=x.Power.Qb*energy_constant;}
-	if(x.Power.Pb>0.0f && x.Power.Qb<0.0f){y->elements.active_import_b+=x.Power.Pb*energy_constant; y->elements.reactive_export_b+=x.Power.Qb*energy_constant;}
-	if(x.Power.Pb<0.0f && x.Power.Qb>0.0f){y->elements.active_export_b+=x.Power.Pb*energy_constant; y->elements.reactive_import_b+=x.Power.Qb*energy_constant;}
-	if(x.Power.Pb<0.0f && x.Power.Qb<0.0f){y->elements.active_export_b+=x.Power.Pb*energy_constant; y->elements.reactive_export_b+=x.Power.Qb*energy_constant;}	
+	if(x.Power.Pb>0.0f && x.Power.Qb>0.0f){y->active_import_b+=x.Power.Pb*energy_constant; y->reactive_import_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb>0.0f && x.Power.Qb<0.0f){y->active_import_b+=x.Power.Pb*energy_constant; y->reactive_export_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb<0.0f && x.Power.Qb>0.0f){y->active_export_b+=x.Power.Pb*energy_constant; y->reactive_import_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb<0.0f && x.Power.Qb<0.0f){y->active_export_b+=x.Power.Pb*energy_constant; y->reactive_export_b+=x.Power.Qb*energy_constant;}	
 	
-	if(x.Power.Pc>0.0f && x.Power.Qc>0.0f){y->elements.active_import_c+=x.Power.Pc*energy_constant; y->elements.reactive_import_c+=x.Power.Qc*energy_constant;}
-	if(x.Power.Pc>0.0f && x.Power.Qc<0.0f){y->elements.active_import_c+=x.Power.Pc*energy_constant; y->elements.reactive_export_c+=x.Power.Qc*energy_constant;}
-	if(x.Power.Pc<0.0f && x.Power.Qc>0.0f){y->elements.active_export_c+=x.Power.Pc*energy_constant; y->elements.reactive_import_c+=x.Power.Qc*energy_constant;}
-	if(x.Power.Pc<0.0f && x.Power.Qc<0.0f){y->elements.active_export_c+=x.Power.Pc*energy_constant; y->elements.reactive_export_c+=x.Power.Qc*energy_constant;}	
+	if(x.Power.Pc>0.0f && x.Power.Qc>0.0f){y->active_import_c+=x.Power.Pc*energy_constant; y->reactive_import_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc>0.0f && x.Power.Qc<0.0f){y->active_import_c+=x.Power.Pc*energy_constant; y->reactive_export_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc<0.0f && x.Power.Qc>0.0f){y->active_export_c+=x.Power.Pc*energy_constant; y->reactive_import_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc<0.0f && x.Power.Qc<0.0f){y->active_export_c+=x.Power.Pc*energy_constant; y->reactive_export_c+=x.Power.Qc*energy_constant;}	
 	
-	if(x.Power.Ptotal>0.0f && x.Power.Qtotal>0.0f){y->elements.active_import_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_import_total+=x.Power.Qtotal*energy_constant;}
-	if(x.Power.Ptotal>0.0f && x.Power.Qtotal<0.0f){y->elements.active_import_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_export_total+=x.Power.Qtotal*energy_constant;}
-	if(x.Power.Ptotal<0.0f && x.Power.Qtotal>0.0f){y->elements.active_export_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_import_total+=x.Power.Qtotal*energy_constant;}
-	if(x.Power.Ptotal<0.0f && x.Power.Qtotal<0.0f){y->elements.active_export_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_export_total+=x.Power.Qtotal*energy_constant;}	
+	if(x.Power.Ptotal>0.0f && x.Power.Qtotal>0.0f){y->active_import_total+=x.Power.Ptotal*energy_constant; y->reactive_import_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal>0.0f && x.Power.Qtotal<0.0f){y->active_import_total+=x.Power.Ptotal*energy_constant; y->reactive_export_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal<0.0f && x.Power.Qtotal>0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_import_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal<0.0f && x.Power.Qtotal<0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_export_total+=x.Power.Qtotal*energy_constant;}
+
+
+	if(fabs(y->active_import_a)>inc_resolution){y->active_import_counter++; y->active_import_a=y->active_import_a-(uint32_t)(y->active_import_a);}	
 		
 
 		

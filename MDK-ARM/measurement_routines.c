@@ -25,7 +25,7 @@ union uAdcData  phase={0};
 union powerParameters  power_iq={0};
 union powerParameters  power_true={0};
 
-union energyParameters energy={0};
+struct energyParameters energy={0};
 
 void measurement_routines(){
 	
