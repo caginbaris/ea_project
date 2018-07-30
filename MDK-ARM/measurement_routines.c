@@ -34,20 +34,26 @@ void measurement_routines(){
 	
 	trueRMS=true_RMS(AN,1);
 	
-	//fund rms
+	//iq components fund calculations
 	
 	iq_generation(AN,&inphaseData	,inphase_coeffs,inphase_sos);
 	iq_generation(AN,&quadData		,quad_coeffs,quad_sos);
 	
+	//fund rms
+	
 	fund_RMS(inphaseData,quadData,&fundRMS);
 	
-	//iq components fund calculations
+	//fundamental power calculations
 	
 	power_calculations_iq(inphaseData,quadData,&power_iq);
 
-	//power elements true calcualtions-discarded
+	//power elements true calcualtions
 	
 	power_calculations_true(AN,trueRMS,&power_true);
+	
+	//energy calculations
+	
+	energy_calculations(power_iq,&energy );
 	
 	//symmetrical components
 	

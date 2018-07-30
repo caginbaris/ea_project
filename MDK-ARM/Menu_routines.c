@@ -503,24 +503,27 @@ void toMainDetect(){
 		case Total_Power		:						main_menu_entry=	Total_Power_main; break;
 		
 		case Power_Factors_true:				main_menu_entry=	Power_Factors_main; break;
-		case Total_Power_Factor_true:		main_menu_entry=	Total_Power_Factor_main; break;
+		case Total_Power_Factor_true:		main_menu_entry=	Power_Factors_main; break;
 		
 		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
-		case Total_Power_Factor_fund:		main_menu_entry=	Total_Power_Factor_main; break;
+		case Total_Power_Factor_fund:		main_menu_entry=	Power_Factors_main; break;
 		
 		case Power_Ratios:							main_menu_entry=	Power_Ratios_main; break;
-		case Total_Power_Ratios:				main_menu_entry=	Total_Power_Ratios_main; break;
+		case Total_Power_Ratios:				main_menu_entry=	Power_Ratios_main; break;
 		
-		case Active_Energy_export:			main_menu_entry=	Active_Energy_main; break;
 		case Active_Energy_import:			main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_Total_import:main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_export:			main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_Total_export:main_menu_entry=	Active_Energy_main; break;
 		
-		case Reactive_Energy_export:		main_menu_entry=	Reactive_Energy_main; break;
-		case Reactive_Energy_import:		main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_import:			main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_Total_import:main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_export:			main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_Total_export:main_menu_entry=	Reactive_Energy_main; break;
+
 		
 		case Apparent_Energy:						main_menu_entry=	Apparent_Energy_main; break;
-		
-		case Energy_Ratios_cap:					main_menu_entry=	Energy_Ratios_main; break;
-		case Energy_Ratios_ind:					main_menu_entry=	Energy_Ratios_main; break;
+		case Apparent_Energy_Total:			main_menu_entry=	Apparent_Energy_main; break;
 		
 		case Scope_Van:									main_menu_entry=	Scope_main; break;
 		case Scope_Vbn:									main_menu_entry=	Scope_main; break;
@@ -584,17 +587,15 @@ void atMainOperation(){
 		case Apparent_Power_main:						current_menu=Apparent_Power; 						break;
 		case Total_Power_main:							current_menu=Total_Power; 							break;
 		case Power_Factors_main:						current_menu=Power_Factors_true; 				break;
-		case Total_Power_Factor_main:				current_menu=Total_Power_Factor_true; 	break;
-		case 	Power_Ratios_main:						current_menu=Power_Ratios;							break;				
-		case 	Total_Power_Ratios_main:			current_menu=Total_Power_Ratios;				break;	
-		case 	Active_Energy_main:						current_menu=Active_Energy_import;			break;
-		case 	Reactive_Energy_main:					current_menu=Reactive_Energy_import;		break;
-		case 	Apparent_Energy_main:					current_menu=Apparent_Energy;						break;
-		case 	Energy_Ratios_main:					  current_menu=Energy_Ratios_cap;					break;	
-		case  Scope_main:										current_menu=Scope_Van; 								break;
-		case 	Harmonics_Main:								current_menu=Harmonics_Ia;							break;
-		case 	THD_main:											current_menu=thd_Vpn;										break;	
-		case 	Sym_main:											current_menu=sym_Vpn;										break;
+		case Power_Ratios_main:							current_menu=Power_Ratios;							break;				
+		case Active_Energy_main:						current_menu=Active_Energy_import;			break;
+		case Reactive_Energy_main:					current_menu=Reactive_Energy_import;		break;
+		case Apparent_Energy_main:					current_menu=Apparent_Energy;						break;
+		case Scope_main:										current_menu=Scope_Van; 								break;
+		case Harmonics_Main:								current_menu=Harmonics_Ia;							break;
+		case THD_main:											current_menu=thd_Vpn;										break;	
+		case Sym_main:											current_menu=sym_Vpn;										break;
+		case Unb_main:											current_menu=unb_Vpn;										break;
 			
 		default:	;break;
 		

@@ -197,10 +197,29 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 void energy_calculations(union powerParameters x,union energyParameters *y ){
 
 	
+	if(x.Power.Pa>0.0f && x.Power.Qa>0.0f){y->elements.active_import_a+=x.Power.Pa*energy_constant; y->elements.reactive_import_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa>0.0f && x.Power.Qa<0.0f){y->elements.active_import_a+=x.Power.Pa*energy_constant; y->elements.reactive_export_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa<0.0f && x.Power.Qa>0.0f){y->elements.active_export_a+=x.Power.Pa*energy_constant; y->elements.reactive_import_a+=x.Power.Qa*energy_constant;}
+	if(x.Power.Pa<0.0f && x.Power.Qa<0.0f){y->elements.active_export_a+=x.Power.Pa*energy_constant; y->elements.reactive_export_a+=x.Power.Qa*energy_constant;}
+		
+	if(x.Power.Pb>0.0f && x.Power.Qb>0.0f){y->elements.active_import_b+=x.Power.Pb*energy_constant; y->elements.reactive_import_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb>0.0f && x.Power.Qb<0.0f){y->elements.active_import_b+=x.Power.Pb*energy_constant; y->elements.reactive_export_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb<0.0f && x.Power.Qb>0.0f){y->elements.active_export_b+=x.Power.Pb*energy_constant; y->elements.reactive_import_b+=x.Power.Qb*energy_constant;}
+	if(x.Power.Pb<0.0f && x.Power.Qb<0.0f){y->elements.active_export_b+=x.Power.Pb*energy_constant; y->elements.reactive_export_b+=x.Power.Qb*energy_constant;}	
 	
+	if(x.Power.Pc>0.0f && x.Power.Qc>0.0f){y->elements.active_import_c+=x.Power.Pc*energy_constant; y->elements.reactive_import_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc>0.0f && x.Power.Qc<0.0f){y->elements.active_import_c+=x.Power.Pc*energy_constant; y->elements.reactive_export_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc<0.0f && x.Power.Qc>0.0f){y->elements.active_export_c+=x.Power.Pc*energy_constant; y->elements.reactive_import_c+=x.Power.Qc*energy_constant;}
+	if(x.Power.Pc<0.0f && x.Power.Qc<0.0f){y->elements.active_export_c+=x.Power.Pc*energy_constant; y->elements.reactive_export_c+=x.Power.Qc*energy_constant;}	
 	
-	
+	if(x.Power.Ptotal>0.0f && x.Power.Qtotal>0.0f){y->elements.active_import_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_import_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal>0.0f && x.Power.Qtotal<0.0f){y->elements.active_import_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_export_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal<0.0f && x.Power.Qtotal>0.0f){y->elements.active_export_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_import_total+=x.Power.Qtotal*energy_constant;}
+	if(x.Power.Ptotal<0.0f && x.Power.Qtotal<0.0f){y->elements.active_export_total+=x.Power.Ptotal*energy_constant; y->elements.reactive_export_total+=x.Power.Qtotal*energy_constant;}	
+		
 
+		
+		
 }
 
 

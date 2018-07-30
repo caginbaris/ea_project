@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 150
+#define TotalMenuTransitionNo 170
 #define menu_unit_vertical_position 100
 
 enum menu_list {
@@ -19,16 +19,16 @@ Total_Power,			 //9
 Power_Factors_true,Power_Factors_fund, //10-11		
 Total_Power_Factor_true, Total_Power_Factor_fund,//12-13	
 Power_Ratios,Total_Power_Ratios,//14-15
-Active_Energy_import,Active_Energy_Total_import,Active_Energy_export,Active_Energy_Total_export,//16-17
-Reactive_Energy_import,Reactive_Energy_export, //18-19
-Apparent_Energy,	//20
-Energy_Ratios_ind,Energy_Ratios_cap,	//21-22
+Active_Energy_import	,Active_Energy_Total_import,	Active_Energy_export,		Active_Energy_Total_export,//16-17
+Reactive_Energy_import,Reactive_Energy_Total_import,Reactive_Energy_export,	Reactive_Energy_Total_export, //18-19
+Apparent_Energy,Apparent_Energy_Total,	//20
 Scope_Van,Scope_Vbn,Scope_Vcn,//23-24-25
 Scope_Ia,Scope_Ib,Scope_Ic,//26-27-28	
 Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,//29-30-31	
 Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//32-33-34			
 thd_Vpn,thd_I,//35-36-37	
 sym_Vpn,sym_I,//38-39-40	
+unb_Vpn,unb_I,	
 	
 main_menu //41
 };
@@ -45,17 +45,15 @@ enum main_menu_list {
 	Apparent_Power_main=6,//6
 	Total_Power_main=7,//7
 	Power_Factors_main=8,//8
-	Total_Power_Factor_main=9,//9
-	Power_Ratios_main=10,//10
-	Total_Power_Ratios_main=11,//11
-	Active_Energy_main=12,//12
-	Reactive_Energy_main=13,//13
-	Apparent_Energy_main=14,//14
-	Energy_Ratios_main=15,//15
-	Scope_main=16,//16
-	Harmonics_Main=17,
-	THD_main=18,
-	Sym_main=19,
+	Power_Ratios_main=9,//9
+	Active_Energy_main=10,//10
+	Reactive_Energy_main=11,//11
+	Apparent_Energy_main=12,//12
+	Scope_main=13,//13
+	Harmonics_Main=14,//14
+	THD_main=15,//15
+	Sym_main=16,//16
+	Unb_main=17,//17
 	pos_guard=20,
 };
 
@@ -136,47 +134,50 @@ union display_menu_union{
 	struct display_menu_handles Total_Power_Ratios;	//15
 	
 	struct display_menu_handles Active_Energy_Import;//16
-	struct display_menu_handles Active_Total_Energy_Import;//16
+	struct display_menu_handles Active_Total_Energy_Import;//17
 	
-	struct display_menu_handles Active_Energy_Export;//17
-	struct display_menu_handles Active_Total_Energy_Export;//17
+	struct display_menu_handles Active_Energy_Export;//18
+	struct display_menu_handles Active_Total_Energy_Export;//19
 	
-	struct display_menu_handles Reactive_Energy_Import;//18
-	struct display_menu_handles Reactive_Energy_Export;//19
+	struct display_menu_handles Reactive_Energy_Import;//20
+	struct display_menu_handles Reactive_Total_Energy_Import;//21
 	
-	struct display_menu_handles Apparent_Energy;//20
+	struct display_menu_handles Reactive_Energy_Export;//22
+	struct display_menu_handles Reactive_Total_Energy_Export;//23
 	
-	struct display_menu_handles Energy_Ratios_ind;//21
-	struct display_menu_handles Energy_Ratios_cap;//22
+	struct display_menu_handles Apparent_Energy;//24
+	struct display_menu_handles Apparent_Total_Energy;//25
 	
-	struct display_menu_handles Scope_Van;//23
-	struct display_menu_handles Scope_Vbn;//24
-	struct display_menu_handles Scope_Vcn;//25
+	struct display_menu_handles Scope_Van;//26
+	struct display_menu_handles Scope_Vbn;//27
+	struct display_menu_handles Scope_Vcn;//27
 	
-	struct display_menu_handles Scope_Ia;//25
-	struct display_menu_handles Scope_Ib;//26
-	struct display_menu_handles Scope_Ic;//27
+	struct display_menu_handles Scope_Ia;//28
+	struct display_menu_handles Scope_Ib;//29
+	struct display_menu_handles Scope_Ic;//30
 	
-	struct display_menu_handles Harmonics_Van;//28
-	struct display_menu_handles Harmonics_Vbn;//29
-	struct display_menu_handles Harmonics_Vcn;//30
+	struct display_menu_handles Harmonics_Van;//31
+	struct display_menu_handles Harmonics_Vbn;//32
+	struct display_menu_handles Harmonics_Vcn;//33
 	
-	struct display_menu_handles Harmonics_Ia;//31
-	struct display_menu_handles Harmonics_Ib;//32
-	struct display_menu_handles Harmonics_Ic;//33
+	struct display_menu_handles Harmonics_Ia;//34
+	struct display_menu_handles Harmonics_Ib;//35
+	struct display_menu_handles Harmonics_Ic;//36
 	
-	struct display_menu_handles thd_Vpn;//34
-	struct display_menu_handles thd_I;//35
+	struct display_menu_handles thd_Vpn;//37
+	struct display_menu_handles thd_I;	//38
 	
-	struct display_menu_handles sym_Vpn;
-	struct display_menu_handles sym_I;
+	struct display_menu_handles sym_Vpn;//39
+	struct display_menu_handles sym_I;	//40
+	
+	struct display_menu_handles UNB;	//40
 
-	struct display_menu_handles main_menu;//36		
+	struct display_menu_handles main_menu;//41		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[46]; 
+	struct display_menu_handles all[44]; 
 
 
 };

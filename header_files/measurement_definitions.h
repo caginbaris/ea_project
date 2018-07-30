@@ -18,6 +18,8 @@
 
 #define fftLength 50
 
+#define energy_constant 1.0
+
 union RMS{
 	
 	struct{
@@ -123,11 +125,12 @@ union energyParameters{
 		float apparent_energy_a;
 		float apparent_energy_b;
 		float apparent_energy_c;
-	
+		float apparent_energy_total;
+		
 	}elements;
 	
 	
-	float energies[5];
+	float energies[20];
 
 
 
@@ -201,10 +204,12 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all);
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
 void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
+void energy_calculations(union powerParameters x,union energyParameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
 void harmonics_routine(void);
+
 
 // extern data
 extern const float inphase_coeffs[];

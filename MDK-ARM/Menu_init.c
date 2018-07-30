@@ -29,17 +29,15 @@ enum letter_codes_8pt main_menu_entries[][20]={
 {g,o,r,u,n,e,n,_,g,u,c,l,e,r,_,_,_,_,_,_},//6
 {t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_},//7
 {g,u,c,_,f,a,k,t,o,r,l,e,r,i,_,_,_,_,_,_},//8
-{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_},//9
-{g,u,c,_,o,r,a,n,l,a,r,i,_,_,_,_,_,_,_,_},//10	
-{t,o,p,l,a,m,_,g,u,c,_,o,r,a,n,l,a,r,i,_},//11
-{a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_,_,_},//12
-{r,e,a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_},//13	
-{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//14
-{e,n,e,r,j,i,_,o,r,a,n,l,a,r,i,_,_,_,_,_},//15
-{d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//16	
-{h,a,r,m,o,n,i,k,_,b,a,r,_,g,r,a,f,i,k,_},//17
-{h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m,_,_,_,_},//18
-{s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n,l,e,r,_},//18		
+{g,u,c,_,o,r,a,n,l,a,r,i,_,_,_,_,_,_,_,_},//9	
+{a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_,_,_},//10
+{r,e,a,k,t,i,f,_,e,n,e,r,j,i,_,_,_,_,_,_},//11	
+{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_},//12
+{d,a,l,g,a,_,b,i,c,i,m,l,e,r,i,_,_,_,_,_},//13	
+{h,a,r,m,o,n,i,k,_,b,a,r,_,g,r,a,f,i,k,_},//14
+{h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m,_,_,_,_},//15
+{s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n,l,e,r,_},//16
+{d,e,n,g,e,s,i,z,l,i,k,_,o,r,a,n,l,a,r,i},//16	
 
 };
 
@@ -365,7 +363,7 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.active_import_a),
 	
-	/*title*/      	{t,u,k,e,t,i,l,e,n,_,e,n,e,r,j,i,_} ,
+	/*title*/      	{t,u,k,e,t,i,l,e,n,_,a,k,t,i,f,_,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
@@ -384,7 +382,7 @@ struct display_menu_handles Active_Total_Energy_Import_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.active_import_total),
 	
-	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,_,_,_,_} ,
+	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,u,k,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -403,7 +401,7 @@ struct display_menu_handles Active_Energy_Export_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.active_export_a),
 	
-	/*title*/      	{u,r,e,t,i,l,e,n,_,e,n,e,r,j,i,_,_} ,
+	/*title*/      	{u,r,e,t,i,l,e,n,_,a,k,t,i,f,_,_,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
@@ -446,13 +444,13 @@ struct display_menu_handles Reactive_Energy_Import_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.reactive_export_a),
 	
-	/*title*/      	{i,n,d,u,k,t,i,f,_,e,n,e,r,j,t,o,r,u} ,
+	/*title*/      	{t,u,k,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_} ,
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_R,m_h},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -465,7 +463,7 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 	
 	/*dynamic data*/ &(energy.elements.reactive_import_total),
 	
-	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,t,_,_,_,_} ,
+	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,t,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -482,51 +480,51 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.reactive_export_a),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{u,r,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_} ,
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
+	
+
+};
+
+struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
+	
+	/*dynamic data*/ &(energy.elements.reactive_export_total),
+	
+	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,u,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_V,m_A,m_R,m_h},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
 
 struct display_menu_handles Apparent_Energy_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.apparent_energy_a),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_} ,
 	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
-	
-
-};
-
-struct display_menu_handles Energy_Ratios_Ind_Menu= {
-	
-	/*dynamic data*/ &(power_iq.Power.PFa),
-	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
-	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
-	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -535,23 +533,24 @@ struct display_menu_handles Energy_Ratios_Ind_Menu= {
 };
 
 
-struct display_menu_handles Energy_Ratios_Cap_Menu= {
+struct display_menu_handles Apparent_Total_Energy_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.PFa),
+	/*dynamic data*/ &(energy.elements.reactive_export_total),
 	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u} ,
+	/*title*/      	{t,o,p,l,a,m,_,g,o,r,u,n,e,n,_,e,n,_} ,
 	
 	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
+	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*menu units*/	{m_V,m_A,m_R,m_h},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
+
 
 struct display_menu_handles Scope_Van_Menu= {
 	
@@ -665,10 +664,6 @@ struct display_menu_handles Scope_Ic_Menu= {
 	
 
 };
-
-
-// menu transition
-
 
 struct display_menu_handles Harmonics_Van_Menu= {
 	
@@ -859,7 +854,23 @@ struct display_menu_handles sym_I_Menu= {
 
 };
 
+struct display_menu_handles UNB_Menu= {
+	
+	/*dynamic data*/ &(sym.data.I_1),
+	
+	/*title*/      	{a,k,i,m,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
+	
+	/*fist line*/ 	{P,__,__},
+	/*second line*/ {N,__,__},
+	/*third line*/ 	{O,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataTripple,
+	/*dynamic data*/ dynamicDataTripple
+	
 
+};
 
 
 
@@ -920,51 +931,54 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		{	Power_Factors_true,			right_pressed,	Power_Factors_fund},
 		{	Power_Factors_true,			up_pressed,			Total_Power},
-		{	Power_Factors_true,			down_pressed,		Total_Power_Factor_true},
+		{	Power_Factors_true,			down_pressed,		Power_Ratios},
 		{	Power_Factors_true,			enter_pressed,	main_menu},
 		
 		{	Power_Factors_fund,			left_pressed,		Power_Factors_true},
+		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_true},
 		{	Power_Factors_fund,			up_pressed,			Total_Power},
-		{	Power_Factors_fund,			down_pressed,		Total_Power_Factor_fund},
+		{	Power_Factors_fund,			down_pressed,		Power_Ratios},
 		{	Power_Factors_fund,			enter_pressed,	main_menu},
 		
-		{	Total_Power_Factor_true,up_pressed,			Power_Factors_true},
+		{	Total_Power_Factor_true,up_pressed,			Total_Power},
 		{	Total_Power_Factor_true,down_pressed,		Power_Ratios},
 		{	Total_Power_Factor_true,right_pressed,	Total_Power_Factor_fund},
+		{	Total_Power_Factor_true,left_pressed,		Power_Factors_fund},
 		{	Total_Power_Factor_true,enter_pressed,	main_menu},
 		
-		{	Total_Power_Factor_fund,up_pressed,			Power_Factors_fund},
+		{	Total_Power_Factor_fund,up_pressed,			Total_Power},
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
-		{	Total_Power_Factor_fund,left_pressed,	Total_Power_Factor_true},
+		{	Total_Power_Factor_fund,left_pressed,		Total_Power_Factor_true},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
-		{	Power_Ratios,up_pressed,		Total_Power_Factor_fund},
-		{	Power_Ratios,down_pressed,	Total_Power_Ratios },
+		{	Power_Ratios,up_pressed,		Power_Factors_true},
+		{	Power_Ratios,down_pressed,	Active_Energy_import },
+		{	Power_Ratios,right_pressed,	Total_Power_Ratios },
 		{	Power_Ratios,enter_pressed,	main_menu},
 		
-		{	Total_Power_Ratios,up_pressed,		Power_Ratios},
+		{	Total_Power_Ratios,up_pressed,		Power_Factors_true},
 		{	Total_Power_Ratios,down_pressed,	Active_Energy_import },
+		{	Total_Power_Ratios,left_pressed,	Power_Ratios },
 		{	Total_Power_Ratios,enter_pressed,	main_menu},
 		
-		{	Active_Energy_import,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_import,up_pressed,		Power_Ratios},
 		{	Active_Energy_import,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_import,right_pressed,	Active_Energy_Total_import },
 		{	Active_Energy_import,enter_pressed,	main_menu},
 		
-		{	Active_Energy_Total_import,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_Total_import,up_pressed,		Power_Ratios},
 		{	Active_Energy_Total_import,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_Total_import,right_pressed,	Active_Energy_export },
 		{	Active_Energy_Total_import,left_pressed,	Active_Energy_import },
 		{	Active_Energy_Total_import,enter_pressed,	main_menu},
 		
-		{	Active_Energy_export,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_export,up_pressed,		Power_Ratios},
 		{	Active_Energy_export,down_pressed,	Reactive_Energy_export },
 		{	Active_Energy_export,left_pressed,	Active_Energy_Total_import },
 		{	Active_Energy_export,right_pressed,	Active_Energy_Total_export },
 		{	Active_Energy_export,enter_pressed,	main_menu},
 		
-		
-		{	Active_Energy_Total_export,up_pressed,		Total_Power_Ratios},
+		{	Active_Energy_Total_export,up_pressed,		Power_Ratios},
 		{	Active_Energy_Total_export,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_Total_export,left_pressed,	Active_Energy_export },
 		{	Active_Energy_Total_export,enter_pressed,	main_menu},
@@ -973,62 +987,81 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		{	Reactive_Energy_import,up_pressed,	  Active_Energy_import},
 		{	Reactive_Energy_import,down_pressed,  Apparent_Energy },
-		{	Reactive_Energy_import,right_pressed,	Reactive_Energy_export },
+		{	Reactive_Energy_import,right_pressed,	Reactive_Energy_Total_import },
 		{	Reactive_Energy_import,enter_pressed,	main_menu},
 		
-		{	Reactive_Energy_export,up_pressed,		Active_Energy_export},
-		{	Reactive_Energy_export,down_pressed,	Apparent_Energy },
-		{	Reactive_Energy_export,left_pressed,	Reactive_Energy_import },
+		{	Reactive_Energy_Total_import,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_Total_import,down_pressed,  Apparent_Energy },
+		{	Reactive_Energy_Total_import,right_pressed,	Reactive_Energy_export },
+		{	Reactive_Energy_Total_import,left_pressed,	Reactive_Energy_import },
+		{	Reactive_Energy_Total_import,enter_pressed,	main_menu},
+		
+		{	Reactive_Energy_export,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_export,down_pressed,  Apparent_Energy },
+		{	Reactive_Energy_export,right_pressed,	Reactive_Energy_Total_export },
+		{	Reactive_Energy_export,left_pressed,	Reactive_Energy_Total_import },
 		{	Reactive_Energy_export,enter_pressed,	main_menu},
 		
-		{	Apparent_Energy,up_pressed,		Reactive_Energy_import},
-		{	Apparent_Energy,down_pressed,	Energy_Ratios_cap },
-		{	Apparent_Energy,enter_pressed,main_menu},
+		{	Reactive_Energy_Total_export,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_Total_export,down_pressed,  Apparent_Energy },
+		{	Reactive_Energy_Total_export,left_pressed,	Reactive_Energy_export },
+		{	Reactive_Energy_Total_export,enter_pressed,	main_menu},
 		
-		//energy ratios analysed
+	
+		{	Apparent_Energy,	up_pressed,			Reactive_Energy_import},
+		{	Apparent_Energy,	down_pressed,		Scope_Van},
+		{	Apparent_Energy,	right_pressed,	Apparent_Energy_Total},
+		{	Apparent_Energy,	enter_pressed,	main_menu},
+		
+		{	Apparent_Energy_Total,	up_pressed,			Reactive_Energy_import},
+		{	Apparent_Energy_Total,	down_pressed,		Scope_Van},
+		{	Apparent_Energy_Total,	left_pressed,		Apparent_Energy},
+		{	Apparent_Energy_Total,	enter_pressed,	main_menu},
 		
 		
 		//cau gap here,down req for following
 		
-		{	Scope_Van,up_pressed,Energy_Ratios_ind},
+		{	Scope_Van,up_pressed,Apparent_Energy},
 		{	Scope_Van,right_pressed,Scope_Vbn},
 		{	Scope_Van,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vbn,up_pressed,Energy_Ratios_ind},
+		{	Scope_Vbn,up_pressed,Apparent_Energy},
 		{	Scope_Vbn,right_pressed,Scope_Vcn},
 		{	Scope_Vbn,left_pressed,Scope_Van},
 		{	Scope_Vbn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vcn,up_pressed,Energy_Ratios_ind},
+		{	Scope_Vcn,up_pressed,Apparent_Energy},
 		{	Scope_Vcn,right_pressed,Scope_Ia},
 		{	Scope_Vcn,left_pressed,Scope_Vbn},
 		{	Scope_Vcn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ia,up_pressed,Energy_Ratios_ind},
+		{	Scope_Ia,up_pressed,Apparent_Energy},
 		{	Scope_Ia,right_pressed,Scope_Ib},
 		{	Scope_Ia,left_pressed,Scope_Vcn},
 		{	Scope_Ia,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ib,up_pressed,Energy_Ratios_ind},
+		{	Scope_Ib,up_pressed,Apparent_Energy},
 		{	Scope_Ib,right_pressed,Scope_Ic},
 		{	Scope_Ib,left_pressed,Scope_Ia},
 		{	Scope_Ib,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ic,up_pressed,Energy_Ratios_ind},
+		{	Scope_Ic,up_pressed,Apparent_Energy},
 		{	Scope_Ic,left_pressed,Scope_Ib},
 		{	Scope_Ic,enter_pressed,main_menu},
+		
+		
+		/*HARMONIC START*/
 		
 		{Harmonics_Van,down_pressed,Harmonics_Vbn},
 		{Harmonics_Vbn,down_pressed,Harmonics_Vcn},
 		{Harmonics_Vcn,down_pressed,Harmonics_Ia},
 		{Harmonics_Ia, down_pressed,Harmonics_Ib},
 		{Harmonics_Ib, down_pressed,Harmonics_Ic},
-		
 		
 		{Harmonics_Vbn,up_pressed,Harmonics_Van},
 		{Harmonics_Vcn,up_pressed,Harmonics_Vbn},
@@ -1042,6 +1075,35 @@ const struct MENU_TRANSITION menu_transition[]={
 		{Harmonics_Ia,enter_pressed,main_menu},
 		{Harmonics_Ib,enter_pressed,main_menu},
 		{Harmonics_Ic,enter_pressed,main_menu},
+		
+		/*HARMONICS END*/
+		
+		{thd_Vpn,up_pressed,Harmonics_Van},
+		{thd_Vpn,right_pressed,thd_I},
+		{thd_Vpn,down_pressed,sym_Vpn},
+		
+		{thd_I,up_pressed,Harmonics_Van},
+		{thd_I,left_pressed,thd_Vpn},
+		{thd_I,down_pressed,sym_Vpn},
+		
+		
+		{sym_Vpn,up_pressed,thd_Vpn},
+		{sym_Vpn,right_pressed,sym_I},
+		{sym_Vpn,down_pressed,unb_Vpn},
+		
+		{sym_I,up_pressed,thd_Vpn},
+		{sym_I,left_pressed,sym_Vpn},
+		{sym_I,down_pressed,unb_Vpn},
+		
+		
+		{unb_Vpn,up_pressed,sym_Vpn},
+		{unb_Vpn,right_pressed,unb_I},
+	
+		{unb_I,up_pressed,sym_Vpn},
+		{unb_I,left_pressed,unb_Vpn},
+		
+		
+		
 
 };
 
@@ -1085,12 +1147,13 @@ void init_Menu(){
 	MENU.handle.Active_Total_Energy_Export=Active_Total_Energy_Export_Menu;
 	
 	MENU.handle.Reactive_Energy_Import=Reactive_Energy_Import_Menu;
+	MENU.handle.Reactive_Total_Energy_Import=Reactive_Total_Energy_Import_Menu;
+	
 	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Import_Menu;
+	MENU.handle.Reactive_Total_Energy_Export=Reactive_Total_Energy_Export_Menu;
 	
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
-	
-	MENU.handle.Energy_Ratios_cap=Energy_Ratios_Ind_Menu;
-	MENU.handle.Energy_Ratios_cap=Energy_Ratios_Cap_Menu;
+	MENU.handle.Apparent_Total_Energy=Apparent_Total_Energy_Menu;
 	
 	MENU.handle.Scope_Van=Scope_Van_Menu;
 	MENU.handle.Scope_Vbn=Scope_Vbn_Menu;
@@ -1104,19 +1167,17 @@ void init_Menu(){
 	MENU.handle.Harmonics_Vbn=Harmonics_Vbn_Menu;
 	MENU.handle.Harmonics_Vcn=Harmonics_Vcn_Menu;
 	
-	
 	MENU.handle.Harmonics_Ia=Harmonics_Ia_Menu;
 	MENU.handle.Harmonics_Ib=Harmonics_Ib_Menu;
 	MENU.handle.Harmonics_Ic=Harmonics_Ic_Menu;
-	
-
-	
 	
 	MENU.handle.thd_Vpn=thd_Vpn_Menu;
 	MENU.handle.thd_I=thd_I_Menu;
 	
 	MENU.handle.sym_Vpn=sym_Vpn_Menu;
 	MENU.handle.sym_I=sym_I_Menu;
+	
+	MENU.handle.UNB=UNB_Menu;
 	
 }
 
