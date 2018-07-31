@@ -170,7 +170,8 @@ union display_menu_union{
 	struct display_menu_handles sym_Vpn;//39
 	struct display_menu_handles sym_I;	//40
 	
-	struct display_menu_handles UNB;	//40
+	struct display_menu_handles UNB_V;	//40
+	struct display_menu_handles UNB_I;	//40
 
 	struct display_menu_handles main_menu;//41		
 		

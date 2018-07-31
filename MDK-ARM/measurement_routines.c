@@ -25,6 +25,8 @@ union uAdcData  phase={0};
 union powerParameters  power_iq={0};
 union powerParameters  power_true={0};
 
+
+
 struct energyParameters energy={0};
 
 void measurement_routines(){
@@ -32,7 +34,7 @@ void measurement_routines(){
 
 	//true RMS
 	
-	trueRMS=true_RMS(AN,1);
+	trueRMS=true_RMS(AN,1); //cau 1 can be externalized
 	
 	//iq components fund calculations
 	

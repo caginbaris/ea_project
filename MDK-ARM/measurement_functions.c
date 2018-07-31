@@ -193,8 +193,23 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 
 //energy calculations
 
+void energy_accumulator(double* acc, uint32_t* counter ){
+
+	float increment;
+	
+
+	
+	increment=(*acc)>0 ? (*acc):-(*acc);
+	if(increment>inc_resolution){		(*counter)+=(uint32_t)(increment*inverse_inc_resolution);
+																	(*acc)    -=(int32_t) (*acc);
+	
+		}
+	}
+
 
 void energy_calculations(union powerParameters x,struct energyParameters *y ){
+	
+	
 
 	
 	if(x.Power.Pa>0.0f && x.Power.Qa>0.0f){y->active_import_a+=x.Power.Pa*energy_constant; y->reactive_import_a+=x.Power.Qa*energy_constant;}
@@ -217,12 +232,32 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	if(x.Power.Ptotal<0.0f && x.Power.Qtotal>0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_import_total+=x.Power.Qtotal*energy_constant;}
 	if(x.Power.Ptotal<0.0f && x.Power.Qtotal<0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_export_total+=x.Power.Qtotal*energy_constant;}
 
-
-	if(fabs(y->active_import_a)>inc_resolution){y->active_import_counter++; y->active_import_a=y->active_import_a-(uint32_t)(y->active_import_a);}	
+	
+	energy_accumulator(&(y->active_import_a)			,&(y->reactive_import_counter_a));	
+	energy_accumulator(&(y->active_import_b)			,&(y->reactive_import_counter_b));	
+	energy_accumulator(&(y->active_import_c)			,&(y->reactive_import_counter_c));														
+	energy_accumulator(&(y->active_import_total)	,&(y->reactive_import_counter_total));
 		
-
+	energy_accumulator(&(y->active_export_a)			,&(y->reactive_export_counter_a));	
+	energy_accumulator(&(y->active_export_b)			,&(y->reactive_export_counter_b));	
+	energy_accumulator(&(y->active_export_c)			,&(y->reactive_export_counter_c));														
+	energy_accumulator(&(y->active_export_total)	,&(y->reactive_export_counter_total));	
 		
+	energy_accumulator(&(y->reactive_import_a)		,&(y->reactive_import_counter_a));	
+	energy_accumulator(&(y->reactive_import_b)		,&(y->reactive_import_counter_b));	
+	energy_accumulator(&(y->reactive_import_c)		,&(y->reactive_import_counter_c));														
+	energy_accumulator(&(y->reactive_import_total),&(y->reactive_import_counter_total));
 		
+	energy_accumulator(&(y->reactive_export_a)		,&(y->reactive_export_counter_a));	
+	energy_accumulator(&(y->reactive_export_b)		,&(y->reactive_export_counter_b));	
+	energy_accumulator(&(y->reactive_export_c)		,&(y->reactive_export_counter_c));														
+	energy_accumulator(&(y->reactive_export_total),&(y->reactive_export_counter_total));		
+		
+	energy_accumulator(&(y->apparent_energy_a)		,&(y->apparent_counter_a));	
+	energy_accumulator(&(y->apparent_energy_b)		,&(y->apparent_counter_b));	
+	energy_accumulator(&(y->apparent_energy_c)		,&(y->apparent_counter_c));	
+	energy_accumulator(&(y->apparent_energy_total),&(y->apparent_counter_total));	
+	
 }
 
 
@@ -249,8 +284,10 @@ temp_i=	sym_i*(quad.data.Ib-quad.data.Ic);
 	
 x->data.I_0  =(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
 x->data.I_1  =(temp_r - temp_i)*sym_i3;
-x->data.I_2 = (temp_r + temp_i)*sym_i3;		
-	
+x->data.I_2 = (temp_r + temp_i)*sym_i3;
+
+x->data.UNB_V=(x->data.Vpn_1>eps)?(100.0f*x->data.Vpn_2/x->data.Vpn_1):(0.0f);
+x->data.UNB_I=(x->data.Vpn_1>eps)?(100.0f*x->data.I_2  /x->data.I_1)  :(0.0f);	
 	
 
 }
@@ -396,6 +433,7 @@ for(i=0;i<6;i++){
 void offline_calculations(){
 
 bin_magnitudes();
+thd_calc(&thd);	
 
 }
 

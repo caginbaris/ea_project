@@ -18,8 +18,10 @@
 
 #define fftLength 50
 
-#define energy_constant 1.0f
-#define inc_resolution 1.0f
+#define energy_constant 0.00000002170138888888889
+#define inc_resolution 0.0001
+#define inverse_inc_resolution 10000
+
 
 union RMS{
 	
@@ -103,36 +105,57 @@ struct energyParameters{
 
 
 		
-		float active_import_a;
-		float active_import_b;
-		float active_import_c;
-		float active_import_total;
+		double active_import_a;
+		double active_import_b;
+		double active_import_c;
+		double active_import_total;
 
-		float active_export_a;
-		float active_export_b;
-		float active_export_c;
-		float active_export_total;
+		double active_export_a;
+		double active_export_b;
+		double active_export_c;
+		double active_export_total;
 		
-		float reactive_import_a;
-		float reactive_import_b;
-		float reactive_import_c;
-		float reactive_import_total;
+		double reactive_import_a;
+		double reactive_import_b;
+		double reactive_import_c;
+		double reactive_import_total;
 		
-		float reactive_export_a;
-		float reactive_export_b;
-		float reactive_export_c;
-		float reactive_export_total;
+		double reactive_export_a;
+		double reactive_export_b;
+		double reactive_export_c;
+		double reactive_export_total;
 		
-		float apparent_energy_a;
-		float apparent_energy_b;
-		float apparent_energy_c;
-		float apparent_energy_total;
+		double apparent_energy_a;
+		double apparent_energy_b;
+		double apparent_energy_c;
+		double apparent_energy_total;
 		
-		uint32_t active_import_counter;
-		uint32_t active_export_counter;
-		uint32_t reactive_import_counter;
-		uint32_t reactive_export_counter;
-
+		
+		uint32_t active_import_counter_a;
+		uint32_t active_export_counter_a;
+		uint32_t reactive_import_counter_a;
+		uint32_t reactive_export_counter_a;
+		uint32_t apparent_counter_a;
+		
+		uint32_t active_import_counter_b;
+		uint32_t active_export_counter_b;
+		uint32_t reactive_import_counter_b;
+		uint32_t reactive_export_counter_b;
+		uint32_t apparent_counter_b;
+		
+		uint32_t active_import_counter_c;
+		uint32_t active_export_counter_c;
+		uint32_t reactive_import_counter_c;
+		uint32_t reactive_export_counter_c;
+		uint32_t apparent_counter_c;
+		
+		uint32_t active_import_counter_total;
+		uint32_t active_export_counter_total;
+		uint32_t reactive_import_counter_total;
+		uint32_t reactive_export_counter_total;
+		uint32_t apparent_counter_total;
+		
+		
 
 
 
@@ -156,11 +179,14 @@ union symmetricalComponents{
 	float I_1;
 	float I_2;
 	float I_0;
+		
+	float UNB_V;
+	float UNB_I;			
 	
 }data;
 	
 	
-	float buffer[6];
+	float buffer[8];
 		
 	
 };

@@ -786,12 +786,12 @@ struct display_menu_handles thd_Vpn_Menu= {
 	
 	/*title*/      	{v,p,n,_,h,a,r,m,o,n,i,k,_,b,o,z,u,n,u,m} ,
 	
-	/*fist line*/ 	{V,A,N},
-	/*second line*/ {V,B,N},
-	/*third line*/ 	{V,C,N},
+	/*fist line*/ 	{A,N,__},
+	/*second line*/ {B,N,__},
+	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-	/*menu units*/	{m_,m_,m_,m_},
+	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -854,20 +854,39 @@ struct display_menu_handles sym_I_Menu= {
 
 };
 
-struct display_menu_handles UNB_Menu= {
+struct display_menu_handles UNB_V_Menu= {
 	
-	/*dynamic data*/ &(sym.data.I_1),
+	/*dynamic data*/ &(sym.data.UNB_V),
 	
-	/*title*/      	{a,k,i,m,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
+	/*title*/      	{v,p,n,_,d,e,n,g,e,s,i,z,l,i,k,_,_} ,
 	
-	/*fist line*/ 	{P,__,__},
-	/*second line*/ {N,__,__},
-	/*third line*/ 	{O,__,__},
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
+	
+
+};
+
+
+struct display_menu_handles UNB_I_Menu= {
+	
+	/*dynamic data*/ &(sym.data.UNB_I),
+	
+	/*title*/      	{a,k,i,m,_,d,e,n,g,e,s,i,z,l,i,k,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
 	
 
 };
@@ -1177,7 +1196,8 @@ void init_Menu(){
 	MENU.handle.sym_Vpn=sym_Vpn_Menu;
 	MENU.handle.sym_I=sym_I_Menu;
 	
-	MENU.handle.UNB=UNB_Menu;
+	MENU.handle.UNB_V=UNB_V_Menu;
+	MENU.handle.UNB_I=UNB_I_Menu;
 	
 }
 
