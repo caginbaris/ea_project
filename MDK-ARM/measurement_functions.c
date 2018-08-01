@@ -3,7 +3,7 @@
 #include "conversion.h"
 #include "measurement_definitions.h"
 #include <math.h>
-#include "arm_math.h" //cau should transferred
+#include "arm_math.h" 
 #include "graphing_definitions.h"
 
 #define eps 1.0f
@@ -195,7 +195,7 @@ void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerPa
 
 void energy_accumulator(double* acc, uint32_t* counter ){
 
-	float increment;
+	double increment;
 	
 
 	
@@ -257,6 +257,33 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	energy_accumulator(&(y->apparent_energy_b)		,&(y->apparent_counter_b));	
 	energy_accumulator(&(y->apparent_energy_c)		,&(y->apparent_counter_c));	
 	energy_accumulator(&(y->apparent_energy_total),&(y->apparent_counter_total));	
+	
+	
+	
+	y->active_import_a_scaled			=(y->active_import_counter_a)		*inc_resolution;
+	y->active_import_b_scaled			=(y->active_import_counter_b)		*inc_resolution;
+	y->active_import_c_scaled			=(y->active_import_counter_c)		*inc_resolution;
+	y->active_import_total_scaled	=(y->active_import_total_scaled)*inc_resolution;
+	
+	y->active_export_a_scaled			=(y->active_export_counter_a)		*inc_resolution;
+	y->active_export_b_scaled			=(y->active_export_counter_b)		*inc_resolution;
+	y->active_export_c_scaled			=(y->active_export_counter_c)		*inc_resolution;
+	y->active_export_total_scaled	=(y->active_export_total_scaled)*inc_resolution;
+	
+	y->reactive_import_a_scaled			=(y->reactive_import_counter_a)		*inc_resolution;
+	y->reactive_import_b_scaled			=(y->reactive_import_counter_b)		*inc_resolution;
+	y->reactive_import_c_scaled			=(y->reactive_import_counter_c)		*inc_resolution;
+	y->reactive_import_total_scaled	=(y->reactive_import_total_scaled)*inc_resolution;
+	
+	y->reactive_export_a_scaled			=(y->reactive_export_counter_a)		*inc_resolution;
+	y->reactive_export_b_scaled			=(y->reactive_export_counter_b)		*inc_resolution;
+	y->reactive_export_c_scaled			=(y->reactive_export_counter_c)		*inc_resolution;
+	y->reactive_export_total_scaled	=(y->reactive_export_total_scaled)*inc_resolution;
+	
+	y->apparent_energy_a_scaled			=(y->apparent_counter_a)		*inc_resolution;
+	y->apparent_energy_b_scaled			=(y->apparent_counter_b)		*inc_resolution;
+	y->apparent_energy_c_scaled			=(y->apparent_counter_c)		*inc_resolution;
+	y->apparent_energy_total_scaled	=(y->apparent_energy_total_scaled)*inc_resolution;
 	
 }
 

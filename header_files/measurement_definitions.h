@@ -18,9 +18,9 @@
 
 #define fftLength 50
 
-#define energy_constant 0.00000002170138888888889
-#define inc_resolution 0.0001
-#define inverse_inc_resolution 10000
+#define energy_constant 0.00000002170138888888889f
+#define inc_resolution 0.01f
+#define inverse_inc_resolution 100.0
 
 
 union RMS{
@@ -129,6 +129,33 @@ struct energyParameters{
 		double apparent_energy_b;
 		double apparent_energy_c;
 		double apparent_energy_total;
+		
+		//scaled values
+		
+		float active_import_a_scaled;
+		float active_import_b_scaled;
+		float active_import_c_scaled;
+		float active_import_total_scaled;
+
+		float active_export_a_scaled;
+		float active_export_b_scaled;
+		float active_export_c_scaled;
+		float active_export_total_scaled;
+		
+		float reactive_import_a_scaled;
+		float reactive_import_b_scaled;
+		float reactive_import_c_scaled;
+		float reactive_import_total_scaled;
+		
+		float reactive_export_a_scaled;
+		float reactive_export_b_scaled;
+		float reactive_export_c_scaled;
+		float reactive_export_total_scaled;
+		
+		float apparent_energy_a_scaled;
+		float apparent_energy_b_scaled;
+		float apparent_energy_c_scaled;
+		float apparent_energy_total_scaled;
 		
 		
 		uint32_t active_import_counter_a;
@@ -254,3 +281,7 @@ extern struct spectra  harm[6]; 					// spectral analysis
 extern union thdData thd;
 
 #endif
+
+
+
+

@@ -261,8 +261,8 @@ void staticDataTripple(struct display_menu_handles menu_item);
 void staticDataTrippleTotalPower(struct display_menu_handles menu_item);
 void dynamicDataSingle(struct display_menu_handles menu_item);
 void staticDataSingle(struct display_menu_handles menu_item);
-void toMainDetect();
-void atMainOperation();
+void toMainDetect(struct display_menu_handles menu_item);
+void atMainOperation(struct display_menu_handles menu_item);
 
 void init_Menu(void);
 enum menu_list SELECT_MENU(enum menu_list current,enum input button);

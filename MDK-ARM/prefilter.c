@@ -23,4 +23,4 @@ float offset_cancellation(float rtInput, struct offset_cancellation_filter_param
 	
 };
 
-//cau check for filter cutoff for offset cancellation
+//check for filter cutoff for offset cancellation

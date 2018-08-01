@@ -36,9 +36,7 @@ uint8_t dummy_bin=70;
 void setbit(uint8_t x,uint8_t y){
 
 	uint8_t page;
-	uint8_t column;
 	uint8_t xBit;
-	uint8_t xData;
 	uint8_t i;
 	
 	page=(uint8_t)(x/8);
@@ -58,7 +56,6 @@ void hline(uint8_t x, uint8_t lineStart,uint8_t lineEnd){
 	
 	uint8_t xPage;
 	uint8_t xBit;
-	uint8_t xData;
 	uint8_t i;
 	
 	xPage=(uint8_t)(x/8);
@@ -190,7 +187,6 @@ void vline_dotted(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 void plot_data_formatting(float x,float rms){
 
 	static uint8_t snap_flag=0;
-	static long gap_counter=0;
 	static uint8_t i=0,j=0;
 	float pass_level=0;
 	
@@ -287,7 +283,7 @@ void scope_routine(){
 
 
 
-void graphBaseLining(){
+void graphBaseLining(struct display_menu_handles menu_item){
 	
 	uint8_t i;
 	
@@ -326,7 +322,7 @@ void graphBaseLining(){
 }
 
 
-void graphDataTransfer(){
+void graphDataTransfer(struct display_menu_handles menu_item){
 	
 	
 	
@@ -337,7 +333,7 @@ void graphDataTransfer(){
 }
 
 
-void harmonicBaseLine(){
+void harmonicBaseLine(struct display_menu_handles menu_item){
 	
 	uint8_t column=1,i;
 	
@@ -406,7 +402,7 @@ void harmonicBinTransfer(){
 }
 
 
-void harmonicDataTransfer(){
+void harmonicDataTransfer(struct display_menu_handles menu_item){
 	
 	static uint8_t bin_select=1;
 	uint8_t row;

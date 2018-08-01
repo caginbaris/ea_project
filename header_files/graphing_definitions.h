@@ -3,7 +3,7 @@
 
 
 #include <stdint.h>
-
+#include "menu_definitions.h"
 
 
 
@@ -33,12 +33,12 @@ uint8_t all;
 
 
 
-void graphBaseLining();
-void graphDataTransfer();
-void scope_routine();
+void graphBaseLining(struct display_menu_handles menu_item);
+void graphDataTransfer(struct display_menu_handles menu_item);
+void scope_routine(void);
 
-void harmonicBaseLine();
-void harmonicDataTransfer();
+void harmonicBaseLine(struct display_menu_handles menu_item);
+void harmonicDataTransfer(struct display_menu_handles menu_item);
 
 
 extern float bin_array[6][20];

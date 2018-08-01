@@ -12,9 +12,8 @@
 
 
 enum menu_list current_menu=main_menu;
-enum menu_list previous_menu=Vpp_true;//cau should be different at startup wrt current menu
+enum menu_list previous_menu=Vpp_true;
 enum main_menu_list main_menu_entry=Active_Energy_main;
-//volatile enum main_menu_list cursor=Vpp_main;
 struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 union display_menu_union MENU={0};
 
@@ -230,11 +229,11 @@ struct display_menu_handles Apparent_Power_Menu= {
 
 struct display_menu_handles Total_Power_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.Sa),//cau
+	/*dynamic data*/ &(power_iq.Power.Sa),
 	
 	/*title*/      	{t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_} ,
 	
-	/*fist line*/ 	{P,__,__}, //cau different units needed
+	/*fist line*/ 	{P,__,__},
 	/*second line*/ {Q,__,__},
 	/*third line*/ 	{S,__,__},
 	
@@ -325,7 +324,7 @@ struct display_menu_handles Power_Ratios_Menu= {
 	
 	/*dynamic data*/ &(power_iq.Power.ratioA),
 	
-	/*title*/      	{g,u,c,_,o,r,a,n,l,a,r,i,_,q,i,i,p,_} , //cau divide can be added
+	/*title*/      	{g,u,c,_,o,r,a,n,l,a,r,i,_,q,i,i,p,_} , 
 	
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
@@ -361,7 +360,7 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 
 struct display_menu_handles Active_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.active_import_a),
+	/*dynamic data*/ &(energy.active_import_a_scaled),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,a,k,t,i,f,_,_} ,
 	
@@ -380,7 +379,7 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.active_import_total),
+	/*dynamic data*/ &(energy.active_import_total_scaled),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,u,k,_,_} ,
 	
@@ -399,7 +398,7 @@ struct display_menu_handles Active_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.active_export_a),
+	/*dynamic data*/ &(energy.active_export_a_scaled),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,a,k,t,i,f,_,_,_} ,
 	
@@ -418,7 +417,7 @@ struct display_menu_handles Active_Energy_Export_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.active_export_total),
+	/*dynamic data*/ &(energy.active_export_total_scaled),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,u,_,_,_,_} ,
 	
@@ -442,7 +441,7 @@ struct display_menu_handles Active_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_a),
+	/*dynamic data*/ &(energy.reactive_export_a_scaled),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_} ,
 	
@@ -461,7 +460,7 @@ struct display_menu_handles Reactive_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_import_total),
+	/*dynamic data*/ &(energy.reactive_import_total_scaled),
 	
 	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,t,_,_} ,
 	
@@ -480,7 +479,7 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_a),
+	/*dynamic data*/ &(energy.reactive_export_a_scaled),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_} ,
 	
@@ -498,7 +497,7 @@ struct display_menu_handles Reactive_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_total),
+	/*dynamic data*/ &(energy.reactive_export_total_scaled),
 	
 	/*title*/      	{t,o,p,l,a,m,_,r,e,a,k,t,i,f,_,u,_,_} ,
 	
@@ -516,7 +515,7 @@ struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Apparent_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.apparent_energy_a),
+	/*dynamic data*/ &(energy.apparent_energy_a_scaled),
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_} ,
 	
@@ -535,7 +534,7 @@ struct display_menu_handles Apparent_Energy_Menu= {
 
 struct display_menu_handles Apparent_Total_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_total),
+	/*dynamic data*/ &(energy.reactive_export_total_scaled),
 	
 	/*title*/      	{t,o,p,l,a,m,_,g,o,r,u,n,e,n,_,e,n,_} ,
 	
@@ -1038,7 +1037,7 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Apparent_Energy_Total,	enter_pressed,	main_menu},
 		
 		
-		//cau gap here,down req for following
+		
 		
 		{	Scope_Van,up_pressed,Apparent_Energy},
 		{	Scope_Van,right_pressed,Scope_Vbn},
