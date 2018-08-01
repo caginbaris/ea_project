@@ -53,9 +53,13 @@ void measurement_routines(){
 	
 	power_calculations_true(AN,trueRMS,&power_true);
 	
+	
+	
 	//energy calculations
 	
-	energy_calculations(power_iq,&energy );
+	//energy_calculations(power_iq,&energy );
+	
+	#if 1
 	
 	//symmetrical components
 	
@@ -73,6 +77,7 @@ void measurement_routines(){
 	
 	harmonics_routine();
 	
+	#endif
 	
 	
 }

@@ -54,7 +54,7 @@ enum main_menu_list {
 	THD_main=15,//15
 	Sym_main=16,//16
 	Unb_main=17,//17
-	pos_guard=20,
+	pos_guard=18,
 };
 
 struct main_menu_rows{

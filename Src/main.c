@@ -83,7 +83,8 @@ void DISPLAY_MENU(void);
 enum input  pushButtonHandling(void);
 void offline_calculations(void);
 
-
+extern uint16_t center_leds;
+extern uint16_t side_leds;
 
 /* USER CODE END PFP */
 
@@ -160,8 +161,7 @@ int main(void)
 		
 		offline_calculations();
 		
-		HAL_Delay(200);
-		
+		HAL_Delay(100);
 		
 		
 		pressed_button=pushButtonHandling();

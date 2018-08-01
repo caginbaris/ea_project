@@ -4,8 +4,8 @@
 #include "LCD_definitions.h"
 
 
-
-
+uint16_t side_leds=160;
+uint16_t center_leds=160;
 
 void init_LCD(){
 	
@@ -32,8 +32,8 @@ void init_backlight(){
 	
 	HAL_TIM_Base_Start(&htim5);
 	
-	__HAL_TIM_SET_COMPARE(&htim5,TIM_CHANNEL_2,16000);
-	__HAL_TIM_SET_COMPARE(&htim5,TIM_CHANNEL_3,16000);
+	__HAL_TIM_SET_COMPARE(&htim5,TIM_CHANNEL_2,800);
+	__HAL_TIM_SET_COMPARE(&htim5,TIM_CHANNEL_3,3599);
 
 
 }

@@ -345,7 +345,7 @@ void harmonicBaseLine(struct display_menu_handles menu_item){
 	
 	}
 	
-	line_highlighter(0,102);
+	//line_highlighter(0,102);
 	
 	//measurement side border
 	vline(101,8,55);
@@ -377,6 +377,7 @@ void harmonicBinTransfer(){
 	uint8_t i=0,a=0;
 	uint8_t mag;
 	
+
 
 	
 	for(i=hBin_start_pos;i<100;i+=hBin_width){

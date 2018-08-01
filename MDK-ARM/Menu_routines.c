@@ -729,7 +729,7 @@ void DISPLAY_MENU(){
 	
 	if(!scope_menus){
 		
-	if((previous_menu!=current_menu) || (current_menu==main_menu)){
+	if((previous_menu!=current_menu) || (current_menu==main_menu)|| (harmonic_menus==1)){
 	memset(display_buffer,0,1024); }
 	
 	
@@ -745,7 +745,7 @@ void DISPLAY_MENU(){
 	
 	
 	
-	if((previous_menu!=current_menu) || harmonic_menus==1){
+	if((previous_menu!=current_menu) || harmonic_menus==1 || scope_menus==1){
 	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
 	
