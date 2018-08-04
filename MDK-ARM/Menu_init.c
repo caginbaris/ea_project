@@ -273,7 +273,7 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -292,7 +292,7 @@ struct display_menu_handles Total_Power_Factor_true_Menu= {
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -524,7 +524,7 @@ struct display_menu_handles Apparent_Energy_Menu= {
 	/*third line*/ 	{C,N,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-	/*menu units*/	{m_A,m_,m_,m_},
+	/*menu units*/	{m_V,m_A,m_R,m_h},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -827,7 +827,7 @@ struct display_menu_handles sym_Vpn_Menu= {
 	/*third line*/ 	{O,__,__},
 	
 	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
-	/*menu units*/	{m_percent,m_,m_,m_},
+	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -846,7 +846,7 @@ struct display_menu_handles sym_I_Menu= {
 	/*third line*/ 	{O,__,__},
 	
 	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_up},
-	/*menu units*/	{m_percent,m_,m_,m_},
+	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
 	
@@ -944,37 +944,37 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Apparent_Power,					enter_pressed,	main_menu},
 		
 		{	Total_Power,						up_pressed,			Apparent_Power},
-		{	Total_Power,						down_pressed,		Power_Factors_true},
+		{	Total_Power,						down_pressed,		Power_Factors_fund},
 		{	Total_Power,						enter_pressed,	main_menu},
 		
-		{	Power_Factors_true,			right_pressed,	Power_Factors_fund},
-		{	Power_Factors_true,			up_pressed,			Total_Power},
-		{	Power_Factors_true,			down_pressed,		Power_Ratios},
-		{	Power_Factors_true,			enter_pressed,	main_menu},
+		//{	,			right_pressed,	Power_Factors_fund},
+		//{	Power_FactorPower_Factors_trues_true,			up_pressed,			Total_Power},
+		//{	Power_Factors_true,			down_pressed,		Power_Ratios},
+		//{	Power_Factors_true,			enter_pressed,	main_menu},
 		
-		{	Power_Factors_fund,			left_pressed,		Power_Factors_true},
-		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_true},
+		//{	Power_Factors_fund,			left_pressed,		Power_Factors_true},
+		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_fund},
 		{	Power_Factors_fund,			up_pressed,			Total_Power},
 		{	Power_Factors_fund,			down_pressed,		Power_Ratios},
 		{	Power_Factors_fund,			enter_pressed,	main_menu},
 		
-		{	Total_Power_Factor_true,up_pressed,			Total_Power},
-		{	Total_Power_Factor_true,down_pressed,		Power_Ratios},
-		{	Total_Power_Factor_true,right_pressed,	Total_Power_Factor_fund},
-		{	Total_Power_Factor_true,left_pressed,		Power_Factors_fund},
-		{	Total_Power_Factor_true,enter_pressed,	main_menu},
+		//{	Total_Power_Factor_true,up_pressed,			Total_Power},
+		//{	Total_Power_Factor_true,down_pressed,		Power_Ratios},
+		//{	Total_Power_Factor_true,right_pressed,	Total_Power_Factor_fund},
+		//{	Total_Power_Factor_true,left_pressed,		Power_Factors_fund},
+		//{	Total_Power_Factor_true,enter_pressed,	main_menu},
 		
 		{	Total_Power_Factor_fund,up_pressed,			Total_Power},
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
-		{	Total_Power_Factor_fund,left_pressed,		Total_Power_Factor_true},
+		{	Total_Power_Factor_fund,left_pressed,		Power_Factors_fund},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
-		{	Power_Ratios,up_pressed,		Power_Factors_true},
+		{	Power_Ratios,up_pressed,		Power_Factors_fund},
 		{	Power_Ratios,down_pressed,	Active_Energy_import },
 		{	Power_Ratios,right_pressed,	Total_Power_Ratios },
 		{	Power_Ratios,enter_pressed,	main_menu},
 		
-		{	Total_Power_Ratios,up_pressed,		Power_Factors_true},
+		{	Total_Power_Ratios,up_pressed,		Power_Factors_fund},
 		{	Total_Power_Ratios,down_pressed,	Active_Energy_import },
 		{	Total_Power_Ratios,left_pressed,	Power_Ratios },
 		{	Total_Power_Ratios,enter_pressed,	main_menu},
@@ -1167,7 +1167,7 @@ void init_Menu(){
 	MENU.handle.Reactive_Energy_Import=Reactive_Energy_Import_Menu;
 	MENU.handle.Reactive_Total_Energy_Import=Reactive_Total_Energy_Import_Menu;
 	
-	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Import_Menu;
+	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Export_Menu;
 	MENU.handle.Reactive_Total_Energy_Export=Reactive_Total_Energy_Export_Menu;
 	
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;

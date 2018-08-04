@@ -501,9 +501,6 @@ void toMainDetect(struct display_menu_handles menu_item){
 		case Apparent_Power	:						main_menu_entry=	Apparent_Power_main; break;
 		case Total_Power		:						main_menu_entry=	Total_Power_main; break;
 		
-		case Power_Factors_true:				main_menu_entry=	Power_Factors_main; break;
-		case Total_Power_Factor_true:		main_menu_entry=	Power_Factors_main; break;
-		
 		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
 		case Total_Power_Factor_fund:		main_menu_entry=	Power_Factors_main; break;
 		
@@ -588,7 +585,7 @@ void atMainOperation(struct display_menu_handles menu_item){
 		case Reactive_Power_main:						current_menu=Reactive_Power;						break;
 		case Apparent_Power_main:						current_menu=Apparent_Power; 						break;
 		case Total_Power_main:							current_menu=Total_Power; 							break;
-		case Power_Factors_main:						current_menu=Power_Factors_true; 				break;
+		case Power_Factors_main:						current_menu=Power_Factors_fund; 				break;
 		case Power_Ratios_main:							current_menu=Power_Ratios;							break;				
 		case Active_Energy_main:						current_menu=Active_Energy_import;			break;
 		case Reactive_Energy_main:					current_menu=Reactive_Energy_import;		break;

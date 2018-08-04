@@ -97,13 +97,14 @@ void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coef
 
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	
-	uint8_t counter=0;
-	uint8_t i;
+	
+	static uint8_t i=0;
 	
 	
 	
-	for (i=0;i<9;i++){arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);}
+	arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);
 	
+	i++;if(i==9){i=0;}	
 
 
 }
@@ -119,14 +120,14 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
 		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
 	
-		x->Power.Sa=sqrtf(x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa);
-		x->Power.Sb=sqrtf(x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb);
-		x->Power.Sc=sqrtf(x->Power.Pb*x->Power.Pc + x->Power.Qc*x->Power.Qc);
+		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));
+		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));
+		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));
 	
 		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
-		x->Power.Stotal=sqrtf(x->Power.Ptotal*x->Power.Ptotal+
-										x->Power.Qtotal*x->Power.Qtotal);
+	
+		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));
 	
 		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
 		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;
@@ -234,16 +235,21 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	if(x.Power.Ptotal<0.0f && x.Power.Qtotal<0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_export_total+=x.Power.Qtotal*energy_constant;}
 
 		
-	
-	energy_accumulator(&(y->active_import_a)			,&(y->reactive_import_counter_a));	
-	energy_accumulator(&(y->active_import_b)			,&(y->reactive_import_counter_b));	
-	energy_accumulator(&(y->active_import_c)			,&(y->reactive_import_counter_c));														
-	energy_accumulator(&(y->active_import_total)	,&(y->reactive_import_counter_total));
+	y->apparent_energy_a		+=x.Power.Sa*energy_constant; 
+	y->apparent_energy_b		+=x.Power.Sb*energy_constant;
+	y->apparent_energy_c		+=x.Power.Sc*energy_constant;
+	y->apparent_energy_total+=x.Power.Stotal*energy_constant;
 		
-	energy_accumulator(&(y->active_export_a)			,&(y->reactive_export_counter_a));	
-	energy_accumulator(&(y->active_export_b)			,&(y->reactive_export_counter_b));	
-	energy_accumulator(&(y->active_export_c)			,&(y->reactive_export_counter_c));														
-	energy_accumulator(&(y->active_export_total)	,&(y->reactive_export_counter_total));	
+	
+	energy_accumulator(&(y->active_import_a)			,&(y->active_import_counter_a));	
+	energy_accumulator(&(y->active_import_b)			,&(y->active_import_counter_b));	
+	energy_accumulator(&(y->active_import_c)			,&(y->active_import_counter_c));														
+	energy_accumulator(&(y->active_import_total)	,&(y->active_import_counter_total));
+		
+	energy_accumulator(&(y->active_export_a)			,&(y->active_export_counter_a));	
+	energy_accumulator(&(y->active_export_b)			,&(y->active_export_counter_b));	
+	energy_accumulator(&(y->active_export_c)			,&(y->active_export_counter_c));														
+	energy_accumulator(&(y->active_export_total)	,&(y->active_export_counter_total));	
 	
 			
 	energy_accumulator(&(y->reactive_import_a)		,&(y->reactive_import_counter_a));	
@@ -256,7 +262,7 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	energy_accumulator(&(y->reactive_export_c)		,&(y->reactive_export_counter_c));														
 	energy_accumulator(&(y->reactive_export_total),&(y->reactive_export_counter_total));		
 
-	/*
+	
 	
 	energy_accumulator(&(y->apparent_energy_a)		,&(y->apparent_counter_a));	
 	energy_accumulator(&(y->apparent_energy_b)		,&(y->apparent_counter_b));	
@@ -268,55 +274,82 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	y->active_import_a_scaled			=(y->active_import_counter_a)		*inc_resolution;
 	y->active_import_b_scaled			=(y->active_import_counter_b)		*inc_resolution;
 	y->active_import_c_scaled			=(y->active_import_counter_c)		*inc_resolution;
-	y->active_import_total_scaled	=(y->active_import_total_scaled)*inc_resolution;
+	y->active_import_total_scaled	=(y->active_import_counter_total )*inc_resolution;
 	
 	y->active_export_a_scaled			=(y->active_export_counter_a)		*inc_resolution;
 	y->active_export_b_scaled			=(y->active_export_counter_b)		*inc_resolution;
 	y->active_export_c_scaled			=(y->active_export_counter_c)		*inc_resolution;
-	y->active_export_total_scaled	=(y->active_export_total_scaled)*inc_resolution;
+	y->active_export_total_scaled	=(y->active_export_counter_total)*inc_resolution;
 	
 	y->reactive_import_a_scaled			=(y->reactive_import_counter_a)		*inc_resolution;
 	y->reactive_import_b_scaled			=(y->reactive_import_counter_b)		*inc_resolution;
 	y->reactive_import_c_scaled			=(y->reactive_import_counter_c)		*inc_resolution;
-	y->reactive_import_total_scaled	=(y->reactive_import_total_scaled)*inc_resolution;
+	y->reactive_import_total_scaled	=(y->reactive_import_counter_total)*inc_resolution;
 	
 	y->reactive_export_a_scaled			=(y->reactive_export_counter_a)		*inc_resolution;
 	y->reactive_export_b_scaled			=(y->reactive_export_counter_b)		*inc_resolution;
 	y->reactive_export_c_scaled			=(y->reactive_export_counter_c)		*inc_resolution;
-	y->reactive_export_total_scaled	=(y->reactive_export_total_scaled)*inc_resolution;
+	y->reactive_export_total_scaled	=(y->reactive_export_counter_total)*inc_resolution;
 	
 	y->apparent_energy_a_scaled			=(y->apparent_counter_a)		*inc_resolution;
 	y->apparent_energy_b_scaled			=(y->apparent_counter_b)		*inc_resolution;
 	y->apparent_energy_c_scaled			=(y->apparent_counter_c)		*inc_resolution;
-	y->apparent_energy_total_scaled	=(y->apparent_energy_total_scaled)*inc_resolution;*/
+	y->apparent_energy_total_scaled	=(y->apparent_counter_total)*inc_resolution;
 	
 }
+
+float sumI0=0,sumI1=0,sumI2=0;	
 
 
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x){
 
 
-float temp_r,temp_i;
+float temp_r,temp_i,temp_t;
 	
+static float sumV0=0,sumV1=0,sumV2=0;
+
+	
+	
+static uint16_t counter=0;	
 	
 //********	
 temp_r=	inphase.data.Van + inphase.data.Vbn*sym_r + inphase.data.Vcn*sym_r;
 temp_i=	sym_i*(quad.data.Vbn-quad.data.Vcn);
+temp_t=	(inphase.data.Van + inphase.data.Vbn + 	inphase.data.Vcn)*sym_i3;
 	
-	
-x->data.Vpn_0  =(inphase.data.Van + inphase.data.Vbn + 	inphase.data.Vcn)*sym_i3;
-x->data.Vpn_1  =(temp_r - temp_i)*sym_i3;
-x->data.Vpn_2 = (temp_r + temp_i)*sym_i3;	
+sumV0  +=temp_t*temp_t;
+sumV1  +=(temp_r - temp_i)*sym_i3*(temp_r - temp_i)*sym_i3;
+sumV2  +=(temp_r + temp_i)*sym_i3*(temp_r + temp_i)*sym_i3;
 	
 //********
 	
 temp_r=	inphase.data.Ia + inphase.data.Ib*sym_r + inphase.data.Ic*sym_r;
 temp_i=	sym_i*(quad.data.Ib-quad.data.Ic);
+temp_t=	(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
 	
+sumI0  +=temp_t*temp_t;
+sumI1  +=(temp_r - temp_i)*sym_i3*(temp_r - temp_i)*sym_i3;
+sumI2  +=(temp_r + temp_i)*sym_i3*(temp_r + temp_i)*sym_i3;
+
+//rms calc
+
+switch(counter++){
+
+	case 1: arm_sqrt_f32((sumV0*0.0005f),&(x->data.Vpn_0));sumV0=0.0f;break;
+	case 2: arm_sqrt_f32((sumV1*0.0005f),&(x->data.Vpn_1));sumV1=0.0f;break;
+	case 3: arm_sqrt_f32((sumV2*0.0005f),&(x->data.Vpn_2));sumV2=0.0f;break;
 	
-x->data.I_0  =(inphase.data.Ia + inphase.data.Ib + 	inphase.data.Ic)*sym_i3;
-x->data.I_1  =(temp_r - temp_i)*sym_i3;
-x->data.I_2 = (temp_r + temp_i)*sym_i3;
+	case 4: arm_sqrt_f32((sumI0*0.0005f),&(x->data.I_0));sumI0=0.0f;break;
+	case 5: arm_sqrt_f32((sumI1*0.0005f),&(x->data.I_1));sumI1=0.0f;break;
+	case 6: arm_sqrt_f32((sumI2*0.0005f),&(x->data.I_2));sumI2=0.0f;break;
+	
+	default:if(counter==2000){counter=0;}break;
+
+}
+
+
+
+
 
 x->data.UNB_V=(x->data.Vpn_1>eps)?(100.0f*x->data.Vpn_2/x->data.Vpn_1):(0.0f);
 x->data.UNB_I=(x->data.Vpn_1>eps)?(100.0f*x->data.I_2  /x->data.I_1)  :(0.0f);	
@@ -332,7 +365,6 @@ void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phas
 
 	phase->data.Van=atan2f(-inphase.data.Van,-quad.data.Van);
 	
-
 
 }
 
@@ -373,7 +405,7 @@ void signal_spectra(
 	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
 	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
 
-	//h->foutMag[i]=out_scale*sqrtf(temp_real*temp_real+temp_imag*temp_imag);
+
 
 	h->foutReal[i]=temp_real;
 	h->foutImag[i]=temp_imag;

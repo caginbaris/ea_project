@@ -34,7 +34,7 @@ void measurement_routines(){
 
 	//true RMS
 	
-	trueRMS=true_RMS(AN,1); //cau 1 can be externalized
+	trueRMS=true_RMS(AN,10); //cau 1 can be externalized
 	
 	//iq components fund calculations
 	
@@ -49,17 +49,14 @@ void measurement_routines(){
 	
 	power_calculations_iq(inphaseData,quadData,&power_iq);
 
-	//power elements true calcualtions
+	//power elements true calcualtions-----omitted
 	
-	power_calculations_true(AN,trueRMS,&power_true);
-	
+	//power_calculations_true(AN,trueRMS,&power_true);
 	
 	
 	//energy calculations
 	
-	//energy_calculations(power_iq,&energy );
-	
-	#if 1
+	energy_calculations(power_iq,&energy );
 	
 	//symmetrical components
 	
@@ -77,7 +74,7 @@ void measurement_routines(){
 	
 	harmonics_routine();
 	
-	#endif
+
 	
 	
 }
