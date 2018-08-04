@@ -190,7 +190,7 @@ void staticDataTripple(struct display_menu_handles menu_item){
 	
 	#if 1
 
-	for(i=0;i<17;i++){
+	for(i=0;i<21;i++){
 		
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
 	
@@ -298,7 +298,7 @@ void staticDataTrippleTotalPower(struct display_menu_handles menu_item){
 	
 	#if 1
 
-	for(i=0;i<17;i++){
+	for(i=0;i<21;i++){
 		
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
 	
@@ -417,7 +417,7 @@ void staticDataSingle(struct display_menu_handles menu_item){
 	
 	#if 1
 
-	for(i=0;i<17;i++){
+	for(i=0;i<21;i++){
 		
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
 	

@@ -29,7 +29,7 @@ Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//32-33-34
 thd_Vpn,thd_I,//35-36-37	
 sym_Vpn,sym_I,//38-39-40	
 unb_Vpn,unb_I,	
-	
+settings,	
 main_menu //41
 };
 
@@ -54,7 +54,8 @@ enum main_menu_list {
 	THD_main=15,//15
 	Sym_main=16,//16
 	Unb_main=17,//17
-	pos_guard=18,
+	settings_main=18,//19
+	pos_guard=19,
 };
 
 struct main_menu_rows{
@@ -172,13 +173,15 @@ union display_menu_union{
 	
 	struct display_menu_handles UNB_V;	//40
 	struct display_menu_handles UNB_I;	//40
+	
+	struct display_menu_handles settings;	//40
 
 	struct display_menu_handles main_menu;//41		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[44]; 
+	struct display_menu_handles all[45]; 
 
 
 };

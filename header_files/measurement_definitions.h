@@ -18,9 +18,9 @@
 
 #define fftLength 50
 
-#define energy_constant 0.00000002170138888888889f
-#define inc_resolution 0.01f
-#define inverse_inc_resolution 100.0f
+#define energy_constant 0.0000002777777f//0.00000002170138888888889f
+#define inc_resolution 0.1f
+#define inverse_inc_resolution 10.0f
 
 
 union RMS{
