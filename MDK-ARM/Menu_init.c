@@ -11,7 +11,7 @@
 
 
 
-enum menu_list current_menu=Active_Energy_Total_import;
+enum menu_list current_menu=Vpn_true;
 enum menu_list previous_menu=Vpp_true;
 enum main_menu_list main_menu_entry=Active_Energy_main;
 struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
@@ -864,7 +864,7 @@ struct display_menu_handles UNB_V_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,0,menu_right,0,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -883,7 +883,7 @@ struct display_menu_handles UNB_I_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -1040,36 +1040,36 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		
 		
-		{	Scope_Van,up_pressed,Apparent_Energy},
+		//{	Scope_Van,up_pressed,Apparent_Energy},
 		{	Scope_Van,right_pressed,Scope_Vbn},
 		{	Scope_Van,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vbn,up_pressed,Apparent_Energy},
+		//{	Scope_Vbn,up_pressed,Apparent_Energy},
 		{	Scope_Vbn,right_pressed,Scope_Vcn},
 		{	Scope_Vbn,left_pressed,Scope_Van},
 		{	Scope_Vbn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Vcn,up_pressed,Apparent_Energy},
+		//{	Scope_Vcn,up_pressed,Apparent_Energy},
 		{	Scope_Vcn,right_pressed,Scope_Ia},
 		{	Scope_Vcn,left_pressed,Scope_Vbn},
 		{	Scope_Vcn,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ia,up_pressed,Apparent_Energy},
+		//{	Scope_Ia,up_pressed,Apparent_Energy},
 		{	Scope_Ia,right_pressed,Scope_Ib},
 		{	Scope_Ia,left_pressed,Scope_Vcn},
 		{	Scope_Ia,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ib,up_pressed,Apparent_Energy},
+		//{	Scope_Ib,up_pressed,Apparent_Energy},
 		{	Scope_Ib,right_pressed,Scope_Ic},
 		{	Scope_Ib,left_pressed,Scope_Ia},
 		{	Scope_Ib,enter_pressed,main_menu},
 		
 		
-		{	Scope_Ic,up_pressed,Apparent_Energy},
+		//{	Scope_Ic,up_pressed,Apparent_Energy},
 		{	Scope_Ic,left_pressed,Scope_Ib},
 		{	Scope_Ic,enter_pressed,main_menu},
 		
@@ -1100,27 +1100,30 @@ const struct MENU_TRANSITION menu_transition[]={
 		{thd_Vpn,up_pressed,Harmonics_Van},
 		{thd_Vpn,right_pressed,thd_I},
 		{thd_Vpn,down_pressed,sym_Vpn},
+		{thd_Vpn,enter_pressed,main_menu},
 		
 		{thd_I,up_pressed,Harmonics_Van},
 		{thd_I,left_pressed,thd_Vpn},
 		{thd_I,down_pressed,sym_Vpn},
-		
+		{thd_I,enter_pressed,main_menu},
 		
 		{sym_Vpn,up_pressed,thd_Vpn},
 		{sym_Vpn,right_pressed,sym_I},
 		{sym_Vpn,down_pressed,unb_Vpn},
+		{sym_Vpn,enter_pressed,main_menu},
 		
 		{sym_I,up_pressed,thd_Vpn},
 		{sym_I,left_pressed,sym_Vpn},
 		{sym_I,down_pressed,unb_Vpn},
-		
+		{sym_I,enter_pressed,main_menu},
 		
 		{unb_Vpn,up_pressed,sym_Vpn},
 		{unb_Vpn,right_pressed,unb_I},
+		{unb_Vpn,enter_pressed,main_menu},
 	
 		{unb_I,up_pressed,sym_Vpn},
 		{unb_I,left_pressed,unb_Vpn},
-		
+		{unb_I,enter_pressed,main_menu},
 		
 		
 

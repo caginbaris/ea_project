@@ -43,9 +43,9 @@ void init_conversion(void){
 	
 	// triggers
 	
-	scale.data.Van=0.09660669;
-	scale.data.Vbn=0.09660669;
-	scale.data.Vcn=0.09660669;
+	scale.data.Van=0.1874084919472913616398243045388;//0.09660669;
+	scale.data.Vbn=0.1874084919472913616398243045388;//0.09660669;
+	scale.data.Vcn=0.1874084919472913616398243045388;//0.09660669;
 	
 	scale.data.Ia=0.000198143;
 	scale.data.Ib=0.000198143;
