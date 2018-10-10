@@ -85,6 +85,9 @@ void offline_calculations(void);
 
 extern uint16_t center_leds;
 extern uint16_t side_leds;
+extern uint8_t flow_completed;
+
+uint16_t refresh_counter=0;
 
 /* USER CODE END PFP */
 
@@ -161,22 +164,36 @@ int main(void)
 		
 		offline_calculations();
 		
-		HAL_Delay(100);
 		
+		if(flow_completed){
 		
 		pressed_button=pushButtonHandling();
-		
+			
 		if(pressed_button!=invalid){
 			
 		current_menu=SELECT_MENU(current_menu,pressed_button);	
 			
 		}
-		
 
+		refresh_counter++;	
+			
+		flow_completed=0;	
 		
+		}
+		
+		
+		if(refresh_counter==5000){
+			
 		DISPLAY_MENU();
 		
-		write_lcd();
+		write_lcd();	
+		
+		refresh_counter=0;
+			
+		}
+		
+		
+		
 		
 		
 

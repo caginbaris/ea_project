@@ -19,6 +19,8 @@ uint32_t  uBuffer[6];
 
 void measurement_routines();
 
+uint8_t flow_completed=0;
+
 
 
 void init_conversion(void){
@@ -159,15 +161,17 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 
-	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ia;
+	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ia*100.0f;//cau
 	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ib;
-	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
+	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
 	AN.data.Vca=AN.data.Vcn-AN.data.Van;
 			
 	measurement_routines();
+		
+	flow_completed=1;	
 	
 	}
 	

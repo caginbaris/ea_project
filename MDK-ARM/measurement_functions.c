@@ -99,12 +99,32 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	
 	
 	static uint8_t i=0;
+	static uint16_t j=0;
 	
+	union uAdcData sqrtBuffer; 
+	static union uAdcData sumBuffer; 
 	
+	arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&(sqrtBuffer.buffer[i]));
+	sumBuffer.buffer[i]+=sqrtBuffer.buffer[i];
 	
-	arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&rms->buffer[i]);
+	i++;if(i==9){i=0;}
+	j++;if(j==fundSample){j=0;}
 	
-	i++;if(i==9){i=0;}	
+		switch(j){
+	
+		case 0:rms->buffer[0]=sumBuffer.buffer[0]*inverse_fundSample;sumBuffer.buffer[0]=0.0f;break;
+		case 1:rms->buffer[1]=sumBuffer.buffer[1]*inverse_fundSample;sumBuffer.buffer[1]=0.0f;break;
+		case 2:rms->buffer[2]=sumBuffer.buffer[2]*inverse_fundSample;sumBuffer.buffer[2]=0.0f;break;	
+		case 3:rms->buffer[3]=sumBuffer.buffer[3]*inverse_fundSample;sumBuffer.buffer[3]=0.0f;break;
+		case 4:rms->buffer[4]=sumBuffer.buffer[4]*inverse_fundSample;sumBuffer.buffer[4]=0.0f;break;
+		case 5:rms->buffer[5]=sumBuffer.buffer[5]*inverse_fundSample;sumBuffer.buffer[5]=0.0f;break;
+		case 6:rms->buffer[6]=sumBuffer.buffer[6]*inverse_fundSample;sumBuffer.buffer[6]=0.0f;break;
+		case 7:rms->buffer[7]=sumBuffer.buffer[7]*inverse_fundSample;sumBuffer.buffer[7]=0.0f;break;	
+		case 8:rms->buffer[8]=sumBuffer.buffer[8]*inverse_fundSample;sumBuffer.buffer[8]=0.0f;break;
+			
+		default: break;
+	}
+	
 
 
 }
@@ -206,7 +226,10 @@ void energy_accumulator(float* acc, uint32_t* counter ){
 	tick=(increment*inverse_inc_resolution);
 
 	(*counter)+=tick;
-	(*acc)    -=(tick)*inc_resolution;
+		
+	if(*acc>0.0){	(*acc)    -=(tick)*inc_resolution;}else{
+								(*acc)    +=(tick)*inc_resolution;
+	}
 	
 		}
 	}
