@@ -80,7 +80,6 @@ void font_transfer(void);
 void font_transfer2(void);
 
 void DISPLAY_MENU(void);
-enum input  pushButtonHandling(void);
 void offline_calculations(void);
 
 extern uint16_t center_leds;
@@ -163,11 +162,8 @@ int main(void)
 		mp_counter++;
 		
 		offline_calculations();
+	
 		
-		
-		if(flow_completed){
-		
-		pressed_button=pushButtonHandling();
 			
 		if(pressed_button!=invalid){
 			
@@ -175,14 +171,9 @@ int main(void)
 			
 		}
 
-		refresh_counter++;	
-			
-		flow_completed=0;	
+
 		
-		}
-		
-		
-		if(refresh_counter==5000){
+		if(refresh_counter>2500){
 			
 		DISPLAY_MENU();
 		

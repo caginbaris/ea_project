@@ -43,3 +43,5 @@ v4ea\converison.o: ../Inc/adc.h
 v4ea\converison.o: ../Inc/tim.h
 v4ea\converison.o: ..\header_files\conversion.h
 v4ea\converison.o: prefilter.h
+v4ea\converison.o: ..\header_files\menu_definitions.h
+v4ea\converison.o: ..\header_files\lcd_definitions.h

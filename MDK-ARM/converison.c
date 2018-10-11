@@ -6,7 +6,7 @@
 #include "tim.h"
 #include "conversion.h"
 #include "prefilter.h"
-
+#include "menu_definitions.h"
 
 struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
@@ -18,8 +18,9 @@ enum adcChannel ch=Van;
 uint32_t  uBuffer[6];
 
 void measurement_routines();
-
-uint8_t flow_completed=0;
+enum input  pushButtonHandling(void);
+extern enum input pressed_button;
+extern uint16_t refresh_counter;
 
 
 
@@ -171,7 +172,9 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 			
 	measurement_routines();
 		
-	flow_completed=1;	
+	pressed_button=pushButtonHandling();	
+		
+	refresh_counter++;	
 	
 	}
 	
