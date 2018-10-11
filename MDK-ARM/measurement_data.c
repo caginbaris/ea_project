@@ -69,3 +69,20 @@ const float coeffs_imag[]={
 -0.77051323652267456054f,-0.68454712629318237304f,-0.58778524398803710937f,
 -0.48175367712974548339f,-0.36812454462051391601f,-0.24868988990783691406f,
 -0.12533323466777801513f};
+
+
+#define a_lpf 0.996863331833438f 
+#define b_lpf 0.001568334083281f
+
+float pfilter(float rtInput, float yback,float* xback)
+{
+	float y;
+	
+	y=b_lpf*(rtInput+*xback)+a_lpf*(yback);
+		
+	
+	*xback=rtInput;
+	
+	return y;
+	
+};

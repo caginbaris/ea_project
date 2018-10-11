@@ -5,7 +5,7 @@
 #include "aux_functions.h"
 
 
-#define qual_sample 1000
+#define qual_sample 2
 
 union push_buttons pb={0};
 enum  input pressed_button=invalid;

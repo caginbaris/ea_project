@@ -52,7 +52,7 @@ void init_conversion(void){
 	
 	scale.data.Ia=0.000198143;
 	scale.data.Ib=0.000198143;
-	scale.data.Ic=0.000198143;
+	scale.data.Ic=0.000203100004f;
 	
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_2,1);
 	__HAL_TIM_SET_COMPARE(&htim19,TIM_CHANNEL_3,1);
@@ -162,17 +162,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 
-	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ia*100.0f;//cau
-	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ib;
-	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ic;
+	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic*100.0f;//cau
+	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia;
+	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
 	AN.data.Vca=AN.data.Vcn-AN.data.Van;
 			
 	measurement_routines();
-		
-	pressed_button=pushButtonHandling();	
 		
 	refresh_counter++;	
 	

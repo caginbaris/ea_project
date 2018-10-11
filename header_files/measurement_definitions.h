@@ -22,7 +22,7 @@
 #define inc_resolution 0.1f
 #define inverse_inc_resolution (1.0f/inc_resolution)
 
-#define fundSample 1800
+#define fundSample 200.0
 #define inverse_fundSample (1.0f/fundSample)
 
 union RMS{
@@ -265,6 +265,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
 void harmonics_routine(void);
+float pfilter(float rtInput, float yback,float* xback);
 
 
 // extern data

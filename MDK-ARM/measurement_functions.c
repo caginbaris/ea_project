@@ -108,7 +108,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	sumBuffer.buffer[i]+=sqrtBuffer.buffer[i];
 	
 	i++;if(i==9){i=0;}
-	j++;if(j==fundSample){j=0;}
+	j++;if(j==fundSample*9){j=0;}
 	
 		switch(j){
 	
@@ -130,15 +130,18 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 }
 
 
-void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x ){
+void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x){
+	
+		static union powerParameters xback;
+		static uint8_t i=0;
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
 		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Pc=(inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2;
+		x->Power.Pc=pfilter((inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2,x->Power.Pc,&xback.Power.Pc);
 	
 		x->Power.Qa=(quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2;
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
+		x->Power.Qc=pfilter((quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2,x->Power.Qc,&xback.Power.Qc);
 	
 		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));
 		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));
@@ -146,8 +149,11 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 	
 		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
-	
 		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));
+	
+
+		
+	
 	
 		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
 		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;

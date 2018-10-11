@@ -81,6 +81,7 @@ void font_transfer2(void);
 
 void DISPLAY_MENU(void);
 void offline_calculations(void);
+enum input  pushButtonHandling(void);
 
 extern uint16_t center_leds;
 extern uint16_t side_leds;
@@ -161,24 +162,31 @@ int main(void)
 		
 		mp_counter++;
 		
+		
+		HAL_Delay(100);
+		
 		offline_calculations();
 	
 		
+		pressed_button=pushButtonHandling();		
 			
-		if(pressed_button!=invalid){
+	  if(pressed_button!=invalid){
 			
-		current_menu=SELECT_MENU(current_menu,pressed_button);	
+	  current_menu=SELECT_MENU(current_menu,pressed_button);	
 			
-		}
+	  }
+		
 
+		DISPLAY_MENU();	
+		
 
 		
 		if(refresh_counter>2500){
 			
-		DISPLAY_MENU();
 		
-		write_lcd();	
-		
+		write_lcd();
+			
+			
 		refresh_counter=0;
 			
 		}
