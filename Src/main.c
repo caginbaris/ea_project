@@ -52,6 +52,7 @@
 
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
+#include "phaseCompensation.h"
 
 /* USER CODE END Includes */
 
@@ -144,10 +145,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
+	pLagDef(-0.61f,25000,&pc_b1,&pc_b2);
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
+	
+	
+	
 	
 	
 

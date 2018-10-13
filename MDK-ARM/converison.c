@@ -7,6 +7,7 @@
 #include "conversion.h"
 #include "prefilter.h"
 #include "menu_definitions.h"
+#include "phaseCompensation.h"
 
 struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
@@ -22,7 +23,8 @@ enum input  pushButtonHandling(void);
 extern enum input pressed_button;
 extern uint16_t refresh_counter;
 
-
+float pc_b1,pc_b2;
+float pc_x1,pc_x2,pc_x3;
 
 void init_conversion(void){
 
@@ -162,7 +164,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 
-	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic*100.0f;//cau
+	AN.data.Ic=	pDiffer( offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic,pc_b1,pc_b2,&pc_x1)*100.0f;//cau
 	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia;
 	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
 		
