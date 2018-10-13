@@ -3,41 +3,428 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.20.0.0
+IDE-Version: µVision V5.21.1.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Viva Microsoft, Microsoft, LIC=Z3CWF-6XZZ3-22CL4-F73X0-EEBB1-P4HPS
+License Information: Cagin Baris Cengiz, Endoks Energy, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.20
+Toolchain:       MDK-Lite  Version: 5.21a
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 2 (build 183)
-Assembler:       Armasm.exe V5.06 update 2 (build 183)
-Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
-Library Manager: ArmAr.exe V5.06 update 2 (build 183)
-Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
-CPU DLL:         SARMCM3.DLL V5.20
-Dialog DLL:      DCM.DLL V1.13.7.0
-Target DLL:      ULP2CM3.DLL V2.203.29.0
-Dialog DLL:      TCM.DLL V1.14.9.0
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      ULP2CM3.DLL V2.206.10.0
+Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
-C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
+C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
 Project File Date:  10/11/2018
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
+assembling startup_stm32f373xc.s...
+compiling LCD_data.c...
+compiling LCD_fonts.c...
+compiling phaseCompensation.c...
+phaseCompensation.c(32): warning:  #1-D: last line of file ends without a newline
+  }
+phaseCompensation.c: 1 warning, 0 errors
+compiling prefilter.c...
+prefilter.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif
+prefilter.c: 1 warning, 0 errors
+compiling LCD_routines.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+LCD_routines.c: 1 warning, 0 errors
+compiling converison.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+prefilter.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif
+converison.c(20): warning:  #1295-D: Deprecated declaration measurement_routines - give arg types
+  void measurement_routines();
+converison.c: 3 warnings, 0 errors
+compiling tim.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/tim.c: 1 warning, 0 errors
+compiling adc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/adc.c: 1 warning, 0 errors
+compiling stm32f3xx_it.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\sysTick_definitions.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/stm32f3xx_it.c: 2 warnings, 0 errors
+compiling main.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/main.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_msp.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/stm32f3xx_hal_msp.c: 1 warning, 0 errors
+compiling usart.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/usart.c: 1 warning, 0 errors
+compiling sdadc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/sdadc.c: 1 warning, 0 errors
+compiling rtc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/rtc.c: 1 warning, 0 errors
+compiling gpio.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/gpio.c: 1 warning, 0 errors
+compiling spi.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/spi.c: 1 warning, 0 errors
+compiling dma.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Src/dma.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_spi.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_uart.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.c: 1 warning, 0 errors
+compiling stm32f3xx_hal.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_uart_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_cortex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_i2c_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_adc_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_i2c.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_dma.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_tim_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_flash.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_rcc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_rtc_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rtc_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_pwr_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_gpio.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_adc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_rtc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rtc.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_rcc_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_sdadc.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_sdadc.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_spi_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi_ex.c: 1 warning, 0 errors
+compiling stm32f3xx_hal_pwr.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c: 1 warning, 0 errors
+compiling Menu_data.c...
+compiling stm32f3xx_hal_flash_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c: 1 warning, 0 errors
+compiling Menu_routines.c...
+..\header_files\ch_format.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif
+Menu_routines.c(65): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0											)		{	digit_transfer_14pt(lcd_row1.int100,page,column);}
+Menu_routines.c(66): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	)	{ digit_transfer_14pt(lcd_row1.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(67): warning:  #188-D: enumerated type mixed with another type
+  																									digit_transfer_14pt(lcd_row1.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(69): warning:  #188-D: enumerated type mixed with another type
+  																									digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
+igit_width_14pt+5)); 
+Menu_routines.c(79): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(80): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(81): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(83): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); 
+Menu_routines.c(94): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0											)		{	digit_transfer_14pt(lcd_row3.int100,page,column);}
+Menu_routines.c(95): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	)	{ digit_transfer_14pt(lcd_row3.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(96): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(98): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
+igit_width_14pt+5)); 
+Menu_routines.c(137): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0											)		{	digit_transfer_14pt(lcd_row1.int100,page,column);}
+Menu_routines.c(138): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	)	{ digit_transfer_14pt(lcd_row1.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(139): warning:  #188-D: enumerated type mixed with another type
+  																									digit_transfer_14pt(lcd_row1.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(141): warning:  #188-D: enumerated type mixed with another type
+  																									digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
+igit_width_14pt+5)); // 5 for dot space
+Menu_routines.c(151): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(152): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(153): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(155): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); //5 for dot space
+Menu_routines.c(166): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0											)		{	digit_transfer_14pt(lcd_row3.int100,page,column);}
+Menu_routines.c(167): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	)	{ digit_transfer_14pt(lcd_row3.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(168): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(170): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
+igit_width_14pt+5)); // 5 for dot space
+Menu_routines.c(393): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
+Menu_routines.c(394): warning:  #188-D: enumerated type mixed with another type
+  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
+igit_width_14pt);}
+Menu_routines.c(395): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
+igit_width_14pt);
+Menu_routines.c(397): warning:  #188-D: enumerated type mixed with another type
+  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
+igit_width_14pt+5)); // 5 for dot space
+Menu_routines.c(623): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=main_menu_entry-1+last_menu_entry; 
+Menu_routines.c: 30 warnings, 0 errors
+compiling stm32f3xx_hal_tim.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.c: 1 warning, 0 errors
 compiling measurement_routines.c...
+compiling system_stm32f3xx.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..//Src/system_stm32f3xx.c: 1 warning, 0 errors
+compiling aux_functions.c...
+compiling Menu_init.c...
+Menu_init.c(48): warning:  #188-D: enumerated type mixed with another type
+  	/*no data for main*/{0},
+Menu_init.c(49): warning:  #188-D: enumerated type mixed with another type
+  	/*no data for main*/{0},
+Menu_init.c(50): warning:  #188-D: enumerated type mixed with another type
+  	/*no data for main*/{0},
+Menu_init.c(51): warning:  #188-D: enumerated type mixed with another type
+  	/*no data for main*/{0},
+Menu_init.c(52): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
+Menu_init.c(334): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(353): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(372): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(429): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(453): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(509): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(527): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(546): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(565): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,0,0},
+Menu_init.c(565): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,0,0},
+Menu_init.c(565): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,0,0},
+Menu_init.c(584): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(584): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(603): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(603): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(622): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(622): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(641): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(641): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+Menu_init.c(660): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,0,0},
+Menu_init.c(660): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,0,0},
+Menu_init.c(660): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,0,0},
+Menu_init.c(678): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,0},
+Menu_init.c(774): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,menu_right,0,menu_up},
+Menu_init.c(793): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(812): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(830): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+Menu_init.c(849): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+Menu_init.c(867): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,0,menu_up},
+Menu_init.c(867): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,0,menu_right,0,menu_up},
+Menu_init.c(886): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+Menu_init.c(886): warning:  #188-D: enumerated type mixed with another type
+  	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+Menu_init.c: 59 warnings, 0 errors
+compiling measurement_data.c...
+measurement_data.c(88): warning:  #1-D: last line of file ends without a newline
+  };
+measurement_data.c: 1 warning, 0 errors
+compiling measurement_functions.c...
+measurement_functions.c(115): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 0:rms->buffer[0]=sumBuffer.buffer[0]*
+nverse_fundSample;sumBuffer.buffer[0]=0.0f;break;
+measurement_functions.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 1:rms->buffer[1]=sumBuffer.buffer[1]*
+nverse_fundSample;sumBuffer.buffer[1]=0.0f;break;
+measurement_functions.c(117): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 2:rms->buffer[2]=sumBuffer.buffer[2]*
+nverse_fundSample;sumBuffer.buffer[2]=0.0f;break;	
+measurement_functions.c(118): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 3:rms->buffer[3]=sumBuffer.buffer[3]*
+nverse_fundSample;sumBuffer.buffer[3]=0.0f;break;
+measurement_functions.c(119): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 4:rms->buffer[4]=sumBuffer.buffer[4]*
+nverse_fundSample;sumBuffer.buffer[4]=0.0f;break;
+measurement_functions.c(120): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 5:rms->buffer[5]=sumBuffer.buffer[5]*
+nverse_fundSample;sumBuffer.buffer[5]=0.0f;break;
+measurement_functions.c(121): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 6:rms->buffer[6]=sumBuffer.buffer[6]*
+nverse_fundSample;sumBuffer.buffer[6]=0.0f;break;
+measurement_functions.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 7:rms->buffer[7]=sumBuffer.buffer[7]*
+nverse_fundSample;sumBuffer.buffer[7]=0.0f;break;	
+measurement_functions.c(123): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		case 8:rms->buffer[8]=sumBuffer.buffer[8]*
+nverse_fundSample;sumBuffer.buffer[8]=0.0f;break;
+measurement_functions.c(136): warning:  #177-D: variable "i" was declared but never referenced
+  		static uint8_t i=0;
+measurement_functions.c(236): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	if(*acc>0.0){	(*acc)    -=(tick)*inc_resolution;}else{
+measurement_functions.c: 11 warnings, 0 errors
+compiling graphing_fuctions.c...
+graphing_fuctions.c(419): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(row,1,112);}else{
+graphing_fuctions.c(421): warning:  #188-D: enumerated type mixed with another type
+  	if(bin_select<95){digit_transfer_8pt(1,1,112);}else{digit_transfer_8pt(2,1,112);}	
+graphing_fuctions.c(421): warning:  #188-D: enumerated type mixed with another type
+  	if(bin_select<95){digit_transfer_8pt(1,1,112);}else{digit_transfer_8pt(2,1,112);}	
+graphing_fuctions.c(423): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt((row%10),1,118);
+graphing_fuctions.c: 8 warnings, 0 errors
+#188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(1,5,102);	
+graphing_fuctions.c(457): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(int10,5,106);
+graphing_fuctions.c(458): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(int1,5,112);
+graphing_fuctions.c(460): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(fraction,5,120);
+compiling pb_handling.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+pb_handling.c: 1 warning, 0 errors
 linking...
-Program Size: Code=43662 RO-data=3018 RW-data=2788 ZI-data=11036  
-"v4ea\v4ea.axf" - 0 Error(s), 0 Warning(s).
+v4ea\v4ea.axf: error: L6050U: The code size of this image (43690 bytes) exceeds the maximum allowed for this version of the linker.
+Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
+"v4ea\v4ea.axf" - 1 Error(s), 129 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
+  C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\1.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Target not created.
+Build Time Elapsed:  00:00:48
 </pre>
 </body>
 </html>

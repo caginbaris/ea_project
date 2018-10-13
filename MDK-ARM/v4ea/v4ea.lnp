@@ -2,6 +2,7 @@
 "v4ea\startup_stm32f373xc.o"
 "v4ea\converison.o"
 "v4ea\prefilter.o"
+"v4ea\phasecompensation.o"
 "v4ea\lcd_routines.o"
 "v4ea\lcd_data.o"
 "v4ea\lcd_fonts.o"
