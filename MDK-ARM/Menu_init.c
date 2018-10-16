@@ -55,6 +55,42 @@ struct display_menu_handles Main_Menu={
 	/*null pointer*/atMainOperation,
 };
 
+
+enum letter_codes_8pt setting_menu_entries[][20]={
+{_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//0
+{g,e,r,i,l,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_},//1
+{a,k,i,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_,_,_},//1
+{d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
+{d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
+{d,i,j,i,t,a,l,_,c,i,k,i,s,_,_,_,_,_,_,_},//3
+{h,a,b,e,r,l,e,s,m,e,_,_,_,_,_,_,_,_,_,_},//6
+{e,k,r,a,n,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//7
+{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_},//8
+{s,i,f,r,e,_,k,o,r,u,m,a,_,_,_,_,_,_,_,_},//9	
+
+};
+
+
+struct display_menu_handles Setting_Menu={
+
+	/*null pointer*/NULL,
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*no data for main*/{0},
+	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
+	/*no data for main*/{0},
+	/*null pointer*/toMainDetect,
+	/*null pointer*/atMainOperation,
+};
+
+
+
+
+// measurement menus
+
+
+
 struct display_menu_handles Vpn_true_Menu= {
 	
 	/*dynamic data*/ &(trueRMS.data.Van),
