@@ -90,6 +90,8 @@ extern uint8_t flow_completed;
 
 uint16_t refresh_counter=0;
 
+float dummy_lag=0;
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -145,7 +147,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
-	pLagDef(-0.61f,25000,&pc_b1,&pc_b2);
+	pLagDef(-0.6352f,25000,&pc_b1,&pc_b2);
 	init_conversion();
 	init_LCD();
 	init_backlight();
@@ -167,7 +169,7 @@ int main(void)
 		
 		mp_counter++;
 		
-		
+		//pLagDef(dummy_lag,25000,&pc_b1,&pc_b2);
 		HAL_Delay(100);
 		
 		offline_calculations();

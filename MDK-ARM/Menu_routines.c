@@ -564,63 +564,14 @@ void toSettingsDetect(struct display_menu_handles menu_item){
 		
 	
 		
-		case Vpn_true:									main_menu_entry=	Vpn_main; break;
-		case Vpn_fund:									main_menu_entry=	Vpn_main; break;
-		
-		case Vpp_true:									main_menu_entry=	Vpp_main; break;
-		case Vpp_fund:									main_menu_entry=	Vpp_main; break;
-		
-		case Ip_true:										main_menu_entry=	Ip_main; break;
-		case Ip_fund:										main_menu_entry=	Ip_main; break;
-		
-		case Active_Power		:						main_menu_entry=	Active_Power_main; break;
-		case Reactive_Power	:						main_menu_entry=	Reactive_Power_main; break;
-		case Apparent_Power	:						main_menu_entry=	Apparent_Power_main; break;
-		case Total_Power		:						main_menu_entry=	Total_Power_main; break;
-		
-		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
-		case Total_Power_Factor_fund:		main_menu_entry=	Power_Factors_main; break;
-		
-		case Power_Ratios:							main_menu_entry=	Power_Ratios_main; break;
-		case Total_Power_Ratios:				main_menu_entry=	Power_Ratios_main; break;
-		
-		case Active_Energy_import:			main_menu_entry=	Active_Energy_main; break;
-		case Active_Energy_Total_import:main_menu_entry=	Active_Energy_main; break;
-		case Active_Energy_export:			main_menu_entry=	Active_Energy_main; break;
-		case Active_Energy_Total_export:main_menu_entry=	Active_Energy_main; break;
-		
-		case Reactive_Energy_import:			main_menu_entry=	Reactive_Energy_main; break;
-		case Reactive_Energy_Total_import:main_menu_entry=	Reactive_Energy_main; break;
-		case Reactive_Energy_export:			main_menu_entry=	Reactive_Energy_main; break;
-		case Reactive_Energy_Total_export:main_menu_entry=	Reactive_Energy_main; break;
-
-		
-		case Apparent_Energy:						main_menu_entry=	Apparent_Energy_main; break;
-		case Apparent_Energy_Total:			main_menu_entry=	Apparent_Energy_main; break;
-		
-		case Scope_Van:									main_menu_entry=	Scope_main; break;
-		case Scope_Vbn:									main_menu_entry=	Scope_main; break;
-		case Scope_Vcn:									main_menu_entry=	Scope_main; break;
-		case Scope_Ia:									main_menu_entry=	Scope_main; break;
-		case Scope_Ib:									main_menu_entry=	Scope_main; break;
-		case Scope_Ic:									main_menu_entry=	Scope_main; break;
-		
-		case Harmonics_Van:							main_menu_entry=	Harmonics_Main; break;
-		case Harmonics_Vbn:							main_menu_entry=	Harmonics_Main; break;
-		case Harmonics_Vcn:							main_menu_entry=	Harmonics_Main; break;
-		
-		case Harmonics_Ia:							main_menu_entry=	Harmonics_Main; break;
-		case Harmonics_Ib:							main_menu_entry=	Harmonics_Main; break;
-		case Harmonics_Ic:							main_menu_entry=	Harmonics_Main; break;
-		
-		case thd_Vpn:										main_menu_entry=	THD_main; break;
-		case thd_I:										  main_menu_entry=	THD_main; break;
-		
-		case sym_Vpn:										main_menu_entry=	Sym_main; break;
-		case sym_I:										  main_menu_entry=	Sym_main; break;
-		
-		case unb_Vpn:										main_menu_entry=	Unb_main; break;
-		case unb_I:										  main_menu_entry=	Unb_main; break;
+		case set_VT:								    setting_menu_entry=	setting_VT; break;
+		case set_CT:									  setting_menu_entry=	setting_CT; break;
+		case set_input:								  setting_menu_entry=	setting_input; break;
+		case set_output:								setting_menu_entry=	setting_output; break;
+		case set_comm:								  setting_menu_entry=	setting_comm; break;
+		case set_display:								setting_menu_entry=	setting_comm; break;
+		case set_energy_reset:					setting_menu_entry=	setting_energy_reset; break;
+		case set_password:					    setting_menu_entry=	setting_password; break;
 		
 		default:main_menu_entry=Vpn_main;break;
 		
@@ -628,7 +579,7 @@ void toSettingsDetect(struct display_menu_handles menu_item){
 	
 
 	
-	current_menu=main_menu ;
+	current_menu=settings_menu ;
 	pressed_button=invalid;
 
 }
@@ -647,10 +598,7 @@ void atMainOperation(struct display_menu_handles menu_item){
 	
 	
 	
-	
 
-
-	
 	if(pressed_button==enter_pressed){
 		
 		switch(main_menu_entry){
@@ -734,6 +682,90 @@ void atMainOperation(struct display_menu_handles menu_item){
 	
 }
 
+void atSettingsOperation(struct display_menu_handles menu_item){
+	
+	uint8_t i;
+	uint8_t column;
+	
+	
+	
+	
+	
+	enum setting_menu_list current_entry;
+	enum setting_menu_list last_menu_entry=setting_pos_guard;
+	
+	
+	
+
+	if(pressed_button==enter_pressed){
+		
+		switch(setting_menu_entry){
+		
+		case setting_VT:			current_menu=set_VT; 			break;
+		case setting_CT:			current_menu=set_CT; 			break;
+
+			
+		default:	;break;
+		
+		}
+	
+	}
+	
+	if(pressed_button==down_pressed){
+	
+		setting_menu_entry++;
+		
+	
+	}
+	
+	if(pressed_button==up_pressed){
+	
+		setting_menu_entry--;
+		
+	
+	}
+	
+	
+	if(setting_menu_entry>last_menu_entry){setting_menu_entry=setting_start_bar;}
+	if(setting_menu_entry<start_bar){setting_menu_entry=last_menu_entry;}
+	
+	current_entry=setting_menu_entry-1+last_menu_entry; 
+	current_entry%=last_menu_entry;
+	
+	
+	
+	setting_lines.row1=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row2=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row3=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row4=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row5=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row6=&setting_menu_entries[current_entry][0];current_entry++;current_entry%=last_menu_entry;//if(current_entry>last_menu_entry){current_entry=start_bar;};
+	setting_lines.row7=&setting_menu_entries[current_entry][0];
+	
+	
+	
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row1++,0,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row2++,1,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row3++,2,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row4++,3,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row5++,4,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row6++,5,column);}column=1;
+	for(i=1;i<21;i++){column=letter_transfer_8pt(*setting_lines.row7++,6,column);}column=1;
+	
+	
+	symbol_transfer(MENU.handle.settings.symbol[0],7,1);
+	symbol_transfer(MENU.handle.settings.symbol[1],7,28);
+	symbol_transfer(MENU.handle.settings.symbol[2],7,59);
+	symbol_transfer(MENU.handle.settings.symbol[3],7,88);
+	symbol_transfer(MENU.handle.settings.symbol[4],7,119);
+	
+	
+	line_highlighter(1,128);
+	
+	
+	
+}
+
 
 
 enum menu_list SELECT_MENU(enum menu_list current,enum input button){
@@ -803,7 +835,8 @@ void DISPLAY_MENU(){
 	
 	if(!scope_menus){
 		
-	if((previous_menu!=current_menu) || (current_menu==main_menu)|| (harmonic_menus==1)){
+	if((previous_menu!=current_menu) || (current_menu==main_menu)|| (current_menu==settings_menu)|| (harmonic_menus==1)){
+	
 	memset(display_buffer,0,1024); }
 	
 	

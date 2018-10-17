@@ -11,10 +11,15 @@
 
 
 
-enum menu_list current_menu=Vpn_true;
+enum menu_list current_menu=settings_menu;
 enum menu_list previous_menu=Vpp_true;
-enum main_menu_list main_menu_entry=Active_Energy_main;
-struct main_menu_rows main_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+
+enum main_menu_list    main_menu_entry=Active_Energy_main;
+enum setting_menu_list setting_menu_entry=setting_VT;
+
+struct main_menu_rows     main_lines   ={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+struct setting_menu_rows  setting_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+
 union display_menu_union MENU={0};
 
 /*for main menu listing*/
@@ -79,8 +84,8 @@ struct display_menu_handles Setting_Menu={
 	/*no data for main*/{0},
 	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
 	/*no data for main*/{0},
-	/*null pointer*/toMainDetect,
-	/*null pointer*/atMainOperation,
+	/*null pointer*/toSettingsDetect,
+	/*null pointer*/atSettingsOperation,
 };
 
 
@@ -1236,6 +1241,8 @@ void init_Menu(){
 	
 	MENU.handle.UNB_V=UNB_V_Menu;
 	MENU.handle.UNB_I=UNB_I_Menu;
+	
+	MENU.handle.settings=Setting_Menu;
 	
 }
 

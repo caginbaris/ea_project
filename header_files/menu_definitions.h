@@ -29,8 +29,17 @@ Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//32-33-34
 thd_Vpn,thd_I,//35-36-37	
 sym_Vpn,sym_I,//38-39-40	
 unb_Vpn,unb_I,	
-settings,	
-main_menu //41
+main_menu, //41
+
+settings_menu,
+set_VT,
+set_CT,
+set_input,
+set_output,
+set_comm,
+set_display,
+set_energy_reset,
+set_password,
 };
 
 enum main_menu_list {
@@ -67,10 +76,11 @@ enum setting_menu_list {
 	setting_CT,//2
 	setting_input,//3
 	setting_output,//4
-	setting_display,//5
-	setting_energy_reset,//6
-	setting_password,//7
-	setting_pos_guard=8,
+	setting_comm,//5
+	setting_display,//6
+	setting_energy_reset,//7
+	setting_password,//8
+	setting_pos_guard=9,
 };
 
 
@@ -85,10 +95,6 @@ struct main_menu_rows{
 	enum letter_codes_8pt *row7;
 };
 
-extern struct main_menu_rows main_lines;
-extern enum letter_codes_8pt main_menu_entries[][20];
-
-
 struct setting_menu_rows{
 	
 	enum letter_codes_8pt *row1;
@@ -100,14 +106,18 @@ struct setting_menu_rows{
 	enum letter_codes_8pt *row7;
 };
 
-extern struct setting_menu_rows setting_lines;
-extern enum letter_codes_8pt setting__menu_entries[][20];
 
+extern struct main_menu_rows main_lines;
+extern enum   letter_codes_8pt main_menu_entries[][20];
+
+extern struct setting_menu_rows setting_lines;
+extern enum  letter_codes_8pt setting_menu_entries[][20];
 
 extern enum menu_list current_menu;
 extern enum menu_list previous_menu;
-extern enum main_menu_list main_menu_entry;
 
+extern enum main_menu_list    main_menu_entry;
+extern enum setting_menu_list setting_menu_entry;
 
 
 
@@ -182,44 +192,47 @@ union display_menu_union{
 	
 	struct display_menu_handles Scope_Van;//26
 	struct display_menu_handles Scope_Vbn;//27
-	struct display_menu_handles Scope_Vcn;//27
+	struct display_menu_handles Scope_Vcn;//28
 	
-	struct display_menu_handles Scope_Ia;//28
-	struct display_menu_handles Scope_Ib;//29
-	struct display_menu_handles Scope_Ic;//30
+	struct display_menu_handles Scope_Ia;//29
+	struct display_menu_handles Scope_Ib;//30
+	struct display_menu_handles Scope_Ic;//31
 	
-	struct display_menu_handles Harmonics_Van;//31
-	struct display_menu_handles Harmonics_Vbn;//32
-	struct display_menu_handles Harmonics_Vcn;//33
+	struct display_menu_handles Harmonics_Van;//32
+	struct display_menu_handles Harmonics_Vbn;//33
+	struct display_menu_handles Harmonics_Vcn;//34
 	
-	struct display_menu_handles Harmonics_Ia;//34
-	struct display_menu_handles Harmonics_Ib;//35
-	struct display_menu_handles Harmonics_Ic;//36
+	struct display_menu_handles Harmonics_Ia;//35
+	struct display_menu_handles Harmonics_Ib;//36
+	struct display_menu_handles Harmonics_Ic;//37
 	
-	struct display_menu_handles thd_Vpn;//37
-	struct display_menu_handles thd_I;	//38
+	struct display_menu_handles thd_Vpn;//38
+	struct display_menu_handles thd_I;	//39
 	
-	struct display_menu_handles sym_Vpn;//39
-	struct display_menu_handles sym_I;	//40
+	struct display_menu_handles sym_Vpn;//40
+	struct display_menu_handles sym_I;	//41
 	
-	struct display_menu_handles UNB_V;	//40
-	struct display_menu_handles UNB_I;	//41
+	struct display_menu_handles UNB_V;	//42
+	struct display_menu_handles UNB_I;	//43
 	
-	struct display_menu_handles settings;	//42
-	struct display_menu_handles settings_VT;	//43
-	struct display_menu_handles settings_CT;	//44
-	struct display_menu_handles settings_input;	//45
-	struct display_menu_handles settings_output;	//46
-	struct display_menu_handles settings_comm;	//47
-	struct display_menu_handles settings_energy_reset;	//48
-	struct display_menu_handles settings_password;	//49
+	struct display_menu_handles main_menu;//44	
+	
+	struct display_menu_handles settings;	//45
 
-	struct display_menu_handles main_menu;//50		
+	struct display_menu_handles settings_VT;	//46
+	struct display_menu_handles settings_CT;	//47
+	struct display_menu_handles settings_input;	//48
+	struct display_menu_handles settings_output;	//49
+	struct display_menu_handles settings_comm;	//50
+	struct display_menu_handles settings_energy_reset;	//51
+	struct display_menu_handles settings_password;	//51
+
+		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[51]; 
+	struct display_menu_handles all[53]; 
 
 
 };
@@ -305,6 +318,10 @@ void staticDataSingle(struct display_menu_handles menu_item);
 
 void toMainDetect(struct display_menu_handles menu_item);
 void atMainOperation(struct display_menu_handles menu_item);
+
+void toSettingsDetect(struct display_menu_handles menu_item);
+void atSettingsOperation(struct display_menu_handles menu_item);
+
 
 void init_Menu(void);
 enum menu_list SELECT_MENU(enum menu_list current,enum input button);
