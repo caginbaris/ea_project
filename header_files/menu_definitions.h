@@ -54,9 +54,25 @@ enum main_menu_list {
 	THD_main=15,//15
 	Sym_main=16,//16
 	Unb_main=17,//17
-	settings_main=18,//19
+	settings_main=18,//18
 	pos_guard=19,
 };
+
+
+enum setting_menu_list {
+
+	setting_neg_guard=-1,
+	setting_start_bar=0,//0
+	setting_VT,//1
+	setting_CT,//2
+	setting_input,//3
+	setting_output,//4
+	setting_display,//5
+	setting_energy_reset,//6
+	setting_password,//7
+	setting_pos_guard=8,
+};
+
 
 struct main_menu_rows{
 	
@@ -71,6 +87,21 @@ struct main_menu_rows{
 
 extern struct main_menu_rows main_lines;
 extern enum letter_codes_8pt main_menu_entries[][20];
+
+
+struct setting_menu_rows{
+	
+	enum letter_codes_8pt *row1;
+	enum letter_codes_8pt *row2;
+	enum letter_codes_8pt *row3;
+	enum letter_codes_8pt *row4;
+	enum letter_codes_8pt *row5;
+	enum letter_codes_8pt *row6;
+	enum letter_codes_8pt *row7;
+};
+
+extern struct setting_menu_rows setting_lines;
+extern enum letter_codes_8pt setting__menu_entries[][20];
 
 
 extern enum menu_list current_menu;
@@ -172,16 +203,23 @@ union display_menu_union{
 	struct display_menu_handles sym_I;	//40
 	
 	struct display_menu_handles UNB_V;	//40
-	struct display_menu_handles UNB_I;	//40
+	struct display_menu_handles UNB_I;	//41
 	
-	struct display_menu_handles settings;	//40
+	struct display_menu_handles settings;	//42
+	struct display_menu_handles settings_VT;	//43
+	struct display_menu_handles settings_CT;	//44
+	struct display_menu_handles settings_input;	//45
+	struct display_menu_handles settings_output;	//46
+	struct display_menu_handles settings_comm;	//47
+	struct display_menu_handles settings_energy_reset;	//48
+	struct display_menu_handles settings_password;	//49
 
-	struct display_menu_handles main_menu;//41		
+	struct display_menu_handles main_menu;//50		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[45]; 
+	struct display_menu_handles all[51]; 
 
 
 };
@@ -264,6 +302,7 @@ void staticDataTripple(struct display_menu_handles menu_item);
 void staticDataTrippleTotalPower(struct display_menu_handles menu_item);
 void dynamicDataSingle(struct display_menu_handles menu_item);
 void staticDataSingle(struct display_menu_handles menu_item);
+
 void toMainDetect(struct display_menu_handles menu_item);
 void atMainOperation(struct display_menu_handles menu_item);
 

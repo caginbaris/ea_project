@@ -556,6 +556,83 @@ void toMainDetect(struct display_menu_handles menu_item){
 
 }
 
+void toSettingsDetect(struct display_menu_handles menu_item){
+	
+
+	
+	switch(previous_menu){
+		
+	
+		
+		case Vpn_true:									main_menu_entry=	Vpn_main; break;
+		case Vpn_fund:									main_menu_entry=	Vpn_main; break;
+		
+		case Vpp_true:									main_menu_entry=	Vpp_main; break;
+		case Vpp_fund:									main_menu_entry=	Vpp_main; break;
+		
+		case Ip_true:										main_menu_entry=	Ip_main; break;
+		case Ip_fund:										main_menu_entry=	Ip_main; break;
+		
+		case Active_Power		:						main_menu_entry=	Active_Power_main; break;
+		case Reactive_Power	:						main_menu_entry=	Reactive_Power_main; break;
+		case Apparent_Power	:						main_menu_entry=	Apparent_Power_main; break;
+		case Total_Power		:						main_menu_entry=	Total_Power_main; break;
+		
+		case Power_Factors_fund:				main_menu_entry=	Power_Factors_main; break;
+		case Total_Power_Factor_fund:		main_menu_entry=	Power_Factors_main; break;
+		
+		case Power_Ratios:							main_menu_entry=	Power_Ratios_main; break;
+		case Total_Power_Ratios:				main_menu_entry=	Power_Ratios_main; break;
+		
+		case Active_Energy_import:			main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_Total_import:main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_export:			main_menu_entry=	Active_Energy_main; break;
+		case Active_Energy_Total_export:main_menu_entry=	Active_Energy_main; break;
+		
+		case Reactive_Energy_import:			main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_Total_import:main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_export:			main_menu_entry=	Reactive_Energy_main; break;
+		case Reactive_Energy_Total_export:main_menu_entry=	Reactive_Energy_main; break;
+
+		
+		case Apparent_Energy:						main_menu_entry=	Apparent_Energy_main; break;
+		case Apparent_Energy_Total:			main_menu_entry=	Apparent_Energy_main; break;
+		
+		case Scope_Van:									main_menu_entry=	Scope_main; break;
+		case Scope_Vbn:									main_menu_entry=	Scope_main; break;
+		case Scope_Vcn:									main_menu_entry=	Scope_main; break;
+		case Scope_Ia:									main_menu_entry=	Scope_main; break;
+		case Scope_Ib:									main_menu_entry=	Scope_main; break;
+		case Scope_Ic:									main_menu_entry=	Scope_main; break;
+		
+		case Harmonics_Van:							main_menu_entry=	Harmonics_Main; break;
+		case Harmonics_Vbn:							main_menu_entry=	Harmonics_Main; break;
+		case Harmonics_Vcn:							main_menu_entry=	Harmonics_Main; break;
+		
+		case Harmonics_Ia:							main_menu_entry=	Harmonics_Main; break;
+		case Harmonics_Ib:							main_menu_entry=	Harmonics_Main; break;
+		case Harmonics_Ic:							main_menu_entry=	Harmonics_Main; break;
+		
+		case thd_Vpn:										main_menu_entry=	THD_main; break;
+		case thd_I:										  main_menu_entry=	THD_main; break;
+		
+		case sym_Vpn:										main_menu_entry=	Sym_main; break;
+		case sym_I:										  main_menu_entry=	Sym_main; break;
+		
+		case unb_Vpn:										main_menu_entry=	Unb_main; break;
+		case unb_I:										  main_menu_entry=	Unb_main; break;
+		
+		default:main_menu_entry=Vpn_main;break;
+		
+	}
+	
+
+	
+	current_menu=main_menu ;
+	pressed_button=invalid;
+
+}
+
 void atMainOperation(struct display_menu_handles menu_item){
 	
 	uint8_t i;

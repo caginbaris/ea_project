@@ -61,7 +61,6 @@ enum letter_codes_8pt setting_menu_entries[][20]={
 {g,e,r,i,l,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_},//1
 {a,k,i,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_,_,_},//1
 {d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
-{d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
 {d,i,j,i,t,a,l,_,c,i,k,i,s,_,_,_,_,_,_,_},//3
 {h,a,b,e,r,l,e,s,m,e,_,_,_,_,_,_,_,_,_,_},//6
 {e,k,r,a,n,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//7
