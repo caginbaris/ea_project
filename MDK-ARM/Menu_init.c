@@ -21,6 +21,7 @@ struct main_menu_rows     main_lines   ={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 struct setting_menu_rows  setting_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 
 union display_menu_union MENU={0};
+union flashDataUnion flash;
 
 /*for main menu listing*/
 enum letter_codes_8pt main_menu_entries[][20]={
@@ -82,7 +83,7 @@ struct display_menu_handles Setting_Menu={
 	/*no data for main*/{0},
 	/*no data for main*/{0},
 	/*no data for main*/{0},
-	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
+	/*symbols*/			{menu_enter,menu_escape,0,menu_down,menu_up},
 	/*no data for main*/{0},
 	/*null pointer*/toSettingsDetect,
 	/*null pointer*/atSettingsOperation,
@@ -932,7 +933,42 @@ struct display_menu_handles UNB_I_Menu= {
 };
 
 
+struct display_menu_handles set_VT_Menu= {
+	
+	/*dynamic data*/ &(flash.data.vt_primer),
+	
+	/*title*/      	{g,e,r,i,l,i,m,_,t,u,r,_,o,r,a,n,l,a,r,i,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
+	
 
+};
+
+
+struct display_menu_handles set_CT_Menu= {
+	
+	/*dynamic data*/ &(flash.data.ct_primer),
+	
+	/*title*/      	{a,k,i,m,_,t,u,r,_,o,r,a,n,l,a,r,i,_,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+	/*menu units*/	{m_percent,m_,m_,m_},
+	/*static data*/  staticDataSingle,
+	/*dynamic data*/ dynamicDataSingle
+	
+
+};
 
 
 
@@ -1164,6 +1200,12 @@ const struct MENU_TRANSITION menu_transition[]={
 		{unb_I,up_pressed,sym_Vpn},
 		{unb_I,left_pressed,unb_Vpn},
 		{unb_I,enter_pressed,main_menu},
+		
+		
+		
+		
+		
+		
 		
 		
 

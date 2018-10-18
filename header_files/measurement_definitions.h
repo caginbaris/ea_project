@@ -22,7 +22,7 @@
 #define inc_resolution 0.1f
 #define inverse_inc_resolution (1.0f/inc_resolution)
 
-#define fundSample 200.0
+#define fundSample 200.0f
 #define inverse_fundSample (1.0f/fundSample)
 
 union RMS{

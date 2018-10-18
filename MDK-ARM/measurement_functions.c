@@ -233,7 +233,7 @@ void energy_accumulator(float* acc, uint32_t* counter ){
 
 	(*counter)+=tick;
 		
-	if(*acc>0.0){	(*acc)    -=(tick)*inc_resolution;}else{
+	if(*acc>0.0f){	(*acc)    -=(tick)*inc_resolution;}else{
 								(*acc)    +=(tick)*inc_resolution;
 	}
 	

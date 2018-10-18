@@ -7,6 +7,9 @@
 #define TotalMenuTransitionNo 170
 #define menu_unit_vertical_position 100
 
+#define flashFloatSize 10
+#define flashByteSize  (flashFloatSize*4)
+
 enum menu_list {
 
 Vpn_true,Vpn_fund, //0-1
@@ -292,8 +295,28 @@ struct MENU_TRANSITION{
 
 extern const struct MENU_TRANSITION menu_transition[TotalMenuTransitionNo];
 
+union flashDataUnion{
+	
+	struct{
+		
+	float vt_primer;
+	float vt_seconder;
+
+	float ct_primer;
+	float ct_seconder;			
+	
+	
+	}data;
+	
+	float fBuffer[flashFloatSize];
+	uint8_t bBuffer[flashByteSize];
+	
 
 
+};
+
+
+extern union flashDataUnion flash;
 
 
 

@@ -545,7 +545,8 @@ void toMainDetect(struct display_menu_handles menu_item){
 		case unb_Vpn:										main_menu_entry=	Unb_main; break;
 		case unb_I:										  main_menu_entry=	Unb_main; break;
 		
-		default:main_menu_entry=Vpn_main;break;
+		
+		default:main_menu_entry=settings_main;break;
 		
 	}
 	
@@ -573,7 +574,7 @@ void toSettingsDetect(struct display_menu_handles menu_item){
 		case set_energy_reset:					setting_menu_entry=	setting_energy_reset; break;
 		case set_password:					    setting_menu_entry=	setting_password; break;
 		
-		default:main_menu_entry=Vpn_main;break;
+		default:setting_menu_entry=setting_VT;break;
 		
 	}
 	
@@ -620,6 +621,7 @@ void atMainOperation(struct display_menu_handles menu_item){
 		case THD_main:											current_menu=thd_Vpn;										break;	
 		case Sym_main:											current_menu=sym_Vpn;										break;
 		case Unb_main:											current_menu=unb_Vpn;										break;
+		case settings_main:									current_menu=settings_menu;							break;	
 			
 		default:	;break;
 		
@@ -701,13 +703,25 @@ void atSettingsOperation(struct display_menu_handles menu_item){
 		
 		switch(setting_menu_entry){
 		
-		case setting_VT:			current_menu=set_VT; 			break;
-		case setting_CT:			current_menu=set_CT; 			break;
+		case setting_VT:					current_menu=set_VT; 						break;
+		case setting_CT:					current_menu=set_CT; 						break;
+		case setting_input:				current_menu=set_input; 				break;
+		case setting_output:			current_menu=set_output; 				break;
+		case setting_comm:				current_menu=set_comm; 					break;
+		case setting_display:			current_menu=set_display; 			break;
+		case setting_energy_reset:current_menu=set_energy_reset; 	break;
+		case setting_password:		current_menu=set_password; 			break;
 
 			
 		default:	;break;
 		
 		}
+	
+	}
+	
+	if(pressed_button==left_pressed){
+	
+		current_menu=main_menu;
 	
 	}
 	
@@ -724,6 +738,7 @@ void atSettingsOperation(struct display_menu_handles menu_item){
 		
 	
 	}
+	
 	
 	
 	if(setting_menu_entry>last_menu_entry){setting_menu_entry=setting_start_bar;}
@@ -861,6 +876,52 @@ void DISPLAY_MENU(){
 	
 	
 	MENU.all[current_menu].dynamicDataTransfer(local_menu);
+	
+};
+
+void staticDataTurnRatios(struct display_menu_handles menu_item){
+
+	enum letter_codes_8pt primary[8]=  {p,r,i,m,e,r,_,_};
+	enum letter_codes_8pt secondary[8]={s,e,k,o,n,d,e,r};
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+	
+	page=3;
+	for(i=0;i<8;i++){
+		
+	column=letter_transfer_8pt(primary[i],page,column);
+	
+	}
+	
+	page=5;
+	for(i=0;i<8;i++){
+		
+	column=letter_transfer_8pt(secondary[i],page,column);
+		
+	}
+	
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+	
+	
 	
 };
 
