@@ -350,6 +350,7 @@ void init_Menu(void);
 enum menu_list SELECT_MENU(enum menu_list current,enum input button);
 void DISPLAY_MENU(void);
 
-
+void staticData_VT(struct display_menu_handles menu_item);
+void dynamicData_VT(struct display_menu_handles menu_item);
 
 #endif

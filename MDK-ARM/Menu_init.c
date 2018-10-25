@@ -945,8 +945,8 @@ struct display_menu_handles set_VT_Menu= {
 	
 	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  staticDataSingle,
-	/*dynamic data*/ dynamicDataSingle
+	/*static data*/  staticData_VT,
+	/*dynamic data*/ dynamicData_VT
 	
 
 };
@@ -1285,6 +1285,7 @@ void init_Menu(){
 	MENU.handle.UNB_I=UNB_I_Menu;
 	
 	MENU.handle.settings=Setting_Menu;
+	MENU.handle.settings_VT=set_VT_Menu;
 	
 }
 

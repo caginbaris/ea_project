@@ -879,7 +879,7 @@ void DISPLAY_MENU(){
 	
 };
 
-void staticDataTurnRatios(struct display_menu_handles menu_item){
+void staticData_VT(struct display_menu_handles menu_item){
 
 	enum letter_codes_8pt primary[8]=  {p,r,i,m,e,r,_,_};
 	enum letter_codes_8pt secondary[8]={s,e,k,o,n,d,e,r};
@@ -899,15 +899,18 @@ void staticDataTurnRatios(struct display_menu_handles menu_item){
 	
 	line_highlighter(0,128);
 	
+	column=0;
+	page=2;
 	
-	page=3;
 	for(i=0;i<8;i++){
 		
 	column=letter_transfer_8pt(primary[i],page,column);
 	
 	}
 	
-	page=5;
+	
+	column=0;
+	page=4;
 	for(i=0;i<8;i++){
 		
 	column=letter_transfer_8pt(secondary[i],page,column);
@@ -922,6 +925,18 @@ void staticDataTurnRatios(struct display_menu_handles menu_item){
 	symbol_transfer(menu_item.symbol[4],7,119);
 	
 	
+	
+};
+
+
+void dynamicData_VT(struct display_menu_handles menu_item){
+	
+	
+	
+	digit_transfer_8pt(_0,2,80);
+	
+	digit_transfer_8pt(_0,4,80);
+
 	
 };
 
