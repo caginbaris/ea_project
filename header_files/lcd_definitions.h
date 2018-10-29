@@ -107,7 +107,8 @@ _,
 
 enum digit_codes_14pt{
 	
-	_0,
+	_m1=-1,
+	_0=0,
 	_1,
 	_2,
 	_3,
@@ -154,7 +155,9 @@ menu_escape,
 menu_left,
 menu_right,
 menu_down,
-menu_up
+menu_up,
+menu_plus,
+menu_minus
 
 };
 
@@ -184,6 +187,8 @@ uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t colum
 void put_dot2x2(uint8_t page,uint8_t column);
 void put_minus(uint8_t page,uint8_t column);
 void line_highlighter(uint8_t page, uint8_t column);
+void put_cursor(uint8_t page,uint8_t column,uint8_t width);
+void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd);
 
 
 #endif

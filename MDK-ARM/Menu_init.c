@@ -943,7 +943,7 @@ struct display_menu_handles set_VT_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+	/*symbols*/			{menu_enter,menu_plus,menu_minus,menu_right,menu_escape},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticData_VT,
 	/*dynamic data*/ dynamicData_VT

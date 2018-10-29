@@ -270,6 +270,46 @@ void line_highlighter(uint8_t page, uint8_t column){
 }
 
 
+void put_cursor(uint8_t page,uint8_t column,uint8_t width){
+
+	uint8_t i;
+	
+	for(i=0;i<width;i++){
+	display_buffer[page][column+i]^=0xFF;
+	}
+
+}
+
+
+void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
+
+	uint8_t i;
+	
+	for(i=columnStart;i<columnEnd;i++){
+	display_buffer[page][i]=0x00;
+	}
+
+}
+
+
+void saveScreen(){
+
+	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
+	enum letter_codes_8pt yes[]={e,v,e,t,_};
+	enum letter_codes_8pt no[]={h,a,y,i,r};
+	uint8_t i;
+	
+
+	
+
+
+}
+
+
+
+
+
+
 
 
 

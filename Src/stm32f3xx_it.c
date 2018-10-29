@@ -190,7 +190,7 @@ void SysTick_Handler(void)
   HAL_SYSTICK_IRQHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 	
-	pushButtonScan();
+	
 
   /* USER CODE END SysTick_IRQn 1 */
 }

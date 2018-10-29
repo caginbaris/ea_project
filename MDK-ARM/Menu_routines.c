@@ -932,10 +932,79 @@ void staticData_VT(struct display_menu_handles menu_item){
 void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
+	static enum digit_codes_14pt vt_digit[6]={0};
+	static uint8_t ord=0;//order of  digits 0...5
 	
-	digit_transfer_8pt(_0,2,80);
+	uint8_t i;
 	
-	digit_transfer_8pt(_0,4,80);
+	uint8_t column=80;
+	
+	
+	
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++vt_digit[ord]>_9){vt_digit[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--vt_digit[ord]==_m1){vt_digit[ord]=_9;}	
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
+	
+	
+	if(pressed_button==up_pressed){
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+
+	
+
+
+
+
+
+	
+	column=80;
+
+	clearColumns(2,79,127);
+	
+	
+	for(i=0;i<6;i++){
+	
+	digit_transfer_8pt(vt_digit[i],2,column);
+	column+=8;	
+
+	}
+	
+	put_cursor(2,79+ord*8,7);
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
 
 	
 };

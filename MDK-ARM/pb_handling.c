@@ -51,12 +51,6 @@ enum input pushButtonHandling(){
 }
 
 
-void pushButtonScan(void){
-	
 
-
-
-
-}
 
 
