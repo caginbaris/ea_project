@@ -292,16 +292,56 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 }
 
 
-void saveScreen(){
+void saveScreen(void){
 
 	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
-	enum letter_codes_8pt yes[]={e,v,e,t,_};
+	enum letter_codes_8pt yes[]={e,v,e,t};
 	enum letter_codes_8pt no[]={h,a,y,i,r};
+	
 	uint8_t i;
+	uint8_t column=50;
 	
-
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
 	
+	
+	
+	//question
+	
+	for(i=0;i<6;i++){
+		
+	column=letter_transfer_8pt(saveORnot[i],2,column);
+	
+	}
+	
+	symbol_transfer(menu_qmark,2,column);
 
+	//choice
+	
+	column=20; //start
+	
+	for(i=0;i<4;i++){
+		
+	column=letter_transfer_8pt(yes[i],4,column);
+	
+	}
+	
+	
+	symbol_transfer(menu_slash,4,++column);
+	
+	
+	for(i=0;i<5;i++){
+		
+	column=letter_transfer_8pt(no[i],4,column);
+	
+	}
+	
+	
+	
 
 }
 

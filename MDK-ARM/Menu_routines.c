@@ -932,26 +932,31 @@ void staticData_VT(struct display_menu_handles menu_item){
 void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
-	static enum digit_codes_14pt vt_digit[6]={0};
+	static enum digit_codes_14pt vt_digit_p[6]={0};
+	static enum digit_codes_14pt vt_digit_s[6]={0};//cau
 	static uint8_t ord=0;//order of  digits 0...5
+	static uint8_t sel=0;//primary/secondary selection
 	
 	uint8_t i;
 	
 	uint8_t column=80;
 	
 	
+	if(pressed_button==enter_pressed){sel^=1;ord=0;}
 	
+	if(sel==0){
+		
 	if(pressed_button==left_pressed){  // left is plus @VT
 	
 	
-	if(++vt_digit[ord]>_9){vt_digit[ord]=_0;}	
+	if(++vt_digit_p[ord]>_9){vt_digit_p[ord]=_0;}	
 		
 	}
 	
 	if(pressed_button==right_pressed){ // left is plus @VT
 	
 	
-	if(--vt_digit[ord]==_m1){vt_digit[ord]=_9;}	
+	if(--vt_digit_p[ord]==_m1){vt_digit_p[ord]=_9;}	
 		
 	}
 	
@@ -964,23 +969,48 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	}
 	
 	
-	if(pressed_button==up_pressed){
+	column=80;
+
+	clearColumns(2,79,127);
 	
 	
+	for(i=0;i<6;i++){
+	
+	digit_transfer_8pt(vt_digit_p[i],2,column);
+	column+=8;	
+
+	}
+	
+	put_cursor(2,79+ord*8,7);
+	
+	}else{
+		
+		
+	//cau	
+		
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
 	
 	
+	if(++vt_digit_s[ord]>_9){vt_digit_s[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--vt_digit_s[ord]==_m1){vt_digit_s[ord]=_9;}	
+		
 	}
 	
 	
+	if(pressed_button==down_pressed){  // down is right pos change
 	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
 	
-
-	
-
-
-
-
-
 	
 	column=80;
 
@@ -989,18 +1019,30 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	for(i=0;i<6;i++){
 	
-	digit_transfer_8pt(vt_digit[i],2,column);
+	digit_transfer_8pt(vt_digit_s[i],2,column);
 	column+=8;	
 
 	}
 	
-	put_cursor(2,79+ord*8,7);
+	put_cursor(2,79+ord*8,7);	
+		
+		
+		
+		
+		
+		
+		
+	
+	}
 	
 	
 	
 	
+	if(pressed_button==up_pressed){ //save operation
 	
-	
+	saveScreen();
+		
+	}
 	
 
 	
