@@ -3,10 +3,10 @@
 #include "ch_format.h"
 #include "measurement_definitions.h"
 #include  <string.h>
+#include  "aux_functions.h"
 
 
-
-
+uint8_t save_lock=0;
 
 
 
@@ -937,6 +937,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	static uint8_t ord=0;//order of  digits 0...5
 	static uint8_t sel=0;//primary/secondary selection
 	
+	
 	uint8_t i;
 	
 	uint8_t column=80;
@@ -981,6 +982,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 
 	}
 	
+	
 	put_cursor(2,79+ord*8,7);
 	
 	}else{
@@ -1014,7 +1016,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	column=80;
 
-	clearColumns(2,79,127);
+	clearColumns(4,79,127);
 	
 	
 	for(i=0;i<6;i++){
@@ -1028,26 +1030,28 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 		
 		
 		
-		
-		
-		
-		
-	
+
 	}
 	
 	
 	
 	
-	if(pressed_button==up_pressed){ //save operation
+	if(pressed_button==up_pressed && save_lock==0){ //save operation
 	
-	saveScreen();
+	save_lock=1;
 		
 	}
 	
-
+	
+	saveScreen(&save_lock);
 	
 	
-
+	if(save_lock==1 && pressed_button==up_pressed){
+	
+	//cau flash op
+		
+	}
+	
 	
 };
 

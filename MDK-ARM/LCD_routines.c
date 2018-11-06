@@ -2,6 +2,7 @@
 #include "spi.h"
 #include "tim.h"
 #include "LCD_definitions.h"
+#include "aux_functions.h"
 
 
 uint16_t side_leds=160;
@@ -292,14 +293,16 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 }
 
 
-void saveScreen(void){
+void saveScreen(uint8_t* lock){
 
 	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
-	enum letter_codes_8pt yes[]={e,v,e,t};
-	enum letter_codes_8pt no[]={h,a,y,i,r};
+	static uint32_t timeOut=0;
+
 	
 	uint8_t i;
 	uint8_t column=50;
+	
+	if(*lock==1){
 	
 	clearColumns(1,0,127);
 	clearColumns(2,0,127);
@@ -307,7 +310,7 @@ void saveScreen(void){
 	clearColumns(4,0,127);
 	clearColumns(5,0,127);
 	clearColumns(6,0,127);
-	
+	clearColumns(7,0,127);
 	
 	
 	//question
@@ -320,25 +323,13 @@ void saveScreen(void){
 	
 	symbol_transfer(menu_qmark,2,column);
 
-	//choice
 	
-	column=20; //start
-	
-	for(i=0;i<4;i++){
-		
-	column=letter_transfer_8pt(yes[i],4,column);
-	
-	}
+	symbol_transfer(menu_cross,7,88);
+	symbol_transfer(menu_tick,7,119);}
 	
 	
-	symbol_transfer(menu_slash,4,++column);
+	*lock=off_delay(0,*lock,20,&timeOut);
 	
-	
-	for(i=0;i<5;i++){
-		
-	column=letter_transfer_8pt(no[i],4,column);
-	
-	}
 	
 	
 	
