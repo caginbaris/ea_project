@@ -936,16 +936,28 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	static enum digit_codes_14pt vt_digit_s[6]={0};//cau
 	static uint8_t ord=0;//order of  digits 0...5
 	static uint8_t sel=0;//primary/secondary selection
+	static uint8_t entered=0;
 	
 	
 	uint8_t i;
 	
 	uint8_t column=80;
 	
+	if(!entered){
 	
-	if(pressed_button==enter_pressed){sel^=1;ord=0;}
+		vt_digit_p[5]=(uint8_t)(*menu_item.values*(1e-5))%10;
+		vt_digit_p[4]=(uint8_t)(*menu_item.values*(1e-4))%10;
+		vt_digit_p[3]=(uint8_t)(*menu_item.values*(1e-3))%10;
+		vt_digit_p[2]=(uint8_t)(*menu_item.values*(1e-2))%10;
+		vt_digit_p[1]=(uint8_t)(*menu_item.values*(1e-1))%10;
+		vt_digit_p[0]=(uint8_t)(*menu_item.values)%10;
+		
+	}
 	
-	if(sel==0){
+	
+	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
+	
+	if(sel==0 && entered==1){
 		
 	if(pressed_button==left_pressed){  // left is plus @VT
 	
@@ -975,7 +987,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	clearColumns(2,79,127);
 	
 	
-	for(i=0;i<6;i++){
+	for(i=0;i<6;i++){ //digit tranfer
 	
 	digit_transfer_8pt(vt_digit_p[i],2,column);
 	column+=8;	
@@ -985,7 +997,9 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	put_cursor(2,79+ord*8,7);
 	
-	}else{
+	}
+	
+	if(sel==1 && entered==1){
 		
 		
 	//cau	
@@ -1019,14 +1033,14 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	clearColumns(4,79,127);
 	
 	
-	for(i=0;i<6;i++){
+	for(i=0;i<6;i++){//digit tranfer
 	
 	digit_transfer_8pt(vt_digit_s[i],2,column);
 	column+=8;	
 
 	}
 	
-	put_cursor(2,79+ord*8,7);	
+	put_cursor(4,79+ord*8,7);	
 		
 		
 		
