@@ -330,11 +330,30 @@ void saveScreen(uint8_t* lock){
 	
 	*lock=off_delay(0,*lock,20,&timeOut);
 	
-	
-	
-	
 
 }
+
+
+
+
+
+
+
+uint32_t flashData2LCD(float x,uint32_t n){
+
+	uint32_t y;
+
+	float factor=1.0f;
+
+	while(--n>0){factor*=0.1f;}
+
+	y=((uint32_t)(x*factor))%10;
+
+	return y;
+}
+
+
+
 
 
 
