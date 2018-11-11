@@ -7,7 +7,19 @@
 
 
 uint8_t save_lock=0;
+uint8_t currentSaveMenu=0;
 
+
+
+//saving function pointers
+
+void (*savingFunctions[])(void)={
+
+saveScreen,
+savingScreen,
+notSavedScreen
+
+};
 
 
 
@@ -867,7 +879,7 @@ void DISPLAY_MENU(){
 	
 	
 	
-	if((previous_menu!=current_menu) || harmonic_menus==1 || scope_menus==1){
+	if((previous_menu!=current_menu) || harmonic_menus==1 ){
 	
 	MENU.all[current_menu].staticDataTransfer(local_menu);
 	
@@ -935,58 +947,68 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	static enum digit_codes_14pt vt_digit_p[6]={0};
 	static enum digit_codes_14pt vt_digit_s[6]={0};//cau
 	static uint8_t ord=0;//order of  digits 0...5
-	static uint8_t sel=0;//primary/secondary selection
+	static uint8_t sel=1;//primary/secondary selection
 	static uint8_t entered=0;
 	
-	
 	uint8_t i;
-	
 	uint8_t column=80;
+	
+	void(* save_fun)(void);
+	
+	
+	
+	clearColumns(2,79,127);
+	clearColumns(4,79,127);
+	
+	column=80;
+		
+	for(i=0;i<6;i++){ //digit tranfer
+	
+	digit_transfer_8pt(vt_digit_p[i],2,column);
+	column+=8;	
+
+	}
+		
+		
+	column=80;
+		
+		
+	for(i=0;i<6;i++){ //digit tranfer
+	
+	digit_transfer_8pt(vt_digit_s[i],4,column);
+	column+=8;	
+
+	}
+	
+	
+	
 	
 	if(!entered){
 	
-		vt_digit_p[0]=flashData2LCD(*menu_item.values,1);
-		vt_digit_p[1]=flashData2LCD(*menu_item.values,2);
-		vt_digit_p[2]=flashData2LCD(*menu_item.values,3);
-		vt_digit_p[3]=flashData2LCD(*menu_item.values,4);
-		vt_digit_p[4]=flashData2LCD(*menu_item.values,5);
-		vt_digit_p[5]=flashData2LCD(*menu_item.values,6);
+		vt_digit_p[5]=flashData2LCD(*menu_item.values,1);
+		vt_digit_p[4]=flashData2LCD(*menu_item.values,2);
+		vt_digit_p[3]=flashData2LCD(*menu_item.values,3);
+		vt_digit_p[2]=flashData2LCD(*menu_item.values,4);
+		vt_digit_p[1]=flashData2LCD(*menu_item.values,5);
+		vt_digit_p[0]=flashData2LCD(*menu_item.values,6);
 		
-		clearColumns(2,79,127);
-		
-		column=80;
-		
-		for(i=0;i<6;i++){ //digit tranfer
-	
-		digit_transfer_8pt(vt_digit_p[i],2,column);
-		column+=8;	
 
-		}
 		
-		vt_digit_s[0]=flashData2LCD(*menu_item.values,1);
-		vt_digit_s[1]=flashData2LCD(*menu_item.values,2);
-		vt_digit_s[2]=flashData2LCD(*menu_item.values,3);
-		vt_digit_s[3]=flashData2LCD(*menu_item.values,4);
-		vt_digit_s[4]=flashData2LCD(*menu_item.values,5);
-		vt_digit_s[5]=flashData2LCD(*menu_item.values,6);
+		vt_digit_s[5]=flashData2LCD(*menu_item.values,1);
+		vt_digit_s[4]=flashData2LCD(*menu_item.values,2);
+		vt_digit_s[3]=flashData2LCD(*menu_item.values,3);
+		vt_digit_s[2]=flashData2LCD(*menu_item.values,4);
+		vt_digit_s[1]=flashData2LCD(*menu_item.values,5);
+		vt_digit_s[0]=flashData2LCD(*menu_item.values,6);
 		
-		column=80;
-		
-		clearColumns(4,79,127);
-		
-		for(i=0;i<6;i++){ //digit tranfer
-	
-		digit_transfer_8pt(vt_digit_s[i],4,column);
-		column+=8;	
 
-		}
-		
 	}
 	
 	
 	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
 	
-	if(sel==0 && entered==1){
+	
+	if(sel==0 && entered==1){//primer side start
 		
 	if(pressed_button==left_pressed){  // left is plus @VT
 	
@@ -1011,24 +1033,14 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	}
 	
 	
-	column=80;
-
-	clearColumns(2,79,127);
-	
-	
-	for(i=0;i<6;i++){ //digit tranfer
-	
-	digit_transfer_8pt(vt_digit_p[i],2,column);
-	column+=8;	
-
-	}
-	
-	
 	put_cursor(2,79+ord*8,7);
 	
-	}
 	
-	if(sel==1 && entered==1){
+	}//primer side end
+	
+	
+	
+	if(sel==1 && entered==1){//seconder side start
 		
 		
 	//cau	
@@ -1056,29 +1068,14 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 		
 	}
 	
-	
-	column=80;
-
-	clearColumns(4,79,127);
-	
-	
-	for(i=0;i<6;i++){//digit tranfer
-	
-	digit_transfer_8pt(vt_digit_s[i],2,column);
-	column+=8;	
-
-	}
-	
 	put_cursor(4,79+ord*8,7);	
 		
-		
+	}//seconder side end
+	
+	
+	
 		
 
-	}
-	
-	
-	
-	
 	if(pressed_button==up_pressed && save_lock==0){ 
 	
 	save_lock=1;
@@ -1086,21 +1083,18 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	}
 	
 	
-	saveScreen(&save_lock);
-	
-	
-	if(save_lock==1 && pressed_button==up_pressed){
-	
-	//saving indication
+	if(save_lock){
+		
+		
+		save_fun=savingFunctions[currentSaveMenu];
+		save_fun();
+		entered=0;
+
 		
 	}
 	
 	
-	if(save_lock==1 && pressed_button==down_pressed){
-	
-	//not saved indication
-		
-	}
+
 	
 	
 };

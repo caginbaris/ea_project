@@ -10,6 +10,9 @@
 #define flashFloatSize 10
 #define flashByteSize  (flashFloatSize*4)
 
+extern enum menu_list current_menu;
+extern enum menu_list previous_menu;
+
 enum menu_list {
 
 Vpn_true,Vpn_fund, //0-1

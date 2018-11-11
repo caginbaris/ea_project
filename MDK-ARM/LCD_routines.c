@@ -2,11 +2,15 @@
 #include "spi.h"
 #include "tim.h"
 #include "LCD_definitions.h"
+#include "menu_definitions.h"
 #include "aux_functions.h"
 
 
 uint16_t side_leds=160;
 uint16_t center_leds=160;
+
+extern uint8_t save_lock;
+extern uint8_t currentSaveMenu;
 
 void init_LCD(){
 	
@@ -293,16 +297,18 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 }
 
 
-void saveScreen(uint8_t* lock){
+void saveScreen(){
 
 	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
 	static uint32_t timeOut=0;
-
+	
+	static uint8_t pbcheck=1;
+	static uint32_t pbtimeOut=0;
 	
 	uint8_t i;
 	uint8_t column=50;
 	
-	if(*lock==1){
+	
 	
 	clearColumns(1,0,127);
 	clearColumns(2,0,127);
@@ -325,13 +331,104 @@ void saveScreen(uint8_t* lock){
 
 	
 	symbol_transfer(menu_cross,7,88);
-	symbol_transfer(menu_tick,7,119);}
+	symbol_transfer(menu_tick,7,119);
+	
+	pbcheck=off_delay(0,pbcheck,5,&pbtimeOut);
 	
 	
-	*lock=off_delay(0,*lock,20,&timeOut);
+	save_lock=off_delay(0,save_lock,200,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;}
 	
+	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=1;pbcheck=1;}
+	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=2;pbcheck=1;}
 
 }
+	
+
+
+
+void savingScreen(){
+
+	enum letter_codes_8pt saving[]={k,a,y,d,e,d,i,l,i,y,o,r};
+	static uint32_t timeOut=0;
+
+	
+	uint8_t i;
+	uint8_t column=10;
+	
+
+	
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
+	clearColumns(7,0,127);
+	
+	
+	//saving
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(saving[i],2,column);
+	
+	}
+	
+	//cau flash operation needed
+	
+	
+	save_lock=off_delay(0,save_lock,20,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	
+	
+	
+	
+	
+}
+
+
+
+void notSavedScreen(){
+
+	enum letter_codes_8pt notSaved[]={k,a,y,d,e,d,i,l,m,e,d,i};
+	static uint32_t timeOut=0;
+
+	
+	uint8_t i;
+	uint8_t column=10;
+	
+
+	
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
+	clearColumns(7,0,127);
+	
+	
+	//saving
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(notSaved[i],2,column);
+	
+	}
+	
+	
+	save_lock=off_delay(0,save_lock,20,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	
+	
+}
+
+
+
+
+
+
 
 
 

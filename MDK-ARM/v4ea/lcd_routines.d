@@ -41,4 +41,5 @@ v4ea\lcd_routines.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\lcd_routines.o: ../Inc/spi.h
 v4ea\lcd_routines.o: ../Inc/tim.h
 v4ea\lcd_routines.o: ..\header_files\LCD_definitions.h
+v4ea\lcd_routines.o: ..\header_files\menu_definitions.h
 v4ea\lcd_routines.o: ..\header_files\aux_functions.h
