@@ -64,7 +64,7 @@ struct display_menu_handles Main_Menu={
 
 enum letter_codes_8pt setting_menu_entries[][20]={
 {_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//0
-{g,e,r,i,l,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_},//1
+{g,e,r,i,l,m,_,t,r,a,f,o,_,o,r,a,n,i,_,_},//1
 {a,k,i,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_,_,_},//1
 {d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
 {d,i,j,i,t,a,l,_,c,i,k,i,s,_,_,_,_,_,_,_},//3

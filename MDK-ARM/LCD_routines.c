@@ -297,6 +297,27 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 }
 
 
+void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
+
+
+	static uint32_t loadBarCounter=7;
+	
+
+	
+	display_buffer[page][loadBarCounter++]=0xff;
+	display_buffer[page][loadBarCounter++]=0xff;
+	display_buffer[page][loadBarCounter++]=0xff;
+	display_buffer[page][loadBarCounter++]=0xff;
+	display_buffer[page][loadBarCounter++]=0xff;
+	display_buffer[page][loadBarCounter++]=0xff;
+		
+	if(loadBarCounter>columnEnd){loadBarCounter=columnStart;}
+
+
+
+}
+
+
 void saveScreen(){
 
 	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
@@ -377,7 +398,7 @@ void savingScreen(){
 	
 	//cau flash operation needed
 	
-	
+	loading_bar(6,7,120);
 	save_lock=off_delay(0,save_lock,20,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
 	
@@ -447,6 +468,21 @@ uint32_t flashData2LCD(float x,uint32_t n){
 	y=((uint32_t)(x*factor))%10;
 
 	return y;
+}
+
+uint32_t screenData2flash(uint32_t* data){
+
+	uint32_t combinedNumber;
+
+	combinedNumber= *(data++)*100000+
+									*(data++)*10000+
+									*(data++)*1000+
+									*(data++)*100+
+									*(data++)*10+
+									*(data++);
+
+	return combinedNumber;
+
 }
 
 

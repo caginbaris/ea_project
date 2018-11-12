@@ -200,5 +200,6 @@ void notSavedScreen(void);
 
 
 uint32_t flashData2LCD(float x,uint32_t n);
+uint32_t screenData2flash(uint32_t* data);
 
 #endif
