@@ -302,14 +302,21 @@ void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 
 	static uint32_t loadBarCounter=7;
 	
-
+	uint8_t i;
 	
-	display_buffer[page][loadBarCounter++]=0xff;
-	display_buffer[page][loadBarCounter++]=0xff;
-	display_buffer[page][loadBarCounter++]=0xff;
-	display_buffer[page][loadBarCounter++]=0xff;
-	display_buffer[page][loadBarCounter++]=0xff;
-	display_buffer[page][loadBarCounter++]=0xff;
+
+	for(i=columnStart;i<loadBarCounter;i++){
+		
+		display_buffer[page][i]=0xff;
+		display_buffer[page][i+1]=0xff;
+		display_buffer[page][i+2]=0xff;
+		display_buffer[page][i+3]=0xff;
+		display_buffer[page][i+4]=0xff;
+		
+
+	}
+	
+	loadBarCounter+=5;
 		
 	if(loadBarCounter>columnEnd){loadBarCounter=columnStart;}
 
@@ -398,7 +405,7 @@ void savingScreen(){
 	
 	//cau flash operation needed
 	
-	loading_bar(6,7,120);
+	loading_bar(6,7,120); //cau bar counter should be external
 	save_lock=off_delay(0,save_lock,20,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
 	
