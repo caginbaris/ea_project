@@ -306,12 +306,14 @@ union flashDataUnion{
 	float vt_seconder;
 
 	float ct_primer;
-	float ct_seconder;			
+	float ct_seconder;	
+	float ct_phase;		
 	
 	
 	}data;
 	
 	float fBuffer[flashFloatSize];
+	uint32_t uBuffer[flashFloatSize];
 	uint8_t bBuffer[flashByteSize];
 	
 

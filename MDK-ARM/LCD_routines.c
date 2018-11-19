@@ -405,7 +405,7 @@ void savingScreen(){
 	
 	//cau flash operation needed
 	
-	loading_bar(6,7,120); //cau bar counter should be external
+	loading_bar(6,7,120);
 	save_lock=off_delay(0,save_lock,20,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
 	
@@ -451,14 +451,6 @@ void notSavedScreen(){
 	
 	
 }
-
-
-
-
-
-
-
-
 
 
 
