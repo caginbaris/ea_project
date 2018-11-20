@@ -456,7 +456,7 @@ void notSavedScreen(){
 
 
 
-uint32_t flashData2LCD(float x,uint32_t n){
+uint32_t flashData2LCD(uint32_t x,uint32_t n){
 
 	uint32_t y;
 
@@ -469,6 +469,7 @@ uint32_t flashData2LCD(float x,uint32_t n){
 	return y;
 }
 
+
 uint32_t screenData2flash(uint32_t* data){
 
 	uint32_t combinedNumber;
@@ -480,7 +481,7 @@ uint32_t screenData2flash(uint32_t* data){
 									*(data++)*10+
 									*(data++);
 
-	return combinedNumber;
+	return (combinedNumber);
 
 }
 

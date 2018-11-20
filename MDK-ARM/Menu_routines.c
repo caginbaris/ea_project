@@ -985,21 +985,21 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	if(!entered){
 	
-		vt_digit_p[5]=flashData2LCD(*menu_item.values,1);
-		vt_digit_p[4]=flashData2LCD(*menu_item.values,2);
-		vt_digit_p[3]=flashData2LCD(*menu_item.values,3);
-		vt_digit_p[2]=flashData2LCD(*menu_item.values,4);
-		vt_digit_p[1]=flashData2LCD(*menu_item.values,5);
-		vt_digit_p[0]=flashData2LCD(*menu_item.values,6);
+		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
+		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
+		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
+		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
+		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
+		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
 		
 
 		
-		vt_digit_s[5]=flashData2LCD(*menu_item.values,1);
-		vt_digit_s[4]=flashData2LCD(*menu_item.values,2);
-		vt_digit_s[3]=flashData2LCD(*menu_item.values,3);
-		vt_digit_s[2]=flashData2LCD(*menu_item.values,4);
-		vt_digit_s[1]=flashData2LCD(*menu_item.values,5);
-		vt_digit_s[0]=flashData2LCD(*menu_item.values,6);
+		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
+		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
+		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
+		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
+		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
+		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
 		
 
 	}
@@ -1078,7 +1078,18 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 
 	if(pressed_button==up_pressed && save_lock==0){ 
 	
-	save_lock=1;
+	
+		
+	flashNew.data.vt_primer=screenData2flash((uint32_t*)vt_digit_p);
+	flashNew.data.vt_seconder=screenData2flash((uint32_t*)vt_digit_s);
+
+	if((flashNew.data.vt_primer=!flash.data.vt_primer) || 
+		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){
+	
+		save_lock=1;
+			 
+	}		
+		
 		
 	}
 	

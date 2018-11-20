@@ -302,17 +302,16 @@ union flashDataUnion{
 	
 	struct{
 		
-	float vt_primer;
-	float vt_seconder;
+	uint32_t vt_primer;
+	uint32_t vt_seconder;
 
-	float ct_primer;
-	float ct_seconder;	
-	float ct_phase;		
+	uint32_t ct_primer;
+	uint32_t ct_seconder;	
+		
 	
 	
 	}data;
 	
-	float fBuffer[flashFloatSize];
 	uint32_t uBuffer[flashFloatSize];
 	uint8_t bBuffer[flashByteSize];
 	
@@ -322,7 +321,7 @@ union flashDataUnion{
 
 
 extern union flashDataUnion flash;
-
+extern union flashDataUnion flashNew;
 
 
 
