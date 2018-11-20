@@ -20,6 +20,7 @@ savingScreen,
 notSavedScreen
 
 };
+void(* save_fun)(void);
 
 
 
@@ -40,6 +41,134 @@ struct digit_format  formatDynamicData(float x){
 	formatted_digit.int1		=((int16_t)x % 10);
 
 	return formatted_digit;
+	
+}
+
+
+void saveScreen(){
+
+	enum letter_codes_8pt saveORnot[]={k,a,y,d,e,t};
+	static uint32_t timeOut=0;
+	
+	static uint8_t pbcheck=1;
+	static uint32_t pbtimeOut=0;
+	
+	uint8_t i;
+	uint8_t column=50;
+	
+	
+	
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
+	clearColumns(7,0,127);
+	
+	
+	//question
+	
+	for(i=0;i<6;i++){
+		
+	column=letter_transfer_8pt(saveORnot[i],2,column);
+	
+	}
+	
+	symbol_transfer(menu_qmark,2,column);
+
+	
+	symbol_transfer(menu_cross,7,88);
+	symbol_transfer(menu_tick,7,119);
+	
+	pbcheck=off_delay(0,pbcheck,5,&pbtimeOut);
+	
+	
+	save_lock=off_delay(0,save_lock,200,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;}
+	
+	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=1;pbcheck=1;}
+	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=2;pbcheck=1;}
+
+}
+	
+
+
+
+void savingScreen(){
+
+	enum letter_codes_8pt saving[]={k,a,y,d,e,d,i,l,i,y,o,r};
+	static uint32_t timeOut=0;
+
+	
+	uint8_t i;
+	uint8_t column=10;
+	
+
+	
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
+	clearColumns(7,0,127);
+	
+	
+	//saving
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(saving[i],2,column);
+	
+	}
+	
+	//cau flash operation needed
+	
+	loading_bar(6,7,120);
+	save_lock=off_delay(0,save_lock,20,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	
+	
+	
+	
+	
+}
+
+
+
+void notSavedScreen(){
+
+	enum letter_codes_8pt notSaved[]={k,a,y,d,e,d,i,l,m,e,d,i};
+	static uint32_t timeOut=0;
+
+	
+	uint8_t i;
+	uint8_t column=10;
+	
+
+	
+	clearColumns(1,0,127);
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);
+	clearColumns(5,0,127);
+	clearColumns(6,0,127);
+	clearColumns(7,0,127);
+	
+	
+	//saving
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(notSaved[i],2,column);
+	
+	}
+	
+	
+	save_lock=off_delay(0,save_lock,20,&timeOut);
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	
 	
 }
 
@@ -953,7 +1082,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	uint8_t i;
 	uint8_t column=80;
 	
-	void(* save_fun)(void);
+	
 	
 	
 	

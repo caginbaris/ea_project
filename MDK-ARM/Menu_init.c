@@ -7,10 +7,6 @@
 
 
 
-
-
-
-
 enum menu_list current_menu=settings_menu;
 enum menu_list previous_menu=Vpp_true;
 
@@ -22,6 +18,9 @@ struct setting_menu_rows  setting_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 
 union display_menu_union MENU={0};
 union flashDataUnion flash;
+union flashDataUnion flashNew;
+
+enum saveMenus saveMenu=save_option_menu;
 
 /*for main menu listing*/
 enum letter_codes_8pt main_menu_entries[][20]={
@@ -935,7 +934,7 @@ struct display_menu_handles UNB_I_Menu= {
 
 struct display_menu_handles set_VT_Menu= {
 	
-	/*dynamic data*/ &(flash.data.vt_primer),
+	/*dynamic data*/ NULL,
 	
 	/*title*/      	{g,e,r,i,l,i,m,_,t,u,r,_,o,r,a,n,l,a,r,i,_} ,
 	
@@ -954,7 +953,7 @@ struct display_menu_handles set_VT_Menu= {
 
 struct display_menu_handles set_CT_Menu= {
 	
-	/*dynamic data*/ &(flash.data.ct_primer),
+	/*dynamic data*/ NULL,
 	
 	/*title*/      	{a,k,i,m,_,t,u,r,_,o,r,a,n,l,a,r,i,_,_,_} ,
 	

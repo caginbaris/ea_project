@@ -247,8 +247,6 @@ union display_menu_union{
 extern union display_menu_union MENU;
 
 
-
-
 enum input{
 	
 	
@@ -264,7 +262,6 @@ enum input{
 
 
 extern enum input pressed_button;
-
 
 union push_buttons{
 	
@@ -282,6 +279,8 @@ union push_buttons{
 
 
 };
+
+
 
 
 
@@ -319,9 +318,25 @@ union flashDataUnion{
 
 };
 
-
 extern union flashDataUnion flash;
 extern union flashDataUnion flashNew;
+
+
+
+enum saveMenus{
+	
+	
+		save_option_menu=0,
+		saving__menu=1,
+		not_saved_menu=2,
+
+
+};
+
+extern enum saveMenus saveMenu;
+
+extern void (*savingFunctions[])(void);
+extern void(* save_fun)(void);
 
 
 
@@ -354,7 +369,11 @@ void init_Menu(void);
 enum menu_list SELECT_MENU(enum menu_list current,enum input button);
 void DISPLAY_MENU(void);
 
+
+
 void staticData_VT(struct display_menu_handles menu_item);
 void dynamicData_VT(struct display_menu_handles menu_item);
+
+
 
 #endif
