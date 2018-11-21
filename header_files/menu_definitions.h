@@ -7,8 +7,8 @@
 #define TotalMenuTransitionNo 170
 #define menu_unit_vertical_position 100
 
-#define flashFloatSize 10
-#define flashByteSize  (flashFloatSize*4)
+#define flashWordSize 10
+#define flashByteSize  (flashWordSize*4)
 
 extern enum menu_list current_menu;
 extern enum menu_list previous_menu;
@@ -311,7 +311,7 @@ union flashDataUnion{
 	
 	}data;
 	
-	uint32_t uBuffer[flashFloatSize];
+	uint32_t uBuffer[flashWordSize];
 	uint8_t bBuffer[flashByteSize];
 	
 
@@ -370,10 +370,13 @@ enum menu_list SELECT_MENU(enum menu_list current,enum input button);
 void DISPLAY_MENU(void);
 
 
+void saveEmAll(void);
+
 
 void staticData_VT(struct display_menu_handles menu_item);
 void dynamicData_VT(struct display_menu_handles menu_item);
 
-
+void staticData_CT(struct display_menu_handles menu_item);
+void dynamicData_CT(struct display_menu_handles menu_item);
 
 #endif

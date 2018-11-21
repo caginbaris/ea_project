@@ -297,32 +297,7 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 }
 
 
-void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 
-
-	static uint32_t loadBarCounter=7;
-	
-	uint8_t i;
-	
-
-	for(i=columnStart;i<loadBarCounter;i++){
-		
-		display_buffer[page][i]=0xff;
-		display_buffer[page][i+1]=0xff;
-		display_buffer[page][i+2]=0xff;
-		display_buffer[page][i+3]=0xff;
-		display_buffer[page][i+4]=0xff;
-		
-
-	}
-	
-	loadBarCounter+=5;
-		
-	if(loadBarCounter>columnEnd){loadBarCounter=columnStart;}
-
-
-
-}
 
 
 

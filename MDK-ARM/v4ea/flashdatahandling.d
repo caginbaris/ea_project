@@ -38,4 +38,6 @@ v4ea\flashdatahandling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.
 v4ea\flashdatahandling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 v4ea\flashdatahandling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\flashdatahandling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
+v4ea\flashdatahandling.o: ..\header_files\menu_definitions.h
+v4ea\flashdatahandling.o: ..\header_files\lcd_definitions.h
 v4ea\flashdatahandling.o: ..\header_files\flash_api.h

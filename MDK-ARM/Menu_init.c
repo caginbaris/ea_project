@@ -955,7 +955,7 @@ struct display_menu_handles set_CT_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{a,k,i,m,_,t,u,r,_,o,r,a,n,l,a,r,i,_,_,_} ,
+	/*title*/      	{a,k,i,m,_,g,i,r,i,s,_,a,y,a,r,l,a,r,i,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -963,8 +963,8 @@ struct display_menu_handles set_CT_Menu= {
 	
 	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  staticDataSingle,
-	/*dynamic data*/ dynamicDataSingle
+	/*static data*/  staticData_CT,
+	/*dynamic data*/ dynamicData_CT
 	
 
 };

@@ -4,6 +4,7 @@
 #include "measurement_definitions.h"
 #include  <string.h>
 #include  "aux_functions.h"
+#include "flash_api.h"
 
 
 uint8_t save_lock=0;
@@ -42,6 +43,36 @@ struct digit_format  formatDynamicData(float x){
 
 	return formatted_digit;
 	
+}
+
+
+void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd, uint8_t EN){
+
+
+	static uint16_t loadBarCounter=7;
+	
+	
+	uint8_t i;
+	
+
+	for(i=columnStart;i<loadBarCounter;i++){
+		
+		display_buffer[page][i]=0xff;
+		display_buffer[page][i+1]=0xff;
+		display_buffer[page][i+2]=0xff;
+		display_buffer[page][i+3]=0xff;
+		display_buffer[page][i+4]=0xff;
+		
+
+	}
+	
+	loadBarCounter+=5;
+		
+	if(loadBarCounter>columnEnd){loadBarCounter=columnEnd+1;}
+	if(!EN){loadBarCounter=0;}
+
+
+
 }
 
 
@@ -87,8 +118,8 @@ void saveScreen(){
 	save_lock=off_delay(0,save_lock,200,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;}
 	
-	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=1;pbcheck=1;}
-	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=2;pbcheck=1;}
+	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=saving__menu;pbcheck=1;}
+	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=not_saved_menu;pbcheck=1;}
 
 }
 	
@@ -123,11 +154,12 @@ void savingScreen(){
 	
 	}
 	
-	//cau flash operation needed
+	// flashWrite();
 	
-	loading_bar(6,7,120);
+	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	loading_bar(6,7,120,save_lock);
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=save_option_menu;}
 	
 	
 	
@@ -157,8 +189,6 @@ void notSavedScreen(){
 	clearColumns(7,0,127);
 	
 	
-	//saving
-	
 	for(i=0;i<12;i++){
 		
 	column=letter_transfer_8pt(notSaved[i],2,column);
@@ -167,9 +197,21 @@ void notSavedScreen(){
 	
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=0;}
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=save_option_menu;}
 	
 	
+}
+
+
+void saveEmAll(void){
+
+	if(save_lock){
+		
+		save_fun=savingFunctions[currentSaveMenu];
+		save_fun();
+		
+	}
+
 }
 
 
@@ -1017,6 +1059,7 @@ void DISPLAY_MENU(){
 	
 	
 	MENU.all[current_menu].dynamicDataTransfer(local_menu);
+	saveEmAll();
 	
 };
 
@@ -1216,28 +1259,237 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){
 	
 		save_lock=1;
+		entered=0;	 
 			 
-	}		
-		
-		
-	}
-	
-	
-	if(save_lock){
-		
-		
-		save_fun=savingFunctions[currentSaveMenu];
-		save_fun();
-		entered=0;
-
-		
-	}
-	
-	
-
-	
-	
+	}			
+ }
 };
+
+
+void staticData_CT(struct display_menu_handles menu_item){
+
+	enum letter_codes_8pt primary[9]=  {p,r,i,m,e,r,_,_,_};
+	enum letter_codes_8pt secondary[9]={s,e,k,o,n,d,e,r,_};
+	enum letter_codes_8pt phase[9]={f,a,z,_,a,y,a,r,i};
+	enum letter_codes_8pt direction[9]={a,k,i,m,_,y,o,n,u};
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+	column=0;
+	page=2;
+	
+	for(i=0;i<9;i++){
+		
+	column=letter_transfer_8pt(primary[i],page,column);
+	
+	}
+	
+	
+	column=0;
+	page=3;
+	for(i=0;i<9;i++){
+		
+	column=letter_transfer_8pt(secondary[i],page,column);
+		
+	}
+	
+	
+	column=0;
+	page=4;
+	for(i=0;i<9;i++){
+		
+	column=letter_transfer_8pt(phase[i],page,column);
+		
+	}
+	
+	
+	column=0;
+	page=5;
+	for(i=0;i<9;i++){
+		
+	column=letter_transfer_8pt(direction[i],page,column);
+		
+	}
+	
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+
+
+}
+
+
+void dynamicData_CT(struct display_menu_handles menu_item){
+	
+	
+	static enum digit_codes_14pt ct_digit_p[5]={0};
+	static enum digit_codes_14pt ct_digit_s[5]={0};
+	static enum digit_codes_14pt ct_digit_phase[5]={0};
+	static enum digit_codes_14pt ct_digit_dir[5]={0};
+	
+	static uint8_t ord=0;//order of  digits 0...5
+	static uint8_t sel=1;//primary/secondary selection
+	static uint8_t entered=0;
+	
+	uint8_t i;
+	uint8_t column=80;
+	
+	
+	
+	
+	
+	clearColumns(2,79,127);
+	clearColumns(4,79,127);
+	
+	column=90;
+		
+	for(i=0;i<5;i++){ //digit tranfer
+	
+	digit_transfer_8pt(ct_digit_p[i],2,column);
+	column+=8;	
+
+	}
+		
+		
+	column=90;
+		
+		
+	for(i=0;i<5;i++){ //digit tranfer
+	
+	digit_transfer_8pt(ct_digit_s[i],4,column);
+	column+=8;	
+
+	}
+	
+	
+	
+	
+	if(!entered){
+	
+		
+		ct_digit_p[4]=flashData2LCD(flash.data.vt_primer,1);
+		ct_digit_p[3]=flashData2LCD(flash.data.vt_primer,2);
+		ct_digit_p[2]=flashData2LCD(flash.data.vt_primer,3);
+		ct_digit_p[1]=flashData2LCD(flash.data.vt_primer,4);
+		ct_digit_p[0]=flashData2LCD(flash.data.vt_primer,5);
+		
+
+		ct_digit_s[4]=flashData2LCD(flash.data.vt_seconder,1);
+		ct_digit_s[3]=flashData2LCD(flash.data.vt_seconder,2);
+		ct_digit_s[2]=flashData2LCD(flash.data.vt_seconder,3);
+		ct_digit_s[1]=flashData2LCD(flash.data.vt_seconder,4);
+		ct_digit_s[0]=flashData2LCD(flash.data.vt_seconder,5);
+		
+
+	}
+	
+	
+	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
+	
+	
+	if(sel==0 && entered==1){//primer side start
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++ct_digit_p[ord]>_9){ct_digit_p[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--ct_digit_p[ord]==_m1){ct_digit_p[ord]=_9;}	
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
+	
+	
+	put_cursor(2,79+ord*8,7);
+	
+	
+	}//primer side end
+	
+	
+	
+	if(sel==1 && entered==1){//seconder side start
+		
+		
+	//cau	
+		
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++ct_digit_s[ord]>_9){ct_digit_s[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--ct_digit_s[ord]==_m1){ct_digit_s[ord]=_9;}	
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
+	
+	put_cursor(4,79+ord*8,7);	
+		
+	}//seconder side end
+	
+	
+	
+		
+
+	if(pressed_button==up_pressed && save_lock==0){ 
+	
+	
+		
+	flashNew.data.vt_primer=screenData2flash((uint32_t*)ct_digit_p);
+	flashNew.data.vt_seconder=screenData2flash((uint32_t*)ct_digit_s);
+
+	if((flashNew.data.vt_primer=!flash.data.vt_primer) || 
+		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){
+	
+		save_lock=1;
+		entered=0;	 
+			 
+	}			
+ }
+};
+
+
+
 
 
 

@@ -36,5 +36,8 @@
 #define ADDR_FLASH_PAGE_31    ((uint32_t)0x0800F800) /* Base address of Page 31, 2 Kbytes */
 
 
+void flashRead(void);
+void flashWrite(void);
+
 #endif
 
