@@ -320,16 +320,18 @@ uint32_t flashData2LCD(uint32_t x,uint32_t n){
 }
 
 
-uint32_t screenData2flash(uint32_t* data){
+uint32_t screenData2flash(int16_t* data){
 
-	uint32_t combinedNumber;
+	uint32_t combinedNumber=0;
+	
+		combinedNumber= (data[0])+
+										(data[1])*10+
+										(data[2])*100+
+										(data[3])*1000+
+										(data[4])*10000+
+										(data[5])*100000;
 
-	combinedNumber= *(data++)*100000+
-									*(data++)*10000+
-									*(data++)*1000+
-									*(data++)*100+
-									*(data++)*10+
-									*(data++);
+
 
 	return (combinedNumber);
 

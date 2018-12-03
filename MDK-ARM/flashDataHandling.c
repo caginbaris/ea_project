@@ -17,8 +17,8 @@ static FLASH_EraseInitTypeDef EraseInitStruct;
 void flashErase(void){
 
   
-	 /* Fill EraseInit structure*/
- /* Fill EraseInit structure*/
+	/* Fill EraseInit structure*/
+  /* Fill EraseInit structure*/
   EraseInitStruct.TypeErase   = FLASH_TYPEERASE_PAGES;
   EraseInitStruct.PageAddress = ADDR_FLASH_PAGE_30;
   EraseInitStruct.NbPages     = 1; //cau
@@ -71,7 +71,7 @@ void flashRead(void){
 	
 	if(sentinel==sentinelValue){
 	
-	flashReadD(ADDR_FLASH_PAGE_30,flash.uBuffer,flashWordSize);
+	flashReadD(dataStartAddress,flash.uBuffer,flashWordSize);
 	
 	}		
 	

@@ -325,10 +325,10 @@ extern union flashDataUnion flashNew;
 
 enum saveMenus{
 	
-	
-		save_option_menu=0,
-		saving__menu=1,
-		not_saved_menu=2,
+		no_save_at_all=0,
+		save_option_menu=1,
+		saving__menu=2,
+		not_saved_menu=3,
 
 
 };

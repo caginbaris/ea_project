@@ -193,6 +193,8 @@ void line_highlighter(uint8_t page, uint8_t column);
 void put_cursor(uint8_t page,uint8_t column,uint8_t width);
 void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd);
 
+
+void noSave(void);
 void saveScreen(void);
 void savingScreen(void);
 void notSavedScreen(void);
@@ -200,6 +202,6 @@ void notSavedScreen(void);
 
 
 uint32_t flashData2LCD(uint32_t x,uint32_t n);
-uint32_t screenData2flash(uint32_t* data);
+uint32_t screenData2flash(int16_t* data);
 
 #endif

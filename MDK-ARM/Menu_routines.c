@@ -15,7 +15,8 @@ uint8_t currentSaveMenu=0;
 //saving function pointers
 
 void (*savingFunctions[])(void)={
-
+	
+noSave,
 saveScreen,
 savingScreen,
 notSavedScreen
@@ -71,6 +72,12 @@ void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd, uint8_t EN)
 	if(loadBarCounter>columnEnd){loadBarCounter=columnEnd+1;}
 	if(!EN){loadBarCounter=0;}
 
+
+
+}
+
+
+void noSave(){
 
 
 }
@@ -154,12 +161,12 @@ void savingScreen(){
 	
 	}
 	
-	// flashWrite();
+	
 	
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
 	loading_bar(6,7,120,save_lock);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=save_option_menu;}
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=no_save_at_all;flashWrite();}
 	
 	
 	
@@ -197,7 +204,7 @@ void notSavedScreen(){
 	
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=save_option_menu;}
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=no_save_at_all;}
 	
 	
 }
@@ -205,12 +212,12 @@ void notSavedScreen(){
 
 void saveEmAll(void){
 
-	if(save_lock){
+
 		
 		save_fun=savingFunctions[currentSaveMenu];
 		save_fun();
 		
-	}
+	
 
 }
 
@@ -1058,7 +1065,9 @@ void DISPLAY_MENU(){
 	
 	
 	
+	
 	MENU.all[current_menu].dynamicDataTransfer(local_menu);
+	
 	saveEmAll();
 	
 };
@@ -1252,16 +1261,22 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash((uint32_t*)vt_digit_p);
-	flashNew.data.vt_seconder=screenData2flash((uint32_t*)vt_digit_s);
+	flashNew.data.vt_primer=screenData2flash  ((int16_t *)vt_digit_p);
+	flashNew.data.vt_seconder=screenData2flash((int16_t *)vt_digit_s);
 
-	if((flashNew.data.vt_primer=!flash.data.vt_primer) || 
-		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){
+	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
+		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
 	
 		save_lock=1;
+			 
+		currentSaveMenu=save_option_menu;
+			 
+		flash.data.vt_primer=flashNew.data.vt_primer;
+		flash.data.vt_seconder=flashNew.data.vt_seconder; 			 
+			 
 		entered=0;	 
 			 
-	}			
+	}	
  }
 };
 
@@ -1475,8 +1490,8 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash((uint32_t*)ct_digit_p);
-	flashNew.data.vt_seconder=screenData2flash((uint32_t*)ct_digit_s);
+	flashNew.data.vt_primer=screenData2flash((uint16_t*)ct_digit_p);
+	flashNew.data.vt_seconder=screenData2flash((uint16_t*)ct_digit_s);
 
 	if((flashNew.data.vt_primer=!flash.data.vt_primer) || 
 		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){

@@ -53,6 +53,7 @@
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
 #include "phaseCompensation.h"
+#include "flash_api.h"
 
 /* USER CODE END Includes */
 
@@ -148,10 +149,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	
 	pLagDef(-0.6352f,25000,&pc_b1,&pc_b2);
+	flashRead();
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
+	
+	
 	
 	
 	
