@@ -202,6 +202,6 @@ void notSavedScreen(void);
 
 
 uint32_t flashData2LCD(uint32_t x,uint32_t n);
-uint32_t screenData2flash(int16_t* data);
+uint32_t screenData2flash(enum digit_codes_14pt* data);
 
 #endif

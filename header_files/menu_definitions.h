@@ -305,8 +305,16 @@ union flashDataUnion{
 	uint32_t vt_seconder;
 
 	uint32_t ct_primer;
-	uint32_t ct_seconder;	
+	uint32_t ct_seconder;
+
+  uint32_t ct_phase_shift;		
 		
+	struct{
+		
+		uint32_t current_direction:1;
+    uint32_t rem:31;	
+		
+	}configBit;
 	
 	
 	}data;

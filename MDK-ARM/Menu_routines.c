@@ -1261,8 +1261,8 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash  ((int16_t *)vt_digit_p);
-	flashNew.data.vt_seconder=screenData2flash((int16_t *)vt_digit_s);
+	flashNew.data.vt_primer=screenData2flash  (vt_digit_p);
+	flashNew.data.vt_seconder=screenData2flash(vt_digit_s);
 
 	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
 		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
@@ -1289,22 +1289,23 @@ void staticData_CT(struct display_menu_handles menu_item){
 	enum letter_codes_8pt direction[9]={a,k,i,m,_,y,o,n,u};
 	
 	uint8_t i;
+	
 	uint8_t column=1;
+	
 	uint8_t page=0;
 	
-
-
 	for(i=0;i<21;i++){
 		
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
 	
-		
 	}
 	
 	line_highlighter(0,128);
 	
-	column=0;
-	page=2;
+	
+	column=1;
+	
+	page=1;
 	
 	for(i=0;i<9;i++){
 		
@@ -1313,8 +1314,8 @@ void staticData_CT(struct display_menu_handles menu_item){
 	}
 	
 	
-	column=0;
-	page=3;
+	column=1;
+	page=2;
 	for(i=0;i<9;i++){
 		
 	column=letter_transfer_8pt(secondary[i],page,column);
@@ -1322,7 +1323,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	}
 	
 	
-	column=0;
+	column=1;
 	page=4;
 	for(i=0;i<9;i++){
 		
@@ -1331,7 +1332,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	}
 	
 	
-	column=0;
+	column=1;
 	page=5;
 	for(i=0;i<9;i++){
 		
@@ -1355,8 +1356,8 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 	static enum digit_codes_14pt ct_digit_p[5]={0};
 	static enum digit_codes_14pt ct_digit_s[5]={0};
-	static enum digit_codes_14pt ct_digit_phase[5]={0};
-	static enum digit_codes_14pt ct_digit_dir[5]={0};
+	static enum digit_codes_14pt ct_digit_phase[2]={0};
+	static enum digit_codes_14pt ct_digit_dir[5]={0};//cau
 	
 	static uint8_t ord=0;//order of  digits 0...5
 	static uint8_t sel=1;//primary/secondary selection
@@ -1365,12 +1366,11 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	uint8_t i;
 	uint8_t column=80;
 	
-	
-	
-	
-	
+	clearColumns(1,79,127);
 	clearColumns(2,79,127);
+		
 	clearColumns(4,79,127);
+	clearColumns(5,79,127);
 	
 	column=90;
 		
@@ -1398,24 +1398,24 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(!entered){
 	
 		
-		ct_digit_p[4]=flashData2LCD(flash.data.vt_primer,1);
-		ct_digit_p[3]=flashData2LCD(flash.data.vt_primer,2);
-		ct_digit_p[2]=flashData2LCD(flash.data.vt_primer,3);
-		ct_digit_p[1]=flashData2LCD(flash.data.vt_primer,4);
-		ct_digit_p[0]=flashData2LCD(flash.data.vt_primer,5);
+		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
+		ct_digit_p[3]=flashData2LCD(flash.data.ct_primer,2);
+		ct_digit_p[2]=flashData2LCD(flash.data.ct_primer,3);
+		ct_digit_p[1]=flashData2LCD(flash.data.ct_primer,4);
+		ct_digit_p[0]=flashData2LCD(flash.data.ct_primer,5);
 		
 
-		ct_digit_s[4]=flashData2LCD(flash.data.vt_seconder,1);
-		ct_digit_s[3]=flashData2LCD(flash.data.vt_seconder,2);
-		ct_digit_s[2]=flashData2LCD(flash.data.vt_seconder,3);
-		ct_digit_s[1]=flashData2LCD(flash.data.vt_seconder,4);
-		ct_digit_s[0]=flashData2LCD(flash.data.vt_seconder,5);
+		ct_digit_s[4]=flashData2LCD(flash.data.ct_seconder,1);
+		ct_digit_s[3]=flashData2LCD(flash.data.ct_seconder,2);
+		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
+		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
+		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
 		
 
 	}
 	
 	
-	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
+	if(pressed_button==enter_pressed){sel++;ord=0;entered=1;}
 	
 	
 	if(sel==0 && entered==1){//primer side start
@@ -1483,18 +1483,24 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	}//seconder side end
 	
 	
+	if(sel==2 && entered==1){//phase started
 	
+	
+	}
+	
+	if(sel==3 && entered==1){//dir start
+	}
 		
 
 	if(pressed_button==up_pressed && save_lock==0){ 
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash((uint16_t*)ct_digit_p);
-	flashNew.data.vt_seconder=screenData2flash((uint16_t*)ct_digit_s);
+	flashNew.data.ct_primer=screenData2flash(ct_digit_p);
+	flashNew.data.ct_seconder=screenData2flash(ct_digit_s);
 
-	if((flashNew.data.vt_primer=!flash.data.vt_primer) || 
-		 (flashNew.data.vt_seconder=!flash.data.vt_seconder)){
+	if((flashNew.data.ct_primer=!flash.data.vt_primer) || 
+		 (flashNew.data.ct_seconder=!flash.data.vt_seconder)){
 	
 		save_lock=1;
 		entered=0;	 

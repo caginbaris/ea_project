@@ -961,7 +961,7 @@ struct display_menu_handles set_CT_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+	/*symbols*/			{menu_enter,0,0,0,menu_escape},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticData_CT,
 	/*dynamic data*/ dynamicData_CT
