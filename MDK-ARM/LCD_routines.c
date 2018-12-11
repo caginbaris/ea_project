@@ -247,6 +247,13 @@ void put_dot2x2(uint8_t page,uint8_t column){
 }
 
 
+void put_dot(uint8_t page,uint8_t column){
+
+	display_buffer[page][column]=0x80;
+
+}
+
+
 void put_minus(uint8_t page,uint8_t column){
 
 	display_buffer[page][column]=0xC0;
@@ -324,12 +331,12 @@ uint32_t screenData2flash(enum digit_codes_14pt* data){
 
 	uint32_t combinedNumber;
 
-	combinedNumber= *(data++)*100000+
-									*(data++)*10000+
-									*(data++)*1000+
-									*(data++)*100+
-									*(data++)*10+
-									*(data++);
+	combinedNumber= data[0]*100000+
+									data[1]*10000+
+									data[2]*1000+
+									data[3]*100+
+									data[4]*10+
+									data[5];
 
    
 

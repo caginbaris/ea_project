@@ -312,7 +312,9 @@ union flashDataUnion{
 	struct{
 		
 		uint32_t current_direction:1;
-    uint32_t rem:31;	
+		uint32_t phase_comp_direction:1;
+		
+    uint32_t rem:30;	
 		
 	}configBit;
 	

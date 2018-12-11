@@ -7,7 +7,7 @@
 
 
 
-enum menu_list current_menu=settings_menu;
+enum menu_list current_menu=set_CT;
 enum menu_list previous_menu=Vpp_true;
 
 enum main_menu_list    main_menu_entry=Active_Energy_main;
@@ -955,7 +955,7 @@ struct display_menu_handles set_CT_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{a,k,i,m,_,g,i,r,i,s,_,a,y,a,r,l,a,r,i,_} ,
+	/*title*/      	{a,k,i,m,_,g,i,r,i,s,_,a,y,a,r,l,a,r,i,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -1285,6 +1285,7 @@ void init_Menu(){
 	
 	MENU.handle.settings=Setting_Menu;
 	MENU.handle.settings_VT=set_VT_Menu;
+	MENU.handle.settings_CT=set_CT_Menu;
 	
 }
 

@@ -12,9 +12,6 @@ uint8_t currentSaveMenu=0;
 
 
 
-
-
-
 //saving function pointers
 
 void (*savingFunctions[])(void)={
@@ -126,7 +123,7 @@ void saveScreen(){
 	
 	
 	save_lock=off_delay(0,save_lock,200,&timeOut);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=not_saved_menu;pbcheck=1;}
+	if(save_lock==0){current_menu=settings_menu;}
 	
 	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=saving__menu;pbcheck=1;}
 	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=not_saved_menu;pbcheck=1;}
@@ -169,18 +166,7 @@ void savingScreen(){
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
 	loading_bar(6,7,120,save_lock);
-	
-	if(save_lock==0){
-	
-	current_menu=settings_menu;
-	
-	currentSaveMenu=no_save_at_all;
-	
-	flashWrite();
-	
-	flash=flashNew;
-	
-	}
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=no_save_at_all;flashWrite();}
 	
 	
 	
@@ -1138,9 +1124,9 @@ void staticData_VT(struct display_menu_handles menu_item){
 
 void dynamicData_VT(struct display_menu_handles menu_item){
 	
+	
 	static enum digit_codes_14pt vt_digit_p[6]={0};
-  static enum digit_codes_14pt vt_digit_s[6]={0};
-
+	static enum digit_codes_14pt vt_digit_s[6]={0};//cau
 	static uint8_t ord=0;//order of  digits 0...5
 	static uint8_t sel=1;//primary/secondary selection
 	static uint8_t entered=0;
@@ -1201,8 +1187,6 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
-	
-
 	
 	
 	if(sel==0 && entered==1){//primer side start
@@ -1285,11 +1269,14 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 		save_lock=1;
 			 
-		currentSaveMenu=save_option_menu;		 
+		currentSaveMenu=save_option_menu;
+			 
+		flash.data.vt_primer=flashNew.data.vt_primer;
+		flash.data.vt_seconder=flashNew.data.vt_seconder; 			 
 			 
 		entered=0;	 
 			 
-	}else{current_menu=settings_menu;}	
+	}	
  }
 };
 
@@ -1346,7 +1333,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	
 	
 	column=1;
-	page=6;
+	page=5;
 	for(i=0;i<9;i++){
 		
 	column=letter_transfer_8pt(direction[i],page,column);
@@ -1377,7 +1364,7 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	static uint8_t entered=0;
 	
 	uint8_t i;
-	uint8_t column,page;
+	uint8_t column=80;
 	
 	clearColumns(1,79,127);
 	clearColumns(2,79,127);
@@ -1385,45 +1372,25 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	clearColumns(4,79,127);
 	clearColumns(5,79,127);
 	
-	page=1;
 	column=90;
 		
-	for(i=0;i<5;i++){ //primary digit tranfer
+	for(i=0;i<5;i++){ //digit tranfer
 	
-	digit_transfer_8pt(ct_digit_p[i],page,column);
+	digit_transfer_8pt(ct_digit_p[i],2,column);
 	column+=8;	
 
 	}
 		
-	page=2;
+		
 	column=90;
 		
 		
-	for(i=0;i<5;i++){ //secondary digit tranfer
+	for(i=0;i<5;i++){ //digit tranfer
 	
-	digit_transfer_8pt(ct_digit_s[i],page,column);
+	digit_transfer_8pt(ct_digit_s[i],4,column);
 	column+=8;	
 
 	}
-	
-	page=4;
-	column=100;
-		
-	//phase digit tranfer
-	
-	if(flash.data.configBit.phase_comp_direction){
-	
-	//minus and plus ops
-		
-	}
-	
-	
-	
-	digit_transfer_8pt(ct_digit_s[i],page,column);
-	
-	put_dot(page,column+8);
-	
-	digit_transfer_8pt(ct_digit_s[i],page,column+9);
 	
 	
 	
@@ -1538,10 +1505,6 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 		save_lock=1;
 		entered=0;	 
 			 
-	}else{
-	
-	current_menu=settings_menu;
-	
 	}			
  }
 };
