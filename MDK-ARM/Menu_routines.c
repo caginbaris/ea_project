@@ -1347,6 +1347,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	
 	column=1;
 	page=6;
+	
 	for(i=0;i<9;i++){
 		
 	column=letter_transfer_8pt(direction[i],page,column);

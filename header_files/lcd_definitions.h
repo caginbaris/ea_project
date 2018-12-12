@@ -161,7 +161,9 @@ menu_minus,
 menu_slash,
 menu_qmark,
 menu_tick,
-menu_cross		
+menu_cross,
+menu_into,
+menu_from		
 };
 
 
