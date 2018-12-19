@@ -191,7 +191,10 @@ uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t col
 uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void put_dot2x2(uint8_t page,uint8_t column);
 void put_dot(uint8_t page,uint8_t column);
+
+void put_plus(uint8_t page,uint8_t column);
 void put_minus(uint8_t page,uint8_t column);
+
 void line_highlighter(uint8_t page, uint8_t column);
 void put_cursor(uint8_t page,uint8_t column,uint8_t width);
 void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd);

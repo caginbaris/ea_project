@@ -256,11 +256,21 @@ void put_dot(uint8_t page,uint8_t column){
 
 void put_minus(uint8_t page,uint8_t column){
 
-	display_buffer[page][column]=0xC0;
-	display_buffer[page][column+1]=0xC0;
-	display_buffer[page][column+2]=0xC0;
-	display_buffer[page][column+3]=0xC0;
-	display_buffer[page][column+4]=0xC0;
+	display_buffer[page][column]=0x10;
+	display_buffer[page][column+1]=0x10;
+	display_buffer[page][column+2]=0x10;
+	display_buffer[page][column+3]=0x10;
+	display_buffer[page][column+4]=0x10;
+
+}
+
+void put_plus(uint8_t page,uint8_t column){
+
+	display_buffer[page][column]=0x10;
+	display_buffer[page][column+1]=0x10;
+	display_buffer[page][column+2]=0x7c;
+	display_buffer[page][column+3]=0x10;
+	display_buffer[page][column+4]=0x10;
 
 }
 

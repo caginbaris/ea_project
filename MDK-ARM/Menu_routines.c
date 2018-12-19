@@ -1346,7 +1346,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	
 	
 	column=1;
-	page=6;
+	page=5;
 	
 	for(i=0;i<9;i++){
 		
@@ -1414,17 +1414,40 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 	if(flash.data.configBit.phase_comp_direction){
 	
-	//minus and plus ops
+	put_minus(page,90);
 		
+	}else{
+		
+	put_plus(page,90);
+	
 	}
-	
-	
+
 	
 	digit_transfer_8pt(ct_digit_s[i],page,column);
 	
 	put_dot(page,column+8);
 	
 	digit_transfer_8pt(ct_digit_s[i],page,column+9);
+	
+	
+	//dir
+	
+	
+	page=5;
+	column=100;
+	
+	
+	if(flash.data.configBit.current_direction){
+	
+	  symbol_transfer(menu_from,page,column);
+		
+	}else{
+		
+		symbol_transfer(menu_into,page,column);
+	
+	}
+	
+	
 	
 	
 	
@@ -1472,12 +1495,12 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(pressed_button==down_pressed){  // down is right pos change
 	
 	ord++;
-	if(ord>_5){ord=0;}	
+	if(ord>_4){ord=0;}	
 		
 	}
 	
 	
-	put_cursor(2,79+ord*8,7);
+	put_cursor(1,79+ord*8,7);
 	
 	
 	}//primer side end
