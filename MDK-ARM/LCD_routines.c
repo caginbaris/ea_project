@@ -249,7 +249,7 @@ void put_dot2x2(uint8_t page,uint8_t column){
 
 void put_dot(uint8_t page,uint8_t column){
 
-	display_buffer[page][column]=0x80;
+	display_buffer[page][column]|=0x80;
 
 }
 

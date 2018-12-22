@@ -1371,20 +1371,23 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	static enum digit_codes_14pt ct_digit_p[5]={0};
 	static enum digit_codes_14pt ct_digit_s[5]={0};
 	static enum digit_codes_14pt ct_digit_phase[2]={0};
-	static enum digit_codes_14pt ct_digit_dir[5]={0};//cau
+
 	
 	static uint8_t ord=0;//order of  digits 0...5
-	static uint8_t sel=1;//primary/secondary selection
+	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
+	
+	static uint8_t current_dir=0;
+	static uint8_t phase_dir=0;
 	
 	uint8_t i;
 	uint8_t column,page;
 	
-	clearColumns(1,79,127);
-	clearColumns(2,79,127);
+	clearColumns(1,79,128);
+	clearColumns(2,79,128);
 		
-	clearColumns(4,79,127);
-	clearColumns(5,79,127);
+	clearColumns(4,79,128);
+	clearColumns(5,79,128);
 	
 	page=1;
 	column=90;
@@ -1408,11 +1411,11 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	}
 	
 	page=4;
-	column=100;
+	column=98;
 		
 	//phase digit tranfer
 	
-	if(flash.data.configBit.phase_comp_direction){
+	if(phase_dir){
 	
 	put_minus(page,90);
 		
@@ -1423,11 +1426,11 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	}
 
 	
-	digit_transfer_8pt(ct_digit_s[i],page,column);
+	digit_transfer_8pt(ct_digit_phase[0],page,column);
 	
-	put_dot(page,column+8);
+	put_dot(page,column+6);
 	
-	digit_transfer_8pt(ct_digit_s[i],page,column+9);
+	digit_transfer_8pt(ct_digit_phase[1],page,column+8);
 	
 	
 	//dir
@@ -1437,7 +1440,7 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	column=100;
 	
 	
-	if(flash.data.configBit.current_direction){
+	if(current_dir){
 	
 	  symbol_transfer(menu_from,page,column);
 		
@@ -1467,6 +1470,10 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
 		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
 		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
+		
+		
+		current_dir=flash.data.configBit.current_direction;
+		phase_dir=flash.data.configBit.phase_comp_direction;
 		
 
 	}
@@ -1500,7 +1507,7 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	}
 	
 	
-	put_cursor(1,79+ord*8,7);
+	put_cursor(1,89+ord*8,7);
 	
 	
 	}//primer side end
@@ -1510,7 +1517,6 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(sel==1 && entered==1){//seconder side start
 		
 		
-	//cau	
 		
 		
 	if(pressed_button==left_pressed){  // left is plus @VT
@@ -1531,22 +1537,86 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(pressed_button==down_pressed){  // down is right pos change
 	
 	ord++;
-	if(ord>_5){ord=0;}	
+	if(ord>_4){ord=0;}	
 		
 	}
 	
-	put_cursor(4,79+ord*8,7);	
+	put_cursor(2,89+ord*8,7);	
 		
 	}//seconder side end
 	
 	
 	if(sel==2 && entered==1){//phase started
+		
+
+	if(ord==0){
+	
+	
+	if(pressed_button==left_pressed || pressed_button==right_pressed){  // left is plus @VT
+	
+		phase_dir^=1;
+		
+	}
+	
+	
+	}else{
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++ct_digit_phase[ord-1]>_9){ct_digit_phase[ord-1]=_0;}	
+	
+	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--ct_digit_phase[ord-1]==_m1){ct_digit_phase[ord-1]=_9;}	
+	
+	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+		
+	 }
 	
 	
 	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_2){ord=0;}	
+		
+	}
+	
+	put_cursor(4,89+ord*8,7);	
+	
+	
+	}
+	
+	
+
 	
 	if(sel==3 && entered==1){//dir start
+		
+	if(pressed_button==left_pressed || pressed_button==right_pressed){  // left is plus @VT
+	
+		current_dir^=1;
+		
 	}
+	
+	
+
+	
+	put_cursor(5,100,8);
+		
+		
+		
+	}
+	
+	
+	if(sel==4){sel=0;}
 		
 
 	if(pressed_button==up_pressed && save_lock==0){ 
