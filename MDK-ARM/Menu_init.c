@@ -943,7 +943,7 @@ struct display_menu_handles set_VT_Menu= {
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_enter,menu_plus,menu_minus,menu_right,menu_escape},
-	/*menu units*/	{m_percent,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_VT,
 	/*dynamic data*/ dynamicData_VT
 	
@@ -962,9 +962,28 @@ struct display_menu_handles set_CT_Menu= {
 	/*third line*/ 	{__,__,__},
 	
 	/*symbols*/			{menu_enter,menu_plus,menu_minus,menu_right,menu_escape},
-	/*menu units*/	{m_percent,m_,m_,m_},
+	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_CT,
 	/*dynamic data*/ dynamicData_CT
+	
+
+};
+
+
+struct display_menu_handles set_input_Menu= {
+	
+	/*dynamic data*/ NULL,
+	
+	/*title*/      	{d,i,j,i,t,a,l,_,g,i,r,i,s,l,e,r,_,_,_,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_enter,menu_left,menu_right,0,menu_escape},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  NULL,
+	/*dynamic data*/ NULL
 	
 
 };

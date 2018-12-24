@@ -1625,9 +1625,17 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 		
 	flashNew.data.ct_primer=screenData2flash(ct_digit_p);
 	flashNew.data.ct_seconder=screenData2flash(ct_digit_s);
+	flashNew.data.ct_phase_shift=screenData2flash(ct_digit_phase);//cau
+	flashNew.data.configBit.phase_comp_direction=phase_dir;//cau
+	flashNew.data.configBit.current_direction=current_dir;//cau
+		
 
-	if((flashNew.data.ct_primer=!flash.data.vt_primer) || 
-		 (flashNew.data.ct_seconder=!flash.data.vt_seconder)){
+	if((flashNew.data.ct_primer			=!flash.data.vt_primer) || 
+		 (flashNew.data.ct_seconder		=!flash.data.vt_seconder) ||
+		 (flashNew.data.ct_phase_shift=!flash.data.ct_phase_shift) ||
+		 (flashNew.data.configBit.phase_comp_direction=!flash.data.configBit.phase_comp_direction) ||
+	   (flashNew.data.configBit.current_direction=!flash.data.configBit.current_direction)
+	){
 	
 		save_lock=1;
 		entered=0;	 
