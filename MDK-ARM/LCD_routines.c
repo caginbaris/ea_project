@@ -319,10 +319,6 @@ void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd){
 
 
 
-
-
-
-
 uint32_t flashData2LCD(uint32_t x,uint32_t n){
 
 	uint32_t y;

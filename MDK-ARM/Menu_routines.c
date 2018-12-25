@@ -1630,8 +1630,8 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	flashNew.data.configBit.current_direction=current_dir;//cau
 		
 
-	if((flashNew.data.ct_primer			=!flash.data.vt_primer) || 
-		 (flashNew.data.ct_seconder		=!flash.data.vt_seconder) ||
+	if((flashNew.data.ct_primer			=!flash.data.ct_primer) || 
+		 (flashNew.data.ct_seconder		=!flash.data.ct_seconder) ||
 		 (flashNew.data.ct_phase_shift=!flash.data.ct_phase_shift) ||
 		 (flashNew.data.configBit.phase_comp_direction=!flash.data.configBit.phase_comp_direction) ||
 	   (flashNew.data.configBit.current_direction=!flash.data.configBit.current_direction)
@@ -1648,6 +1648,63 @@ void dynamicData_CT(struct display_menu_handles menu_item){
  }
 };
 
+
+void staticData_input(struct display_menu_handles menu_item){
+
+	enum letter_codes_8pt energy_reset[12]=  {e,n,e,r,j,i,_,r,e,s,e,t};
+	enum letter_codes_8pt record_start[12]=  {k,a,y,i,t,_,b,a,s,l,a,t};
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+	column=0;
+	page=2;
+	
+	for(i=0;i<8;i++){
+		
+	column=letter_transfer_8pt(energy_reset[i],page,column);
+	
+	}
+	
+	
+	column=0;
+	page=4;
+	
+	for(i=0;i<8;i++){
+		
+	column=letter_transfer_8pt(record_start[i],page,column);
+		
+	}
+	
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+	
+	
+	
+};
+
+
+void dynamicData_input(struct display_menu_handles menu_item){
+	
+
+	
+}
 
 
 

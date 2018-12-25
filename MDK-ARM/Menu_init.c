@@ -974,7 +974,7 @@ struct display_menu_handles set_input_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{d,i,j,i,t,a,l,_,g,i,r,i,s,l,e,r,_,_,_,_,_} ,
+	/*title*/      	{d,i,j,i,t,a,l,_,g,i,r,i,s,_,i,s,l,e,v,i,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -982,8 +982,8 @@ struct display_menu_handles set_input_Menu= {
 	
 	/*symbols*/			{menu_enter,menu_left,menu_right,0,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  NULL,
-	/*dynamic data*/ NULL
+	/*static data*/  staticData_input,
+	/*dynamic data*/ dynamicData_input
 	
 
 };
@@ -1305,6 +1305,7 @@ void init_Menu(){
 	MENU.handle.settings=Setting_Menu;
 	MENU.handle.settings_VT=set_VT_Menu;
 	MENU.handle.settings_CT=set_CT_Menu;
+	MENU.handle.settings_input=set_input_Menu;
 	
 }
 

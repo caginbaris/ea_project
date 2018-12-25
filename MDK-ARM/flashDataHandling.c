@@ -112,5 +112,14 @@ void flashWrite(void){
 }
 
 
+void init_flashBackRead(){
+
+
+	flashNew=flash;
+	
+	
+}
+
+
 
 

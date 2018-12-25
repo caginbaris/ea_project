@@ -77,6 +77,7 @@ void SystemClock_Config(void);
 void init_conversion(void);
 void init_LCD(void);
 void init_backlight(void);
+void init_flashBackRead(void);
 void write_lcd(void);
 void font_transfer(void);
 void font_transfer2(void);
@@ -150,10 +151,12 @@ int main(void)
 	
 	pLagDef(-0.6352f,25000,&pc_b1,&pc_b2);
 	flashRead();
+	init_flashBackRead();
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
+	
 	
 	
 	
