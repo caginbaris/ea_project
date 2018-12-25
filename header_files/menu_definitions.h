@@ -231,7 +231,7 @@ union display_menu_union{
 	struct display_menu_handles settings_output;	//49
 	struct display_menu_handles settings_comm;	//50
 	struct display_menu_handles settings_energy_reset;	//51
-	struct display_menu_handles settings_password;	//51
+	struct display_menu_handles settings_password;	//52
 
 		
 		

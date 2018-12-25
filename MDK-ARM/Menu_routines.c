@@ -175,10 +175,13 @@ void savingScreen(){
 	current_menu=settings_menu;
 	
 	currentSaveMenu=no_save_at_all;
+		
+	flash=flashNew;
+	flashNew=flash;		
 	
 	flashWrite();
 	
-	flash=flashNew;
+
 	
 	}
 	
@@ -1277,8 +1280,8 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash  (vt_digit_p);
-	flashNew.data.vt_seconder=screenData2flash(vt_digit_s);
+	flashNew.data.vt_primer=screenData2flash  (vt_digit_p,6);
+	flashNew.data.vt_seconder=screenData2flash(vt_digit_s,6);
 
 	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
 		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
@@ -1472,6 +1475,10 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
 		
 		
+		ct_digit_phase[1]=flashData2LCD(flash.data.ct_phase_shift,1);
+		ct_digit_phase[0]=flashData2LCD(flash.data.ct_phase_shift,2);
+		
+		
 		current_dir=flash.data.configBit.current_direction;
 		phase_dir=flash.data.configBit.phase_comp_direction;
 		
@@ -1617,34 +1624,37 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 	
 	if(sel==4){sel=0;}
+	
+	
+	 flashNew.data.ct_primer=screenData2flash(ct_digit_p,5);
+	 flashNew.data.ct_seconder=screenData2flash(ct_digit_s,5);
+	 flashNew.data.ct_phase_shift=screenData2flash(ct_digit_phase,2);//cau
+	 flashNew.data.configBit.phase_comp_direction=phase_dir;//cau
+	 flashNew.data.configBit.current_direction=current_dir;//cau
+
 		
 
 	if(pressed_button==up_pressed && save_lock==0){ 
 	
 	
 		
-	flashNew.data.ct_primer=screenData2flash(ct_digit_p);
-	flashNew.data.ct_seconder=screenData2flash(ct_digit_s);
-	flashNew.data.ct_phase_shift=screenData2flash(ct_digit_phase);//cau
-	flashNew.data.configBit.phase_comp_direction=phase_dir;//cau
-	flashNew.data.configBit.current_direction=current_dir;//cau
+
 		
 
-	if((flashNew.data.ct_primer			=!flash.data.ct_primer) || 
-		 (flashNew.data.ct_seconder		=!flash.data.ct_seconder) ||
-		 (flashNew.data.ct_phase_shift=!flash.data.ct_phase_shift) ||
-		 (flashNew.data.configBit.phase_comp_direction=!flash.data.configBit.phase_comp_direction) ||
-	   (flashNew.data.configBit.current_direction=!flash.data.configBit.current_direction)
+	if((flashNew.data.ct_primer											!=flash.data.ct_primer	) 										|| 
+		 (flashNew.data.ct_seconder										!=flash.data.ct_seconder) 										||
+		 (flashNew.data.ct_phase_shift								!=flash.data.ct_phase_shift) 									||
+		 (flashNew.data.configBit.phase_comp_direction!=flash.data.configBit.phase_comp_direction) 	||
+	   (flashNew.data.configBit.current_direction		!=flash.data.configBit.current_direction)
 	){
 	
 		save_lock=1;
-		entered=0;	 
 			 
-	}else{
-	
-	current_menu=settings_menu;
-	
-	}			
+		currentSaveMenu=save_option_menu;		 
+			 
+		//entered=0;	 //cau
+			 
+	}else{current_menu=settings_menu;}			
  }
 };
 

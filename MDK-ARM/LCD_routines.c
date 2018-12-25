@@ -333,17 +333,23 @@ uint32_t flashData2LCD(uint32_t x,uint32_t n){
 }
 
 
-uint32_t screenData2flash(enum digit_codes_14pt* data){
+uint32_t screenData2flash(enum digit_codes_14pt* data, uint8_t N){
 
-	uint32_t combinedNumber;
+	uint32_t combinedNumber=0,exp10=1;
+	
+	uint8_t i;
 
-	combinedNumber= data[0]*100000+
-									data[1]*10000+
-									data[2]*1000+
-									data[3]*100+
-									data[4]*10+
-									data[5];
-
+	
+	for(i=0;i<N;i++){
+	
+	combinedNumber+=((uint32_t)data[N-1-i])*exp10;
+		
+	exp10*=10;	
+		
+	}
+	
+	
+	
    
 
 	return (combinedNumber);
