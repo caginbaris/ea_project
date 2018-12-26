@@ -177,8 +177,7 @@ void savingScreen(){
 	currentSaveMenu=no_save_at_all;
 		
 	flash=flashNew;
-	flashNew=flash;		
-	
+		
 	flashWrite();
 	
 
@@ -221,7 +220,13 @@ void notSavedScreen(){
 	
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
-	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=no_save_at_all;}
+	if(save_lock==0){
+	
+	current_menu=settings_menu;currentSaveMenu=no_save_at_all;
+	flashNew=flash;
+		
+	
+	}
 	
 	
 }
@@ -1713,6 +1718,166 @@ void staticData_input(struct display_menu_handles menu_item){
 void dynamicData_input(struct display_menu_handles menu_item){
 	
 
+	struct option_bits{
+	
+		uint8_t input_energy_reset_EN:1;
+		uint8_t input_energy_reset_edge:1;
+		uint8_t input_record_start_EN:1;
+		uint8_t input_record_start_edge:1;
+		uint8_t cursor_pos:2;
+		
+		uint8_t rem:2;
+			
+	};
+	
+	static struct option_bits obit={0};
+	
+	
+	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t entered=0;
+	
+	uint8_t i;
+	uint8_t column,page;
+	
+
+	clearColumns(2,79,128);
+	clearColumns(4,79,128);
+
+	
+	page=2;
+	column=90;
+	
+	
+	if(obit.input_energy_reset_EN){
+		
+	symbol_transfer(menu_tick,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	column=110;
+	
+	if(obit.input_energy_reset_edge){
+		
+	symbol_transfer(menu_risingEdge,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_fallingEdge,page,column);
+	
+	}
+	
+	
+	
+	
+	page=4;
+	column=90;
+	
+	
+	if(obit.input_record_start_EN){
+		
+	symbol_transfer(menu_tick,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	column=110;
+	
+	if(obit.input_record_start_edge){
+		
+	symbol_transfer(menu_risingEdge,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_fallingEdge,page,column);
+	
+	}
+	
+	
+	
+	
+	
+	
+	if(!entered){
+	
+		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
+		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
+		obit.input_record_start_EN=flash.data.configBit.input_record_start_EN;
+		obit.input_record_start_edge=flash.data.configBit.input_record_start_edge;
+		
+	}
+	
+	
+	if(pressed_button==enter_pressed){sel++; entered=1;}
+	
+	
+	if(sel==0 && entered==1){//primer side start
+		
+		
+	if(pressed_button==left_pressed)	
+		
+	put_cursor(2,90+1*8,7);
+	
+	
+	}//primer side end
+	
+	
+	
+	if(sel==1 && entered==1){//seconder side start
+		
+		
+		
+		
+
+	
+	put_cursor(4,89+1*8,7);	
+	
+	
+	}
+	
+	
+
+	
+
+	
+	
+	
+	if(sel==2){sel=0;}
+	
+	
+
+
+		
+
+	if(pressed_button==up_pressed && save_lock==0){ 
+	
+	 flashNew.data.configBit.input_energy_reset_EN	=obit.input_energy_reset_EN;
+	 flashNew.data.configBit.input_energy_reset_edge=obit.input_energy_reset_edge;
+	 flashNew.data.configBit.input_record_start_EN	=obit.input_record_start_EN;
+	 flashNew.data.configBit.input_record_start_edge=obit.input_record_start_edge;
+
+		
+
+		
+
+	if(0){//cau
+	
+		save_lock=1;
+			 
+		currentSaveMenu=save_option_menu;		 
+			 
+		//entered=0;	 //cau
+			 
+	}else{current_menu=settings_menu;}			
+ }
 	
 }
 

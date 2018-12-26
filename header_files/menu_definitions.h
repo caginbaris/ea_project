@@ -307,12 +307,17 @@ union flashDataUnion{
 	uint32_t ct_primer;
 	uint32_t ct_seconder;
 
-  uint32_t ct_phase_shift;		
+  uint32_t ct_phase_shift;
+			
 		
 	struct{
 		
 		uint32_t current_direction:1;
 		uint32_t phase_comp_direction:1;
+		uint32_t input_energy_reset_EN:1;
+		uint32_t input_energy_reset_edge:1;
+		uint32_t input_record_start_EN:1;
+		uint32_t input_record_start_edge:1;
 		
     uint32_t rem:30;	
 		

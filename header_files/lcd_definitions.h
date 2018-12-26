@@ -163,7 +163,10 @@ menu_qmark,
 menu_tick,
 menu_cross,
 menu_into,
-menu_from		
+menu_from,
+menu_risingEdge,
+menu_fallingEdge
+	
 };
 
 
