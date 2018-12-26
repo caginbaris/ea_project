@@ -165,8 +165,8 @@ menu_cross,
 menu_into,
 menu_from,
 menu_risingEdge,
-menu_fallingEdge
-	
+menu_fallingEdge,
+menu_alter	
 };
 
 

@@ -2774,21 +2774,21 @@ Image Symbol Table
     .constdata                               0x0800af68   Section      108  lcd_fonts.o(.constdata)
     .constdata                               0x0800afd4   Section      159  lcd_fonts.o(.constdata)
     .constdata                               0x0800b074   Section      108  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b0e0   Section      136  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b168   Section      220  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b244   Section       40  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b26c   Section       38  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b292   Section       12  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b29e   Section       94  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b2fc   Section       24  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b314   Section       48  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b344   Section       40  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b36c   Section       32  stm32f3xx_hal_rcc.o(.constdata)
-    .constdata                               0x0800b38c   Section       16  system_stm32f3xx.o(.constdata)
-    .constdata                               0x0800b39c   Section        8  system_stm32f3xx.o(.constdata)
-    .constdata                               0x0800b3a4   Section      510  menu_init.o(.constdata)
-    .constdata                               0x0800b5a4   Section       32  rredf.o(.constdata)
-    twooverpi                                0x0800b5a4   Data          32  rredf.o(.constdata)
+    .constdata                               0x0800b0e0   Section      144  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b170   Section      220  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b24c   Section       40  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b274   Section       38  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b29a   Section       12  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b2a6   Section       94  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b304   Section       24  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b31c   Section       48  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b34c   Section       40  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b374   Section       32  stm32f3xx_hal_rcc.o(.constdata)
+    .constdata                               0x0800b394   Section       16  system_stm32f3xx.o(.constdata)
+    .constdata                               0x0800b3a4   Section        8  system_stm32f3xx.o(.constdata)
+    .constdata                               0x0800b3ac   Section      510  menu_init.o(.constdata)
+    .constdata                               0x0800b5ac   Section       32  rredf.o(.constdata)
+    twooverpi                                0x0800b5ac   Data          32  rredf.o(.constdata)
     i.HAL_ADC_ConvCpltCallback               0x20000078   Section        0  converison.o(i.HAL_ADC_ConvCpltCallback)
     i.HAL_SDADC_CalibrationCpltCallback      0x200001cc   Section        0  converison.o(i.HAL_SDADC_CalibrationCpltCallback)
     i.HAL_SDADC_InjectedConvCpltCallback     0x20000228   Section        0  converison.o(i.HAL_SDADC_InjectedConvCpltCallback)
@@ -3304,22 +3304,22 @@ Image Symbol Table
     Descriptors                              0x0800af68   Data         108  lcd_fonts.o(.constdata)
     arial_8ptBitmaps                         0x0800afd4   Data         159  lcd_fonts.o(.constdata)
     Descriptors2                             0x0800b074   Data         108  lcd_fonts.o(.constdata)
-    button_symbols                           0x0800b0e0   Data         136  lcd_fonts.o(.constdata)
-    bookAntiqua_14ptBitmaps                  0x0800b168   Data         220  lcd_fonts.o(.constdata)
-    Descriptors3                             0x0800b244   Data          40  lcd_fonts.o(.constdata)
-    unit_charecters                          0x0800b26c   Data          38  lcd_fonts.o(.constdata)
-    Descriptors4                             0x0800b292   Data          12  lcd_fonts.o(.constdata)
-    menu_units_ch                            0x0800b29e   Data          94  lcd_fonts.o(.constdata)
-    Descriptors5                             0x0800b2fc   Data          24  lcd_fonts.o(.constdata)
-    arial_8ptBitmaps_lowerCaseDigits         0x0800b314   Data          48  lcd_fonts.o(.constdata)
-    Descriptors_lowerCaseDigits              0x0800b344   Data          40  lcd_fonts.o(.constdata)
-    aPLLMULFactorTable                       0x0800b36c   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x0800b37c   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    AHBPrescTable                            0x0800b38c   Data          16  system_stm32f3xx.o(.constdata)
-    APBPrescTable                            0x0800b39c   Data           8  system_stm32f3xx.o(.constdata)
-    menu_transition                          0x0800b3a4   Data         510  menu_init.o(.constdata)
-    Region$$Table$$Base                      0x0800b5c4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800b5f4   Number         0  anon$$obj.o(Region$$Table)
+    button_symbols                           0x0800b0e0   Data         144  lcd_fonts.o(.constdata)
+    bookAntiqua_14ptBitmaps                  0x0800b170   Data         220  lcd_fonts.o(.constdata)
+    Descriptors3                             0x0800b24c   Data          40  lcd_fonts.o(.constdata)
+    unit_charecters                          0x0800b274   Data          38  lcd_fonts.o(.constdata)
+    Descriptors4                             0x0800b29a   Data          12  lcd_fonts.o(.constdata)
+    menu_units_ch                            0x0800b2a6   Data          94  lcd_fonts.o(.constdata)
+    Descriptors5                             0x0800b304   Data          24  lcd_fonts.o(.constdata)
+    arial_8ptBitmaps_lowerCaseDigits         0x0800b31c   Data          48  lcd_fonts.o(.constdata)
+    Descriptors_lowerCaseDigits              0x0800b34c   Data          40  lcd_fonts.o(.constdata)
+    aPLLMULFactorTable                       0x0800b374   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x0800b384   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    AHBPrescTable                            0x0800b394   Data          16  system_stm32f3xx.o(.constdata)
+    APBPrescTable                            0x0800b3a4   Data           8  system_stm32f3xx.o(.constdata)
+    menu_transition                          0x0800b3ac   Data         510  menu_init.o(.constdata)
+    Region$$Table$$Base                      0x0800b5cc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800b5fc   Number         0  anon$$obj.o(Region$$Table)
     Long Thumb to Thumb Veneer to HAL_GPIO_TogglePin 0x20000001   Thumb Code    10  anon$$obj.o(Veneer$$Code)
     Long Thumb to Thumb Veneer to HAL_SDADC_InjectedGetValue 0x2000000b   Thumb Code    10  anon$$obj.o(Veneer$$Code)
     Long Thumb to Thumb Veneer to __hardfp_sqrtf 0x20000015   Thumb Code    10  anon$$obj.o(Veneer$$Code)
@@ -3483,9 +3483,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000dcdc, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000d47c])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000dce4, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000d484])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000b5f4, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000b5fc, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3805,22 +3805,22 @@ Memory Map of the image
     0x0800afd4   0x0000009f   Data   RO          423    .constdata          lcd_fonts.o
     0x0800b073   0x00000001   PAD
     0x0800b074   0x0000006c   Data   RO          424    .constdata          lcd_fonts.o
-    0x0800b0e0   0x00000088   Data   RO          425    .constdata          lcd_fonts.o
-    0x0800b168   0x000000dc   Data   RO          426    .constdata          lcd_fonts.o
-    0x0800b244   0x00000028   Data   RO          427    .constdata          lcd_fonts.o
-    0x0800b26c   0x00000026   Data   RO          428    .constdata          lcd_fonts.o
-    0x0800b292   0x0000000c   Data   RO          429    .constdata          lcd_fonts.o
-    0x0800b29e   0x0000005e   Data   RO          430    .constdata          lcd_fonts.o
-    0x0800b2fc   0x00000018   Data   RO          431    .constdata          lcd_fonts.o
-    0x0800b314   0x00000030   Data   RO          432    .constdata          lcd_fonts.o
-    0x0800b344   0x00000028   Data   RO          433    .constdata          lcd_fonts.o
-    0x0800b36c   0x00000020   Data   RO         3046    .constdata          stm32f3xx_hal_rcc.o
-    0x0800b38c   0x00000010   Data   RO         4962    .constdata          system_stm32f3xx.o
-    0x0800b39c   0x00000008   Data   RO         4963    .constdata          system_stm32f3xx.o
-    0x0800b3a4   0x000001fe   Data   RO         5179    .constdata          menu_init.o
-    0x0800b5a2   0x00000002   PAD
-    0x0800b5a4   0x00000020   Data   RO         5687    .constdata          m_wm.l(rredf.o)
-    0x0800b5c4   0x00000030   Data   RO         5846    Region$$Table       anon$$obj.o
+    0x0800b0e0   0x00000090   Data   RO          425    .constdata          lcd_fonts.o
+    0x0800b170   0x000000dc   Data   RO          426    .constdata          lcd_fonts.o
+    0x0800b24c   0x00000028   Data   RO          427    .constdata          lcd_fonts.o
+    0x0800b274   0x00000026   Data   RO          428    .constdata          lcd_fonts.o
+    0x0800b29a   0x0000000c   Data   RO          429    .constdata          lcd_fonts.o
+    0x0800b2a6   0x0000005e   Data   RO          430    .constdata          lcd_fonts.o
+    0x0800b304   0x00000018   Data   RO          431    .constdata          lcd_fonts.o
+    0x0800b31c   0x00000030   Data   RO          432    .constdata          lcd_fonts.o
+    0x0800b34c   0x00000028   Data   RO          433    .constdata          lcd_fonts.o
+    0x0800b374   0x00000020   Data   RO         3046    .constdata          stm32f3xx_hal_rcc.o
+    0x0800b394   0x00000010   Data   RO         4962    .constdata          system_stm32f3xx.o
+    0x0800b3a4   0x00000008   Data   RO         4963    .constdata          system_stm32f3xx.o
+    0x0800b3ac   0x000001fe   Data   RO         5179    .constdata          menu_init.o
+    0x0800b5aa   0x00000002   PAD
+    0x0800b5ac   0x00000020   Data   RO         5687    .constdata          m_wm.l(rredf.o)
+    0x0800b5cc   0x00000030   Data   RO         5846    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00005408, Max: 0x00006000, ABSOLUTE, COMPRESSED[0x0000046c])

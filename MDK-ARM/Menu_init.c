@@ -980,7 +980,7 @@ struct display_menu_handles set_input_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_enter,menu_left,menu_right,0,menu_escape},
+	/*symbols*/			{menu_enter,menu_alter,menu_right,0,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_input,
 	/*dynamic data*/ dynamicData_input
