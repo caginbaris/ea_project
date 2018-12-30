@@ -1186,7 +1186,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 	
-	if(!entered){
+	if(!entered && save_lock==0){
 	
 		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
 		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
@@ -1463,7 +1463,8 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 	
 	
-	if(!entered){
+	if(!entered && save_lock==0){
+		
 	
 		
 		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
@@ -1644,8 +1645,6 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	
 		
 
-		
-
 	if((flashNew.data.ct_primer											!=flash.data.ct_primer	) 										|| 
 		 (flashNew.data.ct_seconder										!=flash.data.ct_seconder) 										||
 		 (flashNew.data.ct_phase_shift								!=flash.data.ct_phase_shift) 									||
@@ -1657,7 +1656,7 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 			 
 		currentSaveMenu=save_option_menu;		 
 			 
-		//entered=0;	 //cau
+		entered=0;	 //cau
 			 
 	}else{current_menu=settings_menu;}			
  }
@@ -1687,7 +1686,7 @@ void staticData_input(struct display_menu_handles menu_item){
 	column=0;
 	page=2;
 	
-	for(i=0;i<8;i++){
+	for(i=0;i<12;i++){
 		
 	column=letter_transfer_8pt(energy_reset[i],page,column);
 	
@@ -1697,7 +1696,7 @@ void staticData_input(struct display_menu_handles menu_item){
 	column=0;
 	page=4;
 	
-	for(i=0;i<8;i++){
+	for(i=0;i<12;i++){
 		
 	column=letter_transfer_8pt(record_start[i],page,column);
 		
@@ -1735,6 +1734,7 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	
 	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
+	static uint8_t col=0;
 	
 	uint8_t i;
 	uint8_t column,page;
@@ -1806,7 +1806,7 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	
 	
 	
-	if(!entered){
+	if(!entered && save_lock==0){
 	
 		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
 		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
@@ -1816,15 +1816,33 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	}
 	
 	
-	if(pressed_button==enter_pressed){sel++; entered=1;}
+	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
 	
 	
 	if(sel==0 && entered==1){//primer side start
 		
 		
-	if(pressed_button==left_pressed)	
+	if(pressed_button==left_pressed && col==0 ){
+	
+		obit.input_energy_reset_EN^=1;
+	
+	}
+
+
+	if(pressed_button==left_pressed && col==1 ){
+	
+		obit.input_energy_reset_edge^=1;
+	
+	}		
 		
-	put_cursor(2,90+1*8,7);
+		
+	if(pressed_button==right_pressed ){
+	
+		col^=1;
+	
+	}	
+		
+	put_cursor(2,90+col*20,8);
 	
 	
 	}//primer side end
@@ -1834,11 +1852,29 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	if(sel==1 && entered==1){//seconder side start
 		
 		
+	if(pressed_button==left_pressed && col==0 ){
+	
+		obit.input_record_start_EN^=1;
+	
+	}
+
+
+	if(pressed_button==left_pressed && col==1 ){
+	
+		obit.input_record_start_edge^=1;
+	
+	}		
 		
+		
+	if(pressed_button==right_pressed ){
+	
+		col^=1;
+	
+	}		
 		
 
 	
-	put_cursor(4,89+1*8,7);	
+  put_cursor(4,90+col*20,8);
 	
 	
 	}
