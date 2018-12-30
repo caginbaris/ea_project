@@ -1904,13 +1904,16 @@ void dynamicData_input(struct display_menu_handles menu_item){
 
 		
 
-	if(0){//cau
+	if(	(flashNew.data.configBit.input_energy_reset_EN		!=flash.data.configBit.input_energy_reset_EN) 	||
+			(flashNew.data.configBit.input_energy_reset_edge	!=flash.data.configBit.input_energy_reset_edge) ||
+			(flashNew.data.configBit.input_record_start_EN		!=flash.data.configBit.input_record_start_EN)		||
+			(flashNew.data.configBit.input_record_start_edge	!=flash.data.configBit.input_record_start_edge)){//cau
 	
 		save_lock=1;
 			 
 		currentSaveMenu=save_option_menu;		 
 			 
-		//entered=0;	 //cau
+		entered=0;	 
 			 
 	}else{current_menu=settings_menu;}			
  }
