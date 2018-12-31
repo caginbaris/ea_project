@@ -51,6 +51,7 @@
 "v4ea\aux_functions.o"
 "v4ea\graphing_fuctions.o"
 "v4ea\flashdatahandling.o"
+"v4ea\ios.o"
 --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
