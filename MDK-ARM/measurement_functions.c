@@ -133,7 +133,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x){
 	
 		static union powerParameters xback;
-		static uint8_t i=0;
+
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
 		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;

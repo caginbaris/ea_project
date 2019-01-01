@@ -50,12 +50,12 @@ enum letter_codes_8pt main_menu_entries[][20]={
 struct display_menu_handles Main_Menu={
 
 	/*null pointer*/NULL,
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*symbols*/			{menu_enter,0,0,menu_down,menu_up},
-	/*no data for main*/{0},
+	/*no data for main*/{a},
+	/*no data for main*/{A},
+	/*no data for main*/{A},
+	/*no data for main*/{A},
+	/*symbols*/			{menu_enter,menu_blank,menu_blank,menu_down,menu_up},
+	/*no data for main*/{m_},
 	/*null pointer*/toMainDetect,
 	/*null pointer*/atMainOperation,
 };
@@ -78,12 +78,12 @@ enum letter_codes_8pt setting_menu_entries[][20]={
 struct display_menu_handles Setting_Menu={
 
 	/*null pointer*/NULL,
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*no data for main*/{0},
-	/*symbols*/			{menu_enter,menu_escape,0,menu_down,menu_up},
-	/*no data for main*/{0},
+	/*no data for main*/{a},
+	/*no data for main*/{A},
+	/*no data for main*/{A},
+	/*no data for main*/{A},
+	/*symbols*/			{menu_enter,menu_escape,menu_blank,menu_down,menu_up},
+	/*no data for main*/{m_},
 	/*null pointer*/toSettingsDetect,
 	/*null pointer*/atSettingsOperation,
 };
@@ -105,7 +105,7 @@ struct display_menu_handles Vpn_true_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,0},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_blank},
 	/*menu units*/	{m_V,m_,m_,m_},
 
 	/*static data*/  staticDataTripple,
@@ -125,7 +125,7 @@ struct display_menu_handles Vpn_fund_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,0},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_blank},
 	/*menu units*/	{m_V,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -145,7 +145,7 @@ struct display_menu_handles Vpp_true_Menu= {
 	/*second line*/ {B,C,__},
 	/*third line*/ 	{C,A,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -164,7 +164,7 @@ struct display_menu_handles Vpp_fund_Menu= {
 	/*second line*/ {B,C,__},
 	/*third line*/ 	{C,A,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -184,7 +184,7 @@ struct display_menu_handles Ip_true_Menu= {
 	/*second line*/ {I,B,__},
 	/*third line*/ 	{I,C,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_,},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -203,7 +203,7 @@ struct display_menu_handles Ip_fund_Menu= {
 	/*second line*/ {I,B,__},
 	/*third line*/ 	{I,C,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -222,7 +222,7 @@ struct display_menu_handles Active_Power_Menu= {
 	/*second line*/ {P,B,__},
 	/*third line*/ 	{P,C,__},
 	
-	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_W,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -241,7 +241,7 @@ struct display_menu_handles Reactive_Power_Menu= {
 	/*second line*/ {Q,B,__},
 	/*third line*/ 	{Q,C,__},
 	
-	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_R,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -260,7 +260,7 @@ struct display_menu_handles Apparent_Power_Menu= {
 	/*second line*/ {S,B,__},
 	/*third line*/ 	{S,C,__},
 	
-	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -278,7 +278,7 @@ struct display_menu_handles Total_Power_Menu= {
 	/*second line*/ {Q,__,__},
 	/*third line*/ 	{S,__,__},
 	
-	/*symbols*/			{menu_escape,0,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_,m_},
 	/*static data*/  staticDataTrippleTotalPower,
 	/*dynamic data*/ dynamicDataTrippleTotalPower
@@ -296,7 +296,7 @@ struct display_menu_handles Power_Factors_true_Menu= {
 	/*fist line*/ 	{A,N,__},
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -314,7 +314,7 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -333,7 +333,7 @@ struct display_menu_handles Total_Power_Factor_true_Menu= {
 	/*second line*/ {P,F,T},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -352,7 +352,7 @@ struct display_menu_handles Total_Power_Factor_fund_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -371,7 +371,7 @@ struct display_menu_handles Power_Ratios_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_}, // percent can be added
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -390,7 +390,7 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -409,7 +409,7 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_W,m_h,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -466,7 +466,7 @@ struct display_menu_handles Active_Total_Energy_Export_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_W,m_h,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -490,7 +490,7 @@ struct display_menu_handles Reactive_Energy_Import_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_R,m_h},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -546,7 +546,7 @@ struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_R,m_h},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -564,7 +564,7 @@ struct display_menu_handles Apparent_Energy_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_h,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -583,7 +583,7 @@ struct display_menu_handles Apparent_Total_Energy_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_V,m_A,m_h,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -602,7 +602,7 @@ struct display_menu_handles Scope_Van_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -621,7 +621,7 @@ struct display_menu_handles Scope_Vbn_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -640,7 +640,7 @@ struct display_menu_handles Scope_Vcn_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -659,7 +659,7 @@ struct display_menu_handles Scope_Ia_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -678,7 +678,7 @@ struct display_menu_handles Scope_Ib_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -697,7 +697,7 @@ struct display_menu_handles Scope_Ic_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,0,0},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_blank,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  graphBaseLining,
 	/*dynamic data*/ graphDataTransfer
@@ -715,7 +715,7 @@ struct display_menu_handles Harmonics_Van_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,0},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_down,menu_blank},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  harmonicBaseLine,
 	/*dynamic data*/ harmonicDataTransfer
@@ -811,7 +811,7 @@ struct display_menu_handles Harmonics_Ic_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,menu_right,0,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_right,menu_blank,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  harmonicBaseLine,
 	/*dynamic data*/ harmonicDataTransfer
@@ -830,7 +830,7 @@ struct display_menu_handles thd_Vpn_Menu= {
 	/*second line*/ {B,N,__},
 	/*third line*/ 	{C,N,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -849,7 +849,7 @@ struct display_menu_handles thd_I_Menu= {
 	/*second line*/ {I,B,__},
 	/*third line*/ 	{I,C,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -867,7 +867,7 @@ struct display_menu_handles sym_Vpn_Menu= {
 	/*second line*/ {N,__,__},
 	/*third line*/ 	{O,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -886,7 +886,7 @@ struct display_menu_handles sym_I_Menu= {
 	/*second line*/ {N,__,__},
 	/*third line*/ 	{O,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,menu_down,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
 	/*menu units*/	{m_A,m_,m_,m_},
 	/*static data*/  staticDataTripple,
 	/*dynamic data*/ dynamicDataTripple
@@ -904,7 +904,7 @@ struct display_menu_handles UNB_V_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,0,menu_right,0,menu_up},
+	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_blank,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -923,7 +923,7 @@ struct display_menu_handles UNB_I_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_escape,menu_left,0,0,menu_up},
+	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_blank,menu_up},
 	/*menu units*/	{m_percent,m_,m_,m_},
 	/*static data*/  staticDataSingle,
 	/*dynamic data*/ dynamicDataSingle
@@ -980,7 +980,7 @@ struct display_menu_handles set_input_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_enter,menu_alter,menu_right,0,menu_escape},
+	/*symbols*/			{menu_enter,menu_alter,menu_right,menu_blank,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_input,
 	/*dynamic data*/ dynamicData_input
@@ -994,13 +994,13 @@ struct display_menu_handles set_output_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{d,i,j,i,t,a,l,_,g,i,r,i,s,_,i,s,l,e,v,i,_} ,
+	/*title*/      	{d,i,j,i,t,a,l,_,c,i,k,i,s,_,i,s,l,e,v,i,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_enter,menu_alter,menu_right,0,menu_escape},
+	/*symbols*/			{menu_enter,menu_alter,menu_right,menu_blank,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_output,
 	/*dynamic data*/ dynamicData_output

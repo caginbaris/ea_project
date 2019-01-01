@@ -9,6 +9,7 @@
 #include "menu_definitions.h"
 #include "phaseCompensation.h"
 #include "ios.h"
+#include "record.h"
 
 struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
@@ -174,7 +175,9 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vca=AN.data.Vcn-AN.data.Van;
 			
 	measurement_routines();
-	ios();	
+	ios();
+	recordEmAll();
+	
 		
 	refresh_counter++;	
 	

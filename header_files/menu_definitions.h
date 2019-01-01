@@ -308,7 +308,8 @@ union flashDataUnion{
 	uint32_t ct_seconder;
 
   uint32_t ct_phase_shift;
-			
+	
+	//cau record data union must be added		
 		
 	struct{
 		
@@ -342,7 +343,7 @@ enum saveMenus{
 	
 		no_save_at_all=0,
 		save_option_menu=1,
-		saving__menu=2,
+		saving_menu=2,
 		not_saved_menu=3,
 
 

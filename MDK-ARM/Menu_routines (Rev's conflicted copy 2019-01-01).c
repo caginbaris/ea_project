@@ -5,7 +5,6 @@
 #include  <string.h>
 #include  "aux_functions.h"
 #include "flash_api.h"
-#include "ios.h"
 
 
 uint8_t save_lock=0;
@@ -129,7 +128,7 @@ void saveScreen(){
 	save_lock=off_delay(0,save_lock,200,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=not_saved_menu;pbcheck=1;}
 	
-	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=saving_menu;pbcheck=1;}
+	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=saving__menu;pbcheck=1;}
 	if(pressed_button==down_pressed && pbcheck==0){currentSaveMenu=not_saved_menu;pbcheck=1;}
 
 }
@@ -176,12 +175,10 @@ void savingScreen(){
 	current_menu=settings_menu;
 	
 	currentSaveMenu=no_save_at_all;
-		
-	flash=flashNew;
-		
+	
 	flashWrite();
 	
-
+	flash=flashNew;
 	
 	}
 	
@@ -221,13 +218,7 @@ void notSavedScreen(){
 	
 	
 	save_lock=off_delay(0,save_lock,20,&timeOut);
-	if(save_lock==0){
-	
-	current_menu=settings_menu;currentSaveMenu=no_save_at_all;
-	flashNew=flash;
-		
-	
-	}
+	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=no_save_at_all;}
 	
 	
 }
@@ -1187,7 +1178,7 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 	
-	if(!entered && save_lock==0){
+	if(!entered){
 	
 		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
 		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
@@ -1286,8 +1277,8 @@ void dynamicData_VT(struct display_menu_handles menu_item){
 	
 	
 		
-	flashNew.data.vt_primer=screenData2flash  (vt_digit_p,6);
-	flashNew.data.vt_seconder=screenData2flash(vt_digit_s,6);
+	flashNew.data.vt_primer=screenData2flash  (vt_digit_p);
+	flashNew.data.vt_seconder=screenData2flash(vt_digit_s);
 
 	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
 		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
@@ -1355,7 +1346,7 @@ void staticData_CT(struct display_menu_handles menu_item){
 	
 	
 	column=1;
-	page=5;
+	page=6;
 	
 	for(i=0;i<9;i++){
 		
@@ -1380,23 +1371,20 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	static enum digit_codes_14pt ct_digit_p[5]={0};
 	static enum digit_codes_14pt ct_digit_s[5]={0};
 	static enum digit_codes_14pt ct_digit_phase[2]={0};
-
+	static enum digit_codes_14pt ct_digit_dir[5]={0};//cau
 	
 	static uint8_t ord=0;//order of  digits 0...5
-	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t sel=1;//primary/secondary selection
 	static uint8_t entered=0;
-	
-	static uint8_t current_dir=0;
-	static uint8_t phase_dir=0;
 	
 	uint8_t i;
 	uint8_t column,page;
 	
-	clearColumns(1,79,128);
-	clearColumns(2,79,128);
+	clearColumns(1,79,127);
+	clearColumns(2,79,127);
 		
-	clearColumns(4,79,128);
-	clearColumns(5,79,128);
+	clearColumns(4,79,127);
+	clearColumns(5,79,127);
 	
 	page=1;
 	column=90;
@@ -1420,52 +1408,28 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	}
 	
 	page=4;
-	column=98;
+	column=100;
 		
 	//phase digit tranfer
 	
-	if(phase_dir){
+	if(flash.data.configBit.phase_comp_direction){
 	
-	put_minus(page,90);
+	//minus and plus ops
 		
-	}else{
-		
-	put_plus(page,90);
-	
-	}
-
-	
-	digit_transfer_8pt(ct_digit_phase[0],page,column);
-	
-	put_dot(page,column+6);
-	
-	digit_transfer_8pt(ct_digit_phase[1],page,column+8);
-	
-	
-	//dir
-	
-	
-	page=5;
-	column=100;
-	
-	
-	if(current_dir){
-	
-	  symbol_transfer(menu_from,page,column);
-		
-	}else{
-		
-		symbol_transfer(menu_into,page,column);
-	
 	}
 	
 	
 	
+	digit_transfer_8pt(ct_digit_s[i],page,column);
+	
+	put_dot(page,column+8);
+	
+	digit_transfer_8pt(ct_digit_s[i],page,column+9);
 	
 	
 	
-	if(!entered && save_lock==0){
-		
+	
+	if(!entered){
 	
 		
 		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
@@ -1480,14 +1444,6 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
 		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
 		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
-		
-		
-		ct_digit_phase[1]=flashData2LCD(flash.data.ct_phase_shift,1);
-		ct_digit_phase[0]=flashData2LCD(flash.data.ct_phase_shift,2);
-		
-		
-		current_dir=flash.data.configBit.current_direction;
-		phase_dir=flash.data.configBit.phase_comp_direction;
 		
 
 	}
@@ -1516,12 +1472,12 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(pressed_button==down_pressed){  // down is right pos change
 	
 	ord++;
-	if(ord>_4){ord=0;}	
+	if(ord>_5){ord=0;}	
 		
 	}
 	
 	
-	put_cursor(1,89+ord*8,7);
+	put_cursor(2,79+ord*8,7);
 	
 	
 	}//primer side end
@@ -1531,6 +1487,7 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(sel==1 && entered==1){//seconder side start
 		
 		
+	//cau	
 		
 		
 	if(pressed_button==left_pressed){  // left is plus @VT
@@ -1551,691 +1508,47 @@ void dynamicData_CT(struct display_menu_handles menu_item){
 	if(pressed_button==down_pressed){  // down is right pos change
 	
 	ord++;
-	if(ord>_4){ord=0;}	
+	if(ord>_5){ord=0;}	
 		
 	}
 	
-	put_cursor(2,89+ord*8,7);	
+	put_cursor(4,79+ord*8,7);	
 		
 	}//seconder side end
 	
 	
 	if(sel==2 && entered==1){//phase started
-		
-
-	if(ord==0){
-	
-	
-	if(pressed_button==left_pressed || pressed_button==right_pressed){  // left is plus @VT
-	
-		phase_dir^=1;
-		
-	}
-	
-	
-	}else{
-		
-	if(pressed_button==left_pressed){  // left is plus @VT
-	
-	
-	if(++ct_digit_phase[ord-1]>_9){ct_digit_phase[ord-1]=_0;}	
-	
-	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
-		
-	}
-	
-	if(pressed_button==right_pressed){ // left is plus @VT
-	
-	
-	if(--ct_digit_phase[ord-1]==_m1){ct_digit_phase[ord-1]=_9;}	
-	
-	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
-		
-	 }
 	
 	
 	}
-	
-	
-	if(pressed_button==down_pressed){  // down is right pos change
-	
-	ord++;
-	if(ord>_2){ord=0;}	
-		
-	}
-	
-	put_cursor(4,89+ord*8,7);	
-	
-	
-	}
-	
-	
-
 	
 	if(sel==3 && entered==1){//dir start
-		
-	if(pressed_button==left_pressed || pressed_button==right_pressed){  // left is plus @VT
-	
-		current_dir^=1;
-		
 	}
-	
-	
-
-	
-	put_cursor(5,100,8);
-		
-		
-		
-	}
-	
-	
-	if(sel==4){sel=0;}
-	
-	
-	 flashNew.data.ct_primer=screenData2flash(ct_digit_p,5);
-	 flashNew.data.ct_seconder=screenData2flash(ct_digit_s,5);
-	 flashNew.data.ct_phase_shift=screenData2flash(ct_digit_phase,2);//cau
-	 flashNew.data.configBit.phase_comp_direction=phase_dir;//cau
-	 flashNew.data.configBit.current_direction=current_dir;//cau
-
 		
 
 	if(pressed_button==up_pressed && save_lock==0){ 
 	
 	
 		
+	flashNew.data.ct_primer=screenData2flash(ct_digit_p);
+	flashNew.data.ct_seconder=screenData2flash(ct_digit_s);
 
-	if((flashNew.data.ct_primer											!=flash.data.ct_primer	) 										|| 
-		 (flashNew.data.ct_seconder										!=flash.data.ct_seconder) 										||
-		 (flashNew.data.ct_phase_shift								!=flash.data.ct_phase_shift) 									||
-		 (flashNew.data.configBit.phase_comp_direction!=flash.data.configBit.phase_comp_direction) 	||
-	   (flashNew.data.configBit.current_direction		!=flash.data.configBit.current_direction)
-	){
+	if((flashNew.data.ct_primer=!flash.data.vt_primer) || 
+		 (flashNew.data.ct_seconder=!flash.data.vt_seconder)){
 	
 		save_lock=1;
+		entered=0;	 
 			 
-		currentSaveMenu=save_option_menu;		 
-			 
-		entered=0;	 //cau
-			 
-	}else{current_menu=settings_menu;}			
+	}else{
+	
+	current_menu=settings_menu;
+	
+	}			
  }
 };
 
 
-void staticData_input(struct display_menu_handles menu_item){
 
-	enum letter_codes_8pt energy_reset[12]=  {e,n,e,r,j,i,_,r,e,s,e,t};
-	enum letter_codes_8pt record_start[12]=  {k,a,y,i,t,_,b,a,s,l,a,t};
-	enum letter_codes_8pt input_status[12]=  {g,i,r,i,s,_,d,u,r,u,m,_};
-	
-	uint8_t i;
-	uint8_t column=1;
-	uint8_t page=0;
-	
-
-
-	for(i=0;i<21;i++){
-		
-	column=letter_transfer_8pt(menu_item.title[i],page,column);
-	
-		
-	}
-	
-	line_highlighter(0,128);
-	
-	column=0;
-	page=2;
-	
-	for(i=0;i<12;i++){
-		
-	column=letter_transfer_8pt(energy_reset[i],page,column);
-	
-	}
-	
-	
-	column=0;
-	page=4;
-	
-	for(i=0;i<12;i++){
-		
-	column=letter_transfer_8pt(record_start[i],page,column);
-		
-	}
-	
-	
-	column=0;
-	page=6;
-	
-	
-	for(i=0;i<12;i++){
-		
-	column=letter_transfer_8pt(input_status[i],page,column);
-		
-	}
-	
-	
-	symbol_transfer(menu_item.symbol[0],7,1);
-	symbol_transfer(menu_item.symbol[1],7,28);
-	symbol_transfer(menu_item.symbol[2],7,59);
-	symbol_transfer(menu_item.symbol[3],7,88);
-	symbol_transfer(menu_item.symbol[4],7,119);
-	
-	
-	
-};
-
-
-void dynamicData_input(struct display_menu_handles menu_item){
-	
-
-	struct option_bits{
-	
-		uint8_t input_energy_reset_EN:1;
-		uint8_t input_energy_reset_edge:1;
-		uint8_t input_record_start_EN:1;
-		uint8_t input_record_start_edge:1;
-		uint8_t cursor_pos:2;
-		
-		uint8_t rem:2;
-			
-	};
-	
-	static struct option_bits obit={0};
-	
-	
-	static uint8_t sel=-1;//primary/secondary selection
-	static uint8_t entered=0;
-	static uint8_t col=0;
-	
-	uint8_t i;
-	uint8_t column,page;
-	
-
-	clearColumns(2,79,128);
-	clearColumns(4,79,128);
-	clearColumns(6,79,128);
-	
-	page=2;
-	column=90;
-	
-	
-	if(obit.input_energy_reset_EN){
-		
-	symbol_transfer(menu_tick,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	column=110;
-	
-	if(obit.input_energy_reset_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	page=4;
-	column=90;
-	
-	
-	if(obit.input_record_start_EN){
-		
-	symbol_transfer(menu_tick,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	column=110;
-	
-	if(obit.input_record_start_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	
-	if(!entered && save_lock==0){
-	
-		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
-		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
-		obit.input_record_start_EN=flash.data.configBit.input_record_start_EN;
-		obit.input_record_start_edge=flash.data.configBit.input_record_start_edge;
-		
-	}
-	
-	
-	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
-	
-	
-	page=6;
-	column=100;
-	
-	
-	if(input.bit.on_offDelayed){
-	
-	
-		symbol_transfer(menu_active_in_out,page,column);
-		
-	}else{
-		
-		symbol_transfer(menu_inactive_in_out,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	if(sel==0 && entered==1){//primer side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_energy_reset_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_energy_reset_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}	
-		
-	put_cursor(2,90+col*20,8);
-	
-	
-	}//primer side end
-	
-	
-	
-	if(sel==1 && entered==1){//seconder side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_record_start_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_record_start_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}		
-		
-
-	
-  put_cursor(4,90+col*20,8);
-	
-	
-	}
-	
-	
-	
-	
-	
-	
-
-	
-
-	
-	
-	
-	if(sel==2){sel=0;}
-	
-	
-
-
-		
-
-	if(pressed_button==up_pressed && save_lock==0){ 
-	
-	 flashNew.data.configBit.input_energy_reset_EN	=obit.input_energy_reset_EN;
-	 flashNew.data.configBit.input_energy_reset_edge=obit.input_energy_reset_edge;
-	 flashNew.data.configBit.input_record_start_EN	=obit.input_record_start_EN;
-	 flashNew.data.configBit.input_record_start_edge=obit.input_record_start_edge;
-
-		
-
-		
-
-	if(	(flashNew.data.configBit.input_energy_reset_EN		!=flash.data.configBit.input_energy_reset_EN) 	||
-			(flashNew.data.configBit.input_energy_reset_edge	!=flash.data.configBit.input_energy_reset_edge) ||
-			(flashNew.data.configBit.input_record_start_EN		!=flash.data.configBit.input_record_start_EN)		||
-			(flashNew.data.configBit.input_record_start_edge	!=flash.data.configBit.input_record_start_edge)){//cau
-	
-		save_lock=1;
-			 
-		currentSaveMenu=save_option_menu;		 
-			 
-		entered=0;	 
-			 
-	}else{current_menu=settings_menu;}			
- }
-	
-}
-
-
-
-void staticData_output(struct display_menu_handles menu_item){
-
-	enum letter_codes_8pt functoning[5]=  {i,s,l,e,v};
-	enum letter_codes_8pt output_status[11]=  {c,i,k,i,s,_,d,u,r,u,m};
-	
-	uint8_t i;
-	uint8_t column=1;
-	uint8_t page=0;
-	
-
-
-	for(i=0;i<21;i++){
-		
-	column=letter_transfer_8pt(menu_item.title[i],page,column);
-	
-		
-	}
-	
-	line_highlighter(0,128);
-	
-	
-	
-	column=0;
-	page=2;
-	
-	for(i=0;i<5;i++){
-		
-	column=letter_transfer_8pt(functoning[i],page,column);
-	
-	}
-	
-	
-
-	
-	
-	column=0;
-	page=6;
-	
-	
-	for(i=0;i<11;i++){
-		
-	column=letter_transfer_8pt(output_status[i],page,column);
-		
-	}
-	
-	
-	symbol_transfer(menu_item.symbol[0],7,1);
-	symbol_transfer(menu_item.symbol[1],7,28);
-	symbol_transfer(menu_item.symbol[2],7,59);
-	symbol_transfer(menu_item.symbol[3],7,88);
-	symbol_transfer(menu_item.symbol[4],7,119);
-
-}
-
-
-void dynamicData_output(struct display_menu_handles menu_item){
-	
-	
-	uint8_t functionDef=0;
-	
-	
-	
-	
-	
-	static uint8_t sel=-1;//primary/secondary selection
-	static uint8_t entered=0;
-	static uint8_t col=0;
-	
-	uint8_t i;
-	uint8_t column,page;
-	
-
-	clearColumns(2,79,128);
-	clearColumns(3,79,128);
-	clearColumns(4,79,128);
-	clearColumns(6,79,128);
-	
-	/*
-	
-	page=2;
-	column=90;
-	
-	
-	if(obit.input_energy_reset_EN){
-		
-	symbol_transfer(menu_tick,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	column=110;
-	
-	if(obit.input_energy_reset_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	page=4;
-	column=90;
-	
-	
-	if(obit.input_record_start_EN){
-		
-	symbol_transfer(menu_tick,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	column=110;
-	
-	if(obit.input_record_start_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	
-	if(!entered && save_lock==0){
-	
-		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
-		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
-		obit.input_record_start_EN=flash.data.configBit.input_record_start_EN;
-		obit.input_record_start_edge=flash.data.configBit.input_record_start_edge;
-		
-	}
-	
-	
-	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
-	
-	
-	page=6;
-	column=100;
-	
-	
-	if(input.bit.on_offDelayed){
-	
-	
-		symbol_transfer(menu_tick,page,column);
-		
-	}else{
-		
-		symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	if(sel==0 && entered==1){//primer side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_energy_reset_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_energy_reset_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}	
-		
-	put_cursor(2,90+col*20,8);
-	
-	
-	}//primer side end
-	
-	
-	
-	if(sel==1 && entered==1){//seconder side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_record_start_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_record_start_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}		
-		
-
-	
-  put_cursor(4,90+col*20,8);
-	
-	
-	}
-	
-	
-	
-	
-	
-	
-
-	
-
-	
-	
-	
-	if(sel==2){sel=0;}
-	
-	
-
-
-		
-
-	if(pressed_button==up_pressed && save_lock==0){ 
-	
-	 flashNew.data.configBit.input_energy_reset_EN	=obit.input_energy_reset_EN;
-	 flashNew.data.configBit.input_energy_reset_edge=obit.input_energy_reset_edge;
-	 flashNew.data.configBit.input_record_start_EN	=obit.input_record_start_EN;
-	 flashNew.data.configBit.input_record_start_edge=obit.input_record_start_edge;
-
-		
-
-		
-
-	if(	(flashNew.data.configBit.input_energy_reset_EN		!=flash.data.configBit.input_energy_reset_EN) 	||
-			(flashNew.data.configBit.input_energy_reset_edge	!=flash.data.configBit.input_energy_reset_edge) ||
-			(flashNew.data.configBit.input_record_start_EN		!=flash.data.configBit.input_record_start_EN)		||
-			(flashNew.data.configBit.input_record_start_edge	!=flash.data.configBit.input_record_start_edge)){//cau
-	
-		save_lock=1;
-			 
-		currentSaveMenu=save_option_menu;		 
-			 
-		entered=0;	 
-			 
-	}else{current_menu=settings_menu;}			
- }*/
-
-
-}
 
 
 

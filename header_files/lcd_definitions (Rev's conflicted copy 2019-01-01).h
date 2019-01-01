@@ -163,12 +163,7 @@ menu_qmark,
 menu_tick,
 menu_cross,
 menu_into,
-menu_from,
-menu_risingEdge,
-menu_fallingEdge,
-menu_alter,
-menu_active_in_out,
-menu_inactive_in_out
+menu_from		
 };
 
 
@@ -196,10 +191,7 @@ uint8_t letter_transfer_14pt(enum letter_codes_14pt x, uint8_t page, uint8_t col
 uint8_t letter_transfer_8pt(enum letter_codes_8pt x, uint8_t page, uint8_t column);
 void put_dot2x2(uint8_t page,uint8_t column);
 void put_dot(uint8_t page,uint8_t column);
-
-void put_plus(uint8_t page,uint8_t column);
 void put_minus(uint8_t page,uint8_t column);
-
 void line_highlighter(uint8_t page, uint8_t column);
 void put_cursor(uint8_t page,uint8_t column,uint8_t width);
 void clearColumns(uint8_t page,uint8_t columnStart,uint8_t columnEnd);
@@ -213,6 +205,6 @@ void notSavedScreen(void);
 
 
 uint32_t flashData2LCD(uint32_t x,uint32_t n);
-uint32_t screenData2flash(enum digit_codes_14pt* data,uint8_t N);
+uint32_t screenData2flash(enum digit_codes_14pt* data);
 
 #endif
