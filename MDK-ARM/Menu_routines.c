@@ -5,6 +5,7 @@
 #include  <string.h>
 #include  "aux_functions.h"
 #include "flash_api.h"
+#include "ios.h"
 
 
 uint8_t save_lock=0;
@@ -1667,6 +1668,7 @@ void staticData_input(struct display_menu_handles menu_item){
 
 	enum letter_codes_8pt energy_reset[12]=  {e,n,e,r,j,i,_,r,e,s,e,t};
 	enum letter_codes_8pt record_start[12]=  {k,a,y,i,t,_,b,a,s,l,a,t};
+	enum letter_codes_8pt input_status[12]=  {g,i,r,i,s,_,d,u,r,u,m,_};
 	
 	uint8_t i;
 	uint8_t column=1;
@@ -1699,6 +1701,17 @@ void staticData_input(struct display_menu_handles menu_item){
 	for(i=0;i<12;i++){
 		
 	column=letter_transfer_8pt(record_start[i],page,column);
+		
+	}
+	
+	
+	column=0;
+	page=6;
+	
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(input_status[i],page,column);
 		
 	}
 	
@@ -1742,7 +1755,7 @@ void dynamicData_input(struct display_menu_handles menu_item){
 
 	clearColumns(2,79,128);
 	clearColumns(4,79,128);
-
+	clearColumns(6,79,128);
 	
 	page=2;
 	column=90;
@@ -1819,6 +1832,25 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
 	
 	
+	page=6;
+	column=100;
+	
+	
+	if(input.bit.on_offDelayed){
+	
+	
+		symbol_transfer(menu_tick,page,column);
+		
+	}else{
+		
+		symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	
+	
+	
 	if(sel==0 && entered==1){//primer side start
 		
 		
@@ -1880,6 +1912,10 @@ void dynamicData_input(struct display_menu_handles menu_item){
 	}
 	
 	
+	
+	
+	
+	
 
 	
 
@@ -1921,6 +1957,297 @@ void dynamicData_input(struct display_menu_handles menu_item){
 }
 
 
+
+void staticData_output(struct display_menu_handles menu_item){
+
+	enum letter_codes_8pt pulse_out[12]=  {e,n,e,r,j,i,_,r,e,s,e,t};
+	enum letter_codes_8pt record_start[12]=  {k,a,y,i,t,_,b,a,s,l,a,t};
+	enum letter_codes_8pt input_status[12]=  {g,i,r,i,s,_,d,u,r,u,m,_};
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+	column=0;
+	page=2;
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(pulse_out[i],page,column);
+	
+	}
+	
+	
+	column=0;
+	page=4;
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(record_start[i],page,column);
+		
+	}
+	
+	
+	column=0;
+	page=6;
+	
+	
+	for(i=0;i<12;i++){
+		
+	column=letter_transfer_8pt(input_status[i],page,column);
+		
+	}
+	
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+
+}
+
+
+void dynamicData_output(struct display_menu_handles menu_item){
+	
+	
+	struct option_bits{
+	
+		uint8_t input_energy_reset_EN:1;
+		uint8_t input_energy_reset_edge:1;
+		uint8_t input_record_start_EN:1;
+		uint8_t input_record_start_edge:1;
+		uint8_t cursor_pos:2;
+		
+		uint8_t rem:2;
+			
+	};
+	
+	static struct option_bits obit={0};
+	
+	
+	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t entered=0;
+	static uint8_t col=0;
+	
+	uint8_t i;
+	uint8_t column,page;
+	
+
+	clearColumns(2,79,128);
+	clearColumns(4,79,128);
+	clearColumns(6,79,128);
+	
+	page=2;
+	column=90;
+	
+	
+	if(obit.input_energy_reset_EN){
+		
+	symbol_transfer(menu_tick,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	column=110;
+	
+	if(obit.input_energy_reset_edge){
+		
+	symbol_transfer(menu_risingEdge,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_fallingEdge,page,column);
+	
+	}
+	
+	
+	
+	
+	page=4;
+	column=90;
+	
+	
+	if(obit.input_record_start_EN){
+		
+	symbol_transfer(menu_tick,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	column=110;
+	
+	if(obit.input_record_start_edge){
+		
+	symbol_transfer(menu_risingEdge,page,column);
+	
+	}else{
+	
+	symbol_transfer(menu_fallingEdge,page,column);
+	
+	}
+	
+	
+	
+	
+	
+	
+	if(!entered && save_lock==0){
+	
+		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
+		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
+		obit.input_record_start_EN=flash.data.configBit.input_record_start_EN;
+		obit.input_record_start_edge=flash.data.configBit.input_record_start_edge;
+		
+	}
+	
+	
+	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
+	
+	
+	page=6;
+	column=100;
+	
+	
+	if(input.bit.on_offDelayed){
+	
+	
+		symbol_transfer(menu_tick,page,column);
+		
+	}else{
+		
+		symbol_transfer(menu_cross,page,column);
+	
+	}
+	
+	
+	
+	
+	
+	if(sel==0 && entered==1){//primer side start
+		
+		
+	if(pressed_button==left_pressed && col==0 ){
+	
+		obit.input_energy_reset_EN^=1;
+	
+	}
+
+
+	if(pressed_button==left_pressed && col==1 ){
+	
+		obit.input_energy_reset_edge^=1;
+	
+	}		
+		
+		
+	if(pressed_button==right_pressed ){
+	
+		col^=1;
+	
+	}	
+		
+	put_cursor(2,90+col*20,8);
+	
+	
+	}//primer side end
+	
+	
+	
+	if(sel==1 && entered==1){//seconder side start
+		
+		
+	if(pressed_button==left_pressed && col==0 ){
+	
+		obit.input_record_start_EN^=1;
+	
+	}
+
+
+	if(pressed_button==left_pressed && col==1 ){
+	
+		obit.input_record_start_edge^=1;
+	
+	}		
+		
+		
+	if(pressed_button==right_pressed ){
+	
+		col^=1;
+	
+	}		
+		
+
+	
+  put_cursor(4,90+col*20,8);
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+	
+	
+	if(sel==2){sel=0;}
+	
+	
+
+
+		
+
+	if(pressed_button==up_pressed && save_lock==0){ 
+	
+	 flashNew.data.configBit.input_energy_reset_EN	=obit.input_energy_reset_EN;
+	 flashNew.data.configBit.input_energy_reset_edge=obit.input_energy_reset_edge;
+	 flashNew.data.configBit.input_record_start_EN	=obit.input_record_start_EN;
+	 flashNew.data.configBit.input_record_start_edge=obit.input_record_start_edge;
+
+		
+
+		
+
+	if(	(flashNew.data.configBit.input_energy_reset_EN		!=flash.data.configBit.input_energy_reset_EN) 	||
+			(flashNew.data.configBit.input_energy_reset_edge	!=flash.data.configBit.input_energy_reset_edge) ||
+			(flashNew.data.configBit.input_record_start_EN		!=flash.data.configBit.input_record_start_EN)		||
+			(flashNew.data.configBit.input_record_start_edge	!=flash.data.configBit.input_record_start_edge)){//cau
+	
+		save_lock=1;
+			 
+		currentSaveMenu=save_option_menu;		 
+			 
+		entered=0;	 
+			 
+	}else{current_menu=settings_menu;}			
+ }
+
+
+}
 
 
 

@@ -989,11 +989,12 @@ struct display_menu_handles set_input_Menu= {
 };
 
 
+
 struct display_menu_handles set_output_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{d,i,j,i,t,a,l,_,c,i,k,i,s,_,i,s,l,e,v,i,_} ,
+	/*title*/      	{d,i,j,i,t,a,l,_,g,i,r,i,s,_,i,s,l,e,v,i,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -1001,11 +1002,14 @@ struct display_menu_handles set_output_Menu= {
 	
 	/*symbols*/			{menu_enter,menu_alter,menu_right,0,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  staticData_input,
-	/*dynamic data*/ dynamicData_input
+	/*static data*/  staticData_output,
+	/*dynamic data*/ dynamicData_output
 	
 
 };
+
+
+
 
 
 
@@ -1256,76 +1260,55 @@ const struct MENU_TRANSITION menu_transition[]={
 void init_Menu(){
 	
 	MENU.handle.main_menu=Main_Menu;
-	
 	MENU.handle.Vpn_true=	Vpn_true_Menu;
 	MENU.handle.Vpn_fund=	Vpn_fund_Menu;
-	
 	MENU.handle.Vpp_true=	Vpp_true_Menu;
 	MENU.handle.Vpp_fund=	Vpp_fund_Menu;
-
 	MENU.handle.Ip_true=	Ip_true_Menu;
 	MENU.handle.Ip_fund=	Ip_fund_Menu;
-	
-	
 	MENU.handle.Active_Power=Active_Power_Menu;
 	MENU.handle.Reactive_Power=Reactive_Power_Menu;
 	MENU.handle.Apparent_Power=Apparent_Power_Menu;
 	MENU.handle.Total_Power=Total_Power_Menu;
-	
 	MENU.handle.Power_Factors_true=Power_Factors_true_Menu;
 	MENU.handle.Power_Factors_fund=Power_Factors_fund_Menu;
-	
 	MENU.handle.Total_Power_Factor_true=Total_Power_Factor_true_Menu;
 	MENU.handle.Total_Power_Factor_fund=Total_Power_Factor_fund_Menu;
-	
 	MENU.handle.Power_Ratios=Power_Ratios_Menu;
 	MENU.handle.Total_Power_Ratios=Total_Power_Ratios_Menu;
-	
 	MENU.handle.Active_Energy_Import=Active_Energy_Import_Menu;
 	MENU.handle.Active_Total_Energy_Import=Active_Total_Energy_Import_Menu;
-	
 	MENU.handle.Active_Energy_Export=Active_Energy_Export_Menu;
 	MENU.handle.Active_Total_Energy_Export=Active_Total_Energy_Export_Menu;
-	
 	MENU.handle.Reactive_Energy_Import=Reactive_Energy_Import_Menu;
 	MENU.handle.Reactive_Total_Energy_Import=Reactive_Total_Energy_Import_Menu;
-	
 	MENU.handle.Reactive_Energy_Export=Reactive_Energy_Export_Menu;
 	MENU.handle.Reactive_Total_Energy_Export=Reactive_Total_Energy_Export_Menu;
-	
 	MENU.handle.Apparent_Energy=Apparent_Energy_Menu;
 	MENU.handle.Apparent_Total_Energy=Apparent_Total_Energy_Menu;
-	
 	MENU.handle.Scope_Van=Scope_Van_Menu;
 	MENU.handle.Scope_Vbn=Scope_Vbn_Menu;
 	MENU.handle.Scope_Vcn=Scope_Vcn_Menu;
-	
 	MENU.handle.Scope_Ia=Scope_Ia_Menu;
 	MENU.handle.Scope_Ib=Scope_Ib_Menu;
 	MENU.handle.Scope_Ic=Scope_Ic_Menu;
-	
 	MENU.handle.Harmonics_Van=Harmonics_Van_Menu;
 	MENU.handle.Harmonics_Vbn=Harmonics_Vbn_Menu;
 	MENU.handle.Harmonics_Vcn=Harmonics_Vcn_Menu;
-	
 	MENU.handle.Harmonics_Ia=Harmonics_Ia_Menu;
 	MENU.handle.Harmonics_Ib=Harmonics_Ib_Menu;
 	MENU.handle.Harmonics_Ic=Harmonics_Ic_Menu;
-	
 	MENU.handle.thd_Vpn=thd_Vpn_Menu;
 	MENU.handle.thd_I=thd_I_Menu;
-	
 	MENU.handle.sym_Vpn=sym_Vpn_Menu;
 	MENU.handle.sym_I=sym_I_Menu;
-	
 	MENU.handle.UNB_V=UNB_V_Menu;
 	MENU.handle.UNB_I=UNB_I_Menu;
-	
 	MENU.handle.settings=Setting_Menu;
 	MENU.handle.settings_VT=set_VT_Menu;
 	MENU.handle.settings_CT=set_CT_Menu;
 	MENU.handle.settings_input=set_input_Menu;
-	MENU.handle.settings_input=set_output_Menu;
+	MENU.handle.settings_output=set_output_Menu;
 	
 }
 

@@ -397,4 +397,8 @@ void dynamicData_CT(struct display_menu_handles menu_item);
 void staticData_input(struct display_menu_handles menu_item);
 void dynamicData_input(struct display_menu_handles menu_item);
 
+
+void staticData_output(struct display_menu_handles menu_item);
+void dynamicData_output(struct display_menu_handles menu_item);
+
 #endif

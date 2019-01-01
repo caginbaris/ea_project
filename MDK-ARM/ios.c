@@ -6,6 +6,8 @@
 
 #define holdTime 50 // 5ms in uberloop 
 
+	volatile int dmy=0;
+
 static uint32_t counter[5]={0};
 static uint8_t  inputBack[2]={0};
 static uint8_t  meta[2]={0};
@@ -13,6 +15,8 @@ static uint8_t  meta[2]={0};
 union boardInput input={0};
 
 void inputHandling(){
+	
+
 	
 	input.bit.raw										=HAL_GPIO_ReadPin(RELAY_INPUT_GPIO_Port,RELAY_INPUT_Pin);
 	
@@ -22,6 +26,9 @@ void inputHandling(){
 	
 	input.bit.risingEdgeDetected		=risingEdgeDetectionWithOnDelay		(input.bit.raw,&inputBack[0],&meta[0],holdTime,&counter[3]);
 	input.bit.fallingEdgeDetected		=fallingEdgeDetectionWithOffDelay	(input.bit.raw,&inputBack[1],&meta[1],holdTime,&counter[4]);
+	
+	
+
 
 	
 }
