@@ -3,29 +3,29 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.20.0.0
+IDE-Version: µVision V5.21.1.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Viva Microsoft, Microsoft, LIC=Z3CWF-6XZZ3-22CL4-F73X0-EEBB1-P4HPS
+License Information: Cagin Baris Cengiz, Endoks Energy, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.20
+Toolchain:       MDK-Lite  Version: 5.21a
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 2 (build 183)
-Assembler:       Armasm.exe V5.06 update 2 (build 183)
-Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
-Library Manager: ArmAr.exe V5.06 update 2 (build 183)
-Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
-CPU DLL:         SARMCM3.DLL V5.20
-Dialog DLL:      DCM.DLL V1.13.7.0
-Target DLL:      ULP2CM3.DLL V2.203.29.0
-Dialog DLL:      TCM.DLL V1.14.9.0
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      ULP2CM3.DLL V2.206.10.0
+Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
-C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  01/01/2019
+C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
+Project File Date:  01/02/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
 compiling Menu_routines.c...
 Menu_routines.c(278): warning:  #188-D: enumerated type mixed with another type
@@ -177,17 +177,27 @@ Menu_routines.c(1748): warning:  #68-D: integer conversion resulted in a change 
   	static uint8_t sel=-1;//primary/secondary selection
 Menu_routines.c(1752): warning:  #177-D: variable "i" was declared but never referenced
   	uint8_t i;
-Menu_routines.c: 64 warnings, 0 errors
+Menu_routines.c(2034): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(2029): warning:  #177-D: variable "pRotation" was declared but never referenced
+  	enum letter_codes_8pt pRotation[6]= {a,_,b,_,c,_};
+Menu_routines.c(2030): warning:  #177-D: variable "nRotation" was declared but never referenced
+  	enum letter_codes_8pt nRotation[6]= {a,_,c,_,b,_};
+Menu_routines.c(2039): warning:  #177-D: variable "page" was declared but never referenced
+  	uint8_t column,page;
+Menu_routines.c: 68 warnings, 0 errors
 linking...
-Program Size: Code=51150 RO-data=3154 RW-data=3336 ZI-data=11640  
-"v4ea\v4ea.axf" - 0 Error(s), 64 Warning(s).
+v4ea\v4ea.axf: error: L6050U: The code size of this image (51434 bytes) exceeds the maximum allowed for this version of the linker.
+Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
+"v4ea\v4ea.axf" - 1 Error(s), 68 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
+  C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\1.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Target not created.
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

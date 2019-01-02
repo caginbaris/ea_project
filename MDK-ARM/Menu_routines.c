@@ -2015,16 +2015,25 @@ void staticData_output(struct display_menu_handles menu_item){
 
 void dynamicData_output(struct display_menu_handles menu_item){
 	
+	enum letter_codes_8pt functoning[3][12]= { {e,n,e,r,j,i,_,p,a,l,s,_},
+																						 {l,i,m,i,t,_,a,s,i,m,i,_},
+																						 {d,o,n,u,s,_,s,i,r,a,s,i},	
 	
-	uint8_t functionDef=0;
+	};
 	
 	
+	enum letter_codes_8pt pulsePeriod[12]= {p,a,l,s,_,p,e,r,i,y,o,t};
+	enum letter_codes_8pt pulseHigh[12]={p,a,l,s,_,y,u,z,d,e,_,_}; 
 	
 	
+	enum letter_codes_8pt pRotation[6]= {a,_,b,_,c,_};
+	enum letter_codes_8pt nRotation[6]= {a,_,c,_,b,_};
 	
+	
+	static uint8_t functionDef=0;
 	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
-	static uint8_t col=0;
+
 	
 	uint8_t i;
 	uint8_t column,page;
@@ -2035,23 +2044,81 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	clearColumns(4,79,128);
 	clearColumns(6,79,128);
 	
-	/*
 	
-	page=2;
-	column=90;
-	
-	
-	if(obit.input_energy_reset_EN){
+	if(!entered){
 		
-	symbol_transfer(menu_tick,page,column);
+		
+		column=50;
+		
+		for(i=0;i<12;i++){
+		
+			column=letter_transfer_8pt(functoning[functionDef][i],1,column);
 	
-	}else{
+		}
+		
+		
+		
+	 	if(flash.data.configBit.output_energy_pulse){
+			
+			
+			
+			column=1;
+			for(i=0;i<12;i++){
+		
+			 column=letter_transfer_8pt(pulsePeriod[i],2,column);
+				
+			}
+			
+			
+			column=1;
+			for(i=0;i<12;i++){
+		
+			 column=letter_transfer_8pt(pulseHigh[i],3,column);
+				
+			}
+		
+		}
+		
+		
+		
+		
+			
+			
+			
 	
-	symbol_transfer(menu_cross,page,column);
+		if(flash.data.configBit.output_rotation ){
+			
+		
+		
+		}
 	
-	}
 	
 	
+	
+	}	
+		
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	if(pressed_button==enter_pressed){sel++; entered=1;}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	/*
 	column=110;
 	
 	if(obit.input_energy_reset_edge){

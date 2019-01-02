@@ -158,15 +158,7 @@ int main(void)
 	init_Menu();
 	
 	
-	
-	
-	
-	
-	
-	
 
-	
-	
   while (1)
   {
 
@@ -176,7 +168,7 @@ int main(void)
 		
 		mp_counter++;
 		
-		//pLagDef(dummy_lag,25000,&pc_b1,&pc_b2);
+		
 		HAL_Delay(100); //cau
 		
 		offline_calculations();

@@ -315,12 +315,17 @@ union flashDataUnion{
 		
 		uint32_t current_direction:1;
 		uint32_t phase_comp_direction:1;
+		
 		uint32_t input_energy_reset_EN:1;
 		uint32_t input_energy_reset_edge:1;
 		uint32_t input_record_start_EN:1;
 		uint32_t input_record_start_edge:1;
 		
-    uint32_t rem:30;	
+		uint32_t output_energy_pulse:1;
+		uint32_t output_rotation:1;
+		uint32_t output_limit_violation:1;
+		
+    uint32_t rem:22;	
 		
 	}configBit;
 	

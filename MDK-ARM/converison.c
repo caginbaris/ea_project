@@ -167,8 +167,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 
 	AN.data.Ic=	pDiffer( offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic,pc_b1,pc_b2,&pc_x1)*100.0f;//cau
-	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia;
-	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
+	AN.data.Ia=	pDiffer( offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia,pc_b1,pc_b2,&pc_x2);
+	AN.data.Ib=	pDiffer( offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib,pc_b1,pc_b2,&pc_x3);;
 		
 	AN.data.Vab=AN.data.Van-AN.data.Vbn;
 	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
