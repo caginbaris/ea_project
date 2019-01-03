@@ -151,6 +151,7 @@ int main(void)
 	
 	pLagDef(-0.6352f,25000,&pc_b1,&pc_b2);
 	flashRead();
+	flashReadRec();
 	init_flashBackRead();
 	init_conversion();
 	init_LCD();

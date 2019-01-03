@@ -37,6 +37,7 @@
 
 
 void flashRead(void);
+void flashReadRec(void);
 void flashWrite(void);
 
 #endif

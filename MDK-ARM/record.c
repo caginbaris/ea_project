@@ -6,6 +6,7 @@ extern uint8_t save_lock;
 extern uint8_t currentSaveMenu;
 union recorded_data rec={0};
 
+uint8_t recordFlag=0;
 
 
 void recordEmAll(){
@@ -18,9 +19,10 @@ if(
 	
 	rec.data.fRMS=fundRMS;
 	rec.data.tRMS=trueRMS;
+	rec.data.power_iq=power_iq;
+	rec.data.sym=sym;	
 	
-	//save_lock=1;
-	//currentSaveMenu=saving_menu;
+	recordFlag=1;
 	
 
 }
@@ -34,9 +36,11 @@ if(
 	
 	rec.data.fRMS=fundRMS;
 	rec.data.tRMS=trueRMS;
+	rec.data.power_iq=power_iq;
+	rec.data.sym=sym;	
+		
+	recordFlag=1;	
 	
-	//save_lock=1;
-	//currentSaveMenu=saving_menu;
 
 }
 

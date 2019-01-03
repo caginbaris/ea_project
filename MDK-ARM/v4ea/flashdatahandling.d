@@ -41,3 +41,6 @@ v4ea\flashdatahandling.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart
 v4ea\flashdatahandling.o: ..\header_files\menu_definitions.h
 v4ea\flashdatahandling.o: ..\header_files\lcd_definitions.h
 v4ea\flashdatahandling.o: ..\header_files\flash_api.h
+v4ea\flashdatahandling.o: ../Inc/record.h
+v4ea\flashdatahandling.o: ..\header_files\conversion.h
+v4ea\flashdatahandling.o: ..\header_files\measurement_Definitions.h
