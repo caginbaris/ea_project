@@ -308,6 +308,10 @@ union flashDataUnion{
 	uint32_t ct_seconder;
 
   uint32_t ct_phase_shift;
+		
+	uint32_t outputPulsePeriod;
+	uint32_t outputPulseOnTime;
+	uint32_t outputPulseIncFactor;			
 	
 	//cau record data union must be added		
 		
@@ -321,9 +325,9 @@ union flashDataUnion{
 		uint32_t input_record_start_EN:1;
 		uint32_t input_record_start_edge:1;
 		
-		uint32_t output_energy_pulse:1;
-		uint32_t output_rotation:1;
-		uint32_t output_limit_violation:1;
+		uint32_t output_option:2;
+		uint32_t output_energy_pulse_source:3;
+		
 		
     uint32_t rem:22;	
 		

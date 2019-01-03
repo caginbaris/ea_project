@@ -40,3 +40,6 @@ v4ea\ios.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\ios.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\ios.o: ..\header_files\aux_functions.h
 v4ea\ios.o: ../Inc/ios.h
+v4ea\ios.o: ..\header_files\menu_definitions.h
+v4ea\ios.o: ..\header_files\lcd_definitions.h
+v4ea\ios.o: ..\header_files\measurement_definitions.h

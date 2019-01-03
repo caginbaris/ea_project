@@ -2058,7 +2058,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		
 		
-	 	if(flash.data.configBit.output_energy_pulse){
+	 	if(flash.data.configBit.output_option){
 			
 			
 			
@@ -2086,7 +2086,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			
 			
 	
-		if(flash.data.configBit.output_rotation ){
+		if(flash.data.configBit.output_option ){
 			
 		
 		

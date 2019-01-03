@@ -167,6 +167,24 @@ return out;
 }
 
 
+uint8_t pulseGeneration(uint32_t  period, uint32_t duty, uint32_t *EN,uint32_t *prdCount){
+
+static uint8_t out=0,latch=0;
+
+if((*EN)!=0 && latch==0){out=1;latch=1;*EN-=1;}
+
+if(latch==1){*prdCount+=1;}
+
+if((*prdCount)>duty && (*prdCount)<period){out=0;}
+
+if((*prdCount)==period){latch=0;*prdCount=0;}
+
+
+return out;
+
+}
+
+
 void i_limiter(int8_t down_limit,int8_t up_limit,int8_t *value ){
 	
 	if(*value>up_limit)		{*value	=	 up_limit;}
