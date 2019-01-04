@@ -325,11 +325,11 @@ union flashDataUnion{
 		uint32_t input_record_start_EN:1;
 		uint32_t input_record_start_edge:1;
 		
-		uint32_t output_option:2;
+		uint32_t output_option:2; // 1-outPulse,2-rotation,3-limit violation
 		uint32_t output_energy_pulse_source:3;
+		uint32_t output_rotation:1;
 		
-		
-    uint32_t rem:22;	
+    uint32_t rem:20;	
 		
 	}configBit;
 	

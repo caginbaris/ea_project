@@ -2015,24 +2015,31 @@ void staticData_output(struct display_menu_handles menu_item){
 
 void dynamicData_output(struct display_menu_handles menu_item){
 	
-	enum letter_codes_8pt functoning[3][12]= { {e,n,e,r,j,i,_,p,a,l,s,_},
+	enum letter_codes_8pt functoning[4][12]= { 
+																						 {i,s,l,e,v,_,y,o,k,_,_,_},		
+																						 {e,n,e,r,j,i,_,p,a,l,s,_},
 																						 {l,i,m,i,t,_,a,s,i,m,i,_},
-																						 {d,o,n,u,s,_,s,i,r,a,s,i},	
+																						 {d,o,n,u,s,_,s,i,r,a,s,i}
 	
 	};
 	
 	
-	enum letter_codes_8pt pulsePeriod[12]= {p,a,l,s,_,p,e,r,i,y,o,t};
-	enum letter_codes_8pt pulseHigh[12]={p,a,l,s,_,y,u,z,d,e,_,_}; 
+	enum letter_codes_8pt pulsePeriod[15]= {p,a,l,s,_,p,e,r,i,y,o,t,_,m,s};
+	enum letter_codes_8pt pulseHigh[15]  = {p,a,l,s,_,a,k,t,i,f,_,m,s,_,_}; 
 	
+	static enum digit_codes_14pt pulsePeriodVal[3]={0};
+	static enum digit_codes_14pt pulseOnTimeVal[3]={0};
+	static enum digit_codes_14pt pulseIncFactor[3]={0};
 	
-	enum letter_codes_8pt pRotation[6]= {a,_,b,_,c,_};
-	enum letter_codes_8pt nRotation[6]= {a,_,c,_,b,_};
-	
+	enum letter_codes_8pt Rotation[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
 	
 	static uint8_t functionDef=0;
+	static uint8_t pulseSource=0;
+	static uint8_t rotation=0;
+	
 	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
+	static uint8_t ord=0;
 
 	
 	uint8_t i;
@@ -2044,73 +2051,132 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	clearColumns(4,79,128);
 	clearColumns(6,79,128);
 	
-	
-	if(!entered){
-		
-		
+		/*funcdef text*/
 		column=50;
 		
-		for(i=0;i<12;i++){
+		for(i=0;i<15;i++){
 		
-			column=letter_transfer_8pt(functoning[functionDef][i],1,column);
+			column=letter_transfer_8pt(functoning[flash.data.configBit.output_option][i],1,column);
 	
 		}
 		
-		
-		
-	 	if(flash.data.configBit.output_option){
+		/*pulse start*/
+	
+	if(functionDef==1){
 			
-			
-			
-			column=1;
-			for(i=0;i<12;i++){
+		column=1;
+			for(i=0;i<15;i++){
 		
 			 column=letter_transfer_8pt(pulsePeriod[i],2,column);
 				
 			}
 			
 			
+			column=80;
+		
+			for(i=0;i<3;i++){ //digit tranfer
+	
+			digit_transfer_8pt(pulsePeriodVal[i],4,column);
+			column+=8;	
+
+			}
+			
+
 			column=1;
-			for(i=0;i<12;i++){
+			for(i=0;i<15;i++){
 		
 			 column=letter_transfer_8pt(pulseHigh[i],3,column);
 				
 			}
+			
+			
+			column=80;
 		
+			for(i=0;i<3;i++){ //digit tranfer
+	
+			digit_transfer_8pt(pulseOnTimeVal[i],4,column);
+			column+=8;	
+
+			}
+	
+	
 		}
+			/*pulse end*/
+	
+	/*rotata*/
 		
+	if(functionDef==2){
+	
+			column=1;
+			for(i=0;i<15;i++){
 		
+			 column=letter_transfer_8pt(Rotation[rotation][0],2,column);
+				
+			}
+	
+	}
+	
+	
+	
+	if(!entered){
 		
-		
+	
 			
+			pulsePeriodVal[2]=flashData2LCD(flash.data.outputPulsePeriod,1);
+			pulsePeriodVal[1]=flashData2LCD(flash.data.outputPulsePeriod,2);
+			pulsePeriodVal[0]=flashData2LCD(flash.data.outputPulsePeriod,3);
 			
+			pulseOnTimeVal[2]=flashData2LCD(flash.data.outputPulseOnTime,1);
+			pulseOnTimeVal[1]=flashData2LCD(flash.data.outputPulseOnTime,2);
+			pulseOnTimeVal[0]=flashData2LCD(flash.data.outputPulseOnTime,3);
 			
-	
-		if(flash.data.configBit.output_option ){
-			
+			pulseIncFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
+			pulseIncFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
+			pulseIncFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
 		
-		
-		}
-	
-	
-	
-	
+			functionDef=flash.data.configBit.output_option;
+			pulseSource=flash.data.configBit.output_energy_pulse_source;
+			rotation=flash.data.configBit.output_rotation;
+			
+
+
 	}	
 		
 	
+	
+		if(pressed_button==enter_pressed){sel++; entered=1;}
+	
+	
+		if(sel==0 && entered==1 && functionDef==1 ){//primer side start
 		
+		
+		if(pressed_button==left_pressed){	// left is plus @VT
+		
+		
+			if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
+			
+			}
+		
+			
+		if(pressed_button==right_pressed){ // left is plus @VT
+		
+		
+		if(--pulsePeriodVal[ord]==_m1){pulsePeriodVal[ord]=_9;}	
+			
+		}
+				
+		
+		if(pressed_button==down_pressed){	// down is right pos change
+		
+		ord++;
+		if(ord>_2){ord=0;}	
+			
+		}
+		
+		
+		put_cursor(2,79+ord*8,7);
 	
-	
-	
-	
-	
-	
-	
-	
-	if(pressed_button==enter_pressed){sel++; entered=1;}
-	
-	
-	
+	}
 
 	
 	
