@@ -310,7 +310,6 @@ union flashDataUnion{
   uint32_t ct_phase_shift;
 		
 	uint32_t outputPulsePeriod;
-	uint32_t outputPulseOnTime;
 	uint32_t outputPulseIncFactor;			
 	
 	//cau record data union must be added		

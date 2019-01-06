@@ -1980,8 +1980,8 @@ void staticData_output(struct display_menu_handles menu_item){
 	
 	
 	
-	column=0;
-	page=2;
+	column=1;
+	page=1;
 	
 	for(i=0;i<5;i++){
 		
@@ -2016,25 +2016,33 @@ void staticData_output(struct display_menu_handles menu_item){
 void dynamicData_output(struct display_menu_handles menu_item){
 	
 	enum letter_codes_8pt functoning[4][12]= { 
-																						 {i,s,l,e,v,_,y,o,k,_,_,_},		
+																						 {a,k,t,i,f,_,d,e,g,i,l,_},		
 																						 {e,n,e,r,j,i,_,p,a,l,s,_},
-																						 {l,i,m,i,t,_,a,s,i,m,i,_},
-																						 {d,o,n,u,s,_,s,i,r,a,s,i}
+																						 {d,o,n,u,s,_,s,i,r,a,s,i},
+																						 {l,i,m,i,t,_,a,s,i,m,i,_}
 	
 	};
 	
 	
 	enum letter_codes_8pt pulsePeriod[15]= {p,a,l,s,_,p,e,r,i,y,o,t,_,m,s};
-	enum letter_codes_8pt pulseHigh[15]  = {p,a,l,s,_,a,k,t,i,f,_,m,s,_,_}; 
+	enum letter_codes_8pt pulseFactor[15]  = {p,a,l,s,_,c,a,r,p,a,n,i,_,_,_};
+	enum letter_codes_8pt pulseSource[15]  = {p,a,l,s,_,k,a,y,n,a,g,i,_,_,_}; 	
 	
 	static enum digit_codes_14pt pulsePeriodVal[3]={0};
-	static enum digit_codes_14pt pulseOnTimeVal[3]={0};
-	static enum digit_codes_14pt pulseIncFactor[3]={0};
+	static enum digit_codes_14pt pulseFactorVal[3]={0};
 	
-	enum letter_codes_8pt Rotation[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
+	static enum letter_codes_8pt pulseSourceVal[5][6]={{w,h,_,_,_,u},
+																									{w,h,_,_,_,t},
+																									{v,a,r,h,_,u},
+																									{v,a,r,h,_,t},
+																									{v,a,h,_,_,_},											
+	};
+	
+	enum letter_codes_8pt Rotation[10]= {d,o,n,u,s,_,y,o,n,u};
+	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
 	
 	static uint8_t functionDef=0;
-	static uint8_t pulseSource=0;
+	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
 	
 	static uint8_t sel=-1;//primary/secondary selection
@@ -2045,18 +2053,19 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	uint8_t i;
 	uint8_t column,page;
 	
-
-	clearColumns(2,79,128);
-	clearColumns(3,79,128);
-	clearColumns(4,79,128);
-	clearColumns(6,79,128);
+	clearColumns(1,49,128);
+	clearColumns(2,1,128);
+	clearColumns(3,1,128);
+	clearColumns(4,1,128);
+	clearColumns(5,1,128);
+	clearColumns(6,70,128);
 	
 		/*funcdef text*/
 		column=50;
 		
-		for(i=0;i<15;i++){
+		for(i=0;i<12;i++){
 		
-			column=letter_transfer_8pt(functoning[flash.data.configBit.output_option][i],1,column);
+			column=letter_transfer_8pt(functoning[functionDef][i],1,column);
 	
 		}
 		
@@ -2067,16 +2076,16 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		column=1;
 			for(i=0;i<15;i++){
 		
-			 column=letter_transfer_8pt(pulsePeriod[i],2,column);
+			 column=letter_transfer_8pt(pulsePeriod[i],3,column);
 				
 			}
 			
 			
-			column=80;
+			column=105;
 		
 			for(i=0;i<3;i++){ //digit tranfer
 	
-			digit_transfer_8pt(pulsePeriodVal[i],4,column);
+			digit_transfer_8pt(pulsePeriodVal[i],3,column);
 			column+=8;	
 
 			}
@@ -2085,18 +2094,35 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			column=1;
 			for(i=0;i<15;i++){
 		
-			 column=letter_transfer_8pt(pulseHigh[i],3,column);
+			 column=letter_transfer_8pt(pulseFactor[i],4,column);
 				
 			}
 			
 			
-			column=80;
+			column=105;
 		
 			for(i=0;i<3;i++){ //digit tranfer
 	
-			digit_transfer_8pt(pulseOnTimeVal[i],4,column);
+			digit_transfer_8pt(pulseFactorVal[i],4,column);
 			column+=8;	
 
+			}
+			
+			
+			column=1;
+			for(i=0;i<15;i++){
+		
+			 column=letter_transfer_8pt(pulseSource[i],5,column);
+				
+			}
+			
+			
+			column=86;
+		
+			for(i=0;i<6;i++){
+		
+			 column=letter_transfer_8pt(pulseSourceVal[flash.data.configBit.output_energy_pulse_source][i],5,column);
+				
 			}
 	
 	
@@ -2108,11 +2134,34 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	if(functionDef==2){
 	
 			column=1;
-			for(i=0;i<15;i++){
+			for(i=0;i<10;i++){
 		
-			 column=letter_transfer_8pt(Rotation[rotation][0],2,column);
+			 column=letter_transfer_8pt(Rotation[i],2,column);
 				
 			}
+			
+
+			column=80;
+			for(i=0;i<6;i++){
+		
+			 column=letter_transfer_8pt(RotationVal[flash.data.configBit.output_rotation][i],2,column);
+				
+			}
+			
+			
+			
+	
+	}
+	
+	
+	
+		if(output){
+	
+		symbol_transfer(menu_active_in_out,6,100);
+		
+		}else{
+		
+		symbol_transfer(menu_inactive_in_out,6,100);
 	
 	}
 	
@@ -2125,17 +2174,14 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			pulsePeriodVal[2]=flashData2LCD(flash.data.outputPulsePeriod,1);
 			pulsePeriodVal[1]=flashData2LCD(flash.data.outputPulsePeriod,2);
 			pulsePeriodVal[0]=flashData2LCD(flash.data.outputPulsePeriod,3);
+
 			
-			pulseOnTimeVal[2]=flashData2LCD(flash.data.outputPulseOnTime,1);
-			pulseOnTimeVal[1]=flashData2LCD(flash.data.outputPulseOnTime,2);
-			pulseOnTimeVal[0]=flashData2LCD(flash.data.outputPulseOnTime,3);
-			
-			pulseIncFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
-			pulseIncFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
-			pulseIncFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
+			pulseFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
+			pulseFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
+			pulseFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
 		
 			functionDef=flash.data.configBit.output_option;
-			pulseSource=flash.data.configBit.output_energy_pulse_source;
+			pulsesource=flash.data.configBit.output_energy_pulse_source;
 			rotation=flash.data.configBit.output_rotation;
 			
 
@@ -2145,9 +2191,26 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	
 		if(pressed_button==enter_pressed){sel++; entered=1;}
+		
+		
+		if(sel==0 && entered==1){//functioning started
+		
+			if(pressed_button==left_pressed){	// left is plus @VT
+		
+		
+			if(++functionDef>_3){pulsePeriodVal[ord]=_0;}	
+			
+			}
+			
+			put_cursor(1,49,77);
+		}
+		
+		
+		if(functionDef>3){functionDef=0;}
+		
 	
 	
-		if(sel==0 && entered==1 && functionDef==1 ){//primer side start
+		if(sel==1 && entered==1 && functionDef==1 ){//primer side start
 		
 		
 		if(pressed_button==left_pressed){	// left is plus @VT
@@ -2174,198 +2237,17 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		}
 		
 		
-		put_cursor(2,79+ord*8,7);
+		put_cursor(1,20,50);
+		
 	
 	}
 
 	
 	
 	
-	
-	
-	
-	/*
-	column=110;
-	
-	if(obit.input_energy_reset_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	page=4;
-	column=90;
-	
-	
-	if(obit.input_record_start_EN){
-		
-	symbol_transfer(menu_tick,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	column=110;
-	
-	if(obit.input_record_start_edge){
-		
-	symbol_transfer(menu_risingEdge,page,column);
-	
-	}else{
-	
-	symbol_transfer(menu_fallingEdge,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	
-	if(!entered && save_lock==0){
-	
-		obit.input_energy_reset_EN=flash.data.configBit.input_energy_reset_EN;
-		obit.input_energy_reset_edge=flash.data.configBit.input_energy_reset_edge;
-		obit.input_record_start_EN=flash.data.configBit.input_record_start_EN;
-		obit.input_record_start_edge=flash.data.configBit.input_record_start_edge;
-		
-	}
-	
-	
-	if(pressed_button==enter_pressed){sel++; entered=1;col=0;}
-	
-	
-	page=6;
-	column=100;
-	
-	
-	if(input.bit.on_offDelayed){
-	
-	
-		symbol_transfer(menu_tick,page,column);
-		
-	}else{
-		
-		symbol_transfer(menu_cross,page,column);
-	
-	}
-	
-	
-	
-	
-	
-	if(sel==0 && entered==1){//primer side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_energy_reset_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_energy_reset_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}	
-		
-	put_cursor(2,90+col*20,8);
-	
-	
-	}//primer side end
-	
-	
-	
-	if(sel==1 && entered==1){//seconder side start
-		
-		
-	if(pressed_button==left_pressed && col==0 ){
-	
-		obit.input_record_start_EN^=1;
-	
-	}
-
-
-	if(pressed_button==left_pressed && col==1 ){
-	
-		obit.input_record_start_edge^=1;
-	
-	}		
-		
-		
-	if(pressed_button==right_pressed ){
-	
-		col^=1;
-	
-	}		
-		
-
-	
-  put_cursor(4,90+col*20,8);
-	
-	
-	}
-	
-	
-	
-	
-	
-	
 
 	
 
-	
-	
-	
-	if(sel==2){sel=0;}
-	
-	
-
-
-		
-
-	if(pressed_button==up_pressed && save_lock==0){ 
-	
-	 flashNew.data.configBit.input_energy_reset_EN	=obit.input_energy_reset_EN;
-	 flashNew.data.configBit.input_energy_reset_edge=obit.input_energy_reset_edge;
-	 flashNew.data.configBit.input_record_start_EN	=obit.input_record_start_EN;
-	 flashNew.data.configBit.input_record_start_edge=obit.input_record_start_edge;
-
-		
-
-		
-
-	if(	(flashNew.data.configBit.input_energy_reset_EN		!=flash.data.configBit.input_energy_reset_EN) 	||
-			(flashNew.data.configBit.input_energy_reset_edge	!=flash.data.configBit.input_energy_reset_edge) ||
-			(flashNew.data.configBit.input_record_start_EN		!=flash.data.configBit.input_record_start_EN)		||
-			(flashNew.data.configBit.input_record_start_edge	!=flash.data.configBit.input_record_start_edge)){//cau
-	
-		save_lock=1;
-			 
-		currentSaveMenu=save_option_menu;		 
-			 
-		entered=0;	 
-			 
-	}else{current_menu=settings_menu;}			
- }*/
 
 
 }

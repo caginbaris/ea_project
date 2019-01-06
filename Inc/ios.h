@@ -21,6 +21,7 @@ union boardInput{
 
 
 extern union boardInput input;
+extern uint8_t output;
 
 void ios(void);
 
