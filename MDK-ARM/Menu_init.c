@@ -1000,7 +1000,7 @@ struct display_menu_handles set_output_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_enter,menu_alter,menu_right,menu_blank,menu_escape},
+	/*symbols*/			{menu_enter,menu_alter,menu_plus,menu_right,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_output,
 	/*dynamic data*/ dynamicData_output

@@ -2024,9 +2024,9 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	};
 	
 	
-	enum letter_codes_8pt pulsePeriod[15]= {p,a,l,s,_,p,e,r,i,y,o,t,_,m,s};
-	enum letter_codes_8pt pulseFactor[15]  = {p,a,l,s,_,c,a,r,p,a,n,i,_,_,_};
-	enum letter_codes_8pt pulseSource[15]  = {p,a,l,s,_,k,a,y,n,a,g,i,_,_,_}; 	
+	enum letter_codes_8pt pulsePeriod[10]  = {p,e,r,i,y,o,t,_,m,s};
+	enum letter_codes_8pt pulseFactor[10]  = {c,a,r,p,a,n,_,_,_,_};
+	enum letter_codes_8pt pulseSource[10]  = {k,a,y,n,a,k,_,_,_,_}; 	
 	
 	static enum digit_codes_14pt pulsePeriodVal[3]={0};
 	static enum digit_codes_14pt pulseFactorVal[3]={0};
@@ -2074,7 +2074,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	if(functionDef==1){
 			
 		column=1;
-			for(i=0;i<15;i++){
+			for(i=0;i<10;i++){
 		
 			 column=letter_transfer_8pt(pulsePeriod[i],3,column);
 				
@@ -2092,7 +2092,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			
 
 			column=1;
-			for(i=0;i<15;i++){
+			for(i=0;i<10;i++){
 		
 			 column=letter_transfer_8pt(pulseFactor[i],4,column);
 				
@@ -2110,7 +2110,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			
 			
 			column=1;
-			for(i=0;i<15;i++){
+			for(i=0;i<10;i++){
 		
 			 column=letter_transfer_8pt(pulseSource[i],5,column);
 				
@@ -2121,7 +2121,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 			for(i=0;i<6;i++){
 		
-			 column=letter_transfer_8pt(pulseSourceVal[flash.data.configBit.output_energy_pulse_source][i],5,column);
+			 column=letter_transfer_8pt(pulseSourceVal[pulsesource][i],5,column);
 				
 			}
 	
@@ -2155,7 +2155,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	
 	
-		if(output){
+	if(output){
 	
 		symbol_transfer(menu_active_in_out,6,100);
 		
@@ -2190,7 +2190,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 	
 	
-		if(pressed_button==enter_pressed){sel++; entered=1;}
+	if(pressed_button==enter_pressed){sel++; entered=1;}
 		
 		
 		if(sel==0 && entered==1){//functioning started
@@ -2198,7 +2198,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			if(pressed_button==left_pressed){	// left is plus @VT
 		
 		
-			if(++functionDef>_3){pulsePeriodVal[ord]=_0;}	
+			functionDef++;
 			
 			}
 			
@@ -2213,20 +2213,14 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		if(sel==1 && entered==1 && functionDef==1 ){//primer side start
 		
 		
-		if(pressed_button==left_pressed){	// left is plus @VT
+		if(pressed_button==right_pressed){	// left is plus @VT
 		
 		
 			if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
 			
 			}
 		
-			
-		if(pressed_button==right_pressed){ // left is plus @VT
 		
-		
-		if(--pulsePeriodVal[ord]==_m1){pulsePeriodVal[ord]=_9;}	
-			
-		}
 				
 		
 		if(pressed_button==down_pressed){	// down is right pos change
@@ -2237,7 +2231,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		}
 		
 		
-		put_cursor(1,20,50);
+		put_cursor(3,105+7*ord,7);
 		
 	
 	}
