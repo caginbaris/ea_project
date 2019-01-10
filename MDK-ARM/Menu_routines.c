@@ -2073,7 +2073,8 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	if(functionDef==1){
 			
-		column=1;
+			column=1;
+		
 			for(i=0;i<10;i++){
 		
 			 column=letter_transfer_8pt(pulsePeriod[i],3,column);
@@ -2124,6 +2125,9 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			 column=letter_transfer_8pt(pulseSourceVal[pulsesource][i],5,column);
 				
 			}
+			
+			
+			
 	
 	
 		}
@@ -2190,42 +2194,59 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 	
 	
-	if(pressed_button==enter_pressed){sel++; entered=1;}
+	
+
+		
+
+	if(pressed_button==enter_pressed && entered==0){entered=1;sel=0;}
 		
 		
+	//{enter     ,left      ,right    ,down      ,up},
+	//{menu_enter,menu_alter,menu_plus,menu_right,menu_escape},
+	
 		if(sel==0 && entered==1){//functioning started
+			
+			if(pressed_button==enter_pressed){sel++;}	
 		
 			if(pressed_button==left_pressed){	// left is plus @VT
-		
 		
 			functionDef++;
 			
 			}
 			
 			put_cursor(1,49,77);
+			
 		}
 		
 		
 		if(functionDef>3){functionDef=0;}
 		
+		
+		
+		
 	
 	
-		if(sel==1 && entered==1 && functionDef==1 ){//primer side start
+		if(entered==1 && functionDef==1 ){//primer side start
+			
+			
+		if(pressed_button==enter_pressed){sel++;}		
+			
+			
+		if(sel==1){
 		
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
 		
-			if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
+		if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
 			
-			}
+		}
 		
-		
-				
 		
 		if(pressed_button==down_pressed){	// down is right pos change
 		
 		ord++;
+				
 		if(ord>_2){ord=0;}	
 			
 		}
@@ -2233,7 +2254,36 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		put_cursor(3,105+7*ord,7);
 		
-	
+		}
+		
+		
+		if(sel==2){
+		
+		
+		if(pressed_button==right_pressed){	// left is plus @VT
+		
+		
+		if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
+			
+		}
+		
+		
+		if(pressed_button==down_pressed){	// down is right pos change
+		
+		ord++;
+				
+		if(ord>_2){ord=0;}	
+			
+		}
+		
+		
+		put_cursor(3,105+7*ord,7);
+		
+		}
+		
+		
+		
+		
 	}
 
 	
