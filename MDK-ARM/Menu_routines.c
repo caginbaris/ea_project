@@ -2041,6 +2041,10 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	enum letter_codes_8pt Rotation[10]= {d,o,n,u,s,_,y,o,n,u};
 	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
 	
+	
+	enum letter_codes_8pt limitViolation1[16]={p,c,_,a,r,a,y,u,z,u,_,i,l,e,_,_} ;
+	enum letter_codes_8pt limitViolation2[16]={p,r,o,g,r,a,m,l,a,n,a,b,i,l,i,r} ;
+	
 	static uint8_t functionDef=0;
 	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
@@ -2069,9 +2073,9 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 		}
 		
-		/*pulse start*/
 	
-	if(functionDef==1){
+	
+	if(functionDef==1){ /*pulse start*/
 			
 			column=1;
 		
@@ -2131,11 +2135,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	
 		}
-			/*pulse end*/
-	
-	/*rotata*/
-		
-	if(functionDef==2){
+	if(functionDef==2){	/*rotata*/
 	
 			column=1;
 			for(i=0;i<10;i++){
@@ -2145,15 +2145,41 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			}
 			
 
-			column=80;
-			for(i=0;i<6;i++){
+			column=1;
+			
+			for(i=0;i<16;i++){
 		
-			 column=letter_transfer_8pt(RotationVal[flash.data.configBit.output_rotation][i],2,column);
+			 column=letter_transfer_8pt(limitViolation1[i],2,column);
 				
 			}
 			
 			
+			column=1;
 			
+			for(i=0;i<16;i++){
+		
+			 column=letter_transfer_8pt(limitViolation2[i],3,column);
+				
+			}
+			
+			
+	
+	
+	}
+	
+	if(functionDef==3){ /*limit violation*/
+	
+			column=1;
+			for(i=0;i<16;i++){
+		
+			 column=letter_transfer_8pt(Rotation[i],2,column);
+				
+			}
+			
+
+			
+			
+	
 	
 	}
 	
@@ -2223,22 +2249,44 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		
 		
-		
 	
-	
-		if(entered==1 && functionDef==1 ){//primer side start
+if(sel==1 && entered==1 && functionDef==1){
 			
 			
 		if(pressed_button==enter_pressed){sel++;}		
 			
+		
+		if(pressed_button==right_pressed){	// left is plus @VT
+		
+		if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
 			
-		if(sel==1){
+		}
+		
+		
+		if(pressed_button==down_pressed){	// down is right pos change
+		
+		ord++;	if(ord>_2){ord=0;}	
+			
+		}
+		
+		
+		put_cursor(3,105+7*ord,7);
+		
+		}
+		
+
+		
+		
+if(sel==2 && entered==1 && functionDef==1){
+			
+			
+		if(pressed_button==enter_pressed){sel++;}			
 		
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
 		
-		if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
+		if(++pulseFactorVal[ord]>_9){pulseFactorVal[ord]=0;}	
 			
 		}
 		
@@ -2252,47 +2300,42 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		}
 		
 		
-		put_cursor(3,105+7*ord,7);
+		put_cursor(4,105+7*ord,7);
 		
 		}
 		
-		
-		if(sel==2){
+if(sel==3 && entered==1 && functionDef==1){
+			
+			
+		if(pressed_button==enter_pressed){sel=0;}			
 		
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
-		
-		if(++pulsePeriodVal[ord]>_9){pulsePeriodVal[ord]=_0;}	
+		if(++pulsesource>4){pulsesource=0;}	
 			
 		}
+		put_cursor(5,85,127);
+		
+		}
 		
 		
-		if(pressed_button==down_pressed){	// down is right pos change
 		
-		ord++;
-				
-		if(ord>_2){ord=0;}	
+
+if(sel==1 && entered==1 && functionDef==2){
+	
+	
+		if(pressed_button==enter_pressed){sel=0;}			
+		
+		
+		if(pressed_button==right_pressed){	
+		
+		rotation^=1;
 			
 		}
-		
-		
-		put_cursor(3,105+7*ord,7);
-		
-		}
-		
-		
-		
-		
+		put_cursor(5,85,127);
+
 	}
-
-	
-	
-	
-
-	
-
-
 
 }
 

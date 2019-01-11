@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun Jan 06 22:48:00 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Fri Jan 11 10:44:29 2019
 <BR><P>
 <H3>Maximum Stack Usage =        232 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -109,7 +109,7 @@ Function Pointers
  <LI><a href="#[15]">dynamicData_CT</a> from menu_routines.o(i.dynamicData_CT) referenced 2 times from menu_init.o(.data)
  <LI><a href="#[13]">dynamicData_VT</a> from menu_routines.o(i.dynamicData_VT) referenced 2 times from menu_init.o(.data)
  <LI><a href="#[17]">dynamicData_input</a> from menu_routines.o(i.dynamicData_input) referenced 2 times from menu_init.o(.data)
- <LI><a href="#[19]">dynamicData_output</a> from menu_routines.o(i.dynamicData_output) referenced 2 times from menu_init.o(.data)
+ <LI><a href="#[19]">dynamicData_output</a> from menu_routines.o(i.dynamicData_output) referenced 4 times from menu_init.o(.data)
  <LI><a href="#[e]">graphBaseLining</a> from graphing_fuctions.o(i.graphBaseLining) referenced 12 times from menu_init.o(.data)
  <LI><a href="#[f]">graphDataTransfer</a> from graphing_fuctions.o(i.graphDataTransfer) referenced 12 times from menu_init.o(.data)
  <LI><a href="#[10]">harmonicBaseLine</a> from graphing_fuctions.o(i.harmonicBaseLine) referenced 12 times from menu_init.o(.data)
@@ -125,7 +125,7 @@ Function Pointers
  <LI><a href="#[14]">staticData_CT</a> from menu_routines.o(i.staticData_CT) referenced 2 times from menu_init.o(.data)
  <LI><a href="#[12]">staticData_VT</a> from menu_routines.o(i.staticData_VT) referenced 2 times from menu_init.o(.data)
  <LI><a href="#[16]">staticData_input</a> from menu_routines.o(i.staticData_input) referenced 2 times from menu_init.o(.data)
- <LI><a href="#[18]">staticData_output</a> from menu_routines.o(i.staticData_output) referenced 2 times from menu_init.o(.data)
+ <LI><a href="#[18]">staticData_output</a> from menu_routines.o(i.staticData_output) referenced 4 times from menu_init.o(.data)
  <LI><a href="#[4]">toMainDetect</a> from menu_routines.o(i.toMainDetect) referenced 2 times from menu_init.o(.data)
  <LI><a href="#[6]">toSettingsDetect</a> from menu_routines.o(i.toSettingsDetect) referenced 2 times from menu_init.o(.data)
 </UL>
@@ -861,7 +861,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion (via Veneer)
 </UL>
 
-<P><STRONG><a name="[a9]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
+<P><STRONG><a name="[a9]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 208 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -926,7 +926,7 @@ Global Symbols
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[b3]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 126 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
+<P><STRONG><a name="[b3]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 130 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -999,7 +999,7 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM19_Init
 </UL>
 
-<P><STRONG><a name="[bb]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
+<P><STRONG><a name="[bb]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -1141,7 +1141,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 
-<P><STRONG><a name="[9a]"></a>HAL_UART_MspInit</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
+<P><STRONG><a name="[9a]"></a>HAL_UART_MspInit</STRONG> (Thumb, 124 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1454,7 +1454,7 @@ Global Symbols
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RS485Ex_Init
 </UL>
 
-<P><STRONG><a name="[9b]"></a>UART_SetConfig</STRONG> (Thumb, 672 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
+<P><STRONG><a name="[9b]"></a>UART_SetConfig</STRONG> (Thumb, 680 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -1759,8 +1759,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 720 bytes, Stack size 136 bytes, menu_routines.o(i.dynamicData_output))
-<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = dynamicData_output &rArr; symbol_transfer
+<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 1172 bytes, Stack size 168 bytes, menu_routines.o(i.dynamicData_output))
+<BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = dynamicData_output &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_cursor
@@ -1872,7 +1872,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[121]"></a>init_Menu</STRONG> (Thumb, 832 bytes, Stack size 28 bytes, menu_init.o(i.init_Menu))
+<P><STRONG><a name="[121]"></a>init_Menu</STRONG> (Thumb, 848 bytes, Stack size 28 bytes, menu_init.o(i.init_Menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = init_Menu
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1907,7 +1907,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[11a]"></a>ios</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ios.o(i.ios))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ios &rArr; outputHandling &rArr; HAL_GPIO_WritePin
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ios &rArr; outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
@@ -2031,14 +2031,16 @@ Global Symbols
 <P><STRONG><a name="[117]"></a>on_off_delay</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, aux_functions.o(i.on_off_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = on_off_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[11b]"></a>outputHandling</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, ios.o(i.outputHandling))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = outputHandling &rArr; HAL_GPIO_WritePin
+<P><STRONG><a name="[11b]"></a>outputHandling</STRONG> (Thumb, 272 bytes, Stack size 24 bytes, ios.o(i.outputHandling))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseGeneration
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ios
 </UL>

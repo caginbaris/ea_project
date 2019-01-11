@@ -17,6 +17,8 @@ static uint8_t  meta[2]={0};
 union boardInput input={0};
 uint8_t output=0;
 
+float limitValue=0;
+float limitParameter=0;
 
 
 void inputHandling(){
@@ -46,7 +48,7 @@ void outputHandling(){
 	static uint32_t counter=0;
 	static uint32_t increment=0;
 	
-	if(flash.data.configBit.output_option==0){
+	if(flash.data.configBit.output_option==1){
 		
 		
 		switch(flash.data.configBit.output_energy_pulse_source){
@@ -62,21 +64,49 @@ void outputHandling(){
 		
 		increment+=(energySource-energySourceBack)*flash.data.outputPulseIncFactor;
 		
-		output=pulseGeneration(5000,2500,&increment,&counter);
+		output=pulseGeneration(flash.data.outputPulsePeriod*fs*0.001f,flash.data.outputPulsePeriod*0.5f,&increment,&counter);
 		
 		energySourceBack=energySource;
 	
+	}
 	
+	if(flash.data.configBit.output_option==2){
+		
+		
+		if(flash.data.configBit.output_rotation){
+
+			output=on_off_delay(sym.data.Vpn_2>sym.data.Vpn_1,output,fs,&counter);
+			
+		}else{
+		
+			output=on_off_delay(sym.data.Vpn_1>sym.data.Vpn_2,output,fs,&counter);
+		
+		}
+		
 	}
 	
 	
+	if(flash.data.configBit.output_option==3){
+		
+		
+		
+			if(flash.data.configBit.output_rotation){
+
+			output=on_off_delay(limitParameter>limitValue,output,fs,&counter);
+			
+			}
+			
 	
+	}
 	
+
 	HAL_GPIO_WritePin(RELAY_OUTPUT_GPIO_Port,RELAY_OUTPUT_Pin,(GPIO_PinState)output);
 
 
-
 }
+
+
+
 
 
 void ios(){
