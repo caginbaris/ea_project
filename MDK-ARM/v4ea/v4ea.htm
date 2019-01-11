@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Fri Jan 11 10:44:29 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Fri Jan 11 13:22:28 2019
 <BR><P>
 <H3>Maximum Stack Usage =        232 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1845,9 +1845,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = harmonicDataTransfer &rArr; vline_dotted
 </UL>
 <BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digit_transfer_8pt
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline_dotted
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
@@ -1897,11 +1897,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = inputHandling &rArr; HAL_GPIO_ReadPin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;risingEdgeDetectionWithOnDelay
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fallingEdgeDetectionWithOffDelay
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ios
 </UL>
@@ -2035,7 +2035,7 @@ Global Symbols
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[11b]"></a>outputHandling</STRONG> (Thumb, 272 bytes, Stack size 24 bytes, ios.o(i.outputHandling))
+<P><STRONG><a name="[11b]"></a>outputHandling</STRONG> (Thumb, 328 bytes, Stack size 24 bytes, ios.o(i.outputHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin

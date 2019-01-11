@@ -2135,7 +2135,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	
 		}
-	if(functionDef==2){	/*rotata*/
+	if(functionDef==3){	/*limit violation*/
 	
 			column=1;
 			for(i=0;i<10;i++){
@@ -2167,7 +2167,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	}
 	
-	if(functionDef==3){ /*limit violation*/
+	if(functionDef==2){ /*rotata*/
 	
 			column=1;
 			for(i=0;i<16;i++){
@@ -2338,6 +2338,69 @@ if(sel==1 && entered==1 && functionDef==2){
 	}
 
 }
+
+
+void staticDataComm(struct display_menu_handles menu_item){
+	
+	enum letter_codes_8pt functoning[5]=  {i,s,l,e,v};
+	enum letter_codes_8pt output_status[11]=  {c,i,k,i,s,_,d,u,r,u,m};
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+	
+		
+	}
+	
+	line_highlighter(0,128);
+	
+	
+	
+	column=1;
+	page=1;
+	
+	for(i=0;i<5;i++){
+		
+	column=letter_transfer_8pt(functoning[i],page,column);
+	
+	}
+	
+	
+
+	
+	
+	column=0;
+	page=6;
+	
+	
+	for(i=0;i<11;i++){
+		
+	column=letter_transfer_8pt(output_status[i],page,column);
+		
+	}
+	
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+
+}
+
+
+void dynamicDataComm(struct display_menu_handles menu_item){
+
+}
+
+
+
 
 
 

@@ -1294,6 +1294,9 @@ Section Cross References
     menu_routines.o(i.savingScreen) refers to menu_init.o(.data) for current_menu
     menu_routines.o(i.savingScreen) refers to menu_init.o(.bss) for flash
     menu_routines.o(i.savingScreen) refers to menu_init.o(.bss) for flashNew
+    menu_routines.o(i.staticDataComm) refers to lcd_routines.o(i.letter_transfer_8pt) for letter_transfer_8pt
+    menu_routines.o(i.staticDataComm) refers to lcd_routines.o(i.line_highlighter) for line_highlighter
+    menu_routines.o(i.staticDataComm) refers to lcd_routines.o(i.symbol_transfer) for symbol_transfer
     menu_routines.o(i.staticDataSingle) refers to lcd_routines.o(i.letter_transfer_8pt) for letter_transfer_8pt
     menu_routines.o(i.staticDataSingle) refers to lcd_routines.o(i.line_highlighter) for line_highlighter
     menu_routines.o(i.staticDataSingle) refers to lcd_routines.o(i.letter_transfer_14pt) for letter_transfer_14pt
@@ -2223,8 +2226,10 @@ Removing Unused input sections from the image.
     Removing system_stm32f3xx.o(.revsh_text), (4 bytes).
     Removing system_stm32f3xx.o(.rrx_text), (6 bytes).
     Removing system_stm32f3xx.o(i.SystemCoreClockUpdate), (116 bytes).
+    Removing menu_routines.o(i.dynamicDataComm), (2 bytes).
     Removing menu_routines.o(i.loading_bar), (84 bytes).
     Removing menu_routines.o(i.saveEmAll), (20 bytes).
+    Removing menu_routines.o(i.staticDataComm), (212 bytes).
     Removing menu_init.o(.data), (1 bytes).
     Removing measurement_functions.o(.rev16_text), (4 bytes).
     Removing measurement_functions.o(.revsh_text), (4 bytes).
@@ -2258,7 +2263,7 @@ Removing Unused input sections from the image.
     Removing ios.o(.rrx_text), (6 bytes).
     Removing ios.o(.data), (4 bytes).
 
-663 unused section(s) (total 80199 bytes) removed from the image.
+665 unused section(s) (total 80413 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2654,57 +2659,57 @@ Image Symbol Table
     i.on_delay                               0x0800a076   Section        0  aux_functions.o(i.on_delay)
     i.on_off_delay                           0x0800a0b2   Section        0  aux_functions.o(i.on_off_delay)
     i.outputHandling                         0x0800a0d8   Section        0  ios.o(i.outputHandling)
-    i.plot_data_formatting                   0x0800a208   Section        0  graphing_fuctions.o(i.plot_data_formatting)
-    i.pulseGeneration                        0x0800a300   Section        0  aux_functions.o(i.pulseGeneration)
-    i.pushButtonHandling                     0x0800a350   Section        0  pb_handling.o(i.pushButtonHandling)
-    i.put_cursor                             0x0800a43c   Section        0  lcd_routines.o(i.put_cursor)
-    i.put_dot                                0x0800a47c   Section        0  lcd_routines.o(i.put_dot)
-    i.put_dot2x2                             0x0800a490   Section        0  lcd_routines.o(i.put_dot2x2)
-    i.put_minus                              0x0800a4a4   Section        0  lcd_routines.o(i.put_minus)
-    i.put_plus                               0x0800a4c0   Section        0  lcd_routines.o(i.put_plus)
-    i.recordEmAll                            0x0800a4dc   Section        0  record.o(i.recordEmAll)
-    i.risingEdgeDetectionWithOnDelay         0x0800a650   Section        0  aux_functions.o(i.risingEdgeDetectionWithOnDelay)
-    i.saveScreen                             0x0800a6a0   Section        0  menu_routines.o(i.saveScreen)
-    i.savingScreen                           0x0800a7a0   Section        0  menu_routines.o(i.savingScreen)
-    i.scope_plotting                         0x0800a8b8   Section        0  graphing_fuctions.o(i.scope_plotting)
-    i.scope_routine                          0x0800a95c   Section        0  graphing_fuctions.o(i.scope_routine)
-    i.screenData2flash                       0x0800a994   Section        0  lcd_routines.o(i.screenData2flash)
-    i.staticDataSingle                       0x0800a9f4   Section        0  menu_routines.o(i.staticDataSingle)
-    i.staticDataTripple                      0x0800aaca   Section        0  menu_routines.o(i.staticDataTripple)
-    i.staticDataTrippleTotalPower            0x0800ac78   Section        0  menu_routines.o(i.staticDataTrippleTotalPower)
-    i.staticData_CT                          0x0800ad9c   Section        0  menu_routines.o(i.staticData_CT)
-    i.staticData_VT                          0x0800aee4   Section        0  menu_routines.o(i.staticData_VT)
-    i.staticData_input                       0x0800afb0   Section        0  menu_routines.o(i.staticData_input)
-    i.staticData_output                      0x0800b0c4   Section        0  menu_routines.o(i.staticData_output)
-    i.symbol_transfer                        0x0800b198   Section        0  lcd_routines.o(i.symbol_transfer)
-    i.toMainDetect                           0x0800b1dc   Section        0  menu_routines.o(i.toMainDetect)
-    i.toSettingsDetect                       0x0800b27c   Section        0  menu_routines.o(i.toSettingsDetect)
-    i.ui_limiter                             0x0800b2d4   Section        0  aux_functions.o(i.ui_limiter)
-    i.unit_transfer                          0x0800b2e8   Section        0  lcd_routines.o(i.unit_transfer)
-    i.vline                                  0x0800b3a0   Section        0  graphing_fuctions.o(i.vline)
-    i.vline_dotted                           0x0800b4e4   Section        0  graphing_fuctions.o(i.vline_dotted)
-    i.write_lcd                              0x0800b638   Section        0  lcd_routines.o(i.write_lcd)
-    .constdata                               0x0800b6c8   Section       14  lcd_data.o(.constdata)
-    .constdata                               0x0800b6d6   Section      608  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b936   Section      108  lcd_fonts.o(.constdata)
-    .constdata                               0x0800b9a2   Section      159  lcd_fonts.o(.constdata)
-    .constdata                               0x0800ba42   Section      108  lcd_fonts.o(.constdata)
-    .constdata                               0x0800baae   Section      160  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bb4e   Section      220  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bc2a   Section       40  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bc52   Section       38  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bc78   Section       12  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bc84   Section       94  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bce2   Section       24  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bcfa   Section       48  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bd2a   Section       40  lcd_fonts.o(.constdata)
-    .constdata                               0x0800bd52   Section       32  stm32f3xx_hal_rcc.o(.constdata)
-    .constdata                               0x0800bd72   Section       16  system_stm32f3xx.o(.constdata)
-    .constdata                               0x0800bd82   Section        8  system_stm32f3xx.o(.constdata)
-    .constdata                               0x0800bd8c   Section       60  menu_routines.o(.constdata)
-    .constdata                               0x0800bdc8   Section      510  menu_init.o(.constdata)
-    .constdata                               0x0800bfc8   Section       32  rredf.o(.constdata)
-    twooverpi                                0x0800bfc8   Data          32  rredf.o(.constdata)
+    i.plot_data_formatting                   0x0800a240   Section        0  graphing_fuctions.o(i.plot_data_formatting)
+    i.pulseGeneration                        0x0800a338   Section        0  aux_functions.o(i.pulseGeneration)
+    i.pushButtonHandling                     0x0800a388   Section        0  pb_handling.o(i.pushButtonHandling)
+    i.put_cursor                             0x0800a474   Section        0  lcd_routines.o(i.put_cursor)
+    i.put_dot                                0x0800a4b4   Section        0  lcd_routines.o(i.put_dot)
+    i.put_dot2x2                             0x0800a4c8   Section        0  lcd_routines.o(i.put_dot2x2)
+    i.put_minus                              0x0800a4dc   Section        0  lcd_routines.o(i.put_minus)
+    i.put_plus                               0x0800a4f8   Section        0  lcd_routines.o(i.put_plus)
+    i.recordEmAll                            0x0800a514   Section        0  record.o(i.recordEmAll)
+    i.risingEdgeDetectionWithOnDelay         0x0800a688   Section        0  aux_functions.o(i.risingEdgeDetectionWithOnDelay)
+    i.saveScreen                             0x0800a6d8   Section        0  menu_routines.o(i.saveScreen)
+    i.savingScreen                           0x0800a7d8   Section        0  menu_routines.o(i.savingScreen)
+    i.scope_plotting                         0x0800a8f0   Section        0  graphing_fuctions.o(i.scope_plotting)
+    i.scope_routine                          0x0800a994   Section        0  graphing_fuctions.o(i.scope_routine)
+    i.screenData2flash                       0x0800a9cc   Section        0  lcd_routines.o(i.screenData2flash)
+    i.staticDataSingle                       0x0800aa2c   Section        0  menu_routines.o(i.staticDataSingle)
+    i.staticDataTripple                      0x0800ab02   Section        0  menu_routines.o(i.staticDataTripple)
+    i.staticDataTrippleTotalPower            0x0800acb0   Section        0  menu_routines.o(i.staticDataTrippleTotalPower)
+    i.staticData_CT                          0x0800add4   Section        0  menu_routines.o(i.staticData_CT)
+    i.staticData_VT                          0x0800af1c   Section        0  menu_routines.o(i.staticData_VT)
+    i.staticData_input                       0x0800afe8   Section        0  menu_routines.o(i.staticData_input)
+    i.staticData_output                      0x0800b0fc   Section        0  menu_routines.o(i.staticData_output)
+    i.symbol_transfer                        0x0800b1d0   Section        0  lcd_routines.o(i.symbol_transfer)
+    i.toMainDetect                           0x0800b214   Section        0  menu_routines.o(i.toMainDetect)
+    i.toSettingsDetect                       0x0800b2b4   Section        0  menu_routines.o(i.toSettingsDetect)
+    i.ui_limiter                             0x0800b30c   Section        0  aux_functions.o(i.ui_limiter)
+    i.unit_transfer                          0x0800b320   Section        0  lcd_routines.o(i.unit_transfer)
+    i.vline                                  0x0800b3d8   Section        0  graphing_fuctions.o(i.vline)
+    i.vline_dotted                           0x0800b51c   Section        0  graphing_fuctions.o(i.vline_dotted)
+    i.write_lcd                              0x0800b670   Section        0  lcd_routines.o(i.write_lcd)
+    .constdata                               0x0800b700   Section       14  lcd_data.o(.constdata)
+    .constdata                               0x0800b70e   Section      608  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b96e   Section      108  lcd_fonts.o(.constdata)
+    .constdata                               0x0800b9da   Section      159  lcd_fonts.o(.constdata)
+    .constdata                               0x0800ba7a   Section      108  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bae6   Section      160  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bb86   Section      220  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bc62   Section       40  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bc8a   Section       38  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bcb0   Section       12  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bcbc   Section       94  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bd1a   Section       24  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bd32   Section       48  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bd62   Section       40  lcd_fonts.o(.constdata)
+    .constdata                               0x0800bd8a   Section       32  stm32f3xx_hal_rcc.o(.constdata)
+    .constdata                               0x0800bdaa   Section       16  system_stm32f3xx.o(.constdata)
+    .constdata                               0x0800bdba   Section        8  system_stm32f3xx.o(.constdata)
+    .constdata                               0x0800bdc4   Section       60  menu_routines.o(.constdata)
+    .constdata                               0x0800be00   Section      510  menu_init.o(.constdata)
+    .constdata                               0x0800c000   Section       32  rredf.o(.constdata)
+    twooverpi                                0x0800c000   Data          32  rredf.o(.constdata)
     i.HAL_ADC_ConvCpltCallback               0x2000008c   Section        0  converison.o(i.HAL_ADC_ConvCpltCallback)
     i.HAL_SDADC_CalibrationCpltCallback      0x2000020c   Section        0  converison.o(i.HAL_SDADC_CalibrationCpltCallback)
     i.HAL_SDADC_InjectedConvCpltCallback     0x20000268   Section        0  converison.o(i.HAL_SDADC_InjectedConvCpltCallback)
@@ -2803,50 +2808,50 @@ Image Symbol Table
     .data                                    0x200027bc   Section        8  flashdatahandling.o(.data)
     flashWriteCheck                          0x200027be   Data           1  flashdatahandling.o(.data)
     flashWriteCheck                          0x200027bf   Data           1  flashdatahandling.o(.data)
-    .data                                    0x200027c4   Section       20  ios.o(.data)
+    .data                                    0x200027c4   Section       28  ios.o(.data)
     inputBack                                0x200027c6   Data           2  ios.o(.data)
     meta                                     0x200027c8   Data           2  ios.o(.data)
-    energySourceBack                         0x200027cc   Data           4  ios.o(.data)
-    counter                                  0x200027d0   Data           4  ios.o(.data)
-    increment                                0x200027d4   Data           4  ios.o(.data)
-    .data                                    0x200027d8   Section        1  record.o(.data)
-    .data                                    0x200027dc   Section        4  errno.o(.data)
-    _errno                                   0x200027dc   Data           4  errno.o(.data)
-    .bss                                     0x200027e0   Section       96  converison.o(.bss)
-    .bss                                     0x20002840   Section       48  prefilter.o(.bss)
-    .bss                                     0x20002870   Section     1024  lcd_data.o(.bss)
-    .bss                                     0x20002c70   Section      116  adc.o(.bss)
-    .bss                                     0x20002ce4   Section      192  tim.o(.bss)
-    .bss                                     0x20002da4   Section      224  usart.o(.bss)
-    .bss                                     0x20002e84   Section      204  sdadc.o(.bss)
-    .bss                                     0x20002f50   Section      200  spi.o(.bss)
-    .bss                                     0x20003018   Section       32  rtc.o(.bss)
-    .bss                                     0x20003038   Section       32  stm32f3xx_hal_flash.o(.bss)
-    .bss                                     0x20003058   Section       28  menu_init.o(.bss)
-    .bss                                     0x20003074   Section       28  menu_init.o(.bss)
-    .bss                                     0x20003090   Section     2756  menu_init.o(.bss)
-    .bss                                     0x20003b54   Section       40  menu_init.o(.bss)
-    .bss                                     0x20003b7c   Section       40  menu_init.o(.bss)
-    .bss                                     0x20003ba4   Section      268  measurement_functions.o(.bss)
-    rms                                      0x20003ba4   Data          36  measurement_functions.o(.bss)
-    rms_sum                                  0x20003bc8   Data          36  measurement_functions.o(.bss)
-    sumBuffer                                0x20003bec   Data          36  measurement_functions.o(.bss)
-    xback                                    0x20003c10   Data          80  measurement_functions.o(.bss)
-    sum                                      0x20003c60   Data          80  measurement_functions.o(.bss)
-    .bss                                     0x20003cb0   Section      676  measurement_routines.o(.bss)
-    .bss                                     0x20003f54   Section     2640  measurement_routines.o(.bss)
-    .bss                                     0x200049a4   Section       24  measurement_routines.o(.bss)
-    .bss                                     0x200049bc   Section       80  measurement_routines.o(.bss)
-    .bss                                     0x20004a0c   Section       20  pb_handling.o(.bss)
-    counter_pb                               0x20004a0c   Data          20  pb_handling.o(.bss)
-    .bss                                     0x20004a20   Section      400  graphing_fuctions.o(.bss)
-    .bss                                     0x20004bb0   Section      480  graphing_fuctions.o(.bss)
-    .bss                                     0x20004d90   Section       12  flashdatahandling.o(.bss)
-    EraseInitStruct                          0x20004d90   Data          12  flashdatahandling.o(.bss)
-    .bss                                     0x20004d9c   Section       20  ios.o(.bss)
-    counter                                  0x20004d9c   Data          20  ios.o(.bss)
-    .bss                                     0x20004db0   Section      736  record.o(.bss)
-    STACK                                    0x20005090   Section     1280  startup_stm32f373xc.o(STACK)
+    energySourceBack                         0x200027d4   Data           4  ios.o(.data)
+    counter                                  0x200027d8   Data           4  ios.o(.data)
+    increment                                0x200027dc   Data           4  ios.o(.data)
+    .data                                    0x200027e0   Section        1  record.o(.data)
+    .data                                    0x200027e4   Section        4  errno.o(.data)
+    _errno                                   0x200027e4   Data           4  errno.o(.data)
+    .bss                                     0x200027e8   Section       96  converison.o(.bss)
+    .bss                                     0x20002848   Section       48  prefilter.o(.bss)
+    .bss                                     0x20002878   Section     1024  lcd_data.o(.bss)
+    .bss                                     0x20002c78   Section      116  adc.o(.bss)
+    .bss                                     0x20002cec   Section      192  tim.o(.bss)
+    .bss                                     0x20002dac   Section      224  usart.o(.bss)
+    .bss                                     0x20002e8c   Section      204  sdadc.o(.bss)
+    .bss                                     0x20002f58   Section      200  spi.o(.bss)
+    .bss                                     0x20003020   Section       32  rtc.o(.bss)
+    .bss                                     0x20003040   Section       32  stm32f3xx_hal_flash.o(.bss)
+    .bss                                     0x20003060   Section       28  menu_init.o(.bss)
+    .bss                                     0x2000307c   Section       28  menu_init.o(.bss)
+    .bss                                     0x20003098   Section     2756  menu_init.o(.bss)
+    .bss                                     0x20003b5c   Section       40  menu_init.o(.bss)
+    .bss                                     0x20003b84   Section       40  menu_init.o(.bss)
+    .bss                                     0x20003bac   Section      268  measurement_functions.o(.bss)
+    rms                                      0x20003bac   Data          36  measurement_functions.o(.bss)
+    rms_sum                                  0x20003bd0   Data          36  measurement_functions.o(.bss)
+    sumBuffer                                0x20003bf4   Data          36  measurement_functions.o(.bss)
+    xback                                    0x20003c18   Data          80  measurement_functions.o(.bss)
+    sum                                      0x20003c68   Data          80  measurement_functions.o(.bss)
+    .bss                                     0x20003cb8   Section      676  measurement_routines.o(.bss)
+    .bss                                     0x20003f5c   Section     2640  measurement_routines.o(.bss)
+    .bss                                     0x200049ac   Section       24  measurement_routines.o(.bss)
+    .bss                                     0x200049c4   Section       80  measurement_routines.o(.bss)
+    .bss                                     0x20004a14   Section       20  pb_handling.o(.bss)
+    counter_pb                               0x20004a14   Data          20  pb_handling.o(.bss)
+    .bss                                     0x20004a28   Section      400  graphing_fuctions.o(.bss)
+    .bss                                     0x20004bb8   Section      480  graphing_fuctions.o(.bss)
+    .bss                                     0x20004d98   Section       12  flashdatahandling.o(.bss)
+    EraseInitStruct                          0x20004d98   Data          12  flashdatahandling.o(.bss)
+    .bss                                     0x20004da4   Section       20  ios.o(.bss)
+    counter                                  0x20004da4   Data          20  ios.o(.bss)
+    .bss                                     0x20004db8   Section      736  record.o(.bss)
+    STACK                                    0x20005098   Section     1280  startup_stm32f373xc.o(STACK)
 
     Global Symbols
 
@@ -3141,58 +3146,58 @@ Image Symbol Table
     off_delay                                0x0800a03d   Thumb Code    58  aux_functions.o(i.off_delay)
     on_delay                                 0x0800a077   Thumb Code    60  aux_functions.o(i.on_delay)
     on_off_delay                             0x0800a0b3   Thumb Code    36  aux_functions.o(i.on_off_delay)
-    outputHandling                           0x0800a0d9   Thumb Code   272  ios.o(i.outputHandling)
-    plot_data_formatting                     0x0800a209   Thumb Code   208  graphing_fuctions.o(i.plot_data_formatting)
-    pulseGeneration                          0x0800a301   Thumb Code    74  aux_functions.o(i.pulseGeneration)
-    pushButtonHandling                       0x0800a351   Thumb Code   224  pb_handling.o(i.pushButtonHandling)
-    put_cursor                               0x0800a43d   Thumb Code    58  lcd_routines.o(i.put_cursor)
-    put_dot                                  0x0800a47d   Thumb Code    16  lcd_routines.o(i.put_dot)
-    put_dot2x2                               0x0800a491   Thumb Code    16  lcd_routines.o(i.put_dot2x2)
-    put_minus                                0x0800a4a5   Thumb Code    22  lcd_routines.o(i.put_minus)
-    put_plus                                 0x0800a4c1   Thumb Code    24  lcd_routines.o(i.put_plus)
-    recordEmAll                              0x0800a4dd   Thumb Code   340  record.o(i.recordEmAll)
-    risingEdgeDetectionWithOnDelay           0x0800a651   Thumb Code    78  aux_functions.o(i.risingEdgeDetectionWithOnDelay)
-    saveScreen                               0x0800a6a1   Thumb Code   236  menu_routines.o(i.saveScreen)
-    savingScreen                             0x0800a7a1   Thumb Code   246  menu_routines.o(i.savingScreen)
-    scope_plotting                           0x0800a8b9   Thumb Code   152  graphing_fuctions.o(i.scope_plotting)
-    scope_routine                            0x0800a95d   Thumb Code    42  graphing_fuctions.o(i.scope_routine)
-    screenData2flash                         0x0800a995   Thumb Code    96  lcd_routines.o(i.screenData2flash)
-    staticDataSingle                         0x0800a9f5   Thumb Code   214  menu_routines.o(i.staticDataSingle)
-    staticDataTripple                        0x0800aacb   Thumb Code   430  menu_routines.o(i.staticDataTripple)
-    staticDataTrippleTotalPower              0x0800ac79   Thumb Code   292  menu_routines.o(i.staticDataTrippleTotalPower)
-    staticData_CT                            0x0800ad9d   Thumb Code   280  menu_routines.o(i.staticData_CT)
-    staticData_VT                            0x0800aee5   Thumb Code   188  menu_routines.o(i.staticData_VT)
-    staticData_input                         0x0800afb1   Thumb Code   238  menu_routines.o(i.staticData_input)
-    staticData_output                        0x0800b0c5   Thumb Code   192  menu_routines.o(i.staticData_output)
-    symbol_transfer                          0x0800b199   Thumb Code    60  lcd_routines.o(i.symbol_transfer)
-    toMainDetect                             0x0800b1dd   Thumb Code   144  menu_routines.o(i.toMainDetect)
-    toSettingsDetect                         0x0800b27d   Thumb Code    70  menu_routines.o(i.toSettingsDetect)
-    ui_limiter                               0x0800b2d5   Thumb Code    18  aux_functions.o(i.ui_limiter)
-    unit_transfer                            0x0800b2e9   Thumb Code   170  lcd_routines.o(i.unit_transfer)
-    vline                                    0x0800b3a1   Thumb Code   320  graphing_fuctions.o(i.vline)
-    vline_dotted                             0x0800b4e5   Thumb Code   336  graphing_fuctions.o(i.vline_dotted)
-    write_lcd                                0x0800b639   Thumb Code   128  lcd_routines.o(i.write_lcd)
-    LCD_batch_init_array                     0x0800b6c8   Data          14  lcd_data.o(.constdata)
-    arial_14ptBitmaps                        0x0800b6d6   Data         608  lcd_fonts.o(.constdata)
-    Descriptors                              0x0800b936   Data         108  lcd_fonts.o(.constdata)
-    arial_8ptBitmaps                         0x0800b9a2   Data         159  lcd_fonts.o(.constdata)
-    Descriptors2                             0x0800ba42   Data         108  lcd_fonts.o(.constdata)
-    button_symbols                           0x0800baae   Data         160  lcd_fonts.o(.constdata)
-    bookAntiqua_14ptBitmaps                  0x0800bb4e   Data         220  lcd_fonts.o(.constdata)
-    Descriptors3                             0x0800bc2a   Data          40  lcd_fonts.o(.constdata)
-    unit_charecters                          0x0800bc52   Data          38  lcd_fonts.o(.constdata)
-    Descriptors4                             0x0800bc78   Data          12  lcd_fonts.o(.constdata)
-    menu_units_ch                            0x0800bc84   Data          94  lcd_fonts.o(.constdata)
-    Descriptors5                             0x0800bce2   Data          24  lcd_fonts.o(.constdata)
-    arial_8ptBitmaps_lowerCaseDigits         0x0800bcfa   Data          48  lcd_fonts.o(.constdata)
-    Descriptors_lowerCaseDigits              0x0800bd2a   Data          40  lcd_fonts.o(.constdata)
-    aPLLMULFactorTable                       0x0800bd52   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x0800bd62   Data          16  stm32f3xx_hal_rcc.o(.constdata)
-    AHBPrescTable                            0x0800bd72   Data          16  system_stm32f3xx.o(.constdata)
-    APBPrescTable                            0x0800bd82   Data           8  system_stm32f3xx.o(.constdata)
-    menu_transition                          0x0800bdc8   Data         510  menu_init.o(.constdata)
-    Region$$Table$$Base                      0x0800bfe8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800c018   Number         0  anon$$obj.o(Region$$Table)
+    outputHandling                           0x0800a0d9   Thumb Code   328  ios.o(i.outputHandling)
+    plot_data_formatting                     0x0800a241   Thumb Code   208  graphing_fuctions.o(i.plot_data_formatting)
+    pulseGeneration                          0x0800a339   Thumb Code    74  aux_functions.o(i.pulseGeneration)
+    pushButtonHandling                       0x0800a389   Thumb Code   224  pb_handling.o(i.pushButtonHandling)
+    put_cursor                               0x0800a475   Thumb Code    58  lcd_routines.o(i.put_cursor)
+    put_dot                                  0x0800a4b5   Thumb Code    16  lcd_routines.o(i.put_dot)
+    put_dot2x2                               0x0800a4c9   Thumb Code    16  lcd_routines.o(i.put_dot2x2)
+    put_minus                                0x0800a4dd   Thumb Code    22  lcd_routines.o(i.put_minus)
+    put_plus                                 0x0800a4f9   Thumb Code    24  lcd_routines.o(i.put_plus)
+    recordEmAll                              0x0800a515   Thumb Code   340  record.o(i.recordEmAll)
+    risingEdgeDetectionWithOnDelay           0x0800a689   Thumb Code    78  aux_functions.o(i.risingEdgeDetectionWithOnDelay)
+    saveScreen                               0x0800a6d9   Thumb Code   236  menu_routines.o(i.saveScreen)
+    savingScreen                             0x0800a7d9   Thumb Code   246  menu_routines.o(i.savingScreen)
+    scope_plotting                           0x0800a8f1   Thumb Code   152  graphing_fuctions.o(i.scope_plotting)
+    scope_routine                            0x0800a995   Thumb Code    42  graphing_fuctions.o(i.scope_routine)
+    screenData2flash                         0x0800a9cd   Thumb Code    96  lcd_routines.o(i.screenData2flash)
+    staticDataSingle                         0x0800aa2d   Thumb Code   214  menu_routines.o(i.staticDataSingle)
+    staticDataTripple                        0x0800ab03   Thumb Code   430  menu_routines.o(i.staticDataTripple)
+    staticDataTrippleTotalPower              0x0800acb1   Thumb Code   292  menu_routines.o(i.staticDataTrippleTotalPower)
+    staticData_CT                            0x0800add5   Thumb Code   280  menu_routines.o(i.staticData_CT)
+    staticData_VT                            0x0800af1d   Thumb Code   188  menu_routines.o(i.staticData_VT)
+    staticData_input                         0x0800afe9   Thumb Code   238  menu_routines.o(i.staticData_input)
+    staticData_output                        0x0800b0fd   Thumb Code   192  menu_routines.o(i.staticData_output)
+    symbol_transfer                          0x0800b1d1   Thumb Code    60  lcd_routines.o(i.symbol_transfer)
+    toMainDetect                             0x0800b215   Thumb Code   144  menu_routines.o(i.toMainDetect)
+    toSettingsDetect                         0x0800b2b5   Thumb Code    70  menu_routines.o(i.toSettingsDetect)
+    ui_limiter                               0x0800b30d   Thumb Code    18  aux_functions.o(i.ui_limiter)
+    unit_transfer                            0x0800b321   Thumb Code   170  lcd_routines.o(i.unit_transfer)
+    vline                                    0x0800b3d9   Thumb Code   320  graphing_fuctions.o(i.vline)
+    vline_dotted                             0x0800b51d   Thumb Code   336  graphing_fuctions.o(i.vline_dotted)
+    write_lcd                                0x0800b671   Thumb Code   128  lcd_routines.o(i.write_lcd)
+    LCD_batch_init_array                     0x0800b700   Data          14  lcd_data.o(.constdata)
+    arial_14ptBitmaps                        0x0800b70e   Data         608  lcd_fonts.o(.constdata)
+    Descriptors                              0x0800b96e   Data         108  lcd_fonts.o(.constdata)
+    arial_8ptBitmaps                         0x0800b9da   Data         159  lcd_fonts.o(.constdata)
+    Descriptors2                             0x0800ba7a   Data         108  lcd_fonts.o(.constdata)
+    button_symbols                           0x0800bae6   Data         160  lcd_fonts.o(.constdata)
+    bookAntiqua_14ptBitmaps                  0x0800bb86   Data         220  lcd_fonts.o(.constdata)
+    Descriptors3                             0x0800bc62   Data          40  lcd_fonts.o(.constdata)
+    unit_charecters                          0x0800bc8a   Data          38  lcd_fonts.o(.constdata)
+    Descriptors4                             0x0800bcb0   Data          12  lcd_fonts.o(.constdata)
+    menu_units_ch                            0x0800bcbc   Data          94  lcd_fonts.o(.constdata)
+    Descriptors5                             0x0800bd1a   Data          24  lcd_fonts.o(.constdata)
+    arial_8ptBitmaps_lowerCaseDigits         0x0800bd32   Data          48  lcd_fonts.o(.constdata)
+    Descriptors_lowerCaseDigits              0x0800bd62   Data          40  lcd_fonts.o(.constdata)
+    aPLLMULFactorTable                       0x0800bd8a   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x0800bd9a   Data          16  stm32f3xx_hal_rcc.o(.constdata)
+    AHBPrescTable                            0x0800bdaa   Data          16  system_stm32f3xx.o(.constdata)
+    APBPrescTable                            0x0800bdba   Data           8  system_stm32f3xx.o(.constdata)
+    menu_transition                          0x0800be00   Data         510  menu_init.o(.constdata)
+    Region$$Table$$Base                      0x0800c020   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800c050   Number         0  anon$$obj.o(Region$$Table)
     Long Thumb to Thumb Veneer to HAL_GPIO_TogglePin 0x20000001   Thumb Code    10  anon$$obj.o(Veneer$$Code)
     Long Thumb to Thumb Veneer to ios        0x2000000b   Thumb Code    10  anon$$obj.o(Veneer$$Code)
     Long Thumb to Thumb Veneer to recordEmAll 0x20000015   Thumb Code    10  anon$$obj.o(Veneer$$Code)
@@ -3314,48 +3319,50 @@ Image Symbol Table
     PageError                                0x200027c0   Data           4  flashdatahandling.o(.data)
     input                                    0x200027c4   Data           1  ios.o(.data)
     output                                   0x200027c5   Data           1  ios.o(.data)
-    recordFlag                               0x200027d8   Data           1  record.o(.data)
-    AN                                       0x200027e0   Data          36  converison.o(.bss)
-    scale                                    0x20002804   Data          36  converison.o(.bss)
-    uBuffer                                  0x20002828   Data          24  converison.o(.bss)
-    oc_buff                                  0x20002840   Data          48  prefilter.o(.bss)
-    display_buffer                           0x20002870   Data        1024  lcd_data.o(.bss)
-    hadc1                                    0x20002c70   Data          48  adc.o(.bss)
-    hdma_adc1                                0x20002ca0   Data          68  adc.o(.bss)
-    htim3                                    0x20002ce4   Data          64  tim.o(.bss)
-    htim5                                    0x20002d24   Data          64  tim.o(.bss)
-    htim19                                   0x20002d64   Data          64  tim.o(.bss)
-    huart1                                   0x20002da4   Data         112  usart.o(.bss)
-    huart3                                   0x20002e14   Data         112  usart.o(.bss)
-    hsdadc1                                  0x20002e84   Data          68  sdadc.o(.bss)
-    hsdadc2                                  0x20002ec8   Data          68  sdadc.o(.bss)
-    hsdadc3                                  0x20002f0c   Data          68  sdadc.o(.bss)
-    hspi1                                    0x20002f50   Data         100  spi.o(.bss)
-    hspi3                                    0x20002fb4   Data         100  spi.o(.bss)
-    hrtc                                     0x20003018   Data          32  rtc.o(.bss)
-    pFlash                                   0x20003038   Data          32  stm32f3xx_hal_flash.o(.bss)
-    main_lines                               0x20003058   Data          28  menu_init.o(.bss)
-    setting_lines                            0x20003074   Data          28  menu_init.o(.bss)
-    MENU                                     0x20003090   Data        2756  menu_init.o(.bss)
-    flash                                    0x20003b54   Data          40  menu_init.o(.bss)
-    flashNew                                 0x20003b7c   Data          40  menu_init.o(.bss)
-    quad_sos                                 0x20003cb0   Data          72  measurement_routines.o(.bss)
-    inphase_sos                              0x20003cf8   Data          72  measurement_routines.o(.bss)
-    inphaseData                              0x20003d40   Data          36  measurement_routines.o(.bss)
-    quadData                                 0x20003d64   Data          36  measurement_routines.o(.bss)
-    fundRMS                                  0x20003d88   Data          36  measurement_routines.o(.bss)
-    trueRMS                                  0x20003dac   Data          36  measurement_routines.o(.bss)
-    phase                                    0x20003dd0   Data          36  measurement_routines.o(.bss)
-    power_iq                                 0x20003df4   Data          80  measurement_routines.o(.bss)
-    energy                                   0x20003e44   Data         240  measurement_routines.o(.bss)
-    sym                                      0x20003f34   Data          32  measurement_routines.o(.bss)
-    harm                                     0x20003f54   Data        2640  measurement_routines.o(.bss)
-    thd                                      0x200049a4   Data          24  measurement_routines.o(.bss)
-    power_true                               0x200049bc   Data          80  measurement_routines.o(.bss)
-    scope_array                              0x20004a20   Data         400  graphing_fuctions.o(.bss)
-    bin_array                                0x20004bb0   Data         480  graphing_fuctions.o(.bss)
-    rec                                      0x20004db0   Data         736  record.o(.bss)
-    __initial_sp                             0x20005590   Data           0  startup_stm32f373xc.o(STACK)
+    limitValue                               0x200027cc   Data           4  ios.o(.data)
+    limitParameter                           0x200027d0   Data           4  ios.o(.data)
+    recordFlag                               0x200027e0   Data           1  record.o(.data)
+    AN                                       0x200027e8   Data          36  converison.o(.bss)
+    scale                                    0x2000280c   Data          36  converison.o(.bss)
+    uBuffer                                  0x20002830   Data          24  converison.o(.bss)
+    oc_buff                                  0x20002848   Data          48  prefilter.o(.bss)
+    display_buffer                           0x20002878   Data        1024  lcd_data.o(.bss)
+    hadc1                                    0x20002c78   Data          48  adc.o(.bss)
+    hdma_adc1                                0x20002ca8   Data          68  adc.o(.bss)
+    htim3                                    0x20002cec   Data          64  tim.o(.bss)
+    htim5                                    0x20002d2c   Data          64  tim.o(.bss)
+    htim19                                   0x20002d6c   Data          64  tim.o(.bss)
+    huart1                                   0x20002dac   Data         112  usart.o(.bss)
+    huart3                                   0x20002e1c   Data         112  usart.o(.bss)
+    hsdadc1                                  0x20002e8c   Data          68  sdadc.o(.bss)
+    hsdadc2                                  0x20002ed0   Data          68  sdadc.o(.bss)
+    hsdadc3                                  0x20002f14   Data          68  sdadc.o(.bss)
+    hspi1                                    0x20002f58   Data         100  spi.o(.bss)
+    hspi3                                    0x20002fbc   Data         100  spi.o(.bss)
+    hrtc                                     0x20003020   Data          32  rtc.o(.bss)
+    pFlash                                   0x20003040   Data          32  stm32f3xx_hal_flash.o(.bss)
+    main_lines                               0x20003060   Data          28  menu_init.o(.bss)
+    setting_lines                            0x2000307c   Data          28  menu_init.o(.bss)
+    MENU                                     0x20003098   Data        2756  menu_init.o(.bss)
+    flash                                    0x20003b5c   Data          40  menu_init.o(.bss)
+    flashNew                                 0x20003b84   Data          40  menu_init.o(.bss)
+    quad_sos                                 0x20003cb8   Data          72  measurement_routines.o(.bss)
+    inphase_sos                              0x20003d00   Data          72  measurement_routines.o(.bss)
+    inphaseData                              0x20003d48   Data          36  measurement_routines.o(.bss)
+    quadData                                 0x20003d6c   Data          36  measurement_routines.o(.bss)
+    fundRMS                                  0x20003d90   Data          36  measurement_routines.o(.bss)
+    trueRMS                                  0x20003db4   Data          36  measurement_routines.o(.bss)
+    phase                                    0x20003dd8   Data          36  measurement_routines.o(.bss)
+    power_iq                                 0x20003dfc   Data          80  measurement_routines.o(.bss)
+    energy                                   0x20003e4c   Data         240  measurement_routines.o(.bss)
+    sym                                      0x20003f3c   Data          32  measurement_routines.o(.bss)
+    harm                                     0x20003f5c   Data        2640  measurement_routines.o(.bss)
+    thd                                      0x200049ac   Data          24  measurement_routines.o(.bss)
+    power_true                               0x200049c4   Data          80  measurement_routines.o(.bss)
+    scope_array                              0x20004a28   Data         400  graphing_fuctions.o(.bss)
+    bin_array                                0x20004bb8   Data         480  graphing_fuctions.o(.bss)
+    rec                                      0x20004db8   Data         736  record.o(.bss)
+    __initial_sp                             0x20005598   Data           0  startup_stm32f373xc.o(STACK)
 
 
 
@@ -3365,35 +3372,35 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000e7f8, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000df34])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000e838, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000df68])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000c018, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000c050, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x00000188   Data   RO            3    RESET               startup_stm32f373xc.o
-    0x08000188   0x00000000   Code   RO         5803  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000188   0x00000004   Code   RO         5833    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0800018c   0x00000004   Code   RO         5836    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000190   0x00000000   Code   RO         5838    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000190   0x00000000   Code   RO         5840    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000190   0x00000008   Code   RO         5841    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000198   0x00000000   Code   RO         5843    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000198   0x00000000   Code   RO         5845    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000198   0x00000004   Code   RO         5834    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000188   0x00000000   Code   RO         5816  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000188   0x00000004   Code   RO         5846    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0800018c   0x00000004   Code   RO         5849    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000190   0x00000000   Code   RO         5851    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000190   0x00000000   Code   RO         5853    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000190   0x00000008   Code   RO         5854    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000198   0x00000000   Code   RO         5856    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000198   0x00000000   Code   RO         5858    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000198   0x00000004   Code   RO         5847    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x0800019c   0x00000024   Code   RO            4    .text               startup_stm32f373xc.o
-    0x080001c0   0x00000020   Code   RO         5806    .text               mc_w.l(llushr.o)
-    0x080001e0   0x00000024   Code   RO         5808    .text               mc_w.l(memcpya.o)
-    0x08000204   0x00000024   Code   RO         5810    .text               mc_w.l(memseta.o)
-    0x08000228   0x00000000   Code   RO         5854    .text               mc_w.l(iusefp.o)
-    0x08000228   0x00000024   Code   RO         5855    .text               mc_w.l(init.o)
-    0x0800024c   0x0000005e   Code   RO         5865    .text               mc_w.l(__dclz77c.o)
-    0x080002aa   0x0000000a   Ven    RO         5867    Veneer$$Code        anon$$obj.o
-    0x080002b4   0x0000000a   Ven    RO         5868    Veneer$$Code        anon$$obj.o
-    0x080002be   0x0000000a   Ven    RO         5869    Veneer$$Code        anon$$obj.o
-    0x080002c8   0x0000000a   Ven    RO         5870    Veneer$$Code        anon$$obj.o
-    0x080002d2   0x0000000a   Ven    RO         5871    Veneer$$Code        anon$$obj.o
-    0x080002dc   0x0000000a   Ven    RO         5872    Veneer$$Code        anon$$obj.o
+    0x080001c0   0x00000020   Code   RO         5819    .text               mc_w.l(llushr.o)
+    0x080001e0   0x00000024   Code   RO         5821    .text               mc_w.l(memcpya.o)
+    0x08000204   0x00000024   Code   RO         5823    .text               mc_w.l(memseta.o)
+    0x08000228   0x00000000   Code   RO         5867    .text               mc_w.l(iusefp.o)
+    0x08000228   0x00000024   Code   RO         5868    .text               mc_w.l(init.o)
+    0x0800024c   0x0000005e   Code   RO         5878    .text               mc_w.l(__dclz77c.o)
+    0x080002aa   0x0000000a   Ven    RO         5880    Veneer$$Code        anon$$obj.o
+    0x080002b4   0x0000000a   Ven    RO         5881    Veneer$$Code        anon$$obj.o
+    0x080002be   0x0000000a   Ven    RO         5882    Veneer$$Code        anon$$obj.o
+    0x080002c8   0x0000000a   Ven    RO         5883    Veneer$$Code        anon$$obj.o
+    0x080002d2   0x0000000a   Ven    RO         5884    Veneer$$Code        anon$$obj.o
+    0x080002dc   0x0000000a   Ven    RO         5885    Veneer$$Code        anon$$obj.o
     0x080002e6   0x00000002   PAD
     0x080002e8   0x0000000c   Code   RO          640    i.ADC1_IRQHandler   stm32f3xx_it.o
     0x080002f4   0x00000054   Code   RO         1825    i.ADC_ConversionStop_Disable  stm32f3xx_hal_adc_ex.o
@@ -3556,23 +3563,23 @@ Memory Map of the image
     0x080070b4   0x00000076   Code   RO         1381    i.UART_WaitOnFlagUntilTimeout  stm32f3xx_hal_uart.o
     0x0800712a   0x00000002   Code   RO          654    i.UsageFault_Handler  stm32f3xx_it.o
     0x0800712c   0x00000002   Code   RO          508    i._Error_Handler    main.o
-    0x0800712e   0x00000008   Code   RO         5589    i.__ARM_common_memclr4_8  graphing_fuctions.o
-    0x08007136   0x00000026   Code   RO         5814    i.__ARM_fpclassifyf  m_wm.l(fpclassifyf.o)
-    0x0800715c   0x00000250   Code   RO         5755    i.__hardfp_atan2f   m_wm.l(atan2f.o)
-    0x080073ac   0x00000150   Code   RO         5767    i.__hardfp_cosf     m_wm.l(cosf.o)
-    0x080074fc   0x00000190   Code   RO         5779    i.__hardfp_sinf     m_wm.l(sinf.o)
-    0x0800768c   0x0000003a   Code   RO         5791    i.__hardfp_sqrtf    m_wm.l(sqrtf.o)
-    0x080076c6   0x00000006   Code   RO         5817    i.__mathlib_flt_infnan  m_wm.l(funder.o)
-    0x080076cc   0x00000006   Code   RO         5818    i.__mathlib_flt_infnan2  m_wm.l(funder.o)
+    0x0800712e   0x00000008   Code   RO         5601    i.__ARM_common_memclr4_8  graphing_fuctions.o
+    0x08007136   0x00000026   Code   RO         5827    i.__ARM_fpclassifyf  m_wm.l(fpclassifyf.o)
+    0x0800715c   0x00000250   Code   RO         5768    i.__hardfp_atan2f   m_wm.l(atan2f.o)
+    0x080073ac   0x00000150   Code   RO         5780    i.__hardfp_cosf     m_wm.l(cosf.o)
+    0x080074fc   0x00000190   Code   RO         5792    i.__hardfp_sinf     m_wm.l(sinf.o)
+    0x0800768c   0x0000003a   Code   RO         5804    i.__hardfp_sqrtf    m_wm.l(sqrtf.o)
+    0x080076c6   0x00000006   Code   RO         5830    i.__mathlib_flt_infnan  m_wm.l(funder.o)
+    0x080076cc   0x00000006   Code   RO         5831    i.__mathlib_flt_infnan2  m_wm.l(funder.o)
     0x080076d2   0x00000002   PAD
-    0x080076d4   0x00000010   Code   RO         5819    i.__mathlib_flt_invalid  m_wm.l(funder.o)
-    0x080076e4   0x00000010   Code   RO         5822    i.__mathlib_flt_underflow  m_wm.l(funder.o)
-    0x080076f4   0x00000154   Code   RO         5830    i.__mathlib_rredf2  m_wm.l(rredf.o)
-    0x08007848   0x0000000e   Code   RO         5859    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08007856   0x00000002   Code   RO         5860    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08007858   0x0000000e   Code   RO         5861    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x080076d4   0x00000010   Code   RO         5832    i.__mathlib_flt_invalid  m_wm.l(funder.o)
+    0x080076e4   0x00000010   Code   RO         5835    i.__mathlib_flt_underflow  m_wm.l(funder.o)
+    0x080076f4   0x00000154   Code   RO         5843    i.__mathlib_rredf2  m_wm.l(rredf.o)
+    0x08007848   0x0000000e   Code   RO         5872    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08007856   0x00000002   Code   RO         5873    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08007858   0x0000000e   Code   RO         5874    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08007866   0x00000002   PAD
-    0x08007868   0x0000000c   Code   RO         5849    i.__set_errno       mc_w.l(errno.o)
+    0x08007868   0x0000000c   Code   RO         5862    i.__set_errno       mc_w.l(errno.o)
     0x08007874   0x00000002   Code   RO          509    i.assert_failed     main.o
     0x08007876   0x00000002   PAD
     0x08007878   0x000002cc   Code   RO         5007    i.atMainOperation   menu_routines.o
@@ -3580,199 +3587,199 @@ Memory Map of the image
     0x08007da4   0x00000040   Code   RO          262    i.clearColumns      lcd_routines.o
     0x08007de4   0x000000b8   Code   RO          264    i.digit_transfer_14pt  lcd_routines.o
     0x08007e9c   0x00000068   Code   RO          265    i.digit_transfer_8pt  lcd_routines.o
-    0x08007f04   0x00000088   Code   RO         5009    i.dynamicDataSingle  menu_routines.o
-    0x08007f8c   0x000001d8   Code   RO         5010    i.dynamicDataTripple  menu_routines.o
-    0x08008164   0x000001dc   Code   RO         5011    i.dynamicDataTrippleTotalPower  menu_routines.o
-    0x08008340   0x000003c0   Code   RO         5012    i.dynamicData_CT    menu_routines.o
-    0x08008700   0x00000230   Code   RO         5013    i.dynamicData_VT    menu_routines.o
-    0x08008930   0x0000021c   Code   RO         5014    i.dynamicData_input  menu_routines.o
-    0x08008b4c   0x00000494   Code   RO         5015    i.dynamicData_output  menu_routines.o
-    0x08008fe0   0x0000004c   Code   RO         5438    i.fallingEdgeDetectionWithOffDelay  aux_functions.o
+    0x08007f04   0x00000088   Code   RO         5010    i.dynamicDataSingle  menu_routines.o
+    0x08007f8c   0x000001d8   Code   RO         5011    i.dynamicDataTripple  menu_routines.o
+    0x08008164   0x000001dc   Code   RO         5012    i.dynamicDataTrippleTotalPower  menu_routines.o
+    0x08008340   0x000003c0   Code   RO         5013    i.dynamicData_CT    menu_routines.o
+    0x08008700   0x00000230   Code   RO         5014    i.dynamicData_VT    menu_routines.o
+    0x08008930   0x0000021c   Code   RO         5015    i.dynamicData_input  menu_routines.o
+    0x08008b4c   0x00000494   Code   RO         5016    i.dynamicData_output  menu_routines.o
+    0x08008fe0   0x0000004c   Code   RO         5450    i.fallingEdgeDetectionWithOffDelay  aux_functions.o
     0x0800902c   0x0000006c   Code   RO          266    i.flashData2LCD     lcd_routines.o
-    0x08009098   0x00000050   Code   RO         5606    i.flashRead         flashdatahandling.o
-    0x080090e8   0x00000034   Code   RO         5609    i.flashReadRec      flashdatahandling.o
-    0x0800911c   0x000000b8   Code   RO         5610    i.flashWrite        flashdatahandling.o
-    0x080091d4   0x0000014c   Code   RO         5016    i.formatDynamicData  menu_routines.o
-    0x08009320   0x0000014c   Code   RO         5504    i.graphBaseLining   graphing_fuctions.o
-    0x0800946c   0x00000004   Code   RO         5505    i.graphDataTransfer  graphing_fuctions.o
-    0x08009470   0x000000f4   Code   RO         5506    i.harmonicBaseLine  graphing_fuctions.o
-    0x08009564   0x00000204   Code   RO         5508    i.harmonicDataTransfer  graphing_fuctions.o
-    0x08009768   0x00000068   Code   RO         5509    i.hline             graphing_fuctions.o
-    0x080097d0   0x00000016   Code   RO         5439    i.i_limiter         aux_functions.o
+    0x08009098   0x00000050   Code   RO         5618    i.flashRead         flashdatahandling.o
+    0x080090e8   0x00000034   Code   RO         5621    i.flashReadRec      flashdatahandling.o
+    0x0800911c   0x000000b8   Code   RO         5622    i.flashWrite        flashdatahandling.o
+    0x080091d4   0x0000014c   Code   RO         5017    i.formatDynamicData  menu_routines.o
+    0x08009320   0x0000014c   Code   RO         5516    i.graphBaseLining   graphing_fuctions.o
+    0x0800946c   0x00000004   Code   RO         5517    i.graphDataTransfer  graphing_fuctions.o
+    0x08009470   0x000000f4   Code   RO         5518    i.harmonicBaseLine  graphing_fuctions.o
+    0x08009564   0x00000204   Code   RO         5520    i.harmonicDataTransfer  graphing_fuctions.o
+    0x08009768   0x00000068   Code   RO         5521    i.hline             graphing_fuctions.o
+    0x080097d0   0x00000016   Code   RO         5451    i.i_limiter         aux_functions.o
     0x080097e6   0x00000002   PAD
     0x080097e8   0x00000040   Code   RO          267    i.init_LCD          lcd_routines.o
-    0x08009828   0x00000368   Code   RO         5196    i.init_Menu         menu_init.o
+    0x08009828   0x00000368   Code   RO         5208    i.init_Menu         menu_init.o
     0x08009b90   0x00000030   Code   RO          268    i.init_backlight    lcd_routines.o
-    0x08009bc0   0x00000028   Code   RO         5614    i.init_flashBackRead  flashdatahandling.o
-    0x08009be8   0x000000a8   Code   RO         5695    i.inputHandling     ios.o
-    0x08009c90   0x0000000e   Code   RO         5696    i.ios               ios.o
+    0x08009bc0   0x00000028   Code   RO         5626    i.init_flashBackRead  flashdatahandling.o
+    0x08009be8   0x000000a8   Code   RO         5707    i.inputHandling     ios.o
+    0x08009c90   0x0000000e   Code   RO         5708    i.ios               ios.o
     0x08009c9e   0x00000002   PAD
     0x08009ca0   0x0000009c   Code   RO          269    i.letter_transfer_14pt  lcd_routines.o
     0x08009d3c   0x00000068   Code   RO          270    i.letter_transfer_8pt  lcd_routines.o
     0x08009da4   0x00000040   Code   RO          271    i.line_highlighter  lcd_routines.o
     0x08009de4   0x000000cc   Code   RO          510    i.main              main.o
     0x08009eb0   0x000000b8   Code   RO          272    i.menu_unit_transfer  lcd_routines.o
-    0x08009f68   0x00000002   Code   RO         5018    i.noSave            menu_routines.o
+    0x08009f68   0x00000002   Code   RO         5019    i.noSave            menu_routines.o
     0x08009f6a   0x00000002   PAD
-    0x08009f6c   0x000000d0   Code   RO         5019    i.notSavedScreen    menu_routines.o
-    0x0800a03c   0x0000003a   Code   RO         5440    i.off_delay         aux_functions.o
-    0x0800a076   0x0000003c   Code   RO         5441    i.on_delay          aux_functions.o
-    0x0800a0b2   0x00000024   Code   RO         5442    i.on_off_delay      aux_functions.o
+    0x08009f6c   0x000000d0   Code   RO         5020    i.notSavedScreen    menu_routines.o
+    0x0800a03c   0x0000003a   Code   RO         5452    i.off_delay         aux_functions.o
+    0x0800a076   0x0000003c   Code   RO         5453    i.on_delay          aux_functions.o
+    0x0800a0b2   0x00000024   Code   RO         5454    i.on_off_delay      aux_functions.o
     0x0800a0d6   0x00000002   PAD
-    0x0800a0d8   0x00000130   Code   RO         5697    i.outputHandling    ios.o
-    0x0800a208   0x000000f8   Code   RO         5510    i.plot_data_formatting  graphing_fuctions.o
-    0x0800a300   0x00000050   Code   RO         5443    i.pulseGeneration   aux_functions.o
-    0x0800a350   0x000000ec   Code   RO         5407    i.pushButtonHandling  pb_handling.o
-    0x0800a43c   0x00000040   Code   RO          274    i.put_cursor        lcd_routines.o
-    0x0800a47c   0x00000014   Code   RO          275    i.put_dot           lcd_routines.o
-    0x0800a490   0x00000014   Code   RO          276    i.put_dot2x2        lcd_routines.o
-    0x0800a4a4   0x0000001c   Code   RO          277    i.put_minus         lcd_routines.o
-    0x0800a4c0   0x0000001c   Code   RO          278    i.put_plus          lcd_routines.o
-    0x0800a4dc   0x00000174   Code   RO         5735    i.recordEmAll       record.o
-    0x0800a650   0x0000004e   Code   RO         5445    i.risingEdgeDetectionWithOnDelay  aux_functions.o
-    0x0800a69e   0x00000002   PAD
-    0x0800a6a0   0x00000100   Code   RO         5021    i.saveScreen        menu_routines.o
-    0x0800a7a0   0x00000118   Code   RO         5022    i.savingScreen      menu_routines.o
-    0x0800a8b8   0x000000a4   Code   RO         5511    i.scope_plotting    graphing_fuctions.o
-    0x0800a95c   0x00000038   Code   RO         5512    i.scope_routine     graphing_fuctions.o
-    0x0800a994   0x00000060   Code   RO          279    i.screenData2flash  lcd_routines.o
-    0x0800a9f4   0x000000d6   Code   RO         5023    i.staticDataSingle  menu_routines.o
-    0x0800aaca   0x000001ae   Code   RO         5024    i.staticDataTripple  menu_routines.o
-    0x0800ac78   0x00000124   Code   RO         5025    i.staticDataTrippleTotalPower  menu_routines.o
-    0x0800ad9c   0x00000148   Code   RO         5026    i.staticData_CT     menu_routines.o
-    0x0800aee4   0x000000cc   Code   RO         5027    i.staticData_VT     menu_routines.o
-    0x0800afb0   0x00000114   Code   RO         5028    i.staticData_input  menu_routines.o
-    0x0800b0c4   0x000000d4   Code   RO         5029    i.staticData_output  menu_routines.o
-    0x0800b198   0x00000044   Code   RO          280    i.symbol_transfer   lcd_routines.o
-    0x0800b1dc   0x000000a0   Code   RO         5030    i.toMainDetect      menu_routines.o
-    0x0800b27c   0x00000058   Code   RO         5031    i.toSettingsDetect  menu_routines.o
-    0x0800b2d4   0x00000012   Code   RO         5446    i.ui_limiter        aux_functions.o
-    0x0800b2e6   0x00000002   PAD
-    0x0800b2e8   0x000000b8   Code   RO          281    i.unit_transfer     lcd_routines.o
-    0x0800b3a0   0x00000144   Code   RO         5514    i.vline             graphing_fuctions.o
-    0x0800b4e4   0x00000154   Code   RO         5515    i.vline_dotted      graphing_fuctions.o
-    0x0800b638   0x00000090   Code   RO          282    i.write_lcd         lcd_routines.o
-    0x0800b6c8   0x0000000e   Data   RO          422    .constdata          lcd_data.o
-    0x0800b6d6   0x00000260   Data   RO          431    .constdata          lcd_fonts.o
-    0x0800b936   0x0000006c   Data   RO          432    .constdata          lcd_fonts.o
-    0x0800b9a2   0x0000009f   Data   RO          433    .constdata          lcd_fonts.o
-    0x0800ba41   0x00000001   PAD
-    0x0800ba42   0x0000006c   Data   RO          434    .constdata          lcd_fonts.o
-    0x0800baae   0x000000a0   Data   RO          435    .constdata          lcd_fonts.o
-    0x0800bb4e   0x000000dc   Data   RO          436    .constdata          lcd_fonts.o
-    0x0800bc2a   0x00000028   Data   RO          437    .constdata          lcd_fonts.o
-    0x0800bc52   0x00000026   Data   RO          438    .constdata          lcd_fonts.o
-    0x0800bc78   0x0000000c   Data   RO          439    .constdata          lcd_fonts.o
-    0x0800bc84   0x0000005e   Data   RO          440    .constdata          lcd_fonts.o
-    0x0800bce2   0x00000018   Data   RO          441    .constdata          lcd_fonts.o
-    0x0800bcfa   0x00000030   Data   RO          442    .constdata          lcd_fonts.o
-    0x0800bd2a   0x00000028   Data   RO          443    .constdata          lcd_fonts.o
-    0x0800bd52   0x00000020   Data   RO         3056    .constdata          stm32f3xx_hal_rcc.o
-    0x0800bd72   0x00000010   Data   RO         4972    .constdata          system_stm32f3xx.o
-    0x0800bd82   0x00000008   Data   RO         4973    .constdata          system_stm32f3xx.o
-    0x0800bd8a   0x00000002   PAD
-    0x0800bd8c   0x0000003c   Data   RO         5032    .constdata          menu_routines.o
-    0x0800bdc8   0x000001fe   Data   RO         5202    .constdata          menu_init.o
-    0x0800bfc6   0x00000002   PAD
-    0x0800bfc8   0x00000020   Data   RO         5831    .constdata          m_wm.l(rredf.o)
-    0x0800bfe8   0x00000030   Data   RO         5857    Region$$Table       anon$$obj.o
+    0x0800a0d8   0x00000168   Code   RO         5709    i.outputHandling    ios.o
+    0x0800a240   0x000000f8   Code   RO         5522    i.plot_data_formatting  graphing_fuctions.o
+    0x0800a338   0x00000050   Code   RO         5455    i.pulseGeneration   aux_functions.o
+    0x0800a388   0x000000ec   Code   RO         5419    i.pushButtonHandling  pb_handling.o
+    0x0800a474   0x00000040   Code   RO          274    i.put_cursor        lcd_routines.o
+    0x0800a4b4   0x00000014   Code   RO          275    i.put_dot           lcd_routines.o
+    0x0800a4c8   0x00000014   Code   RO          276    i.put_dot2x2        lcd_routines.o
+    0x0800a4dc   0x0000001c   Code   RO          277    i.put_minus         lcd_routines.o
+    0x0800a4f8   0x0000001c   Code   RO          278    i.put_plus          lcd_routines.o
+    0x0800a514   0x00000174   Code   RO         5748    i.recordEmAll       record.o
+    0x0800a688   0x0000004e   Code   RO         5457    i.risingEdgeDetectionWithOnDelay  aux_functions.o
+    0x0800a6d6   0x00000002   PAD
+    0x0800a6d8   0x00000100   Code   RO         5022    i.saveScreen        menu_routines.o
+    0x0800a7d8   0x00000118   Code   RO         5023    i.savingScreen      menu_routines.o
+    0x0800a8f0   0x000000a4   Code   RO         5523    i.scope_plotting    graphing_fuctions.o
+    0x0800a994   0x00000038   Code   RO         5524    i.scope_routine     graphing_fuctions.o
+    0x0800a9cc   0x00000060   Code   RO          279    i.screenData2flash  lcd_routines.o
+    0x0800aa2c   0x000000d6   Code   RO         5025    i.staticDataSingle  menu_routines.o
+    0x0800ab02   0x000001ae   Code   RO         5026    i.staticDataTripple  menu_routines.o
+    0x0800acb0   0x00000124   Code   RO         5027    i.staticDataTrippleTotalPower  menu_routines.o
+    0x0800add4   0x00000148   Code   RO         5028    i.staticData_CT     menu_routines.o
+    0x0800af1c   0x000000cc   Code   RO         5029    i.staticData_VT     menu_routines.o
+    0x0800afe8   0x00000114   Code   RO         5030    i.staticData_input  menu_routines.o
+    0x0800b0fc   0x000000d4   Code   RO         5031    i.staticData_output  menu_routines.o
+    0x0800b1d0   0x00000044   Code   RO          280    i.symbol_transfer   lcd_routines.o
+    0x0800b214   0x000000a0   Code   RO         5032    i.toMainDetect      menu_routines.o
+    0x0800b2b4   0x00000058   Code   RO         5033    i.toSettingsDetect  menu_routines.o
+    0x0800b30c   0x00000012   Code   RO         5458    i.ui_limiter        aux_functions.o
+    0x0800b31e   0x00000002   PAD
+    0x0800b320   0x000000b8   Code   RO          281    i.unit_transfer     lcd_routines.o
+    0x0800b3d8   0x00000144   Code   RO         5526    i.vline             graphing_fuctions.o
+    0x0800b51c   0x00000154   Code   RO         5527    i.vline_dotted      graphing_fuctions.o
+    0x0800b670   0x00000090   Code   RO          282    i.write_lcd         lcd_routines.o
+    0x0800b700   0x0000000e   Data   RO          422    .constdata          lcd_data.o
+    0x0800b70e   0x00000260   Data   RO          431    .constdata          lcd_fonts.o
+    0x0800b96e   0x0000006c   Data   RO          432    .constdata          lcd_fonts.o
+    0x0800b9da   0x0000009f   Data   RO          433    .constdata          lcd_fonts.o
+    0x0800ba79   0x00000001   PAD
+    0x0800ba7a   0x0000006c   Data   RO          434    .constdata          lcd_fonts.o
+    0x0800bae6   0x000000a0   Data   RO          435    .constdata          lcd_fonts.o
+    0x0800bb86   0x000000dc   Data   RO          436    .constdata          lcd_fonts.o
+    0x0800bc62   0x00000028   Data   RO          437    .constdata          lcd_fonts.o
+    0x0800bc8a   0x00000026   Data   RO          438    .constdata          lcd_fonts.o
+    0x0800bcb0   0x0000000c   Data   RO          439    .constdata          lcd_fonts.o
+    0x0800bcbc   0x0000005e   Data   RO          440    .constdata          lcd_fonts.o
+    0x0800bd1a   0x00000018   Data   RO          441    .constdata          lcd_fonts.o
+    0x0800bd32   0x00000030   Data   RO          442    .constdata          lcd_fonts.o
+    0x0800bd62   0x00000028   Data   RO          443    .constdata          lcd_fonts.o
+    0x0800bd8a   0x00000020   Data   RO         3056    .constdata          stm32f3xx_hal_rcc.o
+    0x0800bdaa   0x00000010   Data   RO         4972    .constdata          system_stm32f3xx.o
+    0x0800bdba   0x00000008   Data   RO         4973    .constdata          system_stm32f3xx.o
+    0x0800bdc2   0x00000002   PAD
+    0x0800bdc4   0x0000003c   Data   RO         5034    .constdata          menu_routines.o
+    0x0800be00   0x000001fe   Data   RO         5214    .constdata          menu_init.o
+    0x0800bffe   0x00000002   PAD
+    0x0800c000   0x00000020   Data   RO         5844    .constdata          m_wm.l(rredf.o)
+    0x0800c020   0x00000030   Data   RO         5870    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00005590, Max: 0x00006000, ABSOLUTE, COMPRESSED[0x000004c0])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00005598, Max: 0x00006000, ABSOLUTE, COMPRESSED[0x000004bc])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0000000a   Ven    RO         5873    Veneer$$Code        anon$$obj.o
-    0x2000000a   0x0000000a   Ven    RO         5874    Veneer$$Code        anon$$obj.o
-    0x20000014   0x0000000a   Ven    RO         5875    Veneer$$Code        anon$$obj.o
-    0x2000001e   0x0000000a   Ven    RO         5876    Veneer$$Code        anon$$obj.o
-    0x20000028   0x0000000a   Ven    RO         5877    Veneer$$Code        anon$$obj.o
-    0x20000032   0x0000000a   Ven    RO         5878    Veneer$$Code        anon$$obj.o
-    0x2000003c   0x0000000a   Ven    RO         5879    Veneer$$Code        anon$$obj.o
-    0x20000046   0x0000000a   Ven    RO         5880    Veneer$$Code        anon$$obj.o
-    0x20000050   0x0000000a   Ven    RO         5881    Veneer$$Code        anon$$obj.o
-    0x2000005a   0x0000000a   Ven    RO         5882    Veneer$$Code        anon$$obj.o
-    0x20000064   0x0000000a   Ven    RO         5883    Veneer$$Code        anon$$obj.o
-    0x2000006e   0x0000000a   Ven    RO         5884    Veneer$$Code        anon$$obj.o
-    0x20000078   0x0000000a   Ven    RO         5885    Veneer$$Code        anon$$obj.o
-    0x20000082   0x0000000a   Ven    RO         5886    Veneer$$Code        anon$$obj.o
+    0x20000000   0x0000000a   Ven    RO         5886    Veneer$$Code        anon$$obj.o
+    0x2000000a   0x0000000a   Ven    RO         5887    Veneer$$Code        anon$$obj.o
+    0x20000014   0x0000000a   Ven    RO         5888    Veneer$$Code        anon$$obj.o
+    0x2000001e   0x0000000a   Ven    RO         5889    Veneer$$Code        anon$$obj.o
+    0x20000028   0x0000000a   Ven    RO         5890    Veneer$$Code        anon$$obj.o
+    0x20000032   0x0000000a   Ven    RO         5891    Veneer$$Code        anon$$obj.o
+    0x2000003c   0x0000000a   Ven    RO         5892    Veneer$$Code        anon$$obj.o
+    0x20000046   0x0000000a   Ven    RO         5893    Veneer$$Code        anon$$obj.o
+    0x20000050   0x0000000a   Ven    RO         5894    Veneer$$Code        anon$$obj.o
+    0x2000005a   0x0000000a   Ven    RO         5895    Veneer$$Code        anon$$obj.o
+    0x20000064   0x0000000a   Ven    RO         5896    Veneer$$Code        anon$$obj.o
+    0x2000006e   0x0000000a   Ven    RO         5897    Veneer$$Code        anon$$obj.o
+    0x20000078   0x0000000a   Ven    RO         5898    Veneer$$Code        anon$$obj.o
+    0x20000082   0x0000000a   Ven    RO         5899    Veneer$$Code        anon$$obj.o
     0x2000008c   0x00000180   Code   RO           13    i.HAL_ADC_ConvCpltCallback  converison.o
     0x2000020c   0x0000005c   Code   RO           14    i.HAL_SDADC_CalibrationCpltCallback  converison.o
     0x20000268   0x00000080   Code   RO           15    i.HAL_SDADC_InjectedConvCpltCallback  converison.o
-    0x200002e8   0x00000130   Code   RO         5268    i.bin_magnitudes    measurement_functions.o
-    0x20000418   0x00000064   Code   RO         5269    i.energy_accumulator  measurement_functions.o
-    0x2000047c   0x0000056c   Code   RO         5270    i.energy_calculations  measurement_functions.o
-    0x200009e8   0x0000019c   Code   RO         5271    i.fund_RMS          measurement_functions.o
-    0x20000b84   0x000000d0   Code   RO         5272    i.harmonics_routine  measurement_functions.o
+    0x200002e8   0x00000130   Code   RO         5280    i.bin_magnitudes    measurement_functions.o
+    0x20000418   0x00000064   Code   RO         5281    i.energy_accumulator  measurement_functions.o
+    0x2000047c   0x0000056c   Code   RO         5282    i.energy_calculations  measurement_functions.o
+    0x200009e8   0x0000019c   Code   RO         5283    i.fund_RMS          measurement_functions.o
+    0x20000b84   0x000000d0   Code   RO         5284    i.harmonics_routine  measurement_functions.o
     0x20000c54   0x000000f0   Code   RO           16    i.init_conversion   converison.o
-    0x20000d44   0x000000a2   Code   RO         5273    i.iq_generation     measurement_functions.o
+    0x20000d44   0x000000a2   Code   RO         5285    i.iq_generation     measurement_functions.o
     0x20000de6   0x00000002   PAD
-    0x20000de8   0x00000194   Code   RO         5382    i.measurement_routines  measurement_routines.o
-    0x20000f7c   0x00000078   Code   RO         5274    i.offline_calculations  measurement_functions.o
+    0x20000de8   0x00000194   Code   RO         5394    i.measurement_routines  measurement_routines.o
+    0x20000f7c   0x00000078   Code   RO         5286    i.offline_calculations  measurement_functions.o
     0x20000ff4   0x00000034   Code   RO          219    i.offset_cancellation  prefilter.o
     0x20001028   0x00000016   Code   RO          237    i.pDiffer           phasecompensation.o
     0x2000103e   0x00000002   PAD
     0x20001040   0x00000104   Code   RO          238    i.pLagDef           phasecompensation.o
-    0x20001144   0x0000002c   Code   RO         5243    i.pfilter           measurement_data.o
-    0x20001170   0x00000024   Code   RO         5275    i.phaseDetect       measurement_functions.o
-    0x20001194   0x00000264   Code   RO         5276    i.power_calculations_iq  measurement_functions.o
-    0x200013f8   0x00000056   Code   RO         5278    i.signal_spectra    measurement_functions.o
+    0x20001144   0x0000002c   Code   RO         5255    i.pfilter           measurement_data.o
+    0x20001170   0x00000024   Code   RO         5287    i.phaseDetect       measurement_functions.o
+    0x20001194   0x00000264   Code   RO         5288    i.power_calculations_iq  measurement_functions.o
+    0x200013f8   0x00000056   Code   RO         5290    i.signal_spectra    measurement_functions.o
     0x2000144e   0x00000002   PAD
-    0x20001450   0x00000244   Code   RO         5280    i.symmetrical_components  measurement_functions.o
-    0x20001694   0x00000210   Code   RO         5282    i.true_RMS          measurement_functions.o
-    0x200018a4   0x00000014   Data   RO         5244    .constdata          measurement_data.o
-    0x200018b8   0x00000014   Data   RO         5245    .constdata          measurement_data.o
-    0x200018cc   0x000000c8   Data   RO         5246    .constdata          measurement_data.o
-    0x20001994   0x000000c8   Data   RO         5247    .constdata          measurement_data.o
+    0x20001450   0x00000244   Code   RO         5292    i.symmetrical_components  measurement_functions.o
+    0x20001694   0x00000210   Code   RO         5294    i.true_RMS          measurement_functions.o
+    0x200018a4   0x00000014   Data   RO         5256    .constdata          measurement_data.o
+    0x200018b8   0x00000014   Data   RO         5257    .constdata          measurement_data.o
+    0x200018cc   0x000000c8   Data   RO         5258    .constdata          measurement_data.o
+    0x20001994   0x000000c8   Data   RO         5259    .constdata          measurement_data.o
     0x20001a5c   0x00000018   Data   RW           19    .data               converison.o
     0x20001a74   0x00000004   Data   RW          511    .data               main.o
     0x20001a78   0x00000004   Data   RW         1694    .data               stm32f3xx_hal.o
     0x20001a7c   0x00000004   Data   RW         4974    .data               system_stm32f3xx.o
-    0x20001a80   0x0000007a   Data   RW         5033    .data               menu_routines.o
-    0x20001afa   0x00000001   Data   RW         5203    .data               menu_init.o
-    0x20001afb   0x00000001   Data   RW         5204    .data               menu_init.o
-    0x20001afc   0x00000001   Data   RW         5205    .data               menu_init.o
-    0x20001afd   0x00000001   Data   RW         5206    .data               menu_init.o
-    0x20001afe   0x0000017c   Data   RW         5208    .data               menu_init.o
+    0x20001a80   0x0000007a   Data   RW         5035    .data               menu_routines.o
+    0x20001afa   0x00000001   Data   RW         5215    .data               menu_init.o
+    0x20001afb   0x00000001   Data   RW         5216    .data               menu_init.o
+    0x20001afc   0x00000001   Data   RW         5217    .data               menu_init.o
+    0x20001afd   0x00000001   Data   RW         5218    .data               menu_init.o
+    0x20001afe   0x0000017c   Data   RW         5220    .data               menu_init.o
     0x20001c7a   0x00000002   PAD
-    0x20001c7c   0x00000a5c   Data   RW         5209    .data               menu_init.o
-    0x200026d8   0x000000b4   Data   RW         5210    .data               menu_init.o
-    0x2000278c   0x00000024   Data   RW         5284    .data               measurement_functions.o
-    0x200027b0   0x00000001   Data   RW         5409    .data               pb_handling.o
-    0x200027b1   0x00000001   Data   RW         5410    .data               pb_handling.o
-    0x200027b2   0x00000002   Data   RW         5447    .data               aux_functions.o
-    0x200027b4   0x00000007   Data   RW         5519    .data               graphing_fuctions.o
+    0x20001c7c   0x00000a5c   Data   RW         5221    .data               menu_init.o
+    0x200026d8   0x000000b4   Data   RW         5222    .data               menu_init.o
+    0x2000278c   0x00000024   Data   RW         5296    .data               measurement_functions.o
+    0x200027b0   0x00000001   Data   RW         5421    .data               pb_handling.o
+    0x200027b1   0x00000001   Data   RW         5422    .data               pb_handling.o
+    0x200027b2   0x00000002   Data   RW         5459    .data               aux_functions.o
+    0x200027b4   0x00000007   Data   RW         5531    .data               graphing_fuctions.o
     0x200027bb   0x00000001   PAD
-    0x200027bc   0x00000008   Data   RW         5616    .data               flashdatahandling.o
-    0x200027c4   0x00000014   Data   RW         5700    .data               ios.o
-    0x200027d8   0x00000001   Data   RW         5737    .data               record.o
-    0x200027d9   0x00000003   PAD
-    0x200027dc   0x00000004   Data   RW         5850    .data               mc_w.l(errno.o)
-    0x200027e0   0x00000060   Zero   RW           18    .bss                converison.o
-    0x20002840   0x00000030   Zero   RW          220    .bss                prefilter.o
-    0x20002870   0x00000400   Zero   RW          421    .bss                lcd_data.o
-    0x20002c70   0x00000074   Zero   RW          462    .bss                adc.o
-    0x20002ce4   0x000000c0   Zero   RW          576    .bss                tim.o
-    0x20002da4   0x000000e0   Zero   RW          783    .bss                usart.o
-    0x20002e84   0x000000cc   Zero   RW          832    .bss                sdadc.o
-    0x20002f50   0x000000c8   Zero   RW          909    .bss                spi.o
-    0x20003018   0x00000020   Zero   RW          956    .bss                rtc.o
-    0x20003038   0x00000020   Zero   RW         2961    .bss                stm32f3xx_hal_flash.o
-    0x20003058   0x0000001c   Zero   RW         5197    .bss                menu_init.o
-    0x20003074   0x0000001c   Zero   RW         5198    .bss                menu_init.o
-    0x20003090   0x00000ac4   Zero   RW         5199    .bss                menu_init.o
-    0x20003b54   0x00000028   Zero   RW         5200    .bss                menu_init.o
-    0x20003b7c   0x00000028   Zero   RW         5201    .bss                menu_init.o
-    0x20003ba4   0x0000010c   Zero   RW         5283    .bss                measurement_functions.o
-    0x20003cb0   0x000002a4   Zero   RW         5383    .bss                measurement_routines.o
-    0x20003f54   0x00000a50   Zero   RW         5384    .bss                measurement_routines.o
-    0x200049a4   0x00000018   Zero   RW         5385    .bss                measurement_routines.o
-    0x200049bc   0x00000050   Zero   RW         5386    .bss                measurement_routines.o
-    0x20004a0c   0x00000014   Zero   RW         5408    .bss                pb_handling.o
-    0x20004a20   0x00000190   Zero   RW         5516    .bss                graphing_fuctions.o
-    0x20004bb0   0x000001e0   Zero   RW         5517    .bss                graphing_fuctions.o
-    0x20004d90   0x0000000c   Zero   RW         5615    .bss                flashdatahandling.o
-    0x20004d9c   0x00000014   Zero   RW         5698    .bss                ios.o
-    0x20004db0   0x000002e0   Zero   RW         5736    .bss                record.o
-    0x20005090   0x00000500   Zero   RW            1    STACK               startup_stm32f373xc.o
+    0x200027bc   0x00000008   Data   RW         5628    .data               flashdatahandling.o
+    0x200027c4   0x0000001c   Data   RW         5712    .data               ios.o
+    0x200027e0   0x00000001   Data   RW         5750    .data               record.o
+    0x200027e1   0x00000003   PAD
+    0x200027e4   0x00000004   Data   RW         5863    .data               mc_w.l(errno.o)
+    0x200027e8   0x00000060   Zero   RW           18    .bss                converison.o
+    0x20002848   0x00000030   Zero   RW          220    .bss                prefilter.o
+    0x20002878   0x00000400   Zero   RW          421    .bss                lcd_data.o
+    0x20002c78   0x00000074   Zero   RW          462    .bss                adc.o
+    0x20002cec   0x000000c0   Zero   RW          576    .bss                tim.o
+    0x20002dac   0x000000e0   Zero   RW          783    .bss                usart.o
+    0x20002e8c   0x000000cc   Zero   RW          832    .bss                sdadc.o
+    0x20002f58   0x000000c8   Zero   RW          909    .bss                spi.o
+    0x20003020   0x00000020   Zero   RW          956    .bss                rtc.o
+    0x20003040   0x00000020   Zero   RW         2961    .bss                stm32f3xx_hal_flash.o
+    0x20003060   0x0000001c   Zero   RW         5209    .bss                menu_init.o
+    0x2000307c   0x0000001c   Zero   RW         5210    .bss                menu_init.o
+    0x20003098   0x00000ac4   Zero   RW         5211    .bss                menu_init.o
+    0x20003b5c   0x00000028   Zero   RW         5212    .bss                menu_init.o
+    0x20003b84   0x00000028   Zero   RW         5213    .bss                menu_init.o
+    0x20003bac   0x0000010c   Zero   RW         5295    .bss                measurement_functions.o
+    0x20003cb8   0x000002a4   Zero   RW         5395    .bss                measurement_routines.o
+    0x20003f5c   0x00000a50   Zero   RW         5396    .bss                measurement_routines.o
+    0x200049ac   0x00000018   Zero   RW         5397    .bss                measurement_routines.o
+    0x200049c4   0x00000050   Zero   RW         5398    .bss                measurement_routines.o
+    0x20004a14   0x00000014   Zero   RW         5420    .bss                pb_handling.o
+    0x20004a28   0x00000190   Zero   RW         5528    .bss                graphing_fuctions.o
+    0x20004bb8   0x000001e0   Zero   RW         5529    .bss                graphing_fuctions.o
+    0x20004d98   0x0000000c   Zero   RW         5627    .bss                flashdatahandling.o
+    0x20004da4   0x00000014   Zero   RW         5710    .bss                ios.o
+    0x20004db8   0x000002e0   Zero   RW         5749    .bss                record.o
+    0x20005098   0x00000500   Zero   RW            1    STACK               startup_stm32f373xc.o
 
