@@ -39,6 +39,20 @@
 
 #include "sysTick_definitions.h"
 
+//comm side start
+
+extern uint16_t recTimeOut;
+uint8_t recComp;
+extern uint16_t recFlag;
+
+extern uint8_t rtuWriteTimerFlag;
+uint32_t rtuWriteTimerCnt = 0;
+uint32_t commErrorTimeOut = 0;
+extern uint8_t comErrorFlag;
+extern volatile uint8_t conversion_complete;
+
+//comm side end
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -189,6 +203,29 @@ void SysTick_Handler(void)
   HAL_IncTick();
   HAL_SYSTICK_IRQHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
+	
+		recTimeOut++;
+	if(recFlag == 1 && recTimeOut == 10) 
+	{
+		recComp = 1;
+		recTimeOut = 0;
+	}
+	
+	if(recTimeOut == 30000) 
+	{
+		recTimeOut = 0;
+	}
+	
+
+	
+	if(rtuWriteTimerFlag == 1)
+	{
+		rtuWriteTimerCnt++;
+	}
+	
+	commErrorTimeOut++;
+	if(commErrorTimeOut == 3 * 100) comErrorFlag = 1;
+	if(commErrorTimeOut == 0XFFFF) commErrorTimeOut = 0;
 	
 	
 

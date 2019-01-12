@@ -54,6 +54,7 @@
 #include "lcd_definitions.h"
 #include "phaseCompensation.h"
 #include "flash_api.h"
+#include "Modbus_RTU_Slave.h"
 
 /* USER CODE END Includes */
 
@@ -97,6 +98,62 @@ float dummy_lag=0;
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+
+//comm side entries---start
+
+uint8_t RX_Buffer[100], ReceiveData, ReceiveData2 , RX_Index = 0;
+unsigned char rtu_modbusRxBuffer[RX_BUFFER_LIMIT];
+extern uint8_t recComp;
+
+uint16_t rtu_ModbusRxIndex = 0;
+
+uint16_t recTimeOut=0, recFlag, transmitComp=0,success = 0;
+
+uint8_t testData[10] = {0,1,2,3,4,5,6,7,8,9};
+uint8_t rtuWriteTimerFlag = 0;
+extern uint32_t rtuWriteTimerCnt;
+extern uint32_t rtu_deviceSlaveID[10];
+
+extern uint8_t rtuMasterSlaveID;
+extern uint32_t comErrorCounter;
+uint32_t fckcnt = 0;
+uint8_t comErrorFlag = 0;
+extern uint32_t commErrorTimeOut;
+extern uint8_t masterModeOp;
+uint32_t uart3_sentinel=0;
+
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	
+
+		
+	  if (huart->Instance == USART3)	
+		{
+		HAL_UART_Receive_IT(&huart3,&ReceiveData, 1);	
+		rtu_modbusRxBuffer[rtu_ModbusRxIndex++] = ReceiveData;
+    recTimeOut = 0;
+    recFlag = 1;
+	  transmitComp = 0;
+			
+		uart3_sentinel=0;	
+			
+		}
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+
+		
+    if (huart->Instance == USART3)  
+    {
+			rtu_transmitDisable_receiveEnable();
+			transmitComp = 1;
+    }
+}
+
+
+//comm side entries---end
 
 /* USER CODE END 0 */
 
@@ -197,6 +254,25 @@ int main(void)
 		refresh_counter=0;
 			
 		}
+		
+		
+		//comm side start
+		
+		if(recComp == 1 && recFlag == 1) 
+		{
+    rtu_ModbusFrameProcessing();
+    rtu_ModbusRxIndex = 0;
+    recComp = 0;
+    recFlag = 0;
+		}
+		
+		
+		
+		
+		if(comErrorFlag == 1) fckcnt++;
+		if(commErrorTimeOut >= 200) fckcnt++;
+		
+		//comm side end
 		
 		
 		
