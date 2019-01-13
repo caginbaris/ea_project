@@ -2304,7 +2304,7 @@ Removing Unused input sections from the image.
     Removing menu_routines.o(i.dynamicDataComm), (2 bytes).
     Removing menu_routines.o(i.loading_bar), (84 bytes).
     Removing menu_routines.o(i.saveEmAll), (20 bytes).
-    Removing menu_routines.o(i.staticDataComm), (212 bytes).
+    Removing menu_routines.o(i.staticDataComm), (272 bytes).
     Removing menu_init.o(.data), (1 bytes).
     Removing measurement_functions.o(.rev16_text), (4 bytes).
     Removing measurement_functions.o(.revsh_text), (4 bytes).
@@ -2363,7 +2363,7 @@ Removing Unused input sections from the image.
     Removing modbus_rtu_slave.o(.data), (4 bytes).
     Removing modbus_rtu_slave.o(.data), (4 bytes).
 
-696 unused section(s) (total 81782 bytes) removed from the image.
+696 unused section(s) (total 81842 bytes) removed from the image.
 
 ==============================================================================
 

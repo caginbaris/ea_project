@@ -2342,8 +2342,9 @@ if(sel==1 && entered==1 && functionDef==2){
 
 void staticDataComm(struct display_menu_handles menu_item){
 	
-	enum letter_codes_8pt functoning[5]=  {i,s,l,e,v};
-	enum letter_codes_8pt output_status[11]=  {c,i,k,i,s,_,d,u,r,u,m};
+	enum letter_codes_8pt adress[13]=  		{m,o,d,b,u,s,_,a,d,r,e,s,i};
+	enum letter_codes_8pt baudRate[13]=  	{s,i,n,y,a,l,_,o,r,a,n,i,_};
+	enum letter_codes_8pt mode[13]=  	    {i,l,e,t,i,m,_,m,o,d,u,_,_};
 	
 	uint8_t i;
 	uint8_t column=1;
@@ -2362,12 +2363,12 @@ void staticDataComm(struct display_menu_handles menu_item){
 	
 	
 	
-	column=1;
-	page=1;
+	column=0;
+	page=2;
 	
-	for(i=0;i<5;i++){
+	for(i=0;i<13;i++){
 		
-	column=letter_transfer_8pt(functoning[i],page,column);
+	column=letter_transfer_8pt(adress[i],page,column);
 	
 	}
 	
@@ -2376,12 +2377,22 @@ void staticDataComm(struct display_menu_handles menu_item){
 	
 	
 	column=0;
-	page=6;
+	page=3;
 	
 	
-	for(i=0;i<11;i++){
+	for(i=0;i<13;i++){
 		
-	column=letter_transfer_8pt(output_status[i],page,column);
+	column=letter_transfer_8pt(baudRate[i],page,column);
+		
+	}
+	
+	column=0;
+	page=4;
+	
+	
+	for(i=0;i<13;i++){
+		
+	column=letter_transfer_8pt(mode[i],page,column);
 		
 	}
 	
@@ -2396,6 +2407,178 @@ void staticDataComm(struct display_menu_handles menu_item){
 
 
 void dynamicDataComm(struct display_menu_handles menu_item){
+	
+	static enum digit_codes_14pt adress_digit[3] ={0};
+  static enum digit_codes_14pt baud_digit[6][6]={{_0,_4,_8,_0,_0},
+																								 {_0,_9,_6,_0,_0},
+																								 {_1,_9,_2,_0,_0},
+																								 {_3,_8,_4,_0,_0},																								 
+																								 {_5,_7,_6,_0,_0},};
+	
+																								 /*
+	
+	struct comm_mode{
+		
+		enum letter_codes_8pt parity:2; //even odd no
+	
+	
+	};
+	
+	enum digit_codes_14pt
+	
+	}
+	
+
+	static uint8_t ord=0;//order of  digits 0...5
+	static uint8_t sel=1;//primary/secondary selection
+	static uint8_t entered=0;
+	
+	uint8_t i;
+	uint8_t column=80;
+	
+	
+	
+	
+	
+	clearColumns(2,79,127);
+	clearColumns(4,79,127);
+	
+	column=80;
+		
+	for(i=0;i<6;i++){ //digit tranfer
+	
+	digit_transfer_8pt(vt_digit_p[i],2,column);
+	column+=8;	
+
+	}
+		
+		
+	column=80;
+		
+		
+	for(i=0;i<6;i++){ //digit tranfer
+	
+	digit_transfer_8pt(vt_digit_s[i],4,column);
+	column+=8;	
+
+	}
+	
+	
+	
+	
+	if(!entered && save_lock==0){
+	
+		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
+		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
+		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
+		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
+		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
+		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
+		
+
+		
+		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
+		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
+		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
+		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
+		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
+		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
+		
+
+	}
+	
+	
+	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
+	
+
+	
+	
+	if(sel==0 && entered==1){//primer side start
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++vt_digit_p[ord]>_9){vt_digit_p[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--vt_digit_p[ord]==_m1){vt_digit_p[ord]=_9;}	
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
+	
+	
+	put_cursor(2,79+ord*8,7);
+	
+	
+	}//primer side end
+	
+	
+	
+	if(sel==1 && entered==1){//seconder side start
+		
+		
+	//cau	
+		
+		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	
+	if(++vt_digit_s[ord]>_9){vt_digit_s[ord]=_0;}	
+		
+	}
+	
+	if(pressed_button==right_pressed){ // left is plus @VT
+	
+	
+	if(--vt_digit_s[ord]==_m1){vt_digit_s[ord]=_9;}	
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){  // down is right pos change
+	
+	ord++;
+	if(ord>_5){ord=0;}	
+		
+	}
+	
+	put_cursor(4,79+ord*8,7);	
+		
+	}//seconder side end
+	
+	
+	
+		
+
+	if(pressed_button==up_pressed && save_lock==0){ 
+	
+	
+		
+	flashNew.data.vt_primer=screenData2flash  (vt_digit_p,6);
+	flashNew.data.vt_seconder=screenData2flash(vt_digit_s,6);
+
+	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
+		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
+	
+		save_lock=1;
+			 
+		currentSaveMenu=save_option_menu;		 
+			 
+		entered=0;	 
+			 
+	}else{current_menu=settings_menu;}	
+ }*/
 
 }
 
