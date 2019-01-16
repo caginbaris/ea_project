@@ -246,7 +246,7 @@ void scope_plotting(){
 	int8_t val;
 	
 	
-	for(s=0;s<5;s++){
+	for(s=0;s<10;s++){
 	
 	val=scope_array[n++];
 	if(n==100){n=0;}

@@ -43,7 +43,6 @@ set_CT,
 set_input,
 set_output,
 set_comm,
-set_display,
 set_energy_reset,
 
 };
@@ -83,9 +82,8 @@ enum setting_menu_list {
 	setting_input,//3
 	setting_output,//4
 	setting_comm,//5
-	setting_display,//6
-	setting_energy_reset,//7
-	setting_pos_guard=8,
+	setting_energy_reset,//6
+	setting_pos_guard=7,//7
 };
 
 

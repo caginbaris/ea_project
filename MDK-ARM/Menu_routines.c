@@ -783,7 +783,6 @@ void toSettingsDetect(struct display_menu_handles menu_item){
 		case set_input:								  setting_menu_entry=	setting_input; break;
 		case set_output:								setting_menu_entry=	setting_output; break;
 		case set_comm:								  setting_menu_entry=	setting_comm; break;
-		case set_display:								setting_menu_entry=	setting_comm; break;
 		case set_energy_reset:					setting_menu_entry=	setting_energy_reset; break;
 
 		
@@ -921,7 +920,6 @@ void atSettingsOperation(struct display_menu_handles menu_item){
 		case setting_input:				current_menu=set_input; 				break;
 		case setting_output:			current_menu=set_output; 				break;
 		case setting_comm:				current_menu=set_comm; 					break;
-		case setting_display:			current_menu=set_display; 			break;
 		case setting_energy_reset:current_menu=set_energy_reset; 	break;
 
 		default:	;break;
@@ -2340,7 +2338,7 @@ if(sel==1 && entered==1 && functionDef==2){
 
 void staticData_comm(struct display_menu_handles menu_item){
 	
-	enum letter_codes_8pt adress[13]=  		{m,o,d,b,u,s,_,a,d,r,e,s,i};
+	enum letter_codes_8pt adress[13]=  		{a,d,r,e,s,_,_,_,_,_,_,_,_};
 	enum letter_codes_8pt baudRate[13]=  	{s,i,n,y,a,l,_,o,r,a,n,i,_};
 	enum letter_codes_8pt mode[13]=  	    {i,l,e,t,i,m,_,m,o,d,u,_,_};
 	
@@ -2467,7 +2465,7 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 		adress_digit[1]=flashData2LCD(flash.data.modbusAddress,2);
 		adress_digit[0]=flashData2LCD(flash.data.modbusAddress,3);
 		
-		modeSel=flash.data.configBit.commBaudRate;
+		baudSel=flash.data.configBit.commBaudRate;
 		modeSel=flash.data.configBit.commMode;
 	
 	}
@@ -2563,7 +2561,7 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 	if(pressed_button==up_pressed && save_lock==0){ 
 		
 		
-	flashNew.data.modbusAddress=screenData2flash  (adress_digit,6);
+	flashNew.data.modbusAddress=screenData2flash(adress_digit,3);
 	flashNew.data.configBit.commBaudRate=baudSel;
 	flashNew.data.configBit.commMode=modeSel;
 
@@ -2596,6 +2594,8 @@ void staticData_reset(struct display_menu_handles menu_item){
 		
 	}
 	
+	line_highlighter(0,128);
+	
 	symbol_transfer(menu_item.symbol[0],7,1);
 	symbol_transfer(menu_item.symbol[1],7,28);
 	symbol_transfer(menu_item.symbol[2],7,59);
@@ -2608,7 +2608,7 @@ void staticData_reset(struct display_menu_handles menu_item){
 void dynamicData_reset(struct display_menu_handles menu_item){
 	
 	
-	struct energyParameters  energyZero;
+	struct energyParameters  energyZero={0};
 	
 	static enum letter_codes_8pt message_L1[16] ={e,n,e,r,j,i,_,s,a,y,a,c,l,a,r,i};
 	static enum letter_codes_8pt message_L2[12] ={s,i,f,i,r,l,a,n,a,c,a,k};
@@ -2623,7 +2623,7 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 	
 	
 	
-	column=1;
+	column=15;
 		
 	for(i=0;i<16;i++){ //digit tranfer
 	
@@ -2631,7 +2631,7 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 	
 	}
 	
-	column=1;
+	column=30;
 	
 	for(i=0;i<12;i++){ //digit tranfer
 	
@@ -2640,13 +2640,13 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 
 	}
 	
-	letter_transfer_8pt(e,4,56);
-	symbol_transfer(menu_slash,4,65);	
-	letter_transfer_8pt(h,4,74);
-	symbol_transfer(menu_qmark,4,83);		
+	letter_transfer_8pt(e,6,59);
+	symbol_transfer(menu_slash,6,73);	
+	letter_transfer_8pt(h,6,89);
+	symbol_transfer(menu_qmark,6,99);		
 	
 	
-	if(pressed_button==up_pressed){//tick
+	if(pressed_button==right_pressed){//tick
 	
 		energy=energyZero;
 		current_menu=settings_menu;

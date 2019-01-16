@@ -7,7 +7,7 @@
 
 
 
-enum menu_list current_menu=set_output;
+enum menu_list current_menu=Scope_Ic;
 enum menu_list previous_menu=Vpp_true;
 
 enum main_menu_list    main_menu_entry=Active_Energy_main;
@@ -64,13 +64,12 @@ struct display_menu_handles Main_Menu={
 enum letter_codes_8pt setting_menu_entries[][20]={
 {_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//0
 {g,e,r,i,l,m,_,t,r,a,f,o,_,o,r,a,n,i,_,_},//1
-{a,k,i,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_,_,_},//1
+{a,k,i,m,_,g,i,r,i,s,l,e,r,i,_,_,_,_,_,_},//2
 {d,i,j,i,t,a,l,_,g,i,r,i,s,_,_,_,_,_,_,_},//3
-{d,i,j,i,t,a,l,_,c,i,k,i,s,_,_,_,_,_,_,_},//3
-{h,a,b,e,r,l,e,s,m,e,_,_,_,_,_,_,_,_,_,_},//6
-{e,k,r,a,n,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},//7
-{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_},//8
-{s,i,f,r,e,_,k,o,r,u,m,a,_,_,_,_,_,_,_,_},//9	
+{d,i,j,i,t,a,l,_,c,i,k,i,s,_,_,_,_,_,_,_},//4
+{h,a,b,e,r,l,e,s,m,e,_,_,_,_,_,_,_,_,_,_},//5
+{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_},//6
+
 
 };
 
@@ -1014,7 +1013,7 @@ struct display_menu_handles set_comm_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{m,o,d,b,u,s,_,p,a,r,a,m,e,t,r,e,l,e,r,i} ,
+	/*title*/      	{m,o,d,b,u,s,_,d,e,g,i,s,k,e,n,l,e,r,i,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
@@ -1033,13 +1032,13 @@ struct display_menu_handles set_energy_reset_Menu= {
 	
 	/*dynamic data*/ NULL,
 	
-	/*title*/      	{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_} ,
+	/*title*/      	{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_,_} ,
 	
 	/*fist line*/ 	{__,__,__},
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_blank,menu_blank,menu_tick,menu_cross,menu_escape},
+	/*symbols*/			{menu_blank,menu_blank,menu_tick,menu_cross,menu_blank},
 	/*menu units*/	{m_,m_,m_,m_},
 	/*static data*/  staticData_reset,
 	/*dynamic data*/ dynamicData_reset
@@ -1342,7 +1341,7 @@ void init_Menu(){
 	MENU.handle.settings_input=set_input_Menu;
 	MENU.handle.settings_output=set_output_Menu;
 	MENU.handle.settings_comm=set_comm_Menu;
-	MENU.handle.settings_comm=set_energy_reset_Menu;
+	MENU.handle.settings_energy_reset=set_energy_reset_Menu;
 	
 }
 
