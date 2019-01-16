@@ -28,6 +28,7 @@ union powerParameters  power_true={0};
 
 
 struct energyParameters energy={0};
+struct energyParameters energyZero={0};
 
 void measurement_routines(){
 	

@@ -1020,16 +1020,32 @@ struct display_menu_handles set_comm_Menu= {
 	/*second line*/ {__,__,__},
 	/*third line*/ 	{__,__,__},
 	
-	/*symbols*/			{menu_enter,menu_alter,menu_plus,menu_right,menu_escape},
+	/*symbols*/			{menu_enter,menu_plus,menu_minus,menu_right,menu_escape},
 	/*menu units*/	{m_,m_,m_,m_},
-	/*static data*/  staticData_output,
-	/*dynamic data*/ dynamicData_output
+	/*static data*/  staticData_comm,
+	/*dynamic data*/ dynamicData_comm
 	
 
 };
 
 
+struct display_menu_handles set_energy_reset_Menu= {
+	
+	/*dynamic data*/ NULL,
+	
+	/*title*/      	{e,n,e,r,j,i,_,s,a,y,a,c,_,r,e,s,e,t,_,_} ,
+	
+	/*fist line*/ 	{__,__,__},
+	/*second line*/ {__,__,__},
+	/*third line*/ 	{__,__,__},
+	
+	/*symbols*/			{menu_blank,menu_blank,menu_tick,menu_cross,menu_escape},
+	/*menu units*/	{m_,m_,m_,m_},
+	/*static data*/  staticData_reset,
+	/*dynamic data*/ dynamicData_reset
+	
 
+};
 
 
 
@@ -1326,6 +1342,7 @@ void init_Menu(){
 	MENU.handle.settings_input=set_input_Menu;
 	MENU.handle.settings_output=set_output_Menu;
 	MENU.handle.settings_comm=set_comm_Menu;
+	MENU.handle.settings_comm=set_energy_reset_Menu;
 }
 
 

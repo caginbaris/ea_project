@@ -231,14 +231,14 @@ union display_menu_union{
 	struct display_menu_handles settings_output;	//49
 	struct display_menu_handles settings_comm;	//50
 	struct display_menu_handles settings_energy_reset;	//51
-	struct display_menu_handles settings_password;	//52
+	
 
 		
 		
 	}handle;
 	
 	
-	struct display_menu_handles all[53]; 
+	struct display_menu_handles all[52]; 
 
 
 };
@@ -310,7 +310,10 @@ union flashDataUnion{
   uint32_t ct_phase_shift;
 		
 	uint32_t outputPulsePeriod;
-	uint32_t outputPulseIncFactor;			
+	uint32_t outputPulseIncFactor;
+
+	uint32_t modbusAddress;
+	
 	
 	//cau record data union must be added		
 		
@@ -328,7 +331,10 @@ union flashDataUnion{
 		uint32_t output_energy_pulse_source:3;
 		uint32_t output_rotation:1;
 		
-    uint32_t rem:20;	
+		uint32_t commBaudRate:2;
+		uint32_t commMode:2;
+		
+    uint32_t rem:16;	
 		
 	}configBit;
 	
@@ -406,8 +412,13 @@ void dynamicData_CT(struct display_menu_handles menu_item);
 void staticData_input(struct display_menu_handles menu_item);
 void dynamicData_input(struct display_menu_handles menu_item);
 
-
 void staticData_output(struct display_menu_handles menu_item);
 void dynamicData_output(struct display_menu_handles menu_item);
+
+void staticData_comm(struct display_menu_handles menu_item);
+void dynamicData_comm(struct display_menu_handles menu_item);
+
+void staticData_reset(struct display_menu_handles menu_item);
+void dynamicData_reset(struct display_menu_handles menu_item);
 
 #endif

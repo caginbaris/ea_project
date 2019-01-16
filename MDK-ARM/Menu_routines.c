@@ -2340,7 +2340,7 @@ if(sel==1 && entered==1 && functionDef==2){
 }
 
 
-void staticDataComm(struct display_menu_handles menu_item){
+void staticData_comm(struct display_menu_handles menu_item){
 	
 	enum letter_codes_8pt adress[13]=  		{m,o,d,b,u,s,_,a,d,r,e,s,i};
 	enum letter_codes_8pt baudRate[13]=  	{s,i,n,y,a,l,_,o,r,a,n,i,_};
@@ -2406,48 +2406,40 @@ void staticDataComm(struct display_menu_handles menu_item){
 }
 
 
-void dynamicDataComm(struct display_menu_handles menu_item){
+void dynamicData_comm(struct display_menu_handles menu_item){
 	
 	static enum digit_codes_14pt adress_digit[3] ={0};
-  static enum digit_codes_14pt baud_digit[6][6]={{_0,_4,_8,_0,_0},
+  static enum digit_codes_14pt baud_digit[5][5]={{_0,_4,_8,_0,_0},
 																								 {_0,_9,_6,_0,_0},
 																								 {_1,_9,_2,_0,_0},
 																								 {_3,_8,_4,_0,_0},																								 
 																								 {_5,_7,_6,_0,_0},};
 	
-																								 /*
-	
-	struct comm_mode{
-		
-		enum letter_codes_8pt parity:2; //even odd no
-	
-	
-	};
-	
-	enum digit_codes_14pt
-	
-	}
-	
-
+	static enum letter_codes_8pt   mode_letter[4]={n,e,o,n};																							 
+	static enum digit_codes_14pt   mode_digit[4]={_2,_1,_1,_1};		
+																								 
 	static uint8_t ord=0;//order of  digits 0...5
-	static uint8_t sel=1;//primary/secondary selection
+	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
 	
 	uint8_t i;
 	uint8_t column=80;
 	
-	
-	
+	static uint8_t baudSel=0;
+	static uint8_t modeSel=0;
 	
 	
 	clearColumns(2,79,127);
+	clearColumns(3,79,127);
 	clearColumns(4,79,127);
 	
+	
+	
 	column=80;
 		
-	for(i=0;i<6;i++){ //digit tranfer
+	for(i=0;i<3;i++){ //digit tranfer
 	
-	digit_transfer_8pt(vt_digit_p[i],2,column);
+	digit_transfer_8pt(adress_digit[i],2,column);
 	column+=8;	
 
 	}
@@ -2456,39 +2448,37 @@ void dynamicDataComm(struct display_menu_handles menu_item){
 	column=80;
 		
 		
-	for(i=0;i<6;i++){ //digit tranfer
+	for(i=0;i<5;i++){ //digit tranfer
 	
-	digit_transfer_8pt(vt_digit_s[i],4,column);
+	digit_transfer_8pt(baud_digit[baudSel][i],3,column);
 	column+=8;	
 
 	}
 	
+	column=80;
 	
+	column=digit_transfer_8pt(_8,4,column);	
+	column=letter_transfer_8pt(mode_letter[modeSel],4,column);
+	column=digit_transfer_8pt(mode_digit[modeSel],4,column);	
+
 	
 	
 	if(!entered && save_lock==0){
 	
-		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
-		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
-		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
-		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
-		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
-		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
+		adress_digit[2]=flashData2LCD(flash.data.modbusAddress,1);
+		adress_digit[1]=flashData2LCD(flash.data.modbusAddress,2);
+		adress_digit[0]=flashData2LCD(flash.data.modbusAddress,3);
 		
-
-		
-		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
-		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
-		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
-		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
-		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
-		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
-		
-
+		modeSel=flash.data.configBit.commBaudRate;
+		modeSel=flash.data.configBit.commMode;
+	
 	}
 	
 	
-	if(pressed_button==enter_pressed){sel^=1;ord=0;entered=1;}
+
+	
+	
+	if(pressed_button==enter_pressed){sel++;ord=0;entered=1;}
 	
 
 	
@@ -2498,14 +2488,14 @@ void dynamicDataComm(struct display_menu_handles menu_item){
 	if(pressed_button==left_pressed){  // left is plus @VT
 	
 	
-	if(++vt_digit_p[ord]>_9){vt_digit_p[ord]=_0;}	
+	if(++adress_digit[ord]>_9){adress_digit[ord]=_0;}	
 		
 	}
 	
 	if(pressed_button==right_pressed){ // left is plus @VT
 	
 	
-	if(--vt_digit_p[ord]==_m1){vt_digit_p[ord]=_9;}	
+	if(--adress_digit[ord]==_m1){adress_digit[ord]=_9;}	
 		
 	}
 	
@@ -2513,7 +2503,7 @@ void dynamicDataComm(struct display_menu_handles menu_item){
 	if(pressed_button==down_pressed){  // down is right pos change
 	
 	ord++;
-	if(ord>_5){ord=0;}	
+	if(ord>_3){ord=0;}	
 		
 	}
 	
@@ -2527,49 +2517,62 @@ void dynamicDataComm(struct display_menu_handles menu_item){
 	
 	if(sel==1 && entered==1){//seconder side start
 		
-		
-	//cau	
-		
-		
 	if(pressed_button==left_pressed){  // left is plus @VT
 	
-	
-	if(++vt_digit_s[ord]>_9){vt_digit_s[ord]=_0;}	
+	baudSel++;
+		
+	if(baudSel>4){baudSel=0;}		
 		
 	}
 	
-	if(pressed_button==right_pressed){ // left is plus @VT
+	if(pressed_button==right_pressed){  // left is plus @VT
 	
-	
-	if(--vt_digit_s[ord]==_m1){vt_digit_s[ord]=_9;}	
+	baudSel--;
+		
+	if(baudSel<0){baudSel=4;}		
 		
 	}
 	
-	
-	if(pressed_button==down_pressed){  // down is right pos change
-	
-	ord++;
-	if(ord>_5){ord=0;}	
-		
-	}
-	
-	put_cursor(4,79+ord*8,7);	
+	put_cursor(3,79,45);	
 		
 	}//seconder side end
 	
 	
-	
+	if(sel==2 && entered==1){//seconder side start
 		
+	if(pressed_button==left_pressed){  // left is plus @VT
+	
+	modeSel++;
+		
+	if(modeSel>_3){modeSel=0;}			
+		
+	}
+	
+	if(pressed_button==right_pressed){  // left is plus @VT
+	
+	modeSel--;
+		
+	if(modeSel<0){modeSel=4;}			
+		
+	}
+	
+	put_cursor(4,79,27);	
+		
+	}
+	
+
 
 	if(pressed_button==up_pressed && save_lock==0){ 
-	
-	
 		
-	flashNew.data.vt_primer=screenData2flash  (vt_digit_p,6);
-	flashNew.data.vt_seconder=screenData2flash(vt_digit_s,6);
+		
+	flashNew.data.modbusAddress=screenData2flash  (adress_digit,6);
+	flashNew.data.configBit.commBaudRate=baudSel;
+	flashNew.data.configBit.commMode=modeSel;
 
-	if((  flashNew.data.vt_primer  !=flash.data.vt_primer) || 
-		 (  flashNew.data.vt_seconder!=flash.data.vt_seconder)){
+	if((  flashNew.data.modbusAddress  				!=flash.data.modbusAddress) 		|| 
+		 (  flashNew.data.configBit.commBaudRate!=flash.data.configBit.commBaudRate) 	||
+		 (  flashNew.data.configBit.commMode		!=flash.data.configBit.commMode)
+	){
 	
 		save_lock=1;
 			 
@@ -2578,9 +2581,96 @@ void dynamicDataComm(struct display_menu_handles menu_item){
 		entered=0;	 
 			 
 	}else{current_menu=settings_menu;}	
- }*/
+ }
 
 }
+
+void staticData_reset(struct display_menu_handles menu_item){
+	
+	uint8_t i;
+	uint8_t column=1;
+	uint8_t page=0;
+	
+
+	for(i=0;i<21;i++){
+		
+	column=letter_transfer_8pt(menu_item.title[i],page,column);
+		
+	}
+	
+	symbol_transfer(menu_item.symbol[0],7,1);
+	symbol_transfer(menu_item.symbol[1],7,28);
+	symbol_transfer(menu_item.symbol[2],7,59);
+	symbol_transfer(menu_item.symbol[3],7,88);
+	symbol_transfer(menu_item.symbol[4],7,119);
+
+}
+
+
+void dynamicData_reset(struct display_menu_handles menu_item){
+	
+	
+	struct energyParameters  energyZero;
+	
+	static enum letter_codes_8pt message_L1[16] ={e,n,e,r,j,i,_,s,a,y,a,c,l,a,r,i};
+	static enum letter_codes_8pt message_L2[12] ={s,i,f,i,r,l,a,n,a,c,a,k};
+																								 
+	static uint8_t ord=0;//order of  digits 0...5
+	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t entered=0;
+	
+	uint8_t i;
+	uint8_t column=80;
+	
+	static uint8_t baudSel=0;
+	static uint8_t modeSel=0;
+	
+	
+	clearColumns(2,79,127);
+	clearColumns(3,79,127);
+	clearColumns(4,79,127);
+	
+	
+	
+	column=1;
+		
+	for(i=0;i<16;i++){ //digit tranfer
+	
+	column=letter_transfer_8pt(message_L1[i],2,column);
+	
+	}
+	
+	column=1;
+	
+	for(i=0;i<12;i++){ //digit tranfer
+	
+	column=letter_transfer_8pt(message_L2[i],3,column);
+	
+
+	}
+	
+	letter_transfer_8pt(e,4,56);
+	symbol_transfer(menu_slash,4,65);	
+	letter_transfer_8pt(h,4,56);	
+	
+	
+	if(pressed_button==up_pressed){//tick
+	
+		energy=energyZero;
+		current_menu=settings_menu;
+		
+	}
+	
+	
+	if(pressed_button==down_pressed){
+	
+		current_menu=settings_menu;
+		
+	}
+
+
+}
+
 
 
 
