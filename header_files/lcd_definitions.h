@@ -174,13 +174,13 @@ menu_inactive_in_out
 
 struct digit_format{
 
-	uint16_t int1:4;
-	uint16_t int10:4;
-	uint16_t int100:4;
+	enum digit_codes_14pt int1; // int bit field to enum digit_codes_14pt
+	enum digit_codes_14pt int10;
+	enum digit_codes_14pt int100;
 	
-	uint16_t fraction:4;
+	enum digit_codes_14pt fraction;
 	
-	uint8_t sign;
+	enum digit_codes_14pt sign;
 	
 	enum units range;
 	

@@ -1343,6 +1343,7 @@ void init_Menu(){
 	MENU.handle.settings_output=set_output_Menu;
 	MENU.handle.settings_comm=set_comm_Menu;
 	MENU.handle.settings_comm=set_energy_reset_Menu;
+	
 }
 
 

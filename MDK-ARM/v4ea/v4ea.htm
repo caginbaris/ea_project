@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jan 16 11:24:33 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jan 16 13:49:42 2019
 <BR><P>
 <H3>Maximum Stack Usage =        260 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1668,7 +1668,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[7]"></a>atSettingsOperation</STRONG> (Thumb, 582 bytes, Stack size 16 bytes, menu_routines.o(i.atSettingsOperation))
+<P><STRONG><a name="[7]"></a>atSettingsOperation</STRONG> (Thumb, 566 bytes, Stack size 16 bytes, menu_routines.o(i.atSettingsOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = atSettingsOperation &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
@@ -1707,8 +1707,8 @@ Global Symbols
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_CT
 </UL>
 
-<P><STRONG><a name="[d]"></a>dynamicDataSingle</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, menu_routines.o(i.dynamicDataSingle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = dynamicDataSingle &rArr; unit_transfer
+<P><STRONG><a name="[d]"></a>dynamicDataSingle</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, menu_routines.o(i.dynamicDataSingle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = dynamicDataSingle &rArr; unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;unit_transfer
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_dot2x2
@@ -1717,7 +1717,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[9]"></a>dynamicDataTripple</STRONG> (Thumb, 472 bytes, Stack size 64 bytes, menu_routines.o(i.dynamicDataTripple))
+<P><STRONG><a name="[9]"></a>dynamicDataTripple</STRONG> (Thumb, 494 bytes, Stack size 64 bytes, menu_routines.o(i.dynamicDataTripple))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = dynamicDataTripple &rArr; unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;unit_transfer
@@ -1728,7 +1728,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[b]"></a>dynamicDataTrippleTotalPower</STRONG> (Thumb, 472 bytes, Stack size 64 bytes, menu_routines.o(i.dynamicDataTrippleTotalPower))
+<P><STRONG><a name="[b]"></a>dynamicDataTrippleTotalPower</STRONG> (Thumb, 494 bytes, Stack size 64 bytes, menu_routines.o(i.dynamicDataTrippleTotalPower))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = dynamicDataTrippleTotalPower &rArr; unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;unit_transfer
@@ -1798,7 +1798,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[1d]"></a>dynamicData_reset</STRONG> (Thumb, 154 bytes, Stack size 256 bytes, menu_routines.o(i.dynamicData_reset))
+<P><STRONG><a name="[1d]"></a>dynamicData_reset</STRONG> (Thumb, 164 bytes, Stack size 256 bytes, menu_routines.o(i.dynamicData_reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = dynamicData_reset &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
@@ -1842,8 +1842,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
 </UL>
 
-<P><STRONG><a name="[ff]"></a>formatDynamicData</STRONG> (Thumb, 284 bytes, Stack size 4 bytes, menu_routines.o(i.formatDynamicData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = formatDynamicData
+<P><STRONG><a name="[ff]"></a>formatDynamicData</STRONG> (Thumb, 284 bytes, Stack size 8 bytes, menu_routines.o(i.formatDynamicData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = formatDynamicData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicDataTrippleTotalPower
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicDataTripple
@@ -2342,7 +2342,7 @@ Global Symbols
 <P><STRONG><a name="[4]"></a>toMainDetect</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, menu_routines.o(i.toMainDetect))
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[6]"></a>toSettingsDetect</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, menu_routines.o(i.toSettingsDetect))
+<P><STRONG><a name="[6]"></a>toSettingsDetect</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, menu_routines.o(i.toSettingsDetect))
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
 <P><STRONG><a name="[114]"></a>ui_limiter</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, aux_functions.o(i.ui_limiter))

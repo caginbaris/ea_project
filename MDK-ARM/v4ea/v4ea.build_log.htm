@@ -27,11 +27,151 @@ Project File Date:  01/15/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
-compiling measurement_data.c...
+compiling LCD_fonts.c...
+compiling Menu_data.c...
 compiling measurement_routines.c...
 compiling Menu_init.c...
+compiling Menu_routines.c...
+Menu_routines.c(37): warning:  #188-D: enumerated type mixed with another type
+  	if(x<0){formatted_digit.sign=1;x=-x;}else{formatted_digit.sign=0;}
+Menu_routines.c(37): warning:  #188-D: enumerated type mixed with another type
+  	if(x<0){formatted_digit.sign=1;x=-x;}else{formatted_digit.sign=0;}
+Menu_routines.c(44): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.fraction=10.0f*(x-(int16_t)x);
+Menu_routines.c(45): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int100	=(x*
+em2); 
+Menu_routines.c(46): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int10		=(int16_t)(x*
+em1) % 10;
+Menu_routines.c(47): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int1		=((int16_t)x % 10);
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(588): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row2={0};
+Menu_routines.c(863): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=main_menu_entry-1+last_menu_entry; 
+Menu_routines.c(958): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=setting_menu_entry-1+last_menu_entry; 
+Menu_routines.c(1148): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt vt_digit_p[6]={0};
+Menu_routines.c(1149): warning:  #188-D: enumerated type mixed with another type
+    static enum digit_codes_14pt vt_digit_s[6]={0};
+Menu_routines.c(1190): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
+Menu_routines.c(1191): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
+Menu_routines.c(1192): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
+Menu_routines.c(1193): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
+Menu_routines.c(1194): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
+Menu_routines.c(1195): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
+Menu_routines.c(1199): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
+Menu_routines.c(1200): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
+Menu_routines.c(1201): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
+Menu_routines.c(1202): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
+Menu_routines.c(1203): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
+Menu_routines.c(1204): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
+Menu_routines.c(1378): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_p[5]={0};
+Menu_routines.c(1379): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_s[5]={0};
+Menu_routines.c(1380): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_phase[2]={0};
+Menu_routines.c(1384): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(1469): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
+Menu_routines.c(1470): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[3]=flashData2LCD(flash.data.ct_primer,2);
+Menu_routines.c(1471): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[2]=flashData2LCD(flash.data.ct_primer,3);
+Menu_routines.c(1472): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[1]=flashData2LCD(flash.data.ct_primer,4);
+Menu_routines.c(1473): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[0]=flashData2LCD(flash.data.ct_primer,5);
+Menu_routines.c(1476): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[4]=flashData2LCD(flash.data.ct_seconder,1);
+Menu_routines.c(1477): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[3]=flashData2LCD(flash.data.ct_seconder,2);
+Menu_routines.c(1478): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
+Menu_routines.c(1479): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
+Menu_routines.c(1480): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
+Menu_routines.c(1483): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_phase[1]=flashData2LCD(flash.data.ct_phase_shift,1);
+Menu_routines.c(1484): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_phase[0]=flashData2LCD(flash.data.ct_phase_shift,2);
+Menu_routines.c(1581): warning:  #188-D: enumerated type mixed with another type
+  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+Menu_routines.c(1590): warning:  #188-D: enumerated type mixed with another type
+  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+Menu_routines.c(1746): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(1750): warning:  #177-D: variable "i" was declared but never referenced
+  	uint8_t i;
+Menu_routines.c(2029): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt pulsePeriodVal[3]={0};
+Menu_routines.c(2030): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt pulseFactorVal[3]={0};
+Menu_routines.c(2050): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(2202): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[2]=flashData2LCD(flash.data.outputPulsePeriod,1);
+Menu_routines.c(2203): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[1]=flashData2LCD(flash.data.outputPulsePeriod,2);
+Menu_routines.c(2204): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[0]=flashData2LCD(flash.data.outputPulsePeriod,3);
+Menu_routines.c(2207): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
+Menu_routines.c(2208): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
+Menu_routines.c(2209): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
+Menu_routines.c(2287): warning:  #188-D: enumerated type mixed with another type
+  		if(++pulseFactorVal[ord]>_9){pulseFactorVal[ord]=0;}	
+Menu_routines.c(2040): warning:  #177-D: variable "RotationVal" was declared but never referenced
+  	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
+Menu_routines.c(2056): warning:  #177-D: variable "page" was declared but never referenced
+  	uint8_t column,page;
+Menu_routines.c(2409): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt adress_digit[3] ={0};
+Menu_routines.c(2420): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(2466): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[2]=flashData2LCD(flash.data.modbusAddress,1);
+Menu_routines.c(2467): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[1]=flashData2LCD(flash.data.modbusAddress,2);
+Menu_routines.c(2468): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[0]=flashData2LCD(flash.data.modbusAddress,3);
+Menu_routines.c(2530): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if(baudSel<0){baudSel=4;}		
+Menu_routines.c(2553): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if(modeSel<0){modeSel=4;}			
+Menu_routines.c: 68 warnings, 0 errors
 compiling measurement_functions.c...
-compiling record.c...
 compiling graphing_fuctions.c...
 graphing_fuctions.c(419): warning:  #188-D: enumerated type mixed with another type
   	digit_transfer_8pt(row,1,112);}else{
@@ -47,223 +187,21 @@ graphing_fuctions.c(457): warning:  #188-D: enumerated type mixed with another t
   	digit_transfer_8pt(int10,5,106);
 graphing_fuctions.c(458): warning:  #188-D: enumerated type mixed with another type
   	digit_transfer_8pt(int1,5,112);
-graphing_fuctions.c(460): warning:  #188-D: enumerated type mixed with another type
-  	digit_transfer_8pt(fraction,5,120);
-graphing_fuctions.c: 8 warnings, 0 errors
-compiling Menu_routines.c...
-Menu_routines.c(278): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row1.int100!=0											)		{	digit_transfer_14pt(lcd_row1.int100,page,column);}
-Menu_routines.c(279): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	)	{ digit_transfer_14pt(lcd_row1.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(280): warning:  #188-D: enumerated type mixed with another type
-  																									digit_transfer_14pt(lcd_row1.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(282): warning:  #188-D: enumerated type mixed with another type
-  																									digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
-igit_width_14pt+5)); 
-Menu_routines.c(292): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
-Menu_routines.c(293): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(294): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(296): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
-igit_width_14pt+5)); 
-Menu_routines.c(307): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row3.int100!=0											)		{	digit_transfer_14pt(lcd_row3.int100,page,column);}
-Menu_routines.c(308): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	)	{ digit_transfer_14pt(lcd_row3.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(309): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(311): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
-igit_width_14pt+5)); 
-Menu_routines.c(350): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row1.int100!=0											)		{	digit_transfer_14pt(lcd_row1.int100,page,column);}
-Menu_routines.c(351): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row1.int100!=0 || lcd_row1.int10!=0	)	{ digit_transfer_14pt(lcd_row1.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(352): warning:  #188-D: enumerated type mixed with another type
-  																									digit_transfer_14pt(lcd_row1.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(354): warning:  #188-D: enumerated type mixed with another type
-  																									digit_transfer_14pt(lcd_row1.fraction,page,column+(3*
-igit_width_14pt+5)); // 5 for dot space
-Menu_routines.c(364): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
-Menu_routines.c(365): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(366): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(368): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
-igit_width_14pt+5)); //5 for dot space
-Menu_routines.c(379): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row3.int100!=0											)		{	digit_transfer_14pt(lcd_row3.int100,page,column);}
-Menu_routines.c(380): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row3.int100!=0 || lcd_row3.int10!=0	)	{ digit_transfer_14pt(lcd_row3.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(381): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row3.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(383): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row3.fraction,page,column+(3*
-igit_width_14pt+5)); // 5 for dot space
-Menu_routines.c(606): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0											){	digit_transfer_14pt(lcd_row2.int100,page,column);}
-Menu_routines.c(607): warning:  #188-D: enumerated type mixed with another type
-  	if(lcd_row2.int100!=0 || lcd_row2.int10!=0){ 	digit_transfer_14pt(lcd_row2.int10,page,column+
-igit_width_14pt);}
-Menu_routines.c(608): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.int1,page,column+2*
-igit_width_14pt);
-Menu_routines.c(610): warning:  #188-D: enumerated type mixed with another type
-  																								digit_transfer_14pt(lcd_row2.fraction,page,column+(3*
-igit_width_14pt+5)); // 5 for dot space
-Menu_routines.c(863): warning:  #188-D: enumerated type mixed with another type
-  	current_entry=main_menu_entry-1+last_menu_entry; 
-Menu_routines.c(960): warning:  #188-D: enumerated type mixed with another type
-  	current_entry=setting_menu_entry-1+last_menu_entry; 
-Menu_routines.c(1150): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt vt_digit_p[6]={0};
-Menu_routines.c(1151): warning:  #188-D: enumerated type mixed with another type
-    static enum digit_codes_14pt vt_digit_s[6]={0};
-Menu_routines.c(1192): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
-Menu_routines.c(1193): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
-Menu_routines.c(1194): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
-Menu_routines.c(1195): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
-Menu_routines.c(1196): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
-Menu_routines.c(1197): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
-Menu_routines.c(1201): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
-Menu_routines.c(1202): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
-Menu_routines.c(1203): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
-Menu_routines.c(1204): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
-Menu_routines.c(1205): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
-Menu_routines.c(1206): warning:  #188-D: enumerated type mixed with another type
-  		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
-Menu_routines.c(1380): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt ct_digit_p[5]={0};
-Menu_routines.c(1381): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt ct_digit_s[5]={0};
-Menu_routines.c(1382): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt ct_digit_phase[2]={0};
-Menu_routines.c(1386): warning:  #68-D: integer conversion resulted in a change of sign
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(1471): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
-Menu_routines.c(1472): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_p[3]=flashData2LCD(flash.data.ct_primer,2);
-Menu_routines.c(1473): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_p[2]=flashData2LCD(flash.data.ct_primer,3);
-Menu_routines.c(1474): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_p[1]=flashData2LCD(flash.data.ct_primer,4);
-Menu_routines.c(1475): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_p[0]=flashData2LCD(flash.data.ct_primer,5);
-Menu_routines.c(1478): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_s[4]=flashData2LCD(flash.data.ct_seconder,1);
-Menu_routines.c(1479): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_s[3]=flashData2LCD(flash.data.ct_seconder,2);
-Menu_routines.c(1480): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
-Menu_routines.c(1481): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
-Menu_routines.c(1482): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
-Menu_routines.c(1485): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_phase[1]=flashData2LCD(flash.data.ct_phase_shift,1);
-Menu_routines.c(1486): warning:  #188-D: enumerated type mixed with another type
-  		ct_digit_phase[0]=flashData2LCD(flash.data.ct_phase_shift,2);
-Menu_routines.c(1583): warning:  #188-D: enumerated type mixed with another type
-  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
-Menu_routines.c(1592): warning:  #188-D: enumerated type mixed with another type
-  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
-Menu_routines.c(1748): warning:  #68-D: integer conversion resulted in a change of sign
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(1752): warning:  #177-D: variable "i" was declared but never referenced
-  	uint8_t i;
-Menu_routines.c(2031): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt pulsePeriodVal[3]={0};
-Menu_routines.c(2032): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt pulseFactorVal[3]={0};
-Menu_routines.c(2052): warning:  #68-D: integer conversion resulted in a change of sign
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(2204): warning:  #188-D: enumerated type mixed with another type
-  			pulsePeriodVal[2]=flashData2LCD(flash.data.outputPulsePeriod,1);
-Menu_routines.c(2205): warning:  #188-D: enumerated type mixed with another type
-  			pulsePeriodVal[1]=flashData2LCD(flash.data.outputPulsePeriod,2);
-Menu_routines.c(2206): warning:  #188-D: enumerated type mixed with another type
-  			pulsePeriodVal[0]=flashData2LCD(flash.data.outputPulsePeriod,3);
-Menu_routines.c(2209): warning:  #188-D: enumerated type mixed with another type
-  			pulseFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
-Menu_routines.c(2210): warning:  #188-D: enumerated type mixed with another type
-  			pulseFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
-Menu_routines.c(2211): warning:  #188-D: enumerated type mixed with another type
-  			pulseFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
-Menu_routines.c(2289): warning:  #188-D: enumerated type mixed with another type
-  		if(++pulseFactorVal[ord]>_9){pulseFactorVal[ord]=0;}	
-Menu_routines.c(2042): warning:  #177-D: variable "RotationVal" was declared but never referenced
-  	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
-Menu_routines.c(2058): warning:  #177-D: variable "page" was declared but never referenced
-  	uint8_t column,page;
-Menu_routines.c(2411): warning:  #188-D: enumerated type mixed with another type
-  	static enum digit_codes_14pt adress_digit[3] ={0};
-Menu_routines.c(2422): warning:  #68-D: integer conversion resulted in a change of sign
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(2468): warning:  #188-D: enumerated type mixed with another type
-  		adress_digit[2]=flashData2LCD(flash.data.modbusAddress,1);
-Menu_routines.c(2469): warning:  #188-D: enumerated type mixed with another type
-  		adress_digit[1]=flashData2LCD(flash.data.modbusAddress,2);
-Menu_routines.c(2470): warning:  #188-D: enumerated type mixed with another type
-  		adress_digit[0]=flashData2LCD(flash.data.modbusAddress,3);
-Menu_routines.c(2532): warning:  #186-D: pointless comparison of unsigned integer with zero
-  	if(baudSel<0){baudSel=4;}		
-Menu_routines.c(2555): warning:  #186-D: pointless comparison of unsigned integer with zero
-  	if(modeSel<0){modeSel=4;}			
-Menu_routines.c(2619): warning:  #68-D: integer conversion resulted in a change of sign
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(2618): warning:  #177-D: variable "ord" was declared but never referenced
-  	static uint8_t ord=0;//order of  digits 0...5
-Menu_routines.c(2619): warning:  #177-D: variable "sel" was declared but never referenced
-  	static uint8_t sel=-1;//primary/secondary selection
-Menu_routines.c(2620): warning:  #177-D: variable "entered" was declared but never referenced
-  	static uint8_t entered=0;
-Menu_routines.c(2625): warning:  #177-D: variable "baudSel" was declared but never referenced
-  	static uint8_t baudSel=0;
-Menu_routines.c(2626): warning:  #177-D: variable "modeSel" was declared but never referenced
-  	static uint8_t modeSel=0;
-Menu_routines.c: 89 warnings, 0 errors
+graphing_fuctions.c: 7 warnings, 0 errors
+compiling record.c...
+compiling main.c...
 compiling converison.c...
 converison.c(23): warning:  #1295-D: Deprecated declaration measurement_routines - give arg types
   void measurement_routines();
 converison.c: 1 warning, 0 errors
-compiling flashDataHandling.c...
+compiling LCD_routines.c...
 compiling ios.c...
-ios.c(118): warning:  #1-D: last line of file ends without a newline
-  }
-ios.c: 1 warning, 0 errors
+compiling pb_handling.c...
+compiling flashDataHandling.c...
 linking...
-v4ea\v4ea.axf: error: L6050U: The code size of this image (55400 bytes) exceeds the maximum allowed for this version of the linker.
+v4ea\v4ea.axf: error: L6050U: The code size of this image (55448 bytes) exceeds the maximum allowed for this version of the linker.
 Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
-"v4ea\v4ea.axf" - 1 Error(s), 99 Warning(s).
+"v4ea\v4ea.axf" - 1 Error(s), 76 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
@@ -271,7 +209,7 @@ Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
 
 <h2>Collection of Component Files used:</h2>
 Target not created.
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

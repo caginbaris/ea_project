@@ -457,7 +457,7 @@ void harmonicDataTransfer(struct display_menu_handles menu_item){
 	digit_transfer_8pt(int10,5,106);
 	digit_transfer_8pt(int1,5,112);
 	display_buffer[5][117]=0x80;
-	digit_transfer_8pt(fraction,5,120);
+	digit_transfer_8pt((enum digit_codes_14pt)fraction,5,120);
 	
 
 }

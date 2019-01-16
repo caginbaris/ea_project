@@ -785,7 +785,7 @@ void toSettingsDetect(struct display_menu_handles menu_item){
 		case set_comm:								  setting_menu_entry=	setting_comm; break;
 		case set_display:								setting_menu_entry=	setting_comm; break;
 		case set_energy_reset:					setting_menu_entry=	setting_energy_reset; break;
-		case set_password:					    setting_menu_entry=	setting_password; break;
+
 		
 		default:setting_menu_entry=setting_VT;break;
 		
@@ -923,9 +923,7 @@ void atSettingsOperation(struct display_menu_handles menu_item){
 		case setting_comm:				current_menu=set_comm; 					break;
 		case setting_display:			current_menu=set_display; 			break;
 		case setting_energy_reset:current_menu=set_energy_reset; 	break;
-		case setting_password:		current_menu=set_password; 			break;
 
-			
 		default:	;break;
 		
 		}
@@ -2614,17 +2612,10 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 	
 	static enum letter_codes_8pt message_L1[16] ={e,n,e,r,j,i,_,s,a,y,a,c,l,a,r,i};
 	static enum letter_codes_8pt message_L2[12] ={s,i,f,i,r,l,a,n,a,c,a,k};
-																								 
-	static uint8_t ord=0;//order of  digits 0...5
-	static uint8_t sel=-1;//primary/secondary selection
-	static uint8_t entered=0;
+																								
 	
 	uint8_t i;
 	uint8_t column=80;
-	
-	static uint8_t baudSel=0;
-	static uint8_t modeSel=0;
-	
 	
 	clearColumns(2,79,127);
 	clearColumns(3,79,127);
@@ -2651,7 +2642,8 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 	
 	letter_transfer_8pt(e,4,56);
 	symbol_transfer(menu_slash,4,65);	
-	letter_transfer_8pt(h,4,56);	
+	letter_transfer_8pt(h,4,74);
+	symbol_transfer(menu_qmark,4,83);		
 	
 	
 	if(pressed_button==up_pressed){//tick

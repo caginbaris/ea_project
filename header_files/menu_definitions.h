@@ -45,7 +45,7 @@ set_output,
 set_comm,
 set_display,
 set_energy_reset,
-set_password,
+
 };
 
 enum main_menu_list {
@@ -85,8 +85,7 @@ enum setting_menu_list {
 	setting_comm,//5
 	setting_display,//6
 	setting_energy_reset,//7
-	setting_password,//8
-	setting_pos_guard=9,
+	setting_pos_guard=8,
 };
 
 
