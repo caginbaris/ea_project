@@ -330,8 +330,9 @@ union flashDataUnion{
 		
 		uint32_t commBaudRate:2;
 		uint32_t commMode:2;
+		uint32_t termination:1;
 		
-    uint32_t rem:16;	
+    uint32_t rem:15;	
 		
 	}configBit;
 	

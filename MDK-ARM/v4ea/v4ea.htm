@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Thu Jan 24 18:19:32 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Jan 24 20:29:25 2019
 <BR><P>
 <H3>Maximum Stack Usage =        260 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -869,7 +869,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion (via Veneer)
 </UL>
 
-<P><STRONG><a name="[ad]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 208 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
+<P><STRONG><a name="[ad]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -934,7 +934,7 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[b7]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 130 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
+<P><STRONG><a name="[b7]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 126 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1007,7 +1007,7 @@ Global Symbols
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM19_Init
 </UL>
 
-<P><STRONG><a name="[bf]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
+<P><STRONG><a name="[bf]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -1149,7 +1149,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 
-<P><STRONG><a name="[9e]"></a>HAL_UART_MspInit</STRONG> (Thumb, 124 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
+<P><STRONG><a name="[9e]"></a>HAL_UART_MspInit</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1468,7 +1468,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RS485Ex_Init
 </UL>
 
-<P><STRONG><a name="[9f]"></a>UART_SetConfig</STRONG> (Thumb, 680 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
+<P><STRONG><a name="[9f]"></a>UART_SetConfig</STRONG> (Thumb, 672 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -1767,10 +1767,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[1b]"></a>dynamicData_comm</STRONG> (Thumb, 548 bytes, Stack size 32 bytes, menu_routines.o(i.dynamicData_comm))
+<P><STRONG><a name="[1b]"></a>dynamicData_comm</STRONG> (Thumb, 658 bytes, Stack size 32 bytes, menu_routines.o(i.dynamicData_comm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = dynamicData_comm &rArr; screenData2flash
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenData2flash
+<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenData2flash
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_cursor
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashData2LCD
@@ -1788,7 +1789,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 1172 bytes, Stack size 168 bytes, menu_routines.o(i.dynamicData_output))
+<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 1170 bytes, Stack size 168 bytes, menu_routines.o(i.dynamicData_output))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = dynamicData_output &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
@@ -2083,7 +2084,7 @@ Global Symbols
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[121]"></a>outputHandling</STRONG> (Thumb, 328 bytes, Stack size 24 bytes, ios.o(i.outputHandling))
+<P><STRONG><a name="[121]"></a>outputHandling</STRONG> (Thumb, 342 bytes, Stack size 24 bytes, ios.o(i.outputHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -2285,8 +2286,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[1a]"></a>staticData_comm</STRONG> (Thumb, 224 bytes, Stack size 80 bytes, menu_routines.o(i.staticData_comm))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = staticData_comm &rArr; symbol_transfer
+<P><STRONG><a name="[1a]"></a>staticData_comm</STRONG> (Thumb, 262 bytes, Stack size 96 bytes, menu_routines.o(i.staticData_comm))
+<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = staticData_comm &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
@@ -2339,6 +2340,7 @@ Global Symbols
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_reset
 <LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_output
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_input
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_comm
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_CT
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atSettingsOperation
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation

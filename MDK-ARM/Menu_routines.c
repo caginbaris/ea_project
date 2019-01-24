@@ -2220,15 +2220,15 @@ void dynamicData_output(struct display_menu_handles menu_item){
 
 		
 
-	if(pressed_button==enter_pressed && entered==0){entered=1;sel=0;}
-		
+	if(pressed_button==enter_pressed){entered=1;sel++;}
+	if(sel>3){sel=0;}	
 		
 	//{enter     ,left      ,right    ,down      ,up},
 	//{menu_enter,menu_alter,menu_plus,menu_right,menu_escape},
 	
-		if(sel==0 && entered==1){//functioning started
+	if(sel==0 && entered==1){//functioning started
 			
-			if(pressed_button==enter_pressed){sel++;}	
+			
 		
 			if(pressed_button==left_pressed){	// left is plus @VT
 		
@@ -2241,7 +2241,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		}
 		
 		
-		if(functionDef>3){functionDef=0;}
+	if(functionDef>2){functionDef=0;}
 		
 		
 		
@@ -2341,6 +2341,7 @@ void staticData_comm(struct display_menu_handles menu_item){
 	enum letter_codes_8pt adress[13]=  		{a,d,r,e,s,_,_,_,_,_,_,_,_};
 	enum letter_codes_8pt baudRate[13]=  	{s,i,n,y,a,l,_,o,r,a,n,i,_};
 	enum letter_codes_8pt mode[13]=  	    {i,l,e,t,i,m,_,m,o,d,u,_,_};
+	enum letter_codes_8pt termRes[13]=  	{t,e,r,m,i,n,a,s,y,o,n,_,_};
 	
 	uint8_t i;
 	uint8_t column=1;
@@ -2393,6 +2394,17 @@ void staticData_comm(struct display_menu_handles menu_item){
 	}
 	
 	
+	column=0;
+	page=5;
+	
+	
+	for(i=0;i<13;i++){
+		
+	column=letter_transfer_8pt(termRes[i],page,column);
+		
+	}
+	
+	
 	symbol_transfer(menu_item.symbol[0],7,1);
 	symbol_transfer(menu_item.symbol[1],7,28);
 	symbol_transfer(menu_item.symbol[2],7,59);
@@ -2423,12 +2435,12 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 	
 	static uint8_t baudSel=0;
 	static uint8_t modeSel=0;
-	
+	static uint8_t termination=0;
 	
 	clearColumns(2,79,127);
 	clearColumns(3,79,127);
 	clearColumns(4,79,127);
-	
+	clearColumns(5,79,127);
 	
 	
 	column=80;
@@ -2457,6 +2469,16 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 	column=letter_transfer_8pt(mode_letter[modeSel],4,column);
 	column=digit_transfer_8pt(mode_digit[modeSel],4,column);	
 
+	if(termination){
+	
+	symbol_transfer(menu_tick,5,79);
+		
+	}else{
+	
+	symbol_transfer(menu_cross,5,79);
+	
+	}
+	
 	
 	
 	if(!entered && save_lock==0){
@@ -2467,6 +2489,7 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 		
 		baudSel=flash.data.configBit.commBaudRate;
 		modeSel=flash.data.configBit.commMode;
+		termination=flash.data.configBit.termination;
 	
 	}
 	
@@ -2556,6 +2579,24 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 		
 	}
 	
+	
+	if(sel==3 && entered==1){//seconder side start
+		
+	if(pressed_button==left_pressed || pressed_button==right_pressed){  // left is plus @VT
+	
+	termination^=1;
+				
+	}
+	
+	
+	put_cursor(5,79,9);	
+		
+	}
+	
+	
+	
+	if(sel>3){sel=0;}
+	
 
 
 	if(pressed_button==up_pressed && save_lock==0){ 
@@ -2564,10 +2605,12 @@ void dynamicData_comm(struct display_menu_handles menu_item){
 	flashNew.data.modbusAddress=screenData2flash(adress_digit,3);
 	flashNew.data.configBit.commBaudRate=baudSel;
 	flashNew.data.configBit.commMode=modeSel;
+	flashNew.data.configBit.termination=termination;	
 
 	if((  flashNew.data.modbusAddress  				!=flash.data.modbusAddress) 		|| 
 		 (  flashNew.data.configBit.commBaudRate!=flash.data.configBit.commBaudRate) 	||
-		 (  flashNew.data.configBit.commMode		!=flash.data.configBit.commMode)
+		 (  flashNew.data.configBit.commMode		!=flash.data.configBit.commMode) ||
+		 (  flashNew.data.configBit.termination		!=flash.data.configBit.termination)
 	){
 	
 		save_lock=1;

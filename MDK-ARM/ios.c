@@ -100,7 +100,12 @@ void outputHandling(){
 	}
 	
 
+	
+	
 	HAL_GPIO_WritePin(RELAY_OUTPUT_GPIO_Port,RELAY_OUTPUT_Pin,(GPIO_PinState)output);
+	
+	HAL_GPIO_WritePin(MODBUS_TE_GPIO_Port,MODBUS_TE_Pin,(GPIO_PinState)flash.data.configBit.termination);
+	
 
 
 }
