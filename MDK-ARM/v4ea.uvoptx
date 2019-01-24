@@ -860,7 +860,7 @@
       <GroupNumber>7</GroupNumber>
       <FileNumber>45</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Menu_init.c</PathWithFileName>
@@ -880,7 +880,7 @@
       <GroupNumber>8</GroupNumber>
       <FileNumber>46</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\measurement_data.c</PathWithFileName>
@@ -936,7 +936,7 @@
 
   <Group>
     <GroupName>aux_functions</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1049,6 +1049,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\Modbus_RTU_Slave.c</PathWithFileName>
       <FilenameWithoutPath>Modbus_RTU_Slave.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>15</GroupNumber>
+      <FileNumber>56</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Modbus_Map.c</PathWithFileName>
+      <FilenameWithoutPath>Modbus_Map.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

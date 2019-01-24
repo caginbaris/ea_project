@@ -108,7 +108,7 @@ void rtu_ModbusFrameProcessing(void)
       }
     
 
-    rtu_modbusRegAdress = (rtu_modbusRxBuffer[REG_ADRESS_HIGH] << 8) | rtu_modbusRxBuffer[REG_ADRESS_LOW];
+    rtu_modbusRegAdress = (rtu_modbusRxBuffer[REG_ADRESS_HIGH] << 8) | rtu_modbusRxBuffer[REG_ADRESS_LOW]; //jj 16bitlik bir dataya aktaraliyor adres bilgisi
 	
     if (rtu_modbusRegAdress >= MODBUS_LOWER_LIMIT_ADRESS && rtu_modbusRegAdress <= MODBUS_UPPER_LIMIT_ADRESS)
     {
@@ -169,7 +169,7 @@ void rtu_ModbusFrameProcessing(void)
 
     rtu_modbusStartingAdress = rtu_modbusRegAdress;
     rtu_modbusEndingAdress = rtu_modbusStartingAdress + rtu_modbusDataLen;
-		rtu_transmitEnable_receiveDisable();
+		rtu_transmitEnable_receiveDisable(); //jj pinset's implemented
 		
     switch(rtu_modbusRxBuffer[FUNCODE])
     {
@@ -183,7 +183,7 @@ void rtu_ModbusFrameProcessing(void)
 					rtu_transmitDisable_receiveEnable();			
 					return;
 				}
-				rtu_readHoldingRegister(); 
+				rtu_readHoldingRegister(); //jj frame adjusted, sent data transmitted in nested funcs
 				break;
 			}
 			
@@ -197,7 +197,7 @@ void rtu_ModbusFrameProcessing(void)
         printf("rtu_modbusDataLen is %d \n",rtu_modbusDataLen);
         printf("Selected ID is %d \n",rtu_selectedSlaveID);
 				#endif
-				rtu_writeSingleRegister();
+				rtu_writeSingleRegister();//jj not functional care
 				break;
 			}
 				
@@ -208,7 +208,7 @@ void rtu_ModbusFrameProcessing(void)
 					#if DEBUG
 					printf("Requested data adress and length is not satisfied \n");
 					#endif
-					rtu_transmitDisable_receiveEnable();			
+					rtu_transmitDisable_receiveEnable();//jj			
 					return;
 				}
 				
@@ -220,7 +220,7 @@ void rtu_ModbusFrameProcessing(void)
         printf("rtu_modbusDataLen is %d \n",rtu_modbusDataLen);
         printf("Selected ID is %d \n",rtu_selectedSlaveID);
 				#endif
-        rtu_writeMultipleRegisters();
+        rtu_writeMultipleRegisters(); // data set-write and send op.
         break;
       }
 			
@@ -585,7 +585,7 @@ void rtu_getFeeder1_writeSingleRegister(void)
 	  #if 0
     if (rtu_modbusRegAdress == WRITE_OUT_CH1)
     {
-      outputStatus.CH1 = (uint32_t)(rtu_modbusRxBuffer[4]) << 8;
+      outputStatus.CH1 =  (uint32_t) (rtu_modbusRxBuffer[4]) << 8;
       outputStatus.CH1 |= (uint32_t)(rtu_modbusRxBuffer[5]);
     }
 		#endif

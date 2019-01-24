@@ -54,6 +54,7 @@
 "v4ea\ios.o"
 "v4ea\record.o"
 "v4ea\modbus_rtu_slave.o"
+"v4ea\modbus_map.o"
 --library_type=microlib --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
