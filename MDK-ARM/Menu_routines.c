@@ -1964,7 +1964,6 @@ void staticData_output(struct display_menu_handles menu_item){
 	uint8_t page=0;
 	
 
-
 	for(i=0;i<21;i++){
 		
 	column=letter_transfer_8pt(menu_item.title[i],page,column);
@@ -1974,8 +1973,6 @@ void staticData_output(struct display_menu_handles menu_item){
 	
 	line_highlighter(0,128);
 	
-	
-	
 	column=1;
 	page=1;
 	
@@ -1984,10 +1981,6 @@ void staticData_output(struct display_menu_handles menu_item){
 	column=letter_transfer_8pt(functoning[i],page,column);
 	
 	}
-	
-	
-
-	
 	
 	column=0;
 	page=6;
@@ -2045,7 +2038,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
 	
-	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t sel=-1,sel1=0;//primary/secondary selection
 	static uint8_t entered=0;
 	static uint8_t ord=0;
 
@@ -2060,10 +2053,9 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	clearColumns(5,1,128);
 	clearColumns(6,70,128);
 	
-		/*funcdef text*/
-		column=50;
-		
-		for(i=0;i<12;i++){
+	/*funcdef text*/
+	column=50;
+	for(i=0;i<12;i++){
 		
 			column=letter_transfer_8pt(functoning[functionDef][i],1,column);
 	
@@ -2125,23 +2117,13 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			 column=letter_transfer_8pt(pulseSourceVal[pulsesource][i],5,column);
 				
 			}
-			
-			
-			
-	
-	
+		
 		}
+	
 	if(functionDef==3){	/*limit violation*/
 	
-			column=1;
-			for(i=0;i<10;i++){
-		
-			 column=letter_transfer_8pt(Rotation[i],2,column);
-				
-			}
-			
 
-			column=1;
+			column=8;
 			
 			for(i=0;i<16;i++){
 		
@@ -2181,6 +2163,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	
 	
+	
 	if(output){
 	
 		symbol_transfer(menu_active_in_out,6,100);
@@ -2214,43 +2197,35 @@ void dynamicData_output(struct display_menu_handles menu_item){
 
 	}	
 		
-	
-	
-	
-
-		
-
 	if(pressed_button==enter_pressed){entered=1;sel++;}
-	if(sel>3){sel=0;}	
+
 		
 	//{enter     ,left      ,right    ,down      ,up},
 	//{menu_enter,menu_alter,menu_plus,menu_right,menu_escape},
 	
-	if(sel==0 && entered==1){//functioning started
+	if(sel==0 && entered==1 ){//functioning started
 			
-			
-		
 			if(pressed_button==left_pressed){	// left is plus @VT
 		
 			functionDef++;
 			
 			}
-			
+		
+			if(functionDef>3){functionDef=0;}
+		
 			put_cursor(1,49,77);
 			
-		}
-		
-		
-	if(functionDef>2){functionDef=0;}
-		
+	}
 		
 		
 	
-if(sel==1 && entered==1 && functionDef==1){
-			
-			
-		if(pressed_button==enter_pressed){sel++;}		
-			
+	if(entered==1 && functionDef==1){
+		
+		if(pressed_button==enter_pressed){sel1++;}
+		if(sel1>3){sel1=0;sel=0;}	
+		
+		//first
+		if(sel1==1){
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
@@ -2266,19 +2241,12 @@ if(sel==1 && entered==1 && functionDef==1){
 		}
 		
 		
-		put_cursor(3,105+7*ord,7);
+		put_cursor(3,105+7*ord,7);}
 		
-		}
-		
-
-		
-		
-if(sel==2 && entered==1 && functionDef==1){
+		//sec
+		if(sel1==2){
 			
 			
-		if(pressed_button==enter_pressed){sel++;}			
-		
-		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
 		
@@ -2296,15 +2264,12 @@ if(sel==2 && entered==1 && functionDef==1){
 		}
 		
 		
-		put_cursor(4,105+7*ord,7);
+		put_cursor(4,105+7*ord,7);	
 		
 		}
 		
-if(sel==3 && entered==1 && functionDef==1){
-			
-			
-		if(pressed_button==enter_pressed){sel=0;}			
-		
+		//thi
+		if(sel1==3){
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
@@ -2315,14 +2280,13 @@ if(sel==3 && entered==1 && functionDef==1){
 		
 		}
 		
+	}
 		
 		
 
-if(sel==1 && entered==1 && functionDef==2){
-	
+	if(entered==1 && functionDef==2){
 	
 		if(pressed_button==enter_pressed){sel=0;}			
-		
 		
 		if(pressed_button==right_pressed){	
 		
@@ -2332,7 +2296,7 @@ if(sel==1 && entered==1 && functionDef==2){
 		put_cursor(5,85,127);
 
 	}
-
+	
 }
 
 
