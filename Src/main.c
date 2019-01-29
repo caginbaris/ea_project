@@ -10,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * COPYRIGHT(c) 2018 STMicroelectronics
+  * COPYRIGHT(c) 2019 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -213,13 +213,18 @@ int main(void)
 	init_flashBackRead();
 	
 	pLagDef(0.6352f,25000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
-	pLagDef(0.6352f,25000,&pc_b12,&pc_b22); // applied to voltage //cau	
+	pLagDef(0.0f,25000,&pc_b12,&pc_b22); // applied to voltage //cau	
 	
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
 	
+	
+	//rtu_transmitDisable_receiveEnable(); //cau auto de
+  HAL_UART_Receive_IT(&huart3,&ReceiveData, 1);	//activate UART receive interrupt every time
+	rtu_deviceSlaveID[0] = 1; //cau
+
 	
 
   while (1)

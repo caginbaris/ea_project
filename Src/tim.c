@@ -10,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * COPYRIGHT(c) 2018 STMicroelectronics
+  * COPYRIGHT(c) 2019 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -88,7 +88,7 @@ void MX_TIM5_Init(void)
   htim5.Instance = TIM5;
   htim5.Init.Prescaler = 0;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 3599;
+  htim5.Init.Period = 35999;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
@@ -130,7 +130,7 @@ void MX_TIM19_Init(void)
   htim19.Instance = TIM19;
   htim19.Init.Prescaler = 0;
   htim19.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim19.Init.Period = 3599;// toogle on match @ ioc file should revised
+  htim19.Init.Period = 7199;
   htim19.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim19.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim19) != HAL_OK)
