@@ -90,7 +90,7 @@ extern struct calibrationFlags calFlags;
 extern union  uConversionFlags convFlags;
 extern union  uAdcData rawAdc;
 extern union  uAdcData AN;
-
+extern union  uAdcData AN_pc;
 
 
 

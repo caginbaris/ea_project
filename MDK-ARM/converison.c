@@ -15,7 +15,8 @@ struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
 union  uAdcData rawAdc	={0};
 union  uAdcData AN			={0};
-union  uAdcData scale		 ={0};
+union  uAdcData AN_pc		={0};
+union  uAdcData scale		={0};
 enum adcChannel ch=Van;
 
 uint32_t  uBuffer[6];
@@ -27,6 +28,9 @@ extern uint16_t refresh_counter;
 
 float pc_b1,pc_b2;
 float pc_x1,pc_x2,pc_x3;
+
+float pc_b12,pc_b22;
+float pc_x4,pc_x5,pc_x6;
 
 void init_conversion(void){
 
@@ -166,13 +170,19 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
 	AN.data.Vcn=offset_cancellation((uBuffer[4]),&oc_buff[2])*scale.data.Vcn;
 
-	AN.data.Ic=	pDiffer( offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic,pc_b1,pc_b2,&pc_x1)*100.0f;//cau
-	AN.data.Ia=	pDiffer( offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia,pc_b1,pc_b2,&pc_x2);
-	AN.data.Ib=	pDiffer( offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib,pc_b1,pc_b2,&pc_x3);;
+	AN.data.Ic=	offset_cancellation((int16_t)uBuffer[0]+ 32768,&oc_buff[3])	*scale.data.Ic*100.0f;//cau
+	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia;
+	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
 		
-	AN.data.Vab=AN.data.Van-AN.data.Vbn;
-	AN.data.Vbc=AN.data.Vbn-AN.data.Vcn;	
-	AN.data.Vca=AN.data.Vcn-AN.data.Van;
+		
+	AN_pc.data.Van=pDiffer( AN.data.Van,pc_b1,pc_b2,&pc_x1);
+	AN_pc.data.Vbn=pDiffer( AN.data.Vbn,pc_b1,pc_b2,&pc_x2);	
+	AN_pc.data.Vcn=pDiffer( AN.data.Vcn,pc_b1,pc_b2,&pc_x3);
+
+	AN_pc.data.Ic=	pDiffer( AN.data.Ic,pc_b1,pc_b2,&pc_x4)*100.0f;
+	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b1,pc_b2,&pc_x5)*100.0f;
+	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b1,pc_b2,&pc_x6)*100.0f;
+	
 			
 	measurement_routines();
 	ios();

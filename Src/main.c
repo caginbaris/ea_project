@@ -52,9 +52,9 @@
 
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
-#include "phaseCompensation.h"
 #include "flash_api.h"
 #include "Modbus_RTU_Slave.h"
+#include "phaseCompensation.h"
 
 /* USER CODE END Includes */
 
@@ -206,10 +206,15 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
-	pLagDef(-0.6352f,25000,&pc_b1,&pc_b2);
+
+	
 	flashRead();
 	flashReadRec();
 	init_flashBackRead();
+	
+	pLagDef(0.6352f,25000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
+	pLagDef(0.6352f,25000,&pc_b12,&pc_b22); // applied to voltage //cau	
+	
 	init_conversion();
 	init_LCD();
 	init_backlight();
@@ -241,7 +246,10 @@ int main(void)
 	  }
 		
 
-		DISPLAY_MENU();	
+		DISPLAY_MENU();
+
+
+		
 		
 
 		

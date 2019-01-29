@@ -2,17 +2,15 @@
 #include "lcd_definitions.h"
 #include "ch_format.h"
 #include "measurement_definitions.h"
-#include  <string.h>
-#include  "aux_functions.h"
+#include <string.h>
+#include "aux_functions.h"
 #include "flash_api.h"
 #include "ios.h"
+#include "phaseCompensation.h"
 
 
 uint8_t save_lock=0;
 uint8_t currentSaveMenu=0;
-
-
-
 
 
 
@@ -180,6 +178,8 @@ void savingScreen(){
 	flash=flashNew;
 		
 	flashWrite();
+		
+	pLagDef(flash.data.ct_phase_shift,10000,&pc_b12,&pc_b22); // applied to voltage 		
 	
 
 	

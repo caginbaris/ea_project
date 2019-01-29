@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Jan 24 20:29:25 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Jan 29 11:50:16 2019
 <BR><P>
 <H3>Maximum Stack Usage =        260 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -396,7 +396,7 @@ Global Symbols
 <P><STRONG><a name="[155]"></a>__decompress2</STRONG> (Thumb, 94 bytes, Stack size unknown bytes, __dclz77c.o(.text), UNUSED)
 
 <P><STRONG><a name="[3a]"></a>ADC1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_it.o(i.ADC1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = ADC1_IRQHandler &rArr; HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = ADC1_IRQHandler &rArr; HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_IRQHandler
 </UL>
@@ -476,7 +476,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[74]"></a>HAL_ADC_IRQHandler</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADC_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = HAL_ADC_IRQHandler &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback (via Veneer)
@@ -869,7 +869,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion (via Veneer)
 </UL>
 
-<P><STRONG><a name="[ad]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
+<P><STRONG><a name="[ad]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 208 bytes, Stack size 32 bytes, sdadc.o(i.HAL_SDADC_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -934,7 +934,7 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[b7]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 126 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
+<P><STRONG><a name="[b7]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 130 bytes, Stack size 48 bytes, spi.o(i.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1007,7 +1007,7 @@ Global Symbols
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM19_Init
 </UL>
 
-<P><STRONG><a name="[bf]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
+<P><STRONG><a name="[bf]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_Base_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -1149,7 +1149,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 
-<P><STRONG><a name="[9e]"></a>HAL_UART_MspInit</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
+<P><STRONG><a name="[9e]"></a>HAL_UART_MspInit</STRONG> (Thumb, 124 bytes, Stack size 48 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1468,7 +1468,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RS485Ex_Init
 </UL>
 
-<P><STRONG><a name="[9f]"></a>UART_SetConfig</STRONG> (Thumb, 672 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
+<P><STRONG><a name="[9f]"></a>UART_SetConfig</STRONG> (Thumb, 680 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -1541,7 +1541,7 @@ Global Symbols
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 </UL>
 
 <P><STRONG><a name="[fa]"></a>__hardfp_sinf</STRONG> (Thumb, 344 bytes, Stack size 16 bytes, sinf.o(i.__hardfp_sinf))
@@ -1554,7 +1554,7 @@ Global Symbols
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 </UL>
 
 <P><STRONG><a name="[fb]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf.o(i.__hardfp_sqrtf))
@@ -1562,7 +1562,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bin_magnitudes (via Veneer)
 </UL>
 
@@ -1789,8 +1789,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 1170 bytes, Stack size 168 bytes, menu_routines.o(i.dynamicData_output))
-<BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = dynamicData_output &rArr; symbol_transfer
+<P><STRONG><a name="[19]"></a>dynamicData_output</STRONG> (Thumb, 964 bytes, Stack size 160 bytes, menu_routines.o(i.dynamicData_output))
+<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = dynamicData_output &rArr; symbol_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_cursor
@@ -1825,13 +1825,13 @@ Global Symbols
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_CT
 </UL>
 
-<P><STRONG><a name="[123]"></a>flashRead</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, flashdatahandling.o(i.flashRead))
+<P><STRONG><a name="[122]"></a>flashRead</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, flashdatahandling.o(i.flashRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = flashRead
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[124]"></a>flashReadRec</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, flashdatahandling.o(i.flashReadRec))
+<P><STRONG><a name="[123]"></a>flashReadRec</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, flashdatahandling.o(i.flashReadRec))
 <BR><BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1929,7 +1929,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[125]"></a>init_flashBackRead</STRONG> (Thumb, 30 bytes, Stack size 20 bytes, flashdatahandling.o(i.init_flashBackRead))
+<P><STRONG><a name="[124]"></a>init_flashBackRead</STRONG> (Thumb, 30 bytes, Stack size 20 bytes, flashdatahandling.o(i.init_flashBackRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = init_flashBackRead
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2003,16 +2003,16 @@ Global Symbols
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
-<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 232 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
+<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 260 bytes, Stack size 8 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations (via Veneer)
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SELECT_MENU
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
@@ -2035,7 +2035,7 @@ Global Symbols
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion (via Veneer)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
@@ -2203,11 +2203,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_routines.o(.data)
 </UL>
-<P><STRONG><a name="[2]"></a>savingScreen</STRONG> (Thumb, 246 bytes, Stack size 40 bytes, menu_routines.o(i.savingScreen))
+<P><STRONG><a name="[2]"></a>savingScreen</STRONG> (Thumb, 266 bytes, Stack size 40 bytes, menu_routines.o(i.savingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = savingScreen &rArr; flashWrite &rArr; HAL_FLASH_Program &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearColumns
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
 </UL>
@@ -2387,8 +2388,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[77]"></a>HAL_ADC_ConvCpltCallback</STRONG> (Thumb, 358 bytes, Stack size 32 bytes, converison.o(i.HAL_ADC_ConvCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
+<P><STRONG><a name="[77]"></a>HAL_ADC_ConvCpltCallback</STRONG> (Thumb, 444 bytes, Stack size 32 bytes, converison.o(i.HAL_ADC_ConvCpltCallback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recordEmAll (via Veneer)
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pDiffer
@@ -2465,8 +2466,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
 </UL>
 
-<P><STRONG><a name="[139]"></a>measurement_routines</STRONG> (Thumb, 378 bytes, Stack size 96 bytes, measurement_routines.o(i.measurement_routines))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = measurement_routines &rArr; power_calculations_iq
+<P><STRONG><a name="[139]"></a>measurement_routines</STRONG> (Thumb, 382 bytes, Stack size 88 bytes, measurement_routines.o(i.measurement_routines))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = measurement_routines &rArr; power_calculations_iq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine (via Veneer)
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;true_RMS
@@ -2497,7 +2498,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
 
-<P><STRONG><a name="[122]"></a>pLagDef</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, phasecompensation.o(i.pLagDef))
+<P><STRONG><a name="[125]"></a>pLagDef</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, phasecompensation.o(i.pLagDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = pLagDef &rArr; __hardfp_sinf &rArr; __mathlib_rredf2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf (via Veneer)
@@ -2505,6 +2506,7 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf (via Veneer)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main (via Veneer)
+<LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen (via Veneer)
 </UL>
 
 <P><STRONG><a name="[145]"></a>pfilter</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, measurement_data.o(i.pfilter))
@@ -2583,7 +2585,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[6b]"></a>ADC_DMAConvCplt</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, stm32f3xx_hal_adc_ex.o(i.ADC_DMAConvCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = ADC_DMAConvCplt &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = ADC_DMAConvCplt &rArr; HAL_ADC_ConvCpltCallback &rArr; measurement_routines &rArr; power_calculations_iq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback (via Veneer)
 </UL>

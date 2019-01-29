@@ -8,3 +8,4 @@ v4ea\menu_routines.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 v4ea\menu_routines.o: ..\header_files\aux_functions.h
 v4ea\menu_routines.o: ..\header_files\flash_api.h
 v4ea\menu_routines.o: ../Inc/ios.h
+v4ea\menu_routines.o: ../Inc/phaseCompensation.h
