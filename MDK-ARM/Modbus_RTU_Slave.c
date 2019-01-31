@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "Modbus_RTU_Slave.h"
-
+#include "menu_definitions.h"
 
 
 /* User Variables ------------------------------------------------------------*/
@@ -612,4 +612,47 @@ void rtu_transmitDisable_receiveEnable(void)
 	#if DEBUG
 	printf("Receive Enabled, Transmit Disabled for RTU Comm \n");
 	#endif
+}
+
+
+void updateModbusConfig(){//cau
+	
+	//adress
+	
+	rtu_deviceSlaveID[0]=flash.data.modbusAddress;
+	
+  //baud rate section
+	
+	switch(flash.data.configBit.commBaudRate){
+		
+		case 0	:huart3.Init.BaudRate = 4800;break;
+		case 1	:huart3.Init.BaudRate = 9600;break;
+		case 2	:huart3.Init.BaudRate = 19200;break;
+		case 3	:huart3.Init.BaudRate = 38400;break;
+		case 4	:huart3.Init.BaudRate = 57600;break;
+		default	:huart3.Init.BaudRate = 19200;break;
+		
+	}
+	
+	
+	switch(flash.data.configBit.commMode){ //cau
+	
+		case 0: huart3.Init.Parity = UART_PARITY_NONE ; 
+						huart3.Init.StopBits = UART_STOPBITS_2  ;break;
+		
+		case 1: huart3.Init.Parity = UART_PARITY_EVEN ; 
+						huart3.Init.StopBits = UART_STOPBITS_1;break;
+		
+		case 2: huart3.Init.Parity = UART_PARITY_ODD ; 
+						huart3.Init.StopBits = UART_STOPBITS_1  ;break;
+		
+		case 3: huart3.Init.Parity = UART_PARITY_NONE ; 
+						huart3.Init.StopBits = UART_STOPBITS_1  ;break;
+		
+		default: huart3.Init.Parity = UART_PARITY_NONE ; 
+						 huart3.Init.StopBits = UART_STOPBITS_2  ;break;
+		
+	}
+	
+
 }

@@ -328,11 +328,11 @@ union flashDataUnion{
 		uint32_t output_energy_pulse_source:3;
 		uint32_t output_rotation:1;
 		
-		uint32_t commBaudRate:2;
+		uint32_t commBaudRate:3;
 		uint32_t commMode:2;
 		uint32_t termination:1;
 		
-    uint32_t rem:15;	
+    uint32_t rem:14;	
 		
 	}configBit;
 	

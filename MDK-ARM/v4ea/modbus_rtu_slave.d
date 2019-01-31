@@ -39,3 +39,5 @@ v4ea\modbus_rtu_slave.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_e
 v4ea\modbus_rtu_slave.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\modbus_rtu_slave.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\modbus_rtu_slave.o: ../Inc/Modbus_RTU_Slave.h
+v4ea\modbus_rtu_slave.o: ..\header_files\menu_definitions.h
+v4ea\modbus_rtu_slave.o: ..\header_files\lcd_definitions.h
