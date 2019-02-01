@@ -15,6 +15,10 @@
 #include "Modbus_RTU_Slave.h"
 #include "menu_definitions.h"
 
+//mein
+
+#include "Modbus_Map.h"
+
 
 /* User Variables ------------------------------------------------------------*/
 uint16_t rtu_modbusRxFrameLen;
@@ -240,6 +244,8 @@ void rtu_ModbusFrameProcessing(void)
 			
       default: 
       {
+				
+				//jj exception code on illegal fc should be sent
         #if DEBUG
         printf("Modbus rtu function code is wrong !\n");
         #endif
@@ -455,16 +461,16 @@ void rtu_Feeder1DataPrep(void)
 {
   if (rtu_modbusRegAdress == READ_IN_CH1)
   {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(1111)) >> 8;
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(1111));
       rtu_modbusRegAdress += 1;
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
   }
 
   if (rtu_modbusRegAdress == READ_IN_CH2)
   {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(2222)) >> 8;
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(2222));
       rtu_modbusRegAdress += 1;
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
   }
@@ -472,8 +478,8 @@ void rtu_Feeder1DataPrep(void)
   if (rtu_modbusRegAdress == READ_IN_CH3)
   {
 		
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(3333)) >> 8;
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(3333));
 		
       rtu_modbusRegAdress += 1;
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
@@ -578,6 +584,26 @@ void rtu_Feeder1DataPrep(void)
 	
   rtu_transmitData_readHoldingRegister();
   
+}
+
+
+void rtu_Feeder1DataPrepAlternate(void){//jj alternate imp for modbus
+	
+	uint8_t i;
+	
+	for(i=rtu_modbusRegAdress;i<rtu_modbusEndingAdress+1;i++){//jj inc2 @ float data
+	
+	rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(*(readHoldingMap.buffer[i])) >> 8);
+  rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(*(readHoldingMap.buffer[i])));
+		
+	//if (i == rtu_modbusEndingAdress) {rtu_modbusRegAdress = 0;break;}
+	
+	}
+	
+	
+
+	rtu_transmitData_readHoldingRegister();
+
 }
 
 void rtu_getFeeder1_writeSingleRegister(void)

@@ -96,13 +96,12 @@ union modbusMappingReadData{
 	
 	}data;
 	
-	
-	float buffer[66];
- 	
-	
-	
+	float*   buffer[66];	
 
 };
+
+
+extern union modbusMappingReadData readHoldingMap;
 
 
 

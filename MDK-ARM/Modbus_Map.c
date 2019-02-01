@@ -1,16 +1,21 @@
 #include "Modbus_Map.h"
+#include "conversion.h"
+#include "measurement_definitions.h"
 
-union modbusMappingReadData readMap;
+union modbusMappingReadData readHoldingMap;
 
 void init_Map(void){
 	
 	
+		readHoldingMap.data.tRMS_Van=&(trueRMS.data.Van);
+		readHoldingMap.data.tRMS_Vbn=&(trueRMS.data.Vbn);	
+		readHoldingMap.data.tRMS_Vcn=&(trueRMS.data.Vcn);
+	
+		readHoldingMap.data.fRMS_Van=&(fundRMS.data.Van);
+		readHoldingMap.data.fRMS_Vbn=&(fundRMS.data.Vbn);	
+		readHoldingMap.data.fRMS_Vcn=&(fundRMS.data.Vcn);
+	
 	#if 0
-	
-	
-	 tRMS_Van=&(tRMS.);
-	 tRMS_Vbn;
-	 tRMS_Vcn;
 
 	 fRMS_Van;
 	 fRMS_Vbn;
