@@ -10,6 +10,7 @@
 #include "phaseCompensation.h"
 #include "ios.h"
 #include "record.h"
+#include "flashUpdate.h"
 
 struct calibrationFlags calFlags	={0};
 union  uConversionFlags 	convFlags	={0};
@@ -175,13 +176,13 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
 		
 		
-	AN_pc.data.Van=pDiffer( AN.data.Van,pc_b1,pc_b2,&pc_x1);
-	AN_pc.data.Vbn=pDiffer( AN.data.Vbn,pc_b1,pc_b2,&pc_x2);	
-	AN_pc.data.Vcn=pDiffer( AN.data.Vcn,pc_b1,pc_b2,&pc_x3);
+	AN_pc.data.Van=pDiffer( AN.data.Van,pc_b1,pc_b2,&pc_x1);//*flashOption.TR_VT;
+	AN_pc.data.Vbn=pDiffer( AN.data.Vbn,pc_b1,pc_b2,&pc_x2);//*flashOption.TR_VT;	
+	AN_pc.data.Vcn=pDiffer( AN.data.Vcn,pc_b1,pc_b2,&pc_x3);//*flashOption.TR_VT;
 
-	AN_pc.data.Ic=	pDiffer( AN.data.Ic,pc_b1,pc_b2,&pc_x4)*100.0f;
-	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b1,pc_b2,&pc_x5)*100.0f;
-	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b1,pc_b2,&pc_x6)*100.0f;
+	AN_pc.data.Ic=	pDiffer( AN.data.Ic,pc_b12,pc_b22,&pc_x4);//*flashOption.TR_CT;
+	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b12,pc_b22,&pc_x5);//*flashOption.TR_CT;
+	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b12,pc_b22,&pc_x6);//*flashOption.TR_CT;
 	
 			
 	measurement_routines();
