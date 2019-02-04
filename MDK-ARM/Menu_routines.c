@@ -7,7 +7,7 @@
 #include "flash_api.h"
 #include "ios.h"
 #include "phaseCompensation.h"
-#include "flashUpdate.h"
+
 
 uint8_t save_lock=0;
 uint8_t currentSaveMenu=0;
@@ -179,7 +179,7 @@ void savingScreen(){
 		
 	flashWrite();
 		
-	flashUpdate();		
+	pLagDef(flash.data.ct_phase_shift,10000,&pc_b12,&pc_b22); // applied to voltage 		
 	
 
 	

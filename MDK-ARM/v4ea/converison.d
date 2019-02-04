@@ -49,4 +49,3 @@ v4ea\converison.o: ../Inc/phaseCompensation.h
 v4ea\converison.o: ../Inc/ios.h
 v4ea\converison.o: ../Inc/record.h
 v4ea\converison.o: ..\header_files\measurement_Definitions.h
-v4ea\converison.o: ..\header_files\flashUpdate.h
