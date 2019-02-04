@@ -602,7 +602,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -657,7 +657,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -712,7 +712,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -767,7 +767,7 @@
                 <vShortEn>2</vShortEn>
                 <vShortWch>2</vShortWch>
                 <v6Lto>0</v6Lto>
-                <v6WtE>0</v6WtE>
+                <v6WtE>2</v6WtE>
                 <v6Rtti>2</v6Rtti>
                 <VariousControls>
                   <MiscControls></MiscControls>
@@ -840,7 +840,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -945,7 +945,7 @@
                 <vShortEn>2</vShortEn>
                 <vShortWch>2</vShortWch>
                 <v6Lto>0</v6Lto>
-                <v6WtE>0</v6WtE>
+                <v6WtE>2</v6WtE>
                 <v6Rtti>2</v6Rtti>
                 <VariousControls>
                   <MiscControls></MiscControls>
@@ -1203,7 +1203,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1214,11 +1214,6 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
-            </File>
-            <File>
-              <FileName>Menu_data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Menu_data.c</FilePath>
             </File>
             <File>
               <FileName>Menu_init.c</FileName>
@@ -1263,7 +1258,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1563,7 +1558,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1623,7 +1618,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1634,6 +1629,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>flash_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\flash_init.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1703,7 +1703,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1758,7 +1758,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
