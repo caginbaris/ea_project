@@ -3,41 +3,181 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.21.1.0
+IDE-Version: µVision V5.20.0.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Cagin Baris Cengiz, Endoks Energy, LIC=----
+License Information: Viva Microsoft, Microsoft, LIC=Z3CWF-6XZZ3-22CL4-F73X0-EEBB1-P4HPS
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.21a
+Toolchain:       MDK-ARM Professional  Version: 5.20
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 3 (build 300)
-Assembler:       Armasm.exe V5.06 update 3 (build 300)
-Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
-Library Manager: ArmAr.exe V5.06 update 3 (build 300)
-Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
-CPU DLL:         SARMCM3.DLL V5.21a
-Dialog DLL:      DCM.DLL V1.13.8.0
-Target DLL:      ULP2CM3.DLL V2.206.10.0
-Dialog DLL:      TCM.DLL V1.14.14.0
+C Compiler:      Armcc.exe V5.06 update 2 (build 183)
+Assembler:       Armasm.exe V5.06 update 2 (build 183)
+Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
+Library Manager: ArmAr.exe V5.06 update 2 (build 183)
+Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
+CPU DLL:         SARMCM3.DLL V5.20
+Dialog DLL:      DCM.DLL V1.13.7.0
+Target DLL:      ULP2CM3.DLL V2.203.29.0
+Dialog DLL:      TCM.DLL V1.14.9.0
  
 <h2>Project:</h2>
-C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  01/29/2019
+C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
+Project File Date:  02/04/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
+compiling Menu_data.c...
+compiling Menu_init.c...
+compiling Menu_routines.c...
+Menu_routines.c(35): warning:  #188-D: enumerated type mixed with another type
+  	if(x<0){formatted_digit.sign=1;x=-x;}else{formatted_digit.sign=0;}
+Menu_routines.c(35): warning:  #188-D: enumerated type mixed with another type
+  	if(x<0){formatted_digit.sign=1;x=-x;}else{formatted_digit.sign=0;}
+Menu_routines.c(42): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.fraction=10.0f*(x-(int16_t)x);
+Menu_routines.c(43): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int100	=(x*
+em2); 
+Menu_routines.c(44): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int10		=(int16_t)(x*
+em1) % 10;
+Menu_routines.c(45): warning:  #188-D: enumerated type mixed with another type
+  	formatted_digit.int1		=((int16_t)x % 10);
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(255): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(327): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row1={0},lcd_row2={0},lcd_row3={0};
+Menu_routines.c(588): warning:  #188-D: enumerated type mixed with another type
+  	struct digit_format lcd_row2={0};
+Menu_routines.c(862): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=main_menu_entry-1+last_menu_entry; 
+Menu_routines.c(956): warning:  #188-D: enumerated type mixed with another type
+  	current_entry=setting_menu_entry-1+last_menu_entry; 
+Menu_routines.c(1146): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt vt_digit_p[6]={0};
+Menu_routines.c(1147): warning:  #188-D: enumerated type mixed with another type
+    static enum digit_codes_14pt vt_digit_s[6]={0};
+Menu_routines.c(1188): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[5]=flashData2LCD(flash.data.vt_primer,1);
+Menu_routines.c(1189): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[4]=flashData2LCD(flash.data.vt_primer,2);
+Menu_routines.c(1190): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[3]=flashData2LCD(flash.data.vt_primer,3);
+Menu_routines.c(1191): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[2]=flashData2LCD(flash.data.vt_primer,4);
+Menu_routines.c(1192): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[1]=flashData2LCD(flash.data.vt_primer,5);
+Menu_routines.c(1193): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_p[0]=flashData2LCD(flash.data.vt_primer,6);
+Menu_routines.c(1197): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[5]=flashData2LCD(flash.data.vt_seconder,1);
+Menu_routines.c(1198): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[4]=flashData2LCD(flash.data.vt_seconder,2);
+Menu_routines.c(1199): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[3]=flashData2LCD(flash.data.vt_seconder,3);
+Menu_routines.c(1200): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[2]=flashData2LCD(flash.data.vt_seconder,4);
+Menu_routines.c(1201): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[1]=flashData2LCD(flash.data.vt_seconder,5);
+Menu_routines.c(1202): warning:  #188-D: enumerated type mixed with another type
+  		vt_digit_s[0]=flashData2LCD(flash.data.vt_seconder,6);
+Menu_routines.c(1376): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_p[5]={0};
+Menu_routines.c(1377): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_s[5]={0};
+Menu_routines.c(1378): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt ct_digit_phase[2]={0};
+Menu_routines.c(1382): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(1467): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[4]=flashData2LCD(flash.data.ct_primer,1);
+Menu_routines.c(1468): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[3]=flashData2LCD(flash.data.ct_primer,2);
+Menu_routines.c(1469): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[2]=flashData2LCD(flash.data.ct_primer,3);
+Menu_routines.c(1470): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[1]=flashData2LCD(flash.data.ct_primer,4);
+Menu_routines.c(1471): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_p[0]=flashData2LCD(flash.data.ct_primer,5);
+Menu_routines.c(1474): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[4]=flashData2LCD(flash.data.ct_seconder,1);
+Menu_routines.c(1475): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[3]=flashData2LCD(flash.data.ct_seconder,2);
+Menu_routines.c(1476): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[2]=flashData2LCD(flash.data.ct_seconder,3);
+Menu_routines.c(1477): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[1]=flashData2LCD(flash.data.ct_seconder,4);
+Menu_routines.c(1478): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_s[0]=flashData2LCD(flash.data.ct_seconder,5);
+Menu_routines.c(1481): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_phase[1]=flashData2LCD(flash.data.ct_phase_shift,1);
+Menu_routines.c(1482): warning:  #188-D: enumerated type mixed with another type
+  		ct_digit_phase[0]=flashData2LCD(flash.data.ct_phase_shift,2);
+Menu_routines.c(1579): warning:  #188-D: enumerated type mixed with another type
+  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+Menu_routines.c(1588): warning:  #188-D: enumerated type mixed with another type
+  	if(ct_digit_phase[0]>1){ct_digit_phase[0]=1;};
+Menu_routines.c(1744): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(1748): warning:  #177-D: variable "i" was declared but never referenced
+  	uint8_t i;
+Menu_routines.c(2020): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt pulsePeriodVal[3]={0};
+Menu_routines.c(2021): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt pulseFactorVal[3]={0};
+Menu_routines.c(2041): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1,sel1=0;//primary/secondary selection
+Menu_routines.c(2183): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[2]=flashData2LCD(flash.data.outputPulsePeriod,1);
+Menu_routines.c(2184): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[1]=flashData2LCD(flash.data.outputPulsePeriod,2);
+Menu_routines.c(2185): warning:  #188-D: enumerated type mixed with another type
+  			pulsePeriodVal[0]=flashData2LCD(flash.data.outputPulsePeriod,3);
+Menu_routines.c(2188): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[2]=flashData2LCD(flash.data.outputPulseIncFactor,1);
+Menu_routines.c(2189): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[1]=flashData2LCD(flash.data.outputPulseIncFactor,2);
+Menu_routines.c(2190): warning:  #188-D: enumerated type mixed with another type
+  			pulseFactor[0]=flashData2LCD(flash.data.outputPulseIncFactor,3);
+Menu_routines.c(2253): warning:  #188-D: enumerated type mixed with another type
+  		if(++pulseFactorVal[ord]>_9){pulseFactorVal[ord]=0;}	
+Menu_routines.c(2031): warning:  #177-D: variable "RotationVal" was declared but never referenced
+  	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
+Menu_routines.c(2047): warning:  #177-D: variable "page" was declared but never referenced
+  	uint8_t column,page;
+Menu_routines.c(2383): warning:  #188-D: enumerated type mixed with another type
+  	static enum digit_codes_14pt adress_digit[3] ={0};
+Menu_routines.c(2394): warning:  #68-D: integer conversion resulted in a change of sign
+  	static uint8_t sel=-1;//primary/secondary selection
+Menu_routines.c(2450): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[2]=flashData2LCD(flash.data.modbusAddress,1);
+Menu_routines.c(2451): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[1]=flashData2LCD(flash.data.modbusAddress,2);
+Menu_routines.c(2452): warning:  #188-D: enumerated type mixed with another type
+  		adress_digit[0]=flashData2LCD(flash.data.modbusAddress,3);
+Menu_routines.c(2515): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if(baudSel<0){baudSel=4;}		
+Menu_routines.c(2538): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if(modeSel<0){modeSel=4;}			
+Menu_routines.c: 68 warnings, 0 errors
 linking...
-v4ea\v4ea.axf: error: L6050U: The code size of this image (56784 bytes) exceeds the maximum allowed for this version of the linker.
-Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
-"v4ea\v4ea.axf" - 1 Error(s), 0 Warning(s).
+Program Size: Code=56100 RO-data=3216 RW-data=3628 ZI-data=12980  
+"v4ea\v4ea.axf" - 0 Error(s), 68 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
+  C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
