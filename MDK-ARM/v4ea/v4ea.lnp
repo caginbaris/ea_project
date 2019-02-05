@@ -51,6 +51,7 @@
 "v4ea\aux_functions.o"
 "v4ea\graphing_fuctions.o"
 "v4ea\flashdatahandling.o"
+"v4ea\flashupdate.o"
 "v4ea\ios.o"
 "v4ea\record.o"
 "v4ea\modbus_rtu_slave.o"

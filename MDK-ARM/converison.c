@@ -179,9 +179,9 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN_pc.data.Vbn=pDiffer( AN.data.Vbn,pc_b1,pc_b2,&pc_x2);	
 	AN_pc.data.Vcn=pDiffer( AN.data.Vcn,pc_b1,pc_b2,&pc_x3);
 
-	AN_pc.data.Ic=	pDiffer( AN.data.Ic,pc_b1,pc_b2,&pc_x4)*100.0f;
-	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b1,pc_b2,&pc_x5)*100.0f;
-	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b1,pc_b2,&pc_x6)*100.0f;
+	AN_pc.data.Ic=	pDiffer( AN.data.Ic,pc_b12,pc_b22,&pc_x4);
+	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b12,pc_b22,&pc_x5);
+	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b12,pc_b22,&pc_x6);
 	
 			
 	measurement_routines();

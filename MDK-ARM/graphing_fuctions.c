@@ -267,8 +267,6 @@ void scope_routine(){
 	
 	
 
-	
-	
 	plot_data_formatting(*MENU.all[current_menu].values,trueRMS.buffer[MENU.all[current_menu].first_line[0]]);
 	
 

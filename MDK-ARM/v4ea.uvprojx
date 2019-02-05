@@ -602,7 +602,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -657,7 +657,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -712,7 +712,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -767,7 +767,7 @@
                 <vShortEn>2</vShortEn>
                 <vShortWch>2</vShortWch>
                 <v6Lto>0</v6Lto>
-                <v6WtE>0</v6WtE>
+                <v6WtE>2</v6WtE>
                 <v6Rtti>2</v6Rtti>
                 <VariousControls>
                   <MiscControls></MiscControls>
@@ -840,7 +840,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -945,7 +945,7 @@
                 <vShortEn>2</vShortEn>
                 <vShortWch>2</vShortWch>
                 <v6Lto>0</v6Lto>
-                <v6WtE>0</v6WtE>
+                <v6WtE>2</v6WtE>
                 <v6Rtti>2</v6Rtti>
                 <VariousControls>
                   <MiscControls></MiscControls>
@@ -1203,7 +1203,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1263,7 +1263,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1563,7 +1563,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1623,7 +1623,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1634,6 +1634,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>flashUpdate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\flashUpdate.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1703,7 +1708,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1758,7 +1763,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1769,6 +1774,16 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>exceptions</GroupName>
+          <Files>
+            <File>
+              <FileName>exceptions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\exceptions.c</FilePath>
             </File>
           </Files>
         </Group>
