@@ -7,7 +7,7 @@ float CT=1.0f;
 
 //cau ouput pulse interval
 
-uint16_t baudRate=19200;
+uint16_t baud=19200;
 
 
 

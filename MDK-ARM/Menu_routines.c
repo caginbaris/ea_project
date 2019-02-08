@@ -2671,6 +2671,25 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 }
 
 
+void exception_messaging(void){
+
+
+	if(current_menu>=set_VT){
+	
+		
+		
+	
+	
+	
+	}
+	
+
+}
+
+
+
+
+
 
 
 
