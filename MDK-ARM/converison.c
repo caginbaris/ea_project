@@ -32,6 +32,9 @@ float pc_x1,pc_x2,pc_x3;
 float pc_b12,pc_b22;
 float pc_x4,pc_x5,pc_x6;
 
+static uint32_t sec_counter;
+uint8_t sec;
+
 void init_conversion(void){
 
 	//sdadc
@@ -174,7 +177,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN.data.Ia=	offset_cancellation((int16_t)uBuffer[1]+ 32768,&oc_buff[4])	*scale.data.Ia;
 	AN.data.Ib=	offset_cancellation((int16_t)uBuffer[2]+ 32768,&oc_buff[5])	*scale.data.Ib;
 		
-		
+	
 	AN_pc.data.Van=pDiffer( AN.data.Van,pc_b1,pc_b2,&pc_x1);
 	AN_pc.data.Vbn=pDiffer( AN.data.Vbn,pc_b1,pc_b2,&pc_x2);	
 	AN_pc.data.Vcn=pDiffer( AN.data.Vcn,pc_b1,pc_b2,&pc_x3);
@@ -190,6 +193,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	
 		
 	refresh_counter++;	
+	sec_counter++;
+	
+	if(sec_counter==10000){sec++;sec_counter=0;}
+	
 	
 	}
 	

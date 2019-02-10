@@ -3,7 +3,10 @@
 #include "prefilter.h"
 
 
+// hpf @ 0.5Hz for offset removal
 
+float b_oc=0.999842945036165;
+float a_oc=0.999685890072330;
 
 
 

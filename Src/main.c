@@ -267,8 +267,6 @@ int main(void)
 		
 		write_lcd();
 			
-		//HAL_UART_Transmit_IT(&huart3,&dummy_send , 1);	
-			
 			
 		refresh_counter=0;
 			

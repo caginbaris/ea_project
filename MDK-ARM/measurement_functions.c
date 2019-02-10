@@ -57,7 +57,7 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 //2.0 function invocation shown below  
 //2.1 "output=sos_implementation(input(real-time),output(lef-side),coeff_data(array_name),SOS2data(different for all parameters ));
 
-float sos_implementation(float x ,float yBack, const float *coeffs, struct SOS *back){
+float sos_implementation(float x ,float yBack, float *coeffs, struct SOS *back){
 
 	float y;
 
@@ -77,7 +77,7 @@ float sos_implementation(float x ,float yBack, const float *coeffs, struct SOS *
 
 //inphase and quadrature  parameters derivation part
 
-void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all){
+void iq_generation( union uAdcData input,union uAdcData *iq,float *iq_coeffs,struct SOS *all){
 
 	uint8_t i;
 	
@@ -102,7 +102,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 	static uint16_t j=0;
 	
 	union uAdcData sqrtBuffer; 
-	static union uAdcData sumBuffer; 
+	static union uAdcData sumBuffer={0}; 
 	
 	arm_sqrt_f32((inphase.buffer[i]*inphase.buffer[i]+quad.buffer[i]*quad.buffer[i])*iq_rms_scale,&(sqrtBuffer.buffer[i]));
 	sumBuffer.buffer[i]+=sqrtBuffer.buffer[i];
@@ -137,11 +137,11 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
 		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Pc=pfilter((inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2,x->Power.Pc,&xback.Power.Pc);
+		x->Power.Pc=(inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2;
 	
 		x->Power.Qa=(quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2;
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Qc=pfilter((quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2,x->Power.Qc,&xback.Power.Qc);
+		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
 	
 		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));
 		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));
@@ -169,53 +169,6 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		
 }
 
-void power_calculations_true(union uAdcData AN,union uAdcData rms, union powerParameters *x){
-	
-	
-	static union powerParameters sum={0};
-	static uint16_t counter=0;
-	
-	
-	
-	sum.Power.Pa+=AN.data.Ia*AN.data.Van;
-	sum.Power.Pb+=AN.data.Ib*AN.data.Vbn;
-	sum.Power.Pc+=AN.data.Ic*AN.data.Vcn;
-	
-	
-	x->Power.Sa=rms.data.Van*rms.data.Ia;
-	x->Power.Sb=rms.data.Vbn*rms.data.Ib;
-	x->Power.Sc=rms.data.Vcn*rms.data.Ic;
-	
-
-
-	if(++counter==_10period){
-	
-	x->Power.Pa=sum.Power.Pa*_i10period;sum.Power.Pa=0.0f;
-	x->Power.Pb=sum.Power.Pb*_i10period;sum.Power.Pb=0.0f;
-	x->Power.Pc=sum.Power.Pc*_i10period;sum.Power.Pc=0.0f;
-		
-
-		
-	counter=0;	
-		
-	}
-	
-	x->Power.Qa=sqrtf(x->Power.Sa*x->Power.Sa-x->Power.Pa*x->Power.Pa);
-	x->Power.Qb=sqrtf(x->Power.Sb*x->Power.Sb-x->Power.Pb*x->Power.Pb);
-	x->Power.Qc=sqrtf(x->Power.Sc*x->Power.Sc-x->Power.Pc*x->Power.Pc);
-	
-	x->Power.Ptotal=	x->Power.Pa + x->Power.Pb + x->Power.Pc;
-	x->Power.Qtotal=	x->Power.Qa + x->Power.Qb + x->Power.Qc;
-	x->Power.Stotal=	x->Power.Sa + x->Power.Sb + x->Power.Sc;
-	
-	
-	x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
-	x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;
-	x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : 100.0f*x->Power.Pc/x->Power.Sc;
-	x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : 100.0f*x->Power.Ptotal/x->Power.Stotal;
-	
-	
-}
 
 
 //energy calculations
@@ -226,7 +179,7 @@ void energy_accumulator(float* acc, uint32_t* counter ){
 	uint32_t tick;
 
 	
-	increment=(*acc)>0 ? (*acc):-(*acc);
+	increment=(*acc)>0.0f ? (*acc):-(*acc);
 	if(increment>=inc_resolution){	
 
 	tick=(increment*inverse_inc_resolution);
@@ -416,8 +369,8 @@ void signal_spectra(
 	float rtInput, 
 	struct spectra *h,
 	unsigned int qBufferLength,	//updated buffer length
-	const float *twBufferReal,				//twiddle factor Real coeffs
-	const float *twBufferImag,				//twiddle factor Imag coeffs    
+	float *twBufferReal,				//twiddle factor Real coeffs
+	float *twBufferImag,				//twiddle factor Imag coeffs    
 	unsigned int pCounter)
 
 {
@@ -456,7 +409,7 @@ void thd_calc(union thdData* thd ){
 	float sum=0;
 
 
-	for(i=1;i<20;i++){
+	for(i=1;i<19;i++){
 		
 	sum+=bin_array[index][i]*bin_array[index][i];
 		

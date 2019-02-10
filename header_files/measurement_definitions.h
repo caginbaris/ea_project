@@ -238,9 +238,8 @@ union thdData{
 // functions prototypes
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
-void iq_generation( union uAdcData input,union uAdcData *iq,const float *iq_coeffs,struct SOS *all);
+void iq_generation( union uAdcData input,union uAdcData *iq,float *iq_coeffs,struct SOS *all);
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
-void power_calculations_true(union uAdcData AN,		union uAdcData rms, 	union powerParameters *x);
 void energy_calculations(union powerParameters x,struct energyParameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
@@ -250,8 +249,8 @@ float pfilter(float rtInput, float yback,float* xback);
 
 
 // extern data
-extern const float inphase_coeffs[];
-extern const float quad_coeffs[];
+extern float inphase_coeffs[];
+extern float quad_coeffs[];
 extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
@@ -259,8 +258,8 @@ extern union powerParameters  power_true;
 extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
 extern union uAdcData  phase;
-extern const float coeffs_real[];
-extern const float coeffs_imag[];
+extern float coeffs_real[];
+extern float coeffs_imag[];
 extern struct spectra  harm[6]; 					// spectral analysis
 extern union thdData thd;
 

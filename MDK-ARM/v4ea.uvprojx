@@ -310,7 +310,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>0</Optim>
             <oTime>1</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -411,7 +411,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -465,7 +465,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -519,7 +519,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -579,7 +579,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -633,7 +633,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -687,7 +687,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -1170,8 +1170,8 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>4</Optim>
-                    <oTime>0</oTime>
+                    <Optim>0</Optim>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -1288,7 +1288,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -1342,7 +1342,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -1396,7 +1396,7 @@
                 <FileArmAds>
                   <Cads>
                     <interw>2</interw>
-                    <Optim>0</Optim>
+                    <Optim>4</Optim>
                     <oTime>2</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
@@ -1525,7 +1525,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -1668,7 +1668,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -1722,7 +1722,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>0</oTime>
+                    <oTime>1</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
