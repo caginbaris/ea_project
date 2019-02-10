@@ -45,6 +45,8 @@ void measurement_routines(){
 	//fund rms
 	
 	fund_RMS(inphaseData,quadData,&fundRMS);
+#if 1
+	
 	
 	//fundamental power calculations
 	
@@ -75,7 +77,7 @@ void measurement_routines(){
 	
 	harmonics_routine();
 	
-
+#endif
 	
 	
 }

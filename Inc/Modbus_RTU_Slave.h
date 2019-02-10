@@ -162,8 +162,6 @@ void rtu_transmitData_readHoldingRegister(void);
 void rtu_transmitData_writeMultipleRegisters(void);
 void rtu_writeMultipleRegisters(void);
 void rtu_getFeeder1_writeMultipleRegisters(void);
-void rtu_transmitEnable_receiveDisable(void);
-void rtu_transmitDisable_receiveEnable(void);
 void rtu_transmitData_writeSingleRegister(void);
 void rtu_getFeeder1_writeSingleRegister(void);
 void rtu_writeSingleRegister(void);

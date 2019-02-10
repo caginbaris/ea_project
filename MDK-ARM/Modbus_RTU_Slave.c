@@ -107,7 +107,7 @@ void rtu_ModbusFrameProcessing(void)
         #if DEBUG
         printf("Selected device is not me \n");
         #endif
-				rtu_transmitDisable_receiveEnable();
+
         return;
       }
     
@@ -127,7 +127,7 @@ void rtu_ModbusFrameProcessing(void)
       #if DEBUG
       printf("Modbus RTU starting adress is out of range of device \n");
       #endif
-			rtu_transmitDisable_receiveEnable();
+
       return;
     }
 		
@@ -146,7 +146,7 @@ void rtu_ModbusFrameProcessing(void)
       #if DEBUG
       printf("Modbus RTU requested data length is out of the range \n");
       #endif
-			rtu_transmitDisable_receiveEnable();
+
       return;
     }
 
@@ -167,13 +167,12 @@ void rtu_ModbusFrameProcessing(void)
       #if DEBUG
       printf("CRC Check is not OK \n");
       #endif
-			rtu_transmitDisable_receiveEnable();
       return;
     }
 
     rtu_modbusStartingAdress = rtu_modbusRegAdress;
     rtu_modbusEndingAdress = rtu_modbusStartingAdress + rtu_modbusDataLen;
-		rtu_transmitEnable_receiveDisable(); //jj pinset's implemented
+
 		
     switch(rtu_modbusRxBuffer[FUNCODE])
     {
@@ -184,7 +183,7 @@ void rtu_ModbusFrameProcessing(void)
 					#if DEBUG
 					printf("Requested data adress and length is not satisfied \n");
 					#endif
-					rtu_transmitDisable_receiveEnable();			
+		
 					return;
 				}
 				rtu_readHoldingRegister(); //jj frame adjusted, sent data transmitted in nested funcs
@@ -211,8 +210,7 @@ void rtu_ModbusFrameProcessing(void)
 				{
 					#if DEBUG
 					printf("Requested data adress and length is not satisfied \n");
-					#endif
-					rtu_transmitDisable_receiveEnable();//jj			
+					#endif		
 					return;
 				}
 				
@@ -249,7 +247,7 @@ void rtu_ModbusFrameProcessing(void)
         #if DEBUG
         printf("Modbus rtu function code is wrong !\n");
         #endif
-				rtu_transmitDisable_receiveEnable();
+
         break;
       } 
     }
@@ -461,9 +459,11 @@ void rtu_Feeder1DataPrep(void)
 {
   if (rtu_modbusRegAdress == READ_IN_CH1)
   {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(1111)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(1111));
-      rtu_modbusRegAdress += 1;
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(1212)) >> 8;
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(1212));
+
+			rtu_modbusRegAdress += 1;
+    
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
   }
 
@@ -624,21 +624,7 @@ void rtu_writeSingleRegister(void)
 	  if(rtu_selectedSlaveID == rtu_deviceSlaveID[0]) rtu_getFeeder1_writeSingleRegister();
 }
 
-void rtu_transmitEnable_receiveDisable(void)
-{
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, GPIO_PIN_SET);
-	#if DEBUG
-  printf("Transmit Enabled, Receive Disabled for RTU Comm \n");
-	#endif
-}
 
-void rtu_transmitDisable_receiveEnable(void)
-{
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, GPIO_PIN_RESET);
-	#if DEBUG
-	printf("Receive Enabled, Transmit Disabled for RTU Comm \n");
-	#endif
-}
 
 
 void updateModbusConfig(){//cau

@@ -103,7 +103,6 @@ union modbusMappingReadData{
 
 extern union modbusMappingReadData readHoldingMap;
 
-
-
+void init_Map(void);
 
 #endif

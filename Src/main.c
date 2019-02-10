@@ -55,6 +55,7 @@
 #include "flash_api.h"
 #include "Modbus_RTU_Slave.h"
 #include "phaseCompensation.h"
+#include "Modbus_Map.h"
 
 /* USER CODE END Includes */
 
@@ -94,6 +95,8 @@ extern uint8_t flow_completed;
 uint16_t refresh_counter=0;
 
 float dummy_lag=0;
+
+uint8_t dummy_send=4;
 
 /* USER CODE END PFP */
 
@@ -147,7 +150,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 		
     if (huart->Instance == USART3)  
     {
-			rtu_transmitDisable_receiveEnable();
+
 			transmitComp = 1;
     }
 }
@@ -212,13 +215,14 @@ int main(void)
 	flashReadRec();
 	init_flashBackRead();
 	
-	pLagDef(0.6352f,25000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
-	pLagDef(0.0f,25000,&pc_b12,&pc_b22); // applied to voltage //cau	
+	pLagDef(0.6352f,10000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
+	pLagDef(0.0f,10000,&pc_b12,&pc_b22); // applied to voltage //cau	
 	
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
+	init_Map();
 	
 	
 	//rtu_transmitDisable_receiveEnable(); //cau auto de
@@ -262,6 +266,8 @@ int main(void)
 			
 		
 		write_lcd();
+			
+		//HAL_UART_Transmit_IT(&huart3,&dummy_send , 1);	
 			
 			
 		refresh_counter=0;
