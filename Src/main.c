@@ -191,15 +191,15 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
-  MX_RTC_Init();
+  //MX_RTC_Init();
   MX_SDADC1_Init();
   MX_SDADC2_Init();
   MX_SDADC3_Init();
-  MX_SPI1_Init();
+  //MX_SPI1_Init();
   MX_SPI3_Init();
   MX_TIM3_Init();
   MX_TIM5_Init();
-  MX_USART1_UART_Init();
+  //MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   MX_TIM19_Init();
   /* USER CODE BEGIN 2 */

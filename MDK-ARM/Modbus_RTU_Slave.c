@@ -457,7 +457,7 @@ void rtu_transmitData_readHoldingRegister(void)
 
 void rtu_Feeder1DataPrep(void)
 {
-  if (rtu_modbusRegAdress == READ_IN_CH1)
+  /*if (rtu_modbusRegAdress == READ_IN_CH1)
   {
       rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(1212)) >> 8;
       rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(1212));
@@ -465,7 +465,22 @@ void rtu_Feeder1DataPrep(void)
 			rtu_modbusRegAdress += 1;
     
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
+  }*/
+	
+	  if (rtu_modbusRegAdress == READ_IN_CH1)
+  {
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van);
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+1);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+2);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+3);
+		
+			rtu_modbusRegAdress += 2;
+    
+      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
   }
+	
+	
+	
 
   if (rtu_modbusRegAdress == READ_IN_CH2)
   {

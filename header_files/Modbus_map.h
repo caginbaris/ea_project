@@ -8,95 +8,95 @@ union modbusMappingReadData{
 	
 	struct {
 
-	float* tRMS_Van;//1
-	float* tRMS_Vbn;
-	float* tRMS_Vcn;
+	unsigned char* tRMS_Van;//1
+	unsigned char* tRMS_Vbn;
+	unsigned char* tRMS_Vcn;
 
-	float* fRMS_Van;
-	float* fRMS_Vbn;
-	float* fRMS_Vcn;
+	unsigned char* fRMS_Van;
+	unsigned char* fRMS_Vbn;
+	unsigned char* fRMS_Vcn;
 
-	float* tRMS_Vab;
-	float* tRMS_Vbc;
-	float* tRMS_Vca;
+	unsigned char* tRMS_Vab;
+	unsigned char* tRMS_Vbc;
+	unsigned char* tRMS_Vca;
 
-	float* fRMS_Vab;
-	float* fRMS_Vbc;
-	float* fRMS_Vca;
+	unsigned char* fRMS_Vab;
+	unsigned char* fRMS_Vbc;
+	unsigned char* fRMS_Vca;
 	
-	float* tRMS_Ia;
-	float* tRMS_Ib;
-	float* tRMS_Ic;
+	unsigned char* tRMS_Ia;
+	unsigned char* tRMS_Ib;
+	unsigned char* tRMS_Ic;
 
-	float* fRMS_Ia;
-	float* fRMS_Ib;
-	float* fRMS_Ic;
+	unsigned char* fRMS_Ia;
+	unsigned char* fRMS_Ib;
+	unsigned char* fRMS_Ic;
 	
-	float* Pa;
-	float* Pb;
-	float* Pc;
+	unsigned char* Pa;
+	unsigned char* Pb;
+	unsigned char* Pc;
 			
-	float* Qa;
-	float* Qb;		
-	float* Qc;
+	unsigned char* Qa;
+	unsigned char* Qb;		
+	unsigned char* Qc;
 		
-	float* Sa;
-	float* Sb;
-	float* Sc;
+	unsigned char* Sa;
+	unsigned char* Sb;
+	unsigned char* Sc;
 		
-	float* Ptotal;
-	float* Qtotal;
-	float* Stotal;
+	unsigned char* Ptotal;
+	unsigned char* Qtotal;
+	unsigned char* Stotal;
 		
-	float* PFa;//31
-	float* PFb;
-	float* PFc;
-	float* PFtotal;
+	unsigned char* PFa;//31
+	unsigned char* PFb;
+	unsigned char* PFc;
+	unsigned char* PFtotal;
 		
-	float* ratioA;//35
-	float* ratioB;
-	float* ratioC;
-	float* ratioTotal;
+	unsigned char* ratioA;//35
+	unsigned char* ratioB;
+	unsigned char* ratioC;
+	unsigned char* ratioTotal;
 	
-	float* active_import_a_scaled;//39
-	float* active_import_b_scaled;
-	float* active_import_c_scaled;
-	float* active_import_total_scaled;
+	unsigned char* active_import_a_scaled;//39
+	unsigned char* active_import_b_scaled;
+	unsigned char* active_import_c_scaled;
+	unsigned char* active_import_total_scaled;
 
-	float* active_export_a_scaled;//43
-	float* active_export_b_scaled;
-	float* active_export_c_scaled;
-	float* active_export_total_scaled;
+	unsigned char* active_export_a_scaled;//43
+	unsigned char* active_export_b_scaled;
+	unsigned char* active_export_c_scaled;
+	unsigned char* active_export_total_scaled;
 		
-	float* reactive_import_a_scaled;//47
-	float* reactive_import_b_scaled;
-	float* reactive_import_c_scaled;
-	float* reactive_import_total_scaled;
+	unsigned char* reactive_import_a_scaled;//47
+	unsigned char* reactive_import_b_scaled;
+	unsigned char* reactive_import_c_scaled;
+	unsigned char* reactive_import_total_scaled;
 		
-	float* reactive_export_a_scaled;//51
-	float* reactive_export_b_scaled;
-	float* reactive_export_c_scaled;
-	float* reactive_export_total_scaled;
+	unsigned char* reactive_export_a_scaled;//51
+	unsigned char* reactive_export_b_scaled;
+	unsigned char* reactive_export_c_scaled;
+	unsigned char* reactive_export_total_scaled;
 		
-	float* apparent_energy_a_scaled;//55
-	float* apparent_energy_b_scaled;
-	float* apparent_energy_c_scaled;
-	float* apparent_energy_total_scaled;
+	unsigned char* apparent_energy_a_scaled;//55
+	unsigned char* apparent_energy_b_scaled;
+	unsigned char* apparent_energy_c_scaled;
+	unsigned char* apparent_energy_total_scaled;
 	
-	float* thd_Van;//59
-	float* thd_Vbn;
-	float* thd_Vcn;
+	unsigned char* thd_Van;//59
+	unsigned char* thd_Vbn;
+	unsigned char* thd_Vcn;
 	
-	float* thd_Ia;//62
-	float* thd_Ib;
-	float* thd_Ic;
+	unsigned char* thd_Ia;//62
+	unsigned char* thd_Ib;
+	unsigned char* thd_Ic;
 	
-	float* unb_Vpn;//65
-	float* unb_I;//66
+	unsigned char* unb_Vpn;//65
+	unsigned char* unb_I;//66
 	
 	}data;
 	
-	float*   buffer[66];	
+	unsigned char*   buffer[66];	
 
 };
 

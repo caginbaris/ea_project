@@ -7,13 +7,13 @@ union modbusMappingReadData readHoldingMap;
 void init_Map(void){
 	
 	
-		readHoldingMap.data.tRMS_Van=&(trueRMS.data.Van);
-		readHoldingMap.data.tRMS_Vbn=&(trueRMS.data.Vbn);	
-		readHoldingMap.data.tRMS_Vcn=&(trueRMS.data.Vcn);
+		readHoldingMap.data.tRMS_Van=(unsigned char*)&(trueRMS.data.Van);
+		readHoldingMap.data.tRMS_Vbn=(unsigned char*)&(trueRMS.data.Vbn);	
+		readHoldingMap.data.tRMS_Vcn=(unsigned char*)&(trueRMS.data.Vcn);
 	
-		readHoldingMap.data.fRMS_Van=&(fundRMS.data.Van);
-		readHoldingMap.data.fRMS_Vbn=&(fundRMS.data.Vbn);	
-		readHoldingMap.data.fRMS_Vcn=&(fundRMS.data.Vcn);
+		readHoldingMap.data.fRMS_Van=(unsigned char*)&(fundRMS.data.Van);
+		readHoldingMap.data.fRMS_Vbn=(unsigned char*)&(fundRMS.data.Vbn);	
+		readHoldingMap.data.fRMS_Vcn=(unsigned char*)&(fundRMS.data.Vcn);
 	
 	#if 0
 
