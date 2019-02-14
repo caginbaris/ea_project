@@ -49,6 +49,16 @@ Typedef_rtuCRC rtuCRC;
 Typedef_dummyTestData dummyTestData;
 
 
+//mein
+
+union dummy_float{
+
+float dm_f;
+unsigned char dm_uch[4];	
+
+};
+
+union dummy_float df={3.1f};
 
 /**
   * @brief  This function performs Modbus CRC16 generation.  
@@ -457,27 +467,64 @@ void rtu_transmitData_readHoldingRegister(void)
 
 void rtu_Feeder1DataPrep(void)
 {
-  /*if (rtu_modbusRegAdress == READ_IN_CH1)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(1212)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(1212));
 
-			rtu_modbusRegAdress += 1;
-    
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }*/
 	
-	  if (rtu_modbusRegAdress == READ_IN_CH1)
+	if (rtu_modbusRegAdress == READ_IN_CH1)
   {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van);
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+1);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+2);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+3);
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+3);
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+2);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+1);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van);
 		
 			rtu_modbusRegAdress += 2;
     
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
   }
+	
+	
+	
+	if (rtu_modbusRegAdress == READ_IN_CH2)
+  {
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+3);
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+2);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+1);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn);
+		
+			rtu_modbusRegAdress += 2;
+    
+      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
+  }
+	
+	
+	
+		if (rtu_modbusRegAdress == READ_IN_CH3)
+  {
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+3);
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+2);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+1);
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn);
+		
+			rtu_modbusRegAdress += 2;
+    
+      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
+  }
+	
+	
+	
+	
+	
+	
+		/*  if (rtu_modbusRegAdress == READ_IN_CH1)
+  {
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[3];
+      rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[2];
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[1];
+			rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[0];
+		
+			rtu_modbusRegAdress += 2;
+    
+      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
+  }*/
 	
 	
 	

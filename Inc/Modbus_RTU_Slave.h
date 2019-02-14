@@ -60,8 +60,8 @@
 #define WRITE_SINGLE_TEST3          1002
 
 #define READ_IN_CH1                 1000
-#define READ_IN_CH2                 1001
-#define READ_IN_CH3                 1002
+#define READ_IN_CH2                 1002
+#define READ_IN_CH3                 1004
 #define READ_IN_CH4                 1003
 #define READ_IN_CH5                 1004
 #define READ_IN_CH6                 1005
