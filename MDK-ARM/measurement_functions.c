@@ -10,7 +10,7 @@
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 
-	static uint16_t counter=0;
+	static uint16_t counter=9;
 	static union uAdcData rms={0};
 	static union uAdcData rms_sum={0};
 	float inverse_avg_sample=1.0f;
@@ -132,7 +132,7 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x){
 	
-		static union powerParameters xback;
+		
 
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
@@ -143,16 +143,13 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
 		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
 	
-		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));
-		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));
-		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));
+		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));//cau
+		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));//cau
+		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));//cau
 	
 		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
-		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));
-	
-
-		
+		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));//cau
 	
 	
 		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;

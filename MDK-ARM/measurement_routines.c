@@ -44,6 +44,9 @@ void measurement_routines(){
 	
 	//iq components fund calculations
 	
+	
+	#if 1
+	
 	iq_generation(AN,&inphaseData	,inphase_coeffs,inphase_sos);
 	iq_generation(AN,&quadData		  ,quad_coeffs,quad_sos);
 	
@@ -53,7 +56,7 @@ void measurement_routines(){
 	
 	fund_RMS(inphaseData,quadData,&fundRMS);
 	
-#if 1
+
 	
 	
 	//fundamental power calculations

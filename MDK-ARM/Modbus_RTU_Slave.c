@@ -651,18 +651,20 @@ void rtu_Feeder1DataPrep(void)
 
 void rtu_Feeder1DataPrepAlternate(void){//jj alternate imp for modbus
 	
-	uint8_t i;
+	uint8_t i=0,inc=0;
 	
-	for(i=rtu_modbusRegAdress;i<rtu_modbusEndingAdress+1;i++){//jj inc2 @ float data
+	for(i=rtu_modbusRegAdress;i<=rtu_modbusEndingAdress+1;i+=2){//jj inc2 @ float data
 	
-	rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(*(readHoldingMap.buffer[i])) >> 8);
-  rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(*(readHoldingMap.buffer[i])));
+	inc++;	
 		
-	//if (i == rtu_modbusEndingAdress) {rtu_modbusRegAdress = 0;break;}
+	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+3);
+  rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+2);
+	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+1);	
+	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]);
+		
+	if (i == rtu_modbusEndingAdress) {rtu_modbusRegAdress = 0;break;}
 	
 	}
-	
-	
 
 	rtu_transmitData_readHoldingRegister();
 
