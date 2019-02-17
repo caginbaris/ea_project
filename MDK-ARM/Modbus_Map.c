@@ -15,6 +15,24 @@ void init_Map(void){
 		readHoldingMap.data.fRMS_Vbn=(unsigned char*)&(fundRMS.data.Vbn);	
 		readHoldingMap.data.fRMS_Vcn=(unsigned char*)&(fundRMS.data.Vcn);
 	
+
+		readHoldingMap.data.tRMS_Vab=(unsigned char*)&(trueRMS.data.Vab);
+		readHoldingMap.data.tRMS_Vbc=(unsigned char*)&(trueRMS.data.Vbc);	
+		readHoldingMap.data.tRMS_Vca=(unsigned char*)&(trueRMS.data.Vca);
+	
+		readHoldingMap.data.fRMS_Vab=(unsigned char*)&(fundRMS.data.Vab);
+		readHoldingMap.data.fRMS_Vbc=(unsigned char*)&(fundRMS.data.Vbc);	
+		readHoldingMap.data.fRMS_Vca=(unsigned char*)&(fundRMS.data.Vca);
+	
+	
+		readHoldingMap.data.tRMS_Ia=(unsigned char*)&(trueRMS.data.Ia);
+		readHoldingMap.data.tRMS_Ib=(unsigned char*)&(trueRMS.data.Ib);	
+		readHoldingMap.data.tRMS_Ic=(unsigned char*)&(trueRMS.data.Ic);
+	
+		readHoldingMap.data.fRMS_Ia=(unsigned char*)&(fundRMS.data.Ia);
+		readHoldingMap.data.fRMS_Ib=(unsigned char*)&(fundRMS.data.Ib);	
+		readHoldingMap.data.fRMS_Ic=(unsigned char*)&(fundRMS.data.Ic);
+	
 	#if 0
 
 	 fRMS_Van;

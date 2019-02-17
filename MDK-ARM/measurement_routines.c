@@ -86,7 +86,7 @@ void measurement_routines(){
 	
 	//harmonics rouutines
 	
-	harmonics_routine();
+	//harmonics_routine();//cau
 	
 #endif
 	

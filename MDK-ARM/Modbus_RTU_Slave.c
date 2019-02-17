@@ -465,206 +465,35 @@ void rtu_transmitData_readHoldingRegister(void)
   * @retval None
   */
 
-void rtu_Feeder1DataPrep(void)
-{
-
-	
-	if (rtu_modbusRegAdress == READ_IN_CH1)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+3);
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+2);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van+1);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Van);
-		
-			rtu_modbusRegAdress += 2;
-    
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	
-	
-	if (rtu_modbusRegAdress == READ_IN_CH2)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+3);
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+2);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn+1);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vbn);
-		
-			rtu_modbusRegAdress += 2;
-    
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	
-	
-		if (rtu_modbusRegAdress == READ_IN_CH3)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+3);
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+2);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn+1);
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.data.tRMS_Vcn);
-		
-			rtu_modbusRegAdress += 2;
-    
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	
-	
-	
-	
-	
-		/*  if (rtu_modbusRegAdress == READ_IN_CH1)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[3];
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[2];
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[1];
-			rtu_modbusTxBuffer[rtu_txBufferIndex++] = df.dm_uch[0];
-		
-			rtu_modbusRegAdress += 2;
-    
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }*/
-	
-	
-	
-
-  if (rtu_modbusRegAdress == READ_IN_CH2)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(2222)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(2222));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-
-  if (rtu_modbusRegAdress == READ_IN_CH3)
-  {
-		
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(3333)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(3333));
-		
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH4)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH5)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH6)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH7)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH8)
-  {		
-			
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH9)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH10)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH11)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH12)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (uint32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (uint32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH13)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (uint32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (uint32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH14)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (int32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (int32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-	if (rtu_modbusRegAdress == READ_IN_CH15)
-  {
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x0000FF00 & (uint32_t)(0)) >> 8;
-      rtu_modbusTxBuffer[rtu_txBufferIndex++] = (0x000000FF & (uint32_t)(0));
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-  }
-	
-  rtu_transmitData_readHoldingRegister();
-  
-}
 
 
-void rtu_Feeder1DataPrepAlternate(void){//jj alternate imp for modbus
+
+void rtu_Feeder1DataPrep(void){//jj alternate imp for modbus
 	
 	uint8_t i=0,inc=0;
 	
-	for(i=rtu_modbusRegAdress;i<=rtu_modbusEndingAdress+1;i+=2){//jj inc2 @ float data
 	
-	inc++;	
+	
+	for(i=0;i<rtu_modbusDataLen;i+=2){//jj inc2 @ float data
+	
+	if (rtu_modbusRegAdress == (READ_IN_CH1+i)){
 		
 	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+3);
   rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+2);
 	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+1);	
-	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]);
+	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc++]);
 		
-	if (i == rtu_modbusEndingAdress) {rtu_modbusRegAdress = 0;break;}
+
+		
+	rtu_modbusRegAdress += 2;
+  if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;	
 	
 	}
+	
+
+	}
+	
+
 
 	rtu_transmitData_readHoldingRegister();
 
