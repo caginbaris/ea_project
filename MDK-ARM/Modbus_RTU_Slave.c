@@ -483,8 +483,6 @@ void rtu_Feeder1DataPrep(void){//jj alternate imp for modbus
 	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc]+1);	
 	rtu_modbusTxBuffer[rtu_txBufferIndex++] = *(readHoldingMap.buffer[inc++]);
 		
-
-		
 	rtu_modbusRegAdress += 2;
   if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;	
 	
@@ -493,8 +491,6 @@ void rtu_Feeder1DataPrep(void){//jj alternate imp for modbus
 
 	}
 	
-
-
 	rtu_transmitData_readHoldingRegister();
 
 }

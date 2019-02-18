@@ -91,12 +91,20 @@ union modbusMappingReadData{
 	unsigned char* thd_Ib;
 	unsigned char* thd_Ic;
 	
-	unsigned char* unb_Vpn;//65
-	unsigned char* unb_I;//66
+	unsigned char* Vpn_1;//65
+	unsigned char* Vpn_2;
+	unsigned char* Vpn_0;
+	
+	unsigned char* I_1;//68
+	unsigned char* I_2;
+	unsigned char* I_0;
+	
+	unsigned char* UNB_V;//71
+	unsigned char* UNB_I;//72
 	
 	}data;
 	
-	unsigned char*   buffer[66];	
+	unsigned char*   buffer[72];	
 
 };
 

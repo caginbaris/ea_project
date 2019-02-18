@@ -244,7 +244,6 @@ int main(void)
 		HAL_Delay(100); //cau
 		
 		offline_calculations();
-	
 		
 		pressed_button=pushButtonHandling();		
 			
@@ -256,10 +255,6 @@ int main(void)
 		
 
 		DISPLAY_MENU();
-
-
-		
-		
 
 		
 		if(refresh_counter>2500){

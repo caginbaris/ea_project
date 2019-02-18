@@ -32,96 +32,79 @@ void init_Map(void){
 		readHoldingMap.data.fRMS_Ia=(unsigned char*)&(fundRMS.data.Ia);
 		readHoldingMap.data.fRMS_Ib=(unsigned char*)&(fundRMS.data.Ib);	
 		readHoldingMap.data.fRMS_Ic=(unsigned char*)&(fundRMS.data.Ic);
-	
-	#if 0
-
-	 fRMS_Van;
-	 fRMS_Vbn;
-	 fRMS_Vcn;
-
-	 tRMS_Vab;
-	 tRMS_Vbc;
-	 tRMS_Vca;
-
-	 fRMS_Vab;
-	 fRMS_Vbc;
-	 fRMS_Vca;
-	
-	 tRMS_Ia;
-	 tRMS_Ib;
-	 tRMS_Ic;
-
-	 fRMS_Ia;
-	 fRMS_Ib;
-	 fRMS_Ic;
-	
-	 Pa;
-	 Pb;
-	 Pc;
-			
-	 Qa;
-	 Qb;		
-	 Qc;
 		
-	 Sa;
-	 Sb;
-	 Sc;
 		
-	 Ptotal;
-	 Qtotal;
-	 Stotal;
+		readHoldingMap.data.Pa=(unsigned char*)&(power_iq.Power.Pa);
+		readHoldingMap.data.Pb=(unsigned char*)&(power_iq.Power.Pb);	
+		readHoldingMap.data.Pc=(unsigned char*)&(power_iq.Power.Pc);
 		
-	 PFa;//31
-	 PFb;
-	 PFc;
-	 PFtotal;
+		readHoldingMap.data.Qa=(unsigned char*)&(power_iq.Power.Qa);
+		readHoldingMap.data.Qb=(unsigned char*)&(power_iq.Power.Qb);	
+		readHoldingMap.data.Qc=(unsigned char*)&(power_iq.Power.Qc);
 		
-	 ratioA;//35
-	 ratioB;
-	 ratioC;
-	 ratioTotal;
+		readHoldingMap.data.Sa=(unsigned char*)&(power_iq.Power.Sa);
+		readHoldingMap.data.Sb=(unsigned char*)&(power_iq.Power.Sb);	
+		readHoldingMap.data.Sc=(unsigned char*)&(power_iq.Power.Sc);
+		
+		readHoldingMap.data.Ptotal=(unsigned char*)&(power_iq.Power.Ptotal);
+		readHoldingMap.data.Qtotal=(unsigned char*)&(power_iq.Power.Qtotal);	
+		readHoldingMap.data.Stotal=(unsigned char*)&(power_iq.Power.Stotal);
+		
+		readHoldingMap.data.PFa=(unsigned char*)&(power_iq.Power.PFa);
+		readHoldingMap.data.PFb=(unsigned char*)&(power_iq.Power.PFb);	
+		readHoldingMap.data.PFc=(unsigned char*)&(power_iq.Power.PFc);
+		readHoldingMap.data.PFtotal=(unsigned char*)&(power_iq.Power.PFtotal);
+		
+		readHoldingMap.data.ratioA=(unsigned char*)&(power_iq.Power.ratioA);
+		readHoldingMap.data.ratioA=(unsigned char*)&(power_iq.Power.ratioB);	
+		readHoldingMap.data.ratioA=(unsigned char*)&(power_iq.Power.ratioC);
+		readHoldingMap.data.ratioTotal=(unsigned char*)&(power_iq.Power.ratioTotal);
+		
+		readHoldingMap.data.active_import_a_scaled=(unsigned char*)&(energy.active_import_a_scaled);
+		readHoldingMap.data.active_import_b_scaled=(unsigned char*)&(energy.active_import_b_scaled);	
+		readHoldingMap.data.active_import_c_scaled=(unsigned char*)&(energy.active_import_c_scaled);
+		readHoldingMap.data.active_import_total_scaled=(unsigned char*)&(energy.active_import_total_scaled);
+		
+		readHoldingMap.data.active_export_a_scaled=(unsigned char*)&(energy.active_import_a_scaled);
+		readHoldingMap.data.active_export_b_scaled=(unsigned char*)&(energy.active_import_b_scaled);	
+		readHoldingMap.data.active_export_c_scaled=(unsigned char*)&(energy.active_import_c_scaled);
+		readHoldingMap.data.active_export_total_scaled=(unsigned char*)&(energy.active_import_total_scaled);
+		
+		readHoldingMap.data.reactive_import_a_scaled=(unsigned char*)&(energy.reactive_import_a_scaled);
+		readHoldingMap.data.reactive_import_b_scaled=(unsigned char*)&(energy.reactive_import_b_scaled);	
+		readHoldingMap.data.reactive_import_c_scaled=(unsigned char*)&(energy.reactive_import_c_scaled);
+		readHoldingMap.data.reactive_import_total_scaled=(unsigned char*)&(energy.reactive_import_total_scaled);
+		
+		readHoldingMap.data.reactive_export_a_scaled=(unsigned char*)&(energy.reactive_export_a_scaled);
+		readHoldingMap.data.reactive_export_b_scaled=(unsigned char*)&(energy.reactive_export_b_scaled);	
+		readHoldingMap.data.reactive_export_c_scaled=(unsigned char*)&(energy.reactive_export_c_scaled);
+		readHoldingMap.data.reactive_export_total_scaled=(unsigned char*)&(energy.reactive_export_total_scaled);
+		
+		readHoldingMap.data.apparent_energy_a_scaled=(unsigned char*)&(energy.apparent_energy_a_scaled);
+		readHoldingMap.data.apparent_energy_b_scaled=(unsigned char*)&(energy.apparent_energy_b_scaled);	
+		readHoldingMap.data.apparent_energy_c_scaled=(unsigned char*)&(energy.apparent_energy_c_scaled);
+		readHoldingMap.data.apparent_energy_total_scaled=(unsigned char*)&(energy.apparent_energy_total_scaled);
+		
+		readHoldingMap.data.thd_Van=(unsigned char*)&(thd.data.Van);
+		readHoldingMap.data.thd_Vbn=(unsigned char*)&(thd.data.Vbn);	
+		readHoldingMap.data.thd_Vcn=(unsigned char*)&(thd.data.Vcn);
+		
+		readHoldingMap.data.thd_Ia=(unsigned char*)&(thd.data.Ia);
+		readHoldingMap.data.thd_Ib=(unsigned char*)&(thd.data.Ib);	
+		readHoldingMap.data.thd_Ic=(unsigned char*)&(thd.data.Ic);
+		
+		readHoldingMap.data.Vpn_1=(unsigned char*)&(sym.data.Vpn_1);
+		readHoldingMap.data.Vpn_2=(unsigned char*)&(sym.data.Vpn_2);	
+		readHoldingMap.data.Vpn_0=(unsigned char*)&(sym.data.Vpn_0);
 	
-	 active_import_a_scaled;//39
-	 active_import_b_scaled;
-	 active_import_c_scaled;
-	 active_import_total_scaled;
+		readHoldingMap.data.I_1=(unsigned char*)&(sym.data.I_1);
+		readHoldingMap.data.I_2=(unsigned char*)&(sym.data.I_2);	
+		readHoldingMap.data.I_0=(unsigned char*)&(sym.data.I_0);
+		
+		readHoldingMap.data.UNB_V=(unsigned char*)&(sym.data.UNB_V);
+		readHoldingMap.data.UNB_I=(unsigned char*)&(sym.data.UNB_I);	
 
-	 active_export_a_scaled;//43
-	 active_export_b_scaled;
-	 active_export_c_scaled;
-	 active_export_total_scaled;
-		
-	 reactive_import_a_scaled;//47
-	 reactive_import_b_scaled;
-	 reactive_import_c_scaled;
-	 reactive_import_total_scaled;
-		
-	 reactive_export_a_scaled;//51
-	 reactive_export_b_scaled;
-	 reactive_export_c_scaled;
-	 reactive_export_total_scaled;
-		
-	 apparent_energy_a_scaled;//55
-	 apparent_energy_b_scaled;
-	 apparent_energy_c_scaled;
-	 apparent_energy_total_scaled;
 	
-	 thd_Van;//59
-	 thd_Vbn;
-	 thd_Vcn;
-	
-	 thd_Ia;//62
-	 thd_Ib;
-	 thd_Ic;
-	
-	 unb_Vpn;//65
-	 unb_I;//66
-	
-	
-	#endif
-
-
-
 
 
 }
