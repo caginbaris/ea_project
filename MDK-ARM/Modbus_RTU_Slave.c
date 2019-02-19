@@ -58,7 +58,18 @@ unsigned char dm_uch[4];
 
 };
 
+
+union dummy_u32{
+
+uint32_t dm_u;
+unsigned char dm_uch[4];	
+
+};
+
 union dummy_float df={3.1f};
+union dummy_u32 du={0};
+
+uint32_t dummy_write=0;
 
 /**
   * @brief  This function performs Modbus CRC16 generation.  
@@ -334,23 +345,30 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 	  
     if (rtu_modbusRegAdress == 1000)
     {
-      //comm.b2plc.online.w_module_no = (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8;
-      //comm.b2plc.online.w_module_no  |= (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);
-      rtu_modbusRegAdress += 1;
+      flashNew.bBuffer[3] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[2] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[1] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[0] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      
+			
+			rtu_modbusRegAdress += 2;
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
     }
 	
-		if (rtu_modbusRegAdress == 1001)
+		if (rtu_modbusRegAdress == 1002)
     {
-      //comm.b2plc.online.running_mode = (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8;
-      //comm.b2plc.online.running_mode |= (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);
-      rtu_modbusRegAdress += 1;
+      flashNew.bBuffer[7] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[6] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[5] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[4] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			
+      rtu_modbusRegAdress += 2;
       if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-			//masterModeOp = (comm.b2plc.online.running_mode & 0x0002)>>1;
+
 			
     }
 		
-		if (rtu_modbusRegAdress == 1002)
+		if (rtu_modbusRegAdress == 1004)
     {
       //comm.b2plc.online.reference = (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8; //manual
       //comm.b2plc.online.reference |= (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);

@@ -407,7 +407,7 @@ void thd_calc(union thdData* thd ){
 	float sum=0;
 
 
-	for(i=1;i<19;i++){
+	for(i=1;i<20;i++){
 		
 	sum+=bin_array[index][i]*bin_array[index][i];
 		
@@ -431,7 +431,7 @@ void harmonics_routine(){
 	static uint32_t prdCount=0;	
 	
 	
-	pulseGen(1000,500,1,&out,&latch,&prdCount);
+	pulseGen(400,200,1,&out,&latch,&prdCount);
 
 	switch (index){
 		

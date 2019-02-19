@@ -7,7 +7,7 @@
 
 
 
-enum menu_list current_menu=Vpn_true;
+enum menu_list current_menu=Harmonics_Ic;
 enum menu_list previous_menu=Vpp_true;
 
 enum main_menu_list    main_menu_entry=Active_Energy_main;
