@@ -5,6 +5,7 @@
 #include <math.h>
 #include "arm_math.h" 
 #include "graphing_definitions.h"
+#include "aux_functions.h"
 
 #define eps 1.0f
 
@@ -426,22 +427,27 @@ void thd_calc(union thdData* thd ){
 void harmonics_routine(){
 	
 	static uint8_t index=0,count=0;
+	static uint8_t out=0,latch=0;
+	static uint32_t prdCount=0;	
+	
+	
+	pulseGen(1000,500,1,&out,&latch,&prdCount);
 
 	switch (index){
 		
 		
-		case 0: signal_spectra(AN.data.Van,&harm[Van],fftLength,coeffs_real,coeffs_imag,count);			
-						signal_spectra(AN.data.Ia,&harm[Ia],  fftLength,coeffs_real,coeffs_imag,count);  break;	
+		case 0: if(out){signal_spectra(AN.data.Van,&harm[Van],fftLength,coeffs_real,coeffs_imag,count);}			
+						else{signal_spectra(AN.data.Ia,&harm[Ia],  fftLength,coeffs_real,coeffs_imag,count);}  break;	
 		
-		case 1: signal_spectra(AN.data.Vbn,&harm[Vbn],fftLength,coeffs_real,coeffs_imag,count);			
-						signal_spectra(AN.data.Ib,&harm[Ib],  fftLength,coeffs_real,coeffs_imag,count);  break;
+		case 1: if(out){signal_spectra(AN.data.Vbn,&harm[Vbn],fftLength,coeffs_real,coeffs_imag,count);}			
+						else{signal_spectra(AN.data.Ib,&harm[Ib],  fftLength,coeffs_real,coeffs_imag,count);}  break;
 
-		case 2: signal_spectra(AN.data.Vcn,&harm[Vcn],fftLength,coeffs_real,coeffs_imag,count);			
-						signal_spectra(AN.data.Ic,&harm[Ic],  fftLength,coeffs_real,coeffs_imag,count);  break;			
+		case 2: if(out){signal_spectra(AN.data.Vcn,&harm[Vcn],fftLength,coeffs_real,coeffs_imag,count);}			
+						else{signal_spectra(AN.data.Ic,&harm[Ic],  fftLength,coeffs_real,coeffs_imag,count);}  break;			
 		
 		case 3:	if(++count==fftLength){count=0;}	break;	
 		
-		
+
 	}
 	
 	if(++index==4){index=0;}

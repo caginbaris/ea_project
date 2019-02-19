@@ -49,7 +49,7 @@ I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (../Inc/phaseCompensation.h)(0x5C5013C4)
 I (../Inc/ios.h)(0x5C500941)
 I (../Inc/record.h)(0x5C2CC349)
-I (..\header_files\measurement_Definitions.h)(0x5C60980C)
+I (..\header_files\measurement_Definitions.h)(0x5C6BE4E7)
 F (.\prefilter.c)(0x5C60979A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\prefilter.o --omf_browse v4ea\prefilter.crf --depend v4ea\prefilter.d)
 I (prefilter.h)(0x5C60979A)
 F (.\phaseCompensation.c)(0x5C5013C5)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\phasecompensation.o --omf_browse v4ea\phasecompensation.crf --depend v4ea\phasecompensation.d)
@@ -97,13 +97,13 @@ I (../Inc/spi.h)(0x5C588ACA)
 I (../Inc/tim.h)(0x5C588ACA)
 I (..\header_files\LCD_definitions.h)(0x5C3F1A51)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 F (.\LCD_data.c)(0x5ACB0324)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\lcd_data.o --omf_browse v4ea\lcd_data.crf --depend v4ea\lcd_data.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 F (.\LCD_fonts.c)(0x5C2BC726)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\lcd_fonts.o --omf_browse v4ea\lcd_fonts.crf --depend v4ea\lcd_fonts.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\LCD_definitions.h)(0x5C3F1A51)
-F (../Src/main.c)(0x5C688B33)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\main.o --omf_browse v4ea\main.crf --depend v4ea\main.d)
+F (../Src/main.c)(0x5C6AA37E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\main.o --omf_browse v4ea\main.crf --depend v4ea\main.d)
 I (../Inc/main.h)(0x5C588ACA)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h)(0x5AA1455A)
 I (../Inc/stm32f3xx_hal_conf.h)(0x5C588ACA)
@@ -156,7 +156,7 @@ I (..\header_files\flash_api.h)(0x5C2CB8CA)
 I (../Inc/Modbus_RTU_Slave.h)(0x5C699000)
 I (../Inc/phaseCompensation.h)(0x5C5013C4)
 I (..\header_files\Modbus_Map.h)(0x5C6A94E9)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 F (../Src/gpio.c)(0x5C588ACC)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\gpio.o --omf_browse v4ea\gpio.crf --depend v4ea\gpio.d)
 I (../Inc/gpio.h)(0x5C588ACA)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h)(0x5AA1455A)
@@ -1537,14 +1537,14 @@ I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h)(0x5AA1455B)
-F (.\Menu_routines.c)(0x5C5AE0BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\menu_routines.o --omf_browse v4ea\menu_routines.crf --depend v4ea\menu_routines.d)
+F (.\Menu_routines.c)(0x5C5AE0BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -W -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\menu_routines.o --omf_browse v4ea\menu_routines.crf --depend v4ea\menu_routines.d)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (..\header_files\ch_format.h)(0x5BE59388)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E8476)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 I (..\header_files\flash_api.h)(0x5C2CB8CA)
 I (../Inc/ios.h)(0x5C500941)
 I (../Inc/phaseCompensation.h)(0x5C5013C4)
@@ -1558,16 +1558,16 @@ I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (..\header_files\conversion.h)(0x5C4F0E43)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (..\header_files\graphing_definitions.h)(0x5B615486)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E8476)
-F (.\measurement_data.c)(0x5C60980C)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\measurement_data.o --omf_browse v4ea\measurement_data.crf --depend v4ea\measurement_data.d)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+F (.\measurement_data.c)(0x5C6BE4E7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\measurement_data.o --omf_browse v4ea\measurement_data.crf --depend v4ea\measurement_data.d)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
-F (.\measurement_functions.c)(0x5C689279)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\measurement_functions.o --omf_browse v4ea\measurement_functions.crf --depend v4ea\measurement_functions.d)
+F (.\measurement_functions.c)(0x5C6BFEC7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\measurement_functions.o --omf_browse v4ea\measurement_functions.crf --depend v4ea\measurement_functions.d)
 I (..\header_files\conversion.h)(0x5C4F0E43)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E8476)
 I (../Drivers/CMSIS/Include/arm_math.h)(0x5C588ACA)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x5AA14557)
@@ -1579,10 +1579,11 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E8476)
 I (..\header_files\graphing_definitions.h)(0x5B615486)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 F (.\measurement_routines.c)(0x5C695A6B)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\measurement_routines.o --omf_browse v4ea\measurement_routines.crf --depend v4ea\measurement_routines.d)
 I (..\header_files\conversion.h)(0x5C4F0E43)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (..\header_files\graphing_definitions.h)(0x5B615486)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
@@ -1628,9 +1629,9 @@ I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h)(0x5AA1455B)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
-F (.\aux_functions.c)(0x5C2E7CD2)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\aux_functions.o --omf_browse v4ea\aux_functions.crf --depend v4ea\aux_functions.d)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
+F (.\aux_functions.c)(0x5C6BFE5E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\aux_functions.o --omf_browse v4ea\aux_functions.crf --depend v4ea\aux_functions.d)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 F (.\graphing_fuctions.c)(0x5C597691)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\graphing_fuctions.o --omf_browse v4ea\graphing_fuctions.crf --depend v4ea\graphing_fuctions.d)
 I (..\header_files\conversion.h)(0x5C4F0E43)
@@ -1638,8 +1639,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\graphing_definitions.h)(0x5B615486)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (../Drivers/CMSIS/Include/arm_math.h)(0x5C588ACA)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x5AA14557)
 I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5AA14557)
@@ -1692,14 +1693,14 @@ I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (..\header_files\flash_api.h)(0x5C2CB8CA)
 I (../Inc/record.h)(0x5C2CC349)
 I (..\header_files\conversion.h)(0x5C4F0E43)
-I (..\header_files\measurement_Definitions.h)(0x5C60980C)
+I (..\header_files\measurement_Definitions.h)(0x5C6BE4E7)
 F (.\flashUpdate.c)(0x5C5AC676)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\flashupdate.o --omf_browse v4ea\flashupdate.crf --depend v4ea\flashupdate.d)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (..\header_files\flashUpdate.h)(0x5C5976DA)
 I (../Inc/phaseCompensation.h)(0x5C5013C4)
-F (.\ios.c)(0x5C49FA56)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\ios.o --omf_browse v4ea\ios.crf --depend v4ea\ios.d)
+F (.\ios.c)(0x5C6BFAB6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\ios.o --omf_browse v4ea\ios.crf --depend v4ea\ios.d)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h)(0x5AA1455A)
 I (../Inc/stm32f3xx_hal_conf.h)(0x5C588ACA)
 I (../Inc/main.h)(0x5C588ACA)
@@ -1738,16 +1739,16 @@ I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h)(0x5AA1455B)
 I (../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h)(0x5AA1455B)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 I (../Inc/ios.h)(0x5C500941)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 F (.\record.c)(0x5C2CB8CA)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\record.o --omf_browse v4ea\record.crf --depend v4ea\record.d)
 I (../Inc/record.h)(0x5C2CC349)
 I (..\header_files\conversion.h)(0x5C4F0E43)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
-I (..\header_files\measurement_Definitions.h)(0x5C60980C)
+I (..\header_files\measurement_Definitions.h)(0x5C6BE4E7)
 I (../Inc/ios.h)(0x5C500941)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
@@ -1794,15 +1795,15 @@ I (../Inc/Modbus_RTU_Slave.h)(0x5C699000)
 I (..\header_files\menu_definitions.h)(0x5C51BAA9)
 I (..\header_files\lcd_definitions.h)(0x5C3F1A51)
 I (..\header_files\Modbus_Map.h)(0x5C6A94E9)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 F (.\Modbus_Map.c)(0x5C6A95BD)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\modbus_map.o --omf_browse v4ea\modbus_map.crf --depend v4ea\modbus_map.d)
 I (..\header_files\Modbus_Map.h)(0x5C6A94E9)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
 I (..\header_files\conversion.h)(0x5C4F0E43)
 F (.\exceptions.c)(0x5C5AE0D0)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files-I"C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="521" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT-o v4ea\exceptions.o --omf_browse v4ea\exceptions.crf --depend v4ea\exceptions.d)
 I (..\header_files\exceptions.h)(0x5C5AE7A9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
-I (..\header_files\aux_functions.h)(0x5C2E7F1D)
+I (..\header_files\aux_functions.h)(0x5C6BFE6A)
 I (..\header_files\conversion.h)(0x5C4F0E43)
-I (..\header_files\measurement_definitions.h)(0x5C60980C)
+I (..\header_files\measurement_definitions.h)(0x5C6BE4E7)

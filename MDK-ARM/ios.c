@@ -64,7 +64,7 @@ void outputHandling(){
 		
 		increment+=(energySource-energySourceBack)*flash.data.outputPulseIncFactor;
 		
-		output=pulseGeneration(flash.data.outputPulsePeriod*fs*0.001f,flash.data.outputPulsePeriod*0.5f,&increment,&counter);
+		//cau output=pulseGeneration(flash.data.outputPulsePeriod*fs*0.001f,flash.data.outputPulsePeriod*0.5f,&increment,&counter);
 		
 		energySourceBack=energySource;
 	

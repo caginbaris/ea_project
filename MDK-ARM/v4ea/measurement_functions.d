@@ -13,3 +13,4 @@ v4ea\measurement_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 v4ea\measurement_functions.o: ..\header_files\graphing_definitions.h
 v4ea\measurement_functions.o: ..\header_files\menu_definitions.h
 v4ea\measurement_functions.o: ..\header_files\lcd_definitions.h
+v4ea\measurement_functions.o: ..\header_files\aux_functions.h

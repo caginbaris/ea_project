@@ -167,20 +167,16 @@ return out;
 }
 
 
-uint8_t pulseGeneration(uint32_t  period, uint32_t duty, uint32_t *EN,uint32_t *prdCount){
-
-static uint8_t out=0,latch=0;
-
-if((*EN)!=0 && latch==0){out=1;latch=1;*EN-=1;}
-
-if(latch==1){*prdCount+=1;}
-
-if((*prdCount)>duty && (*prdCount)<period){out=0;}
-
-if((*prdCount)==period){latch=0;*prdCount=0;}
+void pulseGen(uint32_t prd, uint32_t duty,uint8_t EN,uint8_t* out,uint8_t* latch,uint32_t* prdCount){
 
 
-return out;
+if(EN==1 && *latch==0){*out=1;*latch=1;}
+
+if(*latch==1){(*prdCount)=(*prdCount)+1;}
+
+if((*prdCount)>duty){*out=0;}
+
+if((*prdCount)==prd){*latch=0;*prdCount=0;}
 
 }
 

@@ -1185,7 +1185,7 @@
                   <Cads>
                     <interw>2</interw>
                     <Optim>0</Optim>
-                    <oTime>1</oTime>
+                    <oTime>0</oTime>
                     <SplitLS>2</SplitLS>
                     <OneElfS>2</OneElfS>
                     <Strict>2</Strict>
@@ -1193,7 +1193,7 @@
                     <PlainCh>2</PlainCh>
                     <Ropi>2</Ropi>
                     <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
+                    <wLevel>1</wLevel>
                     <uThumb>2</uThumb>
                     <uSurpInc>2</uSurpInc>
                     <uC99>2</uC99>
