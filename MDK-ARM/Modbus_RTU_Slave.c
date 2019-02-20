@@ -341,6 +341,9 @@ void rtu_writeMultipleRegisters(void)
   */
 void rtu_getFeeder1_writeMultipleRegisters(void)
 {
+	
+		uint8_t i=0,a=0;
+	
     rtu_ModbusRxIndex = 7;
 	  
     if (rtu_modbusRegAdress == 1000)
@@ -368,35 +371,32 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 			
     }
 		
-		if (rtu_modbusRegAdress == 1004)
-    {
-      //comm.b2plc.online.reference = (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8; //manual
-      //comm.b2plc.online.reference |= (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-    }
-		
-		
-		
-		if (rtu_modbusRegAdress == 1003)
-    {
-      //comm.b2plc.online.master_reference = (int32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8; // ADP ref
-      //comm.b2plc.online.master_reference |= (int32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-    }
-		
 		#if 0
+		//**alternate-start
 		
-		if (rtu_modbusRegAdress == 1004)
-    {
-      dummyTestData.CH5 = (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]) << 8;
-      dummyTestData.CH5 |= (uint32_t)(rtu_modbusRxBuffer[rtu_ModbusRxIndex++]);
-      rtu_modbusRegAdress += 1;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;
-    }
 		
-		#endif
+			for(i=0;i<rtu_modbusDataLen;i+=2){
+	
+			if (rtu_modbusRegAdress == (READ_IN_CH1+i)){
+				
+			flashNew.bBuffer[a+3] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[a+2] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[a+1] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+      flashNew.bBuffer[a] 	= rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			
+			a+=4;
+			
+				}
+			
+			}
+			
+			#endif
+		
+		//*alternate-end
+		
+		
+		
+		
 		
     rtu_transmitData_writeMultipleRegisters();
 }

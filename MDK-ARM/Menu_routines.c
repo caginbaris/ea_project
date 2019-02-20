@@ -235,13 +235,9 @@ void notSavedScreen(){
 
 void saveEmAll(void){
 
-
-		
 		save_fun=savingFunctions[currentSaveMenu];
 		save_fun();
 		
-	
-
 }
 
 
