@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Feb 20 19:30:14 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Feb 21 22:42:54 2019
 <BR><P>
 <H3>Maximum Stack Usage =        268 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -611,8 +611,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_Init
 </UL>
 
 <P><STRONG><a name="[97]"></a>HAL_FLASHEx_Erase</STRONG> (Thumb, 346 bytes, Stack size 40 bytes, stm32f3xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase))
@@ -687,13 +686,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADCEx_Calibration_Start
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Enable
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFifoStateUntilTimeout
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_EnterInitMode
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CheckIdleState
@@ -883,9 +882,9 @@ Global Symbols
 <P><STRONG><a name="[b3]"></a>HAL_SDADC_Init</STRONG> (Thumb, 290 bytes, Stack size 16 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_SDADC_Init &rArr; HAL_SDADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SDADC_MspInit
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC3_Init
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC2_Init
@@ -1539,7 +1538,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[a8]"></a>UART_SetConfig</STRONG> (Thumb, 680 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
+<P><STRONG><a name="[a8]"></a>UART_SetConfig</STRONG> (Thumb, 672 bytes, Stack size 24 bytes, stm32f3xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
@@ -2040,8 +2039,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[139]"></a>init_Map</STRONG> (Thumb, 342 bytes, Stack size 0 bytes, modbus_map.o(i.init_Map))
-<BR><BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[139]"></a>init_Map</STRONG> (Thumb, 404 bytes, Stack size 4 bytes, modbus_map.o(i.init_Map))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = init_Map
+</UL>
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[12d]"></a>init_Menu</STRONG> (Thumb, 692 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
@@ -2141,7 +2142,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
 </UL>
 
-<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 264 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 258 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = main &rArr; MX_ADC1_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
@@ -2166,7 +2167,6 @@ Global Symbols
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
@@ -2296,8 +2296,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[140]"></a>rtu_Feeder1DataPrep</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, modbus_rtu_slave.o(i.rtu_Feeder1DataPrep))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = rtu_Feeder1DataPrep &rArr; rtu_transmitData_readHoldingRegister &rArr; rtu_crcCalculation
+<P><STRONG><a name="[140]"></a>rtu_Feeder1DataPrep</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, modbus_rtu_slave.o(i.rtu_Feeder1DataPrep))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = rtu_Feeder1DataPrep &rArr; rtu_transmitData_readHoldingRegister &rArr; rtu_crcCalculation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_transmitData_readHoldingRegister
 </UL>
@@ -2305,7 +2305,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[13e]"></a>rtu_ModbusFrameProcessing</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_ModbusFrameProcessing))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = rtu_ModbusFrameProcessing &rArr; rtu_Feeder1DataPrep &rArr; rtu_transmitData_readHoldingRegister &rArr; rtu_crcCalculation
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = rtu_ModbusFrameProcessing &rArr; rtu_getFeeder1_writeMultipleRegisters &rArr; rtu_transmitData_writeMultipleRegisters &rArr; rtu_crcCalculation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_transmitData_writeSingleRegister
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
@@ -2324,8 +2324,8 @@ Global Symbols
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_transmitData_readHoldingRegister
 </UL>
 
-<P><STRONG><a name="[143]"></a>rtu_getFeeder1_writeMultipleRegisters</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, modbus_rtu_slave.o(i.rtu_getFeeder1_writeMultipleRegisters))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = rtu_getFeeder1_writeMultipleRegisters &rArr; rtu_transmitData_writeMultipleRegisters &rArr; rtu_crcCalculation
+<P><STRONG><a name="[143]"></a>rtu_getFeeder1_writeMultipleRegisters</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, modbus_rtu_slave.o(i.rtu_getFeeder1_writeMultipleRegisters))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = rtu_getFeeder1_writeMultipleRegisters &rArr; rtu_transmitData_writeMultipleRegisters &rArr; rtu_crcCalculation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_transmitData_writeMultipleRegisters
 </UL>

@@ -2,9 +2,14 @@
 #include "conversion.h"
 #include "measurement_definitions.h"
 
+
+extern float bin_array[6][20];
+
 union modbusMappingReadData readHoldingMap;
 
 void init_Map(void){
+	
+		uint8_t i;
 	
 	
 		readHoldingMap.data.tRMS_Van=(unsigned char*)&(trueRMS.data.Van);
@@ -103,6 +108,18 @@ void init_Map(void){
 		
 		readHoldingMap.data.UNB_V=(unsigned char*)&(sym.data.UNB_V);
 		readHoldingMap.data.UNB_I=(unsigned char*)&(sym.data.UNB_I);	
+		
+		for(i=0;i<20;i++){
+			
+		readHoldingMap.data.hVan[i]=(unsigned char*)(&(bin_array[Van][i]));
+		readHoldingMap.data.hVbn[i]=(unsigned char*)(&(bin_array[Vbn][i]));
+		readHoldingMap.data.hVcn[i]=(unsigned char*)(&(bin_array[Vcn][i]));		
+
+		readHoldingMap.data.hIa[i]=(unsigned char*)(&(bin_array[Ia][i]));
+		readHoldingMap.data.hIb[i]=(unsigned char*)(&(bin_array[Ib][i]));
+		readHoldingMap.data.hIc[i]=(unsigned char*)(&(bin_array[Ic][i]));
+			
+		}
 
 	
 

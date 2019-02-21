@@ -241,7 +241,7 @@ int main(void)
 		mp_counter++;
 		
 		
-		HAL_Delay(100); //cau
+		//HAL_Delay(1); //cau
 		
 		offline_calculations();
 		
