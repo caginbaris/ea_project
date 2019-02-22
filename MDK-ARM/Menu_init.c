@@ -286,22 +286,7 @@ struct display_menu_handles Total_Power_Menu= {
 };
 
 
-struct display_menu_handles Power_Factors_true_Menu= {
-	
-	/*dynamic data*/ &(power_true.Power.PFa),
-	
-	/*title*/      	{g,u,c,_,f,a,k,t,o,r,_,g,e,r,c,e,k,_,_,_,_} ,
-	
-	/*fist line*/ 	{A,N,__},
-	/*second line*/ {B,N,__},
-	/*third line*/ 	{C,N,__},
-	/*symbols*/			{menu_escape,menu_blank,menu_right,menu_down,menu_up},
-	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  staticDataTripple,
-	/*dynamic data*/ dynamicDataTripple
-	
 
-};
 
 struct display_menu_handles Power_Factors_fund_Menu= {
 	
@@ -322,23 +307,6 @@ struct display_menu_handles Power_Factors_fund_Menu= {
 };
 
 
-struct display_menu_handles Total_Power_Factor_true_Menu= {
-	
-	/*dynamic data*/ &(power_true.Power.PFtotal),
-	
-	/*title*/      	{t,o,p,l,a,m,_,g,u,c,_,f,a,k,t,o,r,u,_,_,_} ,
-	
-	/*fist line*/ 	{__,__,__},
-	/*second line*/ {P,F,T},
-	/*third line*/ 	{__,__,__},
-	
-	/*symbols*/			{menu_escape,menu_left,menu_blank,menu_down,menu_up},
-	/*menu units*/	{m_percent,m_,m_,m_},
-	/*static data*/  staticDataSingle,
-	/*dynamic data*/ dynamicDataSingle
-	
-
-};
 
 
 struct display_menu_handles Total_Power_Factor_fund_Menu= {
@@ -1096,22 +1064,10 @@ const struct MENU_TRANSITION menu_transition[]={
 		{	Total_Power,						down_pressed,		Power_Factors_fund},
 		{	Total_Power,						enter_pressed,	main_menu},
 		
-		//{	,			right_pressed,	Power_Factors_fund},
-		//{	Power_FactorPower_Factors_trues_true,			up_pressed,			Total_Power},
-		//{	Power_Factors_true,			down_pressed,		Power_Ratios},
-		//{	Power_Factors_true,			enter_pressed,	main_menu},
-		
-		//{	Power_Factors_fund,			left_pressed,		Power_Factors_true},
 		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_fund},
 		{	Power_Factors_fund,			up_pressed,			Total_Power},
 		{	Power_Factors_fund,			down_pressed,		Power_Ratios},
 		{	Power_Factors_fund,			enter_pressed,	main_menu},
-		
-		//{	Total_Power_Factor_true,up_pressed,			Total_Power},
-		//{	Total_Power_Factor_true,down_pressed,		Power_Ratios},
-		//{	Total_Power_Factor_true,right_pressed,	Total_Power_Factor_fund},
-		//{	Total_Power_Factor_true,left_pressed,		Power_Factors_fund},
-		//{	Total_Power_Factor_true,enter_pressed,	main_menu},
 		
 		{	Total_Power_Factor_fund,up_pressed,			Total_Power},
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
@@ -1301,9 +1257,7 @@ void init_Menu(){
 	MENU.handle.Reactive_Power=Reactive_Power_Menu;
 	MENU.handle.Apparent_Power=Apparent_Power_Menu;
 	MENU.handle.Total_Power=Total_Power_Menu;
-	MENU.handle.Power_Factors_true=Power_Factors_true_Menu;
 	MENU.handle.Power_Factors_fund=Power_Factors_fund_Menu;
-	MENU.handle.Total_Power_Factor_true=Total_Power_Factor_true_Menu;
 	MENU.handle.Total_Power_Factor_fund=Total_Power_Factor_fund_Menu;
 	MENU.handle.Power_Ratios=Power_Ratios_Menu;
 	MENU.handle.Total_Power_Ratios=Total_Power_Ratios_Menu;

@@ -56,6 +56,7 @@
 "v4ea\record.o"
 "v4ea\modbus_rtu_slave.o"
 "v4ea\modbus_map.o"
+"v4ea\configdatahandling.o"
 "v4ea\exceptions.o"
 --library_type=microlib --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

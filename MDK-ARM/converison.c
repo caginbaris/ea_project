@@ -166,8 +166,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	
 	convFlags.all =0;	
 		
-	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
-		
 		
 	AN.data.Van=offset_cancellation((uBuffer[3]),&oc_buff[0])*scale.data.Van;
 	AN.data.Vbn=offset_cancellation((uBuffer[5]),&oc_buff[1])*scale.data.Vbn;	
@@ -197,8 +195,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	
 		
 	refresh_counter++;	
-	sec_counter++;
 	
+	sec_counter++;
 	if(sec_counter==10000){sec++;sec_counter=0;}
 	
 	

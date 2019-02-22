@@ -468,7 +468,6 @@ for(i=0;i<6;i++){
 	
 	if(first_mag>1.0f){
 	
-	
 	first_imag=100.0f/(first_mag);	
 	bin_array[i][0]=100.0;
 	
@@ -479,7 +478,13 @@ for(i=0;i<6;i++){
 	sqrtf(harm[i].foutReal[j]*harm[i].foutReal[j]+harm[i].foutImag[j]*harm[i].foutImag[j])*first_imag;
 		
 	 }
-  }
+  }else{
+		
+		for(j=1;j<20;j++){
+		bin_array[i][j]=0;
+		
+	 }
+	}
  }
 }
 

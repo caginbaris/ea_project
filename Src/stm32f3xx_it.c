@@ -38,6 +38,7 @@
 /* USER CODE BEGIN 0 */
 
 #include "sysTick_definitions.h"
+#include "menu_definitions.h"
 
 //comm side start
 
@@ -52,6 +53,10 @@ extern uint8_t comErrorFlag;
 extern volatile uint8_t conversion_complete;
 
 //comm side end
+
+//pb functions
+
+
 
 /* USER CODE END 0 */
 
@@ -227,6 +232,9 @@ void SysTick_Handler(void)
 	commErrorTimeOut++;
 	if(commErrorTimeOut == 3 * 100) comErrorFlag = 1;
 	if(commErrorTimeOut == 0XFFFF) commErrorTimeOut = 0;
+	
+	
+	pressed_button=pushButtonHandling();	
 	
 	
 

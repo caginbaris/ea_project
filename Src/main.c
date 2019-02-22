@@ -81,12 +81,9 @@ void init_LCD(void);
 void init_backlight(void);
 void init_flashBackRead(void);
 void write_lcd(void);
-void font_transfer(void);
-void font_transfer2(void);
 
 void DISPLAY_MENU(void);
 void offline_calculations(void);
-enum input  pushButtonHandling(void);
 
 extern uint16_t center_leds;
 extern uint16_t side_leds;
@@ -96,7 +93,7 @@ uint16_t refresh_counter=0;
 
 float dummy_lag=0;
 
-uint8_t dummy_send=4;
+
 
 /* USER CODE END PFP */
 
@@ -122,8 +119,8 @@ extern uint32_t comErrorCounter;
 uint32_t fckcnt = 0;
 uint8_t comErrorFlag = 0;
 extern uint32_t commErrorTimeOut;
-extern uint8_t masterModeOp;
-uint32_t uart3_sentinel=0;
+
+
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -138,8 +135,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     recTimeOut = 0;
     recFlag = 1;
 	  transmitComp = 0;
-			
-		uart3_sentinel=0;	
 			
 		}
 }
@@ -209,8 +204,6 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
-
-	
 	flashRead();
 	flashReadRec();
 	init_flashBackRead();
@@ -240,12 +233,7 @@ int main(void)
 		
 		mp_counter++;
 		
-		
-		//HAL_Delay(1); //cau
-		
-		offline_calculations();
-		
-		pressed_button=pushButtonHandling();		
+		offline_calculations();	
 			
 	  if(pressed_button!=invalid){
 			
@@ -253,15 +241,11 @@ int main(void)
 			
 	  }
 		
-
 		DISPLAY_MENU();
 
-		
 		if(refresh_counter>2500){
 			
-		
 		write_lcd();
-			
 			
 		refresh_counter=0;
 			
@@ -285,12 +269,6 @@ int main(void)
 		if(commErrorTimeOut >= 200) fckcnt++;
 		
 		//comm side end
-		
-		
-		
-		
-		
-
 		
 
   }

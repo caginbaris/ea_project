@@ -25,7 +25,7 @@ union uAdcData  trueRMS={0};
 union uAdcData  phase={0};
 
 union powerParameters  power_iq={0};
-union powerParameters  power_true={0};
+union powerParameters  power_scaled={0};
 
 
 
@@ -65,7 +65,7 @@ void measurement_routines(){
 
 	//power elements true calcualtions-----omitted
 	
-	//power_calculations_true(AN,trueRMS,&power_true);
+	
 	
 	
 	//energy calculations

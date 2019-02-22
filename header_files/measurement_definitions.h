@@ -254,7 +254,6 @@ extern float quad_coeffs[];
 extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
-extern union powerParameters  power_true;
 extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
 extern union uAdcData  phase;

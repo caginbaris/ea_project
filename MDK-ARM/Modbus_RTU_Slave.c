@@ -51,25 +51,7 @@ Typedef_dummyTestData dummyTestData;
 
 //mein
 
-union dummy_float{
-
-float dm_f;
-unsigned char dm_uch[4];	
-
-};
-
-
-union dummy_u32{
-
-uint32_t dm_u;
-unsigned char dm_uch[4];	
-
-};
-
-union dummy_float df={3.1f};
-union dummy_u32 du={0};
-
-uint32_t dummy_write=0;
+extern uint8_t configDataReception;
 
 /**
   * @brief  This function performs Modbus CRC16 generation.  
@@ -346,7 +328,7 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 	
     rtu_ModbusRxIndex = 7;
 	
-		
+		#if 0
 			for(i=0;i<rtu_modbusDataLen;i+=2){
 	
 			if (rtu_modbusRegAdress == (READ_IN_CH1+i)){
@@ -364,9 +346,26 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 				}
 			
 			}
+			#endif
+
 			
-		
-    rtu_transmitData_writeMultipleRegisters();
+			a=(rtu_modbusRegAdress-MODBUS_STARTING_ADRESS)/2;
+			
+			for(i=0;i<rtu_modbusDataLen;i+=2){
+	
+			flashNew.bBuffer[a+3] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[a+2] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[a+1] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			flashNew.bBuffer[a] 	= rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
+			a+=4;
+				
+			}
+			
+			rtu_modbusRegAdress = 0;	
+			
+			configDataReception=1;
+			
+			rtu_transmitData_writeMultipleRegisters();
 }
 
 

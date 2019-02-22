@@ -184,6 +184,11 @@ void vline_dotted(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 	}
 	
 }
+
+
+
+
+
 void plot_data_formatting(float x,float rms){
 
 	static uint8_t snap_flag=0;
@@ -258,7 +263,9 @@ void scope_plotting(){
 	
 	if(i==scope_ypos2){i=scope_ypos1;}
 	
-}
+	}
+	
+	
 
 }
 

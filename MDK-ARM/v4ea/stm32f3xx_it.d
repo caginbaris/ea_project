@@ -40,3 +40,5 @@ v4ea\stm32f3xx_it.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
 v4ea\stm32f3xx_it.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 v4ea\stm32f3xx_it.o: ../Inc/stm32f3xx_it.h
 v4ea\stm32f3xx_it.o: ..\header_files\sysTick_definitions.h
+v4ea\stm32f3xx_it.o: ..\header_files\menu_definitions.h
+v4ea\stm32f3xx_it.o: ..\header_files\lcd_definitions.h
