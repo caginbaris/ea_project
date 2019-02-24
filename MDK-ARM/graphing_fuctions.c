@@ -71,6 +71,35 @@ void hline(uint8_t x, uint8_t lineStart,uint8_t lineEnd){
 }
 
 
+void hline_dotted(uint8_t x, uint8_t lineStart,uint8_t lineEnd){
+	
+	uint8_t xPage;
+	uint8_t xBit;
+	uint8_t i;
+	
+	xPage=(uint8_t)(x/8);
+	xBit=x%8;
+	
+	
+	for(i=lineStart;i<lineEnd;i++){
+	
+	display_buffer[xPage][i]|=1<<xBit;
+	
+		
+	if(i%2){display_buffer[xPage][i]&=0x01;}	
+	
+	}
+	
+	
+
+	
+	
+	
+	
+}
+
+
+
 void vline(uint8_t y, uint8_t lineStart,uint8_t lineEnd){
 
 	uint8_t startPage;
@@ -332,6 +361,8 @@ void graphDataTransfer(struct display_menu_handles menu_item){
 	
 	
 	scope_plotting();
+	
+	hline_dotted(25,26,127);
 	
 
 

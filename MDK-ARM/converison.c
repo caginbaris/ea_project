@@ -22,7 +22,7 @@ enum adcChannel ch=Van;
 uint32_t  uBuffer[6];
 
 void measurement_routines();
-enum input  pushButtonHandling(void);
+void  pushButtonHandling(void);
 extern enum input pressed_button;
 extern uint16_t refresh_counter;
 

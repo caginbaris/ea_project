@@ -2272,7 +2272,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		if(++pulsesource>4){pulsesource=0;}	
 			
 		}
-		put_cursor(5,85,127);
+		put_cursor(5,85,125);
 		
 		}
 		

@@ -38,7 +38,7 @@
 /* USER CODE BEGIN 0 */
 
 #include "sysTick_definitions.h"
-#include "menu_definitions.h"
+
 
 //comm side start
 
@@ -234,7 +234,7 @@ void SysTick_Handler(void)
 	if(commErrorTimeOut == 0XFFFF) commErrorTimeOut = 0;
 	
 	
-	pressed_button=pushButtonHandling();	
+
 	
 	
 

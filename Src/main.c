@@ -67,6 +67,7 @@
 	uint16_t adc_start=0;
 	
 	extern uint8_t calibration_completed;
+	extern union push_buttons pb;
 
 /* USER CODE END PV */
 
@@ -234,14 +235,21 @@ int main(void)
 		mp_counter++;
 		
 		offline_calculations();	
+		
+		pushButtonHandling();
 			
-	  if(pressed_button!=invalid){
+		if(pressed_button!=invalid ){
+		
+	  current_menu=SELECT_MENU(current_menu,pressed_button);
 			
-	  current_menu=SELECT_MENU(current_menu,pressed_button);	
-			
+
+		
 	  }
 		
-		DISPLAY_MENU();
+		DISPLAY_MENU();	
+		
+		pressed_button=invalid;	
+		
 
 		if(refresh_counter>2500){
 			

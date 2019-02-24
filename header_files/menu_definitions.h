@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "lcd_definitions.h"
 
-#define TotalMenuTransitionNo 170
+#define TotalMenuTransitionNo 148
 #define menu_unit_vertical_position 100
 
 #define flashWordSize 10
@@ -259,7 +259,7 @@ enum input{
 
 
 extern enum input pressed_button;
-enum input pushButtonHandling();
+void pushButtonHandling();
 
 union push_buttons{
 	

@@ -7,11 +7,11 @@
 
 
 
-enum menu_list current_menu=Harmonics_Ic;
+enum menu_list current_menu=Vpn_true;
 enum menu_list previous_menu=Vpp_true;
 
 enum main_menu_list    main_menu_entry=Active_Energy_main;
-enum setting_menu_list setting_menu_entry=setting_VT;
+enum setting_menu_list setting_menu_entry=setting_output;
 
 struct main_menu_rows     main_lines   ={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 struct setting_menu_rows  setting_lines={NULL,NULL,NULL,NULL,NULL,NULL,NULL};
@@ -1020,123 +1020,123 @@ const struct MENU_TRANSITION menu_transition[]={
 	
 	//	current menu------------input-----------next menu
 	
-		{	Vpn_true,								right_pressed,	Vpn_fund},
+		{	Vpn_true,								right_pressed,	Vpn_fund},//1
 		{	Vpn_true,								down_pressed,		Vpp_true},
 		{	Vpn_true,								enter_pressed,	main_menu},
 		
-		{	Vpn_fund,								left_pressed,		Vpn_true},
+		{	Vpn_fund,								left_pressed,		Vpn_true},//4
 		{	Vpn_fund,								down_pressed,		Vpp_fund},
 		{	Vpn_fund,								enter_pressed,	main_menu},
 		
-		{	Vpp_true,								right_pressed,	Vpp_fund},
+		{	Vpp_true,								right_pressed,	Vpp_fund},//7
 		{	Vpp_true,								down_pressed,		Ip_true},
 		{	Vpp_true,								up_pressed,			Vpn_true},
 		{	Vpp_true,								enter_pressed,	main_menu},
 		
-		{	Vpp_fund,								left_pressed,		Vpp_true},
+		{	Vpp_fund,								left_pressed,		Vpp_true},//11
 		{	Vpp_fund,								down_pressed,		Ip_fund},
 		{	Vpp_fund,								up_pressed,		  Vpn_fund},
 		{	Vpp_fund,								enter_pressed,	main_menu},
 		
-		{	Ip_true,								right_pressed,	Ip_fund},
+		{	Ip_true,								right_pressed,	Ip_fund},//15
 		{	Ip_true,								up_pressed,			Vpp_true},
 		{	Ip_true,								down_pressed,		Active_Power},
 		{	Ip_true,								enter_pressed,	main_menu},
 		
-		{	Ip_fund,								left_pressed,		Ip_true},
+		{	Ip_fund,								left_pressed,		Ip_true},//19
 		{	Ip_fund,								up_pressed,			Vpp_fund},
 		{	Ip_fund,								down_pressed,		Active_Power},
 		{	Ip_fund,								enter_pressed,	main_menu},
 		
-		{	Active_Power,						up_pressed,			Ip_true},
+		{	Active_Power,						up_pressed,			Ip_true},//22
 		{	Active_Power,						down_pressed,		Reactive_Power},
 		{	Active_Power,						enter_pressed,	main_menu},
 		
-		{	Reactive_Power,					up_pressed,			Active_Power},
+		{	Reactive_Power,					up_pressed,			Active_Power},//25
 		{	Reactive_Power,					down_pressed,		Apparent_Power},
 		{	Reactive_Power,					enter_pressed,	main_menu},
 		
-		{	Apparent_Power,					up_pressed,			Reactive_Power},
+		{	Apparent_Power,					up_pressed,			Reactive_Power},//28
 		{	Apparent_Power,					down_pressed,		Total_Power},
 		{	Apparent_Power,					enter_pressed,	main_menu},
 		
-		{	Total_Power,						up_pressed,			Apparent_Power},
+		{	Total_Power,						up_pressed,			Apparent_Power},//31
 		{	Total_Power,						down_pressed,		Power_Factors_fund},
 		{	Total_Power,						enter_pressed,	main_menu},
 		
-		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_fund},
+		{	Power_Factors_fund,			right_pressed,	Total_Power_Factor_fund},//34
 		{	Power_Factors_fund,			up_pressed,			Total_Power},
 		{	Power_Factors_fund,			down_pressed,		Power_Ratios},
 		{	Power_Factors_fund,			enter_pressed,	main_menu},
 		
-		{	Total_Power_Factor_fund,up_pressed,			Total_Power},
+		{	Total_Power_Factor_fund,up_pressed,			Total_Power},//38
 		{	Total_Power_Factor_fund,down_pressed,		Power_Ratios},
 		{	Total_Power_Factor_fund,left_pressed,		Power_Factors_fund},
 		{	Total_Power_Factor_fund,enter_pressed,	main_menu},
 		
-		{	Power_Ratios,up_pressed,		Power_Factors_fund},
+		{	Power_Ratios,up_pressed,		Power_Factors_fund},//42
 		{	Power_Ratios,down_pressed,	Active_Energy_import },
 		{	Power_Ratios,right_pressed,	Total_Power_Ratios },
 		{	Power_Ratios,enter_pressed,	main_menu},
 		
-		{	Total_Power_Ratios,up_pressed,		Power_Factors_fund},
+		{	Total_Power_Ratios,up_pressed,		Power_Factors_fund},//46
 		{	Total_Power_Ratios,down_pressed,	Active_Energy_import },
 		{	Total_Power_Ratios,left_pressed,	Power_Ratios },
 		{	Total_Power_Ratios,enter_pressed,	main_menu},
 		
-		{	Active_Energy_import,up_pressed,		Power_Ratios},
+		{	Active_Energy_import,up_pressed,		Power_Ratios},//50
 		{	Active_Energy_import,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_import,right_pressed,	Active_Energy_Total_import },
 		{	Active_Energy_import,enter_pressed,	main_menu},
 		
-		{	Active_Energy_Total_import,up_pressed,		Power_Ratios},
+		{	Active_Energy_Total_import,up_pressed,		Power_Ratios},//54
 		{	Active_Energy_Total_import,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_Total_import,right_pressed,	Active_Energy_export },
 		{	Active_Energy_Total_import,left_pressed,	Active_Energy_import },
 		{	Active_Energy_Total_import,enter_pressed,	main_menu},
 		
-		{	Active_Energy_export,up_pressed,		Power_Ratios},
+		{	Active_Energy_export,up_pressed,		Power_Ratios},//59
 		{	Active_Energy_export,down_pressed,	Reactive_Energy_export },
 		{	Active_Energy_export,left_pressed,	Active_Energy_Total_import },
 		{	Active_Energy_export,right_pressed,	Active_Energy_Total_export },
 		{	Active_Energy_export,enter_pressed,	main_menu},
 		
-		{	Active_Energy_Total_export,up_pressed,		Power_Ratios},
+		{	Active_Energy_Total_export,up_pressed,		Power_Ratios},//64
 		{	Active_Energy_Total_export,down_pressed,	Reactive_Energy_import },
 		{	Active_Energy_Total_export,left_pressed,	Active_Energy_export },
 		{	Active_Energy_Total_export,enter_pressed,	main_menu},
 		
 		
 		
-		{	Reactive_Energy_import,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_import,up_pressed,	  Active_Energy_import},//68
 		{	Reactive_Energy_import,down_pressed,  Apparent_Energy },
 		{	Reactive_Energy_import,right_pressed,	Reactive_Energy_Total_import },
 		{	Reactive_Energy_import,enter_pressed,	main_menu},
 		
-		{	Reactive_Energy_Total_import,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_Total_import,up_pressed,	  Active_Energy_import},//72
 		{	Reactive_Energy_Total_import,down_pressed,  Apparent_Energy },
 		{	Reactive_Energy_Total_import,right_pressed,	Reactive_Energy_export },
 		{	Reactive_Energy_Total_import,left_pressed,	Reactive_Energy_import },
 		{	Reactive_Energy_Total_import,enter_pressed,	main_menu},
 		
-		{	Reactive_Energy_export,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_export,up_pressed,	  Active_Energy_import},//77
 		{	Reactive_Energy_export,down_pressed,  Apparent_Energy },
 		{	Reactive_Energy_export,right_pressed,	Reactive_Energy_Total_export },
 		{	Reactive_Energy_export,left_pressed,	Reactive_Energy_Total_import },
 		{	Reactive_Energy_export,enter_pressed,	main_menu},
 		
-		{	Reactive_Energy_Total_export,up_pressed,	  Active_Energy_import},
+		{	Reactive_Energy_Total_export,up_pressed,	  Active_Energy_import},//82
 		{	Reactive_Energy_Total_export,down_pressed,  Apparent_Energy },
 		{	Reactive_Energy_Total_export,left_pressed,	Reactive_Energy_export },
 		{	Reactive_Energy_Total_export,enter_pressed,	main_menu},
 		
 	
-		{	Apparent_Energy,	up_pressed,			Reactive_Energy_import},
+		{	Apparent_Energy,	up_pressed,			Reactive_Energy_import},//86
 		{	Apparent_Energy,	down_pressed,		Scope_Van},
 		{	Apparent_Energy,	right_pressed,	Apparent_Energy_Total},
 		{	Apparent_Energy,	enter_pressed,	main_menu},
 		
-		{	Apparent_Energy_Total,	up_pressed,			Reactive_Energy_import},
+		{	Apparent_Energy_Total,	up_pressed,			Reactive_Energy_import},//90
 		{	Apparent_Energy_Total,	down_pressed,		Scope_Van},
 		{	Apparent_Energy_Total,	left_pressed,		Apparent_Energy},
 		{	Apparent_Energy_Total,	enter_pressed,	main_menu},

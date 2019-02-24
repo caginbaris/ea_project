@@ -5,14 +5,18 @@
 #include "aux_functions.h"
 
 
-#define qual_sample 20
+#define qual_sample 10
+
 
 union push_buttons pb={0};
 enum  input pressed_button=invalid;
 
-enum input pushButtonHandling(){
+uint8_t blank_parameter;
+uint32_t blanking_time_counter=0;
+
+void pushButtonHandling(){
 	
-		enum  input button=invalid;
+		
 		static uint32_t counter_pb[5]={0};
 
 	
@@ -24,29 +28,33 @@ enum input pushButtonHandling(){
 		pb.button.up 		=on_delay(HAL_GPIO_ReadPin(BTN5_GPIO_Port,BTN5_Pin),pb.button.up,			(uint16_t)qual_sample,&counter_pb[4]);
 		
 		
-		if(pb.all!=0){
+		
+		
+		
+		
+		if(pb.all!=0 && blank_parameter==0){
 			
+		
 			
 		switch(pb.all){
 		
-			case 1	:button	=enter_pressed;	break; 
-			case 2	:button	=left_pressed;	break; 
-			case 4	:button	=right_pressed;	break; 
-			case 8	:button	=down_pressed;	break; 
-			case 16	:button	=up_pressed;		break; 
-			default :button	=invalid;				break;
-		}	
+			case 1	:pressed_button	=enter_pressed;	break; 
+			case 2	:pressed_button	=left_pressed;	break; 
+			case 4	:pressed_button	=right_pressed;	break; 
+			case 8	:pressed_button	=down_pressed;	break; 
+			case 16	:pressed_button	=up_pressed;		break; 
+			default :pressed_button	=invalid;				break;
+			}
+		
 			
-
 		
-		pb.all=0;
-		
+			
 		}
 
 		
-		// switch(pl)
+		blank_parameter=off_delay(pressed_button!=invalid,blank_parameter,100,&blanking_time_counter);
 		
-		return button;
+		
 
 }
 
