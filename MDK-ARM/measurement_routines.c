@@ -47,8 +47,8 @@ void measurement_routines(){
 	
 	#if 1
 	
-	iq_generation(AN,&inphaseData	,inphase_coeffs,inphase_sos);
-	iq_generation(AN,&quadData		  ,quad_coeffs,quad_sos);
+	iq_generation(AN_pc,&inphaseData	,inphase_coeffs,inphase_sos);
+	iq_generation(AN_pc,&quadData		  ,quad_coeffs,quad_sos);
 	
 	
 	

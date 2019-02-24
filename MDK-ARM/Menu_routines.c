@@ -2000,11 +2000,11 @@ void staticData_output(struct display_menu_handles menu_item){
 
 void dynamicData_output(struct display_menu_handles menu_item){
 	
-	enum letter_codes_8pt functoning[4][12]= { 
+	enum letter_codes_8pt functoning[3][12]= { 
 																						 {a,k,t,i,f,_,d,e,g,i,l,_},		
 																						 {e,n,e,r,j,i,_,p,a,l,s,_},
 																						 {d,o,n,u,s,_,s,i,r,a,s,i},
-																						 {l,i,m,i,t,_,a,s,i,m,i,_}
+
 	
 	};
 	
@@ -2027,14 +2027,13 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	enum letter_codes_8pt RotationVal[2][6]={{a,_,b,_,c,_},{a,_,c,_,b,_}} ;
 	
 	
-	enum letter_codes_8pt limitViolation1[16]={p,c,_,a,r,a,y,u,z,u,_,i,l,e,_,_} ;
-	enum letter_codes_8pt limitViolation2[16]={p,r,o,g,r,a,m,l,a,n,a,b,i,l,i,r} ;
+
 	
 	static uint8_t functionDef=0;
 	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
 	
-	static uint8_t sel=-1,sel1=0;//primary/secondary selection
+	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
 	static uint8_t ord=0;
 
@@ -2116,30 +2115,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		}
 	
-	if(functionDef==3){	/*limit violation*/
-	
 
-			column=8;
-			
-			for(i=0;i<16;i++){
-		
-			 column=letter_transfer_8pt(limitViolation1[i],2,column);
-				
-			}
-			
-			
-			column=1;
-			
-			for(i=0;i<16;i++){
-		
-			 column=letter_transfer_8pt(limitViolation2[i],3,column);
-				
-			}
-			
-			
-	
-	
-	}
 	
 	if(functionDef==2){ /*rotata*/
 	
@@ -2217,11 +2193,11 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	if(entered==1 && functionDef==1){
 		
-		if(pressed_button==enter_pressed){sel1++;}
-		if(sel1>3){sel1=0;sel=0;}	
+		if(pressed_button==enter_pressed){sel++;}
+		if(sel>3){sel=0;sel=0;}	
 		
 		//first
-		if(sel1==1){
+		if(sel==1){
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
@@ -2240,7 +2216,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		put_cursor(3,105+7*ord,7);}
 		
 		//sec
-		if(sel1==2){
+		if(sel==2){
 			
 			
 		if(pressed_button==right_pressed){	// left is plus @VT
@@ -2265,7 +2241,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		}
 		
 		//thi
-		if(sel1==3){
+		if(sel==3){
 		
 		if(pressed_button==right_pressed){	// left is plus @VT
 		

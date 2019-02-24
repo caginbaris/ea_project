@@ -48,7 +48,7 @@ void setbit(uint8_t x,uint8_t y){
 		
 	}
 	
-	display_buffer[page][y]=1<<xBit;
+	display_buffer[page][y]|=1<<xBit;
 
 
 }
@@ -248,7 +248,7 @@ void plot_data_formatting(float x,float rms){
 	
 	if(snap_flag){
 
-		if((i++)%2){scope_array[j++]=22.0f*x/(rms*1.414213f);}
+		if((i++)%2){scope_array[j++]=22.0f*x/(rms*1.5f);}
 		
 		
 		if(i==200){i=0;j=0;snap_flag=0;}

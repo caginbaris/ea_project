@@ -130,6 +130,8 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 
 }
 
+float back_y=0,back_x=0;
+
 
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x){
 	
@@ -138,12 +140,12 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
 		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Pc=(inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2;
-	
+		x->Power.Pc=pfilter((inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2,x->Power.Pc,&back_y);
+
 		x->Power.Qa=(quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2;
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
 		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
-	
+	 
 		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));//cau
 		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));//cau
 		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));//cau

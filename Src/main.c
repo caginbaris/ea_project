@@ -209,8 +209,8 @@ int main(void)
 	flashReadRec();
 	init_flashBackRead();
 	
-	pLagDef(0.6352f,10000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
 	pLagDef(0.0f,10000,&pc_b12,&pc_b22); // applied to voltage //cau	
+	pLagDef(1.4f,10000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
 	
 	init_conversion();
 	init_LCD();
@@ -235,6 +235,9 @@ int main(void)
 		mp_counter++;
 		
 		offline_calculations();	
+		
+		
+
 		
 		pushButtonHandling();
 			
