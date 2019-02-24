@@ -349,7 +349,7 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 			#endif
 
 			
-			a=(rtu_modbusRegAdress-MODBUS_STARTING_ADRESS)/2;
+			a=(rtu_modbusRegAdress-MODBUS_STARTING_ADRESS)*2;
 			
 			for(i=0;i<rtu_modbusDataLen;i+=2){
 	
