@@ -22,20 +22,20 @@ Active_Power,      //6
 Reactive_Power,    //7
 Apparent_Power,		 //8
 Total_Power,			 //9
-Power_Factors_true,Power_Factors_fund, //10-11		
-Total_Power_Factor_true, Total_Power_Factor_fund,//12-13	
-Power_Ratios,Total_Power_Ratios,//14-15
-Active_Energy_import	,Active_Energy_Total_import,	Active_Energy_export,		Active_Energy_Total_export,//16-17
-Reactive_Energy_import,Reactive_Energy_Total_import,Reactive_Energy_export,	Reactive_Energy_Total_export, //18-19
-Apparent_Energy,Apparent_Energy_Total,	//20
-Scope_Van,Scope_Vbn,Scope_Vcn,//23-24-25
-Scope_Ia,Scope_Ib,Scope_Ic,//26-27-28	
-Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,//29-30-31	
-Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//32-33-34			
-thd_Vpn,thd_I,//35-36-37	
-sym_Vpn,sym_I,//38-39-40	
-unb_Vpn,unb_I,	
-main_menu, //41
+Power_Factors_fund, //10	
+Total_Power_Factor_fund,//11
+Power_Ratios,Total_Power_Ratios,//12-13
+Active_Energy_import	,Active_Energy_Total_import,	Active_Energy_export,		Active_Energy_Total_export,//14-15-17-18
+Reactive_Energy_import,Reactive_Energy_Total_import,Reactive_Energy_export,	Reactive_Energy_Total_export, //19-20-21-22
+Apparent_Energy,Apparent_Energy_Total,	//23-24
+Scope_Van,Scope_Vbn,Scope_Vcn,//25-26-27
+Scope_Ia,Scope_Ib,Scope_Ic,//28-29-30	
+Harmonics_Van,Harmonics_Vbn,Harmonics_Vcn,//31-32-33	
+Harmonics_Ia,Harmonics_Ib,Harmonics_Ic,//34-35-36			
+thd_Vpn,thd_I,//37-38-39	
+sym_Vpn,sym_I,//40-41-42	
+unb_Vpn,unb_I,//43,	
+main_menu, //44
 
 settings_menu,
 set_VT,
@@ -169,10 +169,10 @@ union display_menu_union{
 	struct display_menu_handles Apparent_Power;//8		
 	struct display_menu_handles Total_Power;//9
 			
-	struct display_menu_handles Power_Factors_true;//10
+
 	struct display_menu_handles Power_Factors_fund;//11
 		
-	struct display_menu_handles Total_Power_Factor_true;//12
+
 	struct display_menu_handles Total_Power_Factor_fund;//13
 
 	struct display_menu_handles Power_Ratios;//14
@@ -235,7 +235,7 @@ union display_menu_union{
 	}handle;
 	
 	
-	struct display_menu_handles all[52]; 
+	struct display_menu_handles all[51]; 
 
 
 };

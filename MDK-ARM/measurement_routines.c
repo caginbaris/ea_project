@@ -24,12 +24,15 @@ union uAdcData  fundRMS={0};
 union uAdcData  trueRMS={0};
 union uAdcData  phase={0};
 
+struct sensorRatios TR={1.0f,1.0f,1.0f};
+
 union powerParameters  power_iq={0};
 union powerParameters  power_scaled={0};
 
 
-
 struct energyParameters energy={0};
+struct scaled_energy_parameters energy_scaled;
+
 struct energyParameters energyZero={0};
 
 
@@ -44,33 +47,22 @@ void measurement_routines(){
 	
 	//iq components fund calculations
 	
-	
-	#if 1
-	
 	iq_generation(AN_pc,&inphaseData	,inphase_coeffs,inphase_sos);
 	iq_generation(AN_pc,&quadData		  ,quad_coeffs,quad_sos);
-	
 	
 	
 	//fund rms
 	
 	fund_RMS(inphaseData,quadData,&fundRMS);
 	
-
-	
-	
 	//fundamental power calculations
 	
 	power_calculations_iq(inphaseData,quadData,&power_iq);
-
-	//power elements true calcualtions-----omitted
-	
-	
-	
 	
 	//energy calculations
 	
 	energy_calculations(power_iq,&energy );
+	energy_scaling(energy,&energy_scaled);
 	
 	//symmetrical components
 	
@@ -88,7 +80,7 @@ void measurement_routines(){
 	
 	harmonics_routine();//cau
 	
-#endif
+
 	
 	
 }

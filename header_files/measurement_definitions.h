@@ -171,7 +171,38 @@ struct energyParameters{
 
 };
 
+struct scaled_energy_parameters{
 
+		
+		float active_import_a;
+		float active_import_b;
+		float active_import_c;
+		float active_import_total;
+
+		float active_export_a;
+		float active_export_b;
+		float active_export_c;
+		float active_export_total;
+		
+		float reactive_import_a;
+		float reactive_import_b;
+		float reactive_import_c;
+		float reactive_import_total;
+		
+		float reactive_export_a;
+		float reactive_export_b;
+		float reactive_export_c;
+		float reactive_export_total;
+		
+		float apparent_energy_a;
+		float apparent_energy_b;
+		float apparent_energy_c;
+		float apparent_energy_total;
+	
+
+};
+
+extern struct scaled_energy_parameters energy_scaled;
 
 
 
@@ -234,6 +265,17 @@ union thdData{
 };
 
 
+struct sensorRatios{
+
+	float VT;
+	float CT;
+	float PT;
+
+};
+
+extern struct sensorRatios TR;
+
+
 
 // functions prototypes
 
@@ -241,6 +283,7 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 void iq_generation( union uAdcData input,union uAdcData *iq,float *iq_coeffs,struct SOS *all);
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
 void energy_calculations(union powerParameters x,struct energyParameters *y );
+void energy_scaling(struct energyParameters x,struct scaled_energy_parameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
@@ -254,11 +297,12 @@ extern float quad_coeffs[];
 extern union uAdcData  fundRMS;
 extern union uAdcData  trueRMS;
 extern union powerParameters  power_iq;
+extern union powerParameters  power_scaled;
 extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
 extern union uAdcData  phase;
-extern float coeffs_real[];
-extern float coeffs_imag[];
+extern const float coeffs_real[];
+extern const float coeffs_imag[];
 extern struct spectra  harm[6]; 					// spectral analysis
 extern union thdData thd;
 

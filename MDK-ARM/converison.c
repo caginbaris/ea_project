@@ -188,6 +188,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	AN_pc.data.Ia=	pDiffer( AN.data.Ia,pc_b12,pc_b22,&pc_x5);
 	AN_pc.data.Ib=	pDiffer( AN.data.Ib,pc_b12,pc_b22,&pc_x6);
 	
+	AN_pc.data.Vab=AN_pc.data.Van-AN_pc.data.Vbn;
+	AN_pc.data.Vbc=AN_pc.data.Vbn-AN_pc.data.Vcn;	
+	AN_pc.data.Vca=AN_pc.data.Vcn-AN_pc.data.Van;	
+	
 			
 	measurement_routines();
 	ios();

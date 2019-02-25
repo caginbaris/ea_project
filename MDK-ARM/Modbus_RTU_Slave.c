@@ -39,14 +39,14 @@ uint32_t RELAY_LATCH_TIMEOUT;
 uint32_t  LATCH_TYPE;
 uint8_t flashSaveAll = 0;
 uint8_t rtuMasterSlaveID = 0;
-uint8_t masterModeOp = 0;
+
 extern uint32_t fckcnt;
 extern uint8_t comErrorFlag;
 extern HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 extern UART_HandleTypeDef huart3;
 /* Typedefs ------------------------------------------------------------------*/
 Typedef_rtuCRC rtuCRC;
-Typedef_dummyTestData dummyTestData;
+
 
 
 //mein

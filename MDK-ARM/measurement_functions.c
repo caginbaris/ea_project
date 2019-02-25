@@ -28,24 +28,25 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 	
 	}
 	
+	//cau TR added, harm angle !!!! @plot data formationg
+	
 	switch(counter){
 	
-		case 0:arm_sqrt_f32(rms_sum.buffer[0]*inverse_avg_sample,&rms.buffer[0]);rms_sum.buffer[0]=0.0f;break;
-		case 1:arm_sqrt_f32(rms_sum.buffer[1]*inverse_avg_sample,&rms.buffer[1]);rms_sum.buffer[1]=0.0f;break;
-		case 2:arm_sqrt_f32(rms_sum.buffer[2]*inverse_avg_sample,&rms.buffer[2]);rms_sum.buffer[2]=0.0f;break;
+		case 0:arm_sqrt_f32(rms_sum.buffer[0]*inverse_avg_sample,&rms.buffer[0]);rms.buffer[0]*=TR.VT;rms_sum.buffer[0]=0.0f;break;
+		case 1:arm_sqrt_f32(rms_sum.buffer[1]*inverse_avg_sample,&rms.buffer[1]);rms.buffer[1]*=TR.VT;rms_sum.buffer[1]=0.0f;break;
+		case 2:arm_sqrt_f32(rms_sum.buffer[2]*inverse_avg_sample,&rms.buffer[2]);rms.buffer[2]*=TR.VT;rms_sum.buffer[2]=0.0f;break;
 		
-		case 3:arm_sqrt_f32(rms_sum.buffer[3]*inverse_avg_sample,&rms.buffer[3]);rms_sum.buffer[3]=0.0f;break;
-		case 4:arm_sqrt_f32(rms_sum.buffer[4]*inverse_avg_sample,&rms.buffer[4]);rms_sum.buffer[4]=0.0f;break;
-		case 5:arm_sqrt_f32(rms_sum.buffer[5]*inverse_avg_sample,&rms.buffer[5]);rms_sum.buffer[5]=0.0f;break;
+		case 3:arm_sqrt_f32(rms_sum.buffer[3]*inverse_avg_sample,&rms.buffer[3]);rms.buffer[3]*=TR.CT;rms_sum.buffer[3]=0.0f;break;
+		case 4:arm_sqrt_f32(rms_sum.buffer[4]*inverse_avg_sample,&rms.buffer[4]);rms.buffer[4]*=TR.CT;rms_sum.buffer[4]=0.0f;break;
+		case 5:arm_sqrt_f32(rms_sum.buffer[5]*inverse_avg_sample,&rms.buffer[5]);rms.buffer[5]*=TR.CT;rms_sum.buffer[5]=0.0f;break;
 		
-		case 6:arm_sqrt_f32(rms_sum.buffer[6]*inverse_avg_sample,&rms.buffer[6]);rms_sum.buffer[6]=0.0f;break;
-		case 7:arm_sqrt_f32(rms_sum.buffer[7]*inverse_avg_sample,&rms.buffer[7]);rms_sum.buffer[7]=0.0f;break;
-		case 8:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[8]);rms_sum.buffer[8]=0.0f;break;
+		case 6:arm_sqrt_f32(rms_sum.buffer[6]*inverse_avg_sample,&rms.buffer[6]);rms.buffer[6]*=TR.VT;rms_sum.buffer[6]=0.0f;break;
+		case 7:arm_sqrt_f32(rms_sum.buffer[7]*inverse_avg_sample,&rms.buffer[7]);rms.buffer[7]*=TR.VT;rms_sum.buffer[7]=0.0f;break;
+		case 8:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[8]);rms.buffer[8]*=TR.VT;rms_sum.buffer[8]=0.0f;break;
 		
 		
 		default: break;
 	}
-	
 	
 	
 	if(counter++>=periodSampleNo*numberOfPeriod){counter=0;}
@@ -284,6 +285,37 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	
 }
 
+
+void energy_scaling(struct energyParameters x,struct scaled_energy_parameters *y ){
+
+	y->active_import_a	=	x.active_import_a_scaled*TR.PT;
+	y->active_import_b	=	x.active_import_b_scaled*TR.PT;
+	y->active_import_c	=	x.active_import_c_scaled*TR.PT;
+	y->active_import_c	=	x.active_import_total_scaled*TR.PT;
+	
+	y->active_export_a	=	x.active_export_a_scaled*TR.PT;
+	y->active_export_b	=	x.active_export_b_scaled*TR.PT;
+	y->active_export_c	=	x.active_export_c_scaled*TR.PT;
+	y->active_export_c	=	x.active_export_total_scaled*TR.PT;
+
+	y->reactive_import_a	=	x.reactive_import_a_scaled*TR.PT;
+	y->reactive_import_b	=	x.reactive_import_b_scaled*TR.PT;
+	y->reactive_import_c	=	x.reactive_import_c_scaled*TR.PT;
+	y->reactive_import_c	=	x.reactive_import_total_scaled*TR.PT;
+	
+	y->reactive_export_a	=	x.reactive_export_a_scaled*TR.PT;
+	y->reactive_export_b	=	x.reactive_export_b_scaled*TR.PT;
+	y->reactive_export_c	=	x.reactive_export_c_scaled*TR.PT;
+	y->reactive_export_c	=	x.reactive_export_total_scaled*TR.PT;
+	
+	y->apparent_energy_a			=	x.apparent_energy_a_scaled*TR.PT;
+	y->apparent_energy_b			=	x.apparent_energy_b_scaled*TR.PT;
+	y->apparent_energy_c			=	x.apparent_energy_c_scaled*TR.PT;
+	y->apparent_energy_total	=	x.apparent_energy_total_scaled*TR.PT;
+
+}
+
+
 float sumI0=0,sumI1=0,sumI2=0;	
 
 
@@ -369,8 +401,8 @@ void signal_spectra(
 	float rtInput, 
 	struct spectra *h,
 	unsigned int qBufferLength,	//updated buffer length
-	float *twBufferReal,				//twiddle factor Real coeffs
-	float *twBufferImag,				//twiddle factor Imag coeffs    
+	const float *twBufferReal,				//twiddle factor Real coeffs
+	const float *twBufferImag,				//twiddle factor Imag coeffs    
 	unsigned int pCounter)
 
 {
@@ -491,9 +523,22 @@ for(i=0;i<6;i++){
 }
 
 void offline_calculations(){
+	
+uint8_t i;
 
 bin_magnitudes();
 thd_calc(&thd);	
+
+//scaled power
+
+for(i=0;i<12;i++){	
+
+	power_scaled.buffer[i]=power_iq.buffer[i]*TR.PT;
+
+}
+	
+	
+	
 
 }
 

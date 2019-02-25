@@ -2033,7 +2033,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
 	
-	static uint8_t sel=-1;//primary/secondary selection
+	static uint8_t sel=1;//primary/secondary selection
 	static uint8_t entered=0;
 	static uint8_t ord=0;
 
@@ -2126,7 +2126,13 @@ void dynamicData_output(struct display_menu_handles menu_item){
 				
 			}
 			
-
+			column=86;
+		
+			for(i=0;i<6;i++){
+		
+			 column=letter_transfer_8pt(RotationVal[rotation][i],2,column);
+				
+			}
 			
 			
 	
@@ -2183,7 +2189,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			
 			}
 		
-			if(functionDef>3){functionDef=0;}
+			if(functionDef>2){functionDef=0;}
 		
 			put_cursor(1,49,77);
 			
@@ -2193,8 +2199,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	if(entered==1 && functionDef==1){
 		
-		if(pressed_button==enter_pressed){sel++;}
-		if(sel>3){sel=0;sel=0;}	
+		if(sel>3){sel=0;}	
 		
 		//first
 		if(sel==1){
@@ -2257,7 +2262,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 
 	if(entered==1 && functionDef==2){
-	
+		
 		if(pressed_button==enter_pressed){sel=0;}			
 		
 		if(pressed_button==right_pressed){	

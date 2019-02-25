@@ -6,8 +6,8 @@ void pLagDef(float lag,float samp, float* b1,float* b2){
 
 float shift,D,beta,An,w;
 
-shift=lag*pi/180;
-w=(2*pi*50)/samp;
+shift=lag*pi/180.0f;
+w=(2*pi*50.0f)/samp;
 D=shift/w;
 
 beta=-((1-2*D)*cosf(w)-sqrtf(((1-2*D)*cosf(w))*((1-2*D)*cosf(w)) +4*D*(1-D)))/(2*(1-D));
