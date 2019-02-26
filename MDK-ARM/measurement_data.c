@@ -69,7 +69,7 @@ const float coeffs_imag[]={
 #endif
 
 
-
+//lp 5hz for 10e3
 
 #define a_lpf 0.996863331833438f 
 #define b_lpf 0.001568334083281f
