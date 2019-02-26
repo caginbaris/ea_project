@@ -1,0 +1,7 @@
+--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc -I ../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I ../Drivers/CMSIS/Include -I ..\header_files
+-I "C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE"
+-I C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include
+-I C:\Keil_v5\ARM\CMSIS\Include
+-I C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Device\Include
+-D__UVISION_VERSION="520" -DSTM32F373xC -DUSE_HAL_DRIVER -DSTM32F373xC -DARM_MATH_CM4 -D__FPU_PRESENT
+-o v4ea\stm32f3xx_hal_spi.o --omf_browse v4ea\stm32f3xx_hal_spi.crf --depend v4ea\stm32f3xx_hal_spi.d --feedback "v4ea\v4ea.fed" "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_spi.c"

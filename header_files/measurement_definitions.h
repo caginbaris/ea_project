@@ -281,7 +281,7 @@ extern struct sensorRatios TR;
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod);
 void iq_generation( union uAdcData input,union uAdcData *iq,float *iq_coeffs,struct SOS *all);
-void power_calculations_iq(union uAdcData inphase,union uAdcData quad, 	union powerParameters *x );
+void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x,union uAdcData tRMS);
 void energy_calculations(union powerParameters x,struct energyParameters *y );
 void energy_scaling(struct energyParameters x,struct scaled_energy_parameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);

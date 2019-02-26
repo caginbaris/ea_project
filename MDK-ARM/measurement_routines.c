@@ -57,12 +57,13 @@ void measurement_routines(){
 	
 	//fundamental power calculations
 	
-	power_calculations_iq(inphaseData,quadData,&power_iq);
+	power_calculations_iq(inphaseData,quadData,&power_iq,trueRMS);
+	
 	
 	//energy calculations
 	
 	energy_calculations(power_iq,&energy );
-	energy_scaling(energy,&energy_scaled);
+	//energy_scaling(energy,&energy_scaled);
 	
 	//symmetrical components
 	

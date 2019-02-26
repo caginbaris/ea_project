@@ -70,7 +70,7 @@ void loading_bar(uint8_t page,uint8_t columnStart,uint8_t columnEnd, uint8_t EN)
 
 	}
 	
-	loadBarCounter+=5;
+	loadBarCounter+=1;
 		
 	if(loadBarCounter>columnEnd){loadBarCounter=columnEnd+1;}
 	if(!EN){loadBarCounter=0;}
@@ -125,7 +125,7 @@ void saveScreen(){
 	pbcheck=off_delay(0,pbcheck,5,&pbtimeOut);
 	
 	
-	save_lock=off_delay(0,save_lock,200,&timeOut);
+	save_lock=off_delay(0,save_lock,2000,&timeOut);
 	if(save_lock==0){current_menu=settings_menu;currentSaveMenu=not_saved_menu;pbcheck=1;}
 	
 	if(pressed_button==up_pressed && pbcheck==0){currentSaveMenu=saving_menu;pbcheck=1;}
@@ -167,7 +167,7 @@ void savingScreen(){
 	
 	
 	
-	save_lock=off_delay(0,save_lock,20,&timeOut);
+	save_lock=off_delay(0,save_lock,400,&timeOut);
 	loading_bar(6,7,120,save_lock);
 	
 	if(save_lock==0){
@@ -220,7 +220,7 @@ void notSavedScreen(){
 	}
 	
 	
-	save_lock=off_delay(0,save_lock,20,&timeOut);
+	save_lock=off_delay(0,save_lock,400,&timeOut);
 	if(save_lock==0){
 	
 	current_menu=settings_menu;currentSaveMenu=no_save_at_all;
@@ -2033,7 +2033,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	static uint8_t pulsesource=0;
 	static uint8_t rotation=0;
 	
-	static uint8_t sel=1;//primary/secondary selection
+	static uint8_t sel=-1;//primary/secondary selection
 	static uint8_t entered=0;
 	static uint8_t ord=0;
 
@@ -2074,7 +2074,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			for(i=0;i<3;i++){ //digit tranfer
 	
 			digit_transfer_8pt(pulsePeriodVal[i],3,column);
-			column+=8;	
+			column+=7;	
 
 			}
 			
@@ -2092,7 +2092,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 			for(i=0;i<3;i++){ //digit tranfer
 	
 			digit_transfer_8pt(pulseFactorVal[i],4,column);
-			column+=8;	
+			column+=7;	
 
 			}
 			
@@ -2120,7 +2120,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	if(functionDef==2){ /*rotata*/
 	
 			column=1;
-			for(i=0;i<16;i++){
+			for(i=0;i<10;i++){
 		
 			 column=letter_transfer_8pt(Rotation[i],2,column);
 				
@@ -2175,7 +2175,16 @@ void dynamicData_output(struct display_menu_handles menu_item){
 
 	}	
 		
-	if(pressed_button==enter_pressed){entered=1;sel++;}
+	if(pressed_button==enter_pressed){
+	
+	
+	entered=1;sel++;
+	
+	if(functionDef==1){if(sel>3){sel=0;}}
+	if(functionDef==2){if(sel>1){sel=0;}}
+	if(functionDef==0){sel=0;}
+	
+	}
 
 		
 	//{enter     ,left      ,right    ,down      ,up},
@@ -2199,7 +2208,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 	
 	if(entered==1 && functionDef==1){
 		
-		if(sel>3){sel=0;}	
+		
 		
 		//first
 		if(sel==1){
@@ -2213,12 +2222,12 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		if(pressed_button==down_pressed){	// down is right pos change
 		
-		ord++;	if(ord>_2){ord=0;}	
+		ord++;	if(ord>2){ord=0;}	
 			
 		}
 		
 		
-		put_cursor(3,105+7*ord,7);}
+		put_cursor(3,104+7*ord,8);}
 		
 		//sec
 		if(sel==2){
@@ -2227,7 +2236,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		if(pressed_button==right_pressed){	// left is plus @VT
 		
 		
-		if(++pulseFactorVal[ord]>_9){pulseFactorVal[ord]=0;}	
+		if(++pulseFactorVal[ord]>9){pulseFactorVal[ord]=0;}	
 			
 		}
 		
@@ -2236,12 +2245,12 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		
 		ord++;
 				
-		if(ord>_2){ord=0;}	
+		if(ord>2){ord=0;}	
 			
 		}
 		
 		
-		put_cursor(4,105+7*ord,7);	
+		put_cursor(4,104+7*ord,8);	
 		
 		}
 		
@@ -2253,7 +2262,7 @@ void dynamicData_output(struct display_menu_handles menu_item){
 		if(++pulsesource>4){pulsesource=0;}	
 			
 		}
-		put_cursor(5,85,125);
+		put_cursor(5,85,42);
 		
 		}
 		
@@ -2263,16 +2272,50 @@ void dynamicData_output(struct display_menu_handles menu_item){
 
 	if(entered==1 && functionDef==2){
 		
-		if(pressed_button==enter_pressed){sel=0;}			
-		
+			
+		if(sel==1){
 		if(pressed_button==right_pressed){	
 		
 		rotation^=1;
 			
 		}
-		put_cursor(5,85,127);
+		
+		put_cursor(2,85,32);}
+		
 
 	}
+	
+	
+	if(pressed_button==up_pressed && save_lock==0){ 
+		
+	if(functionDef==1){
+		
+	flashNew.data.outputPulsePeriod=screenData2flash(pulsePeriodVal,3);
+	flashNew.data.outputPulseIncFactor=screenData2flash(pulseFactorVal,3);
+	flashNew.data.configBit.output_energy_pulse_source=pulsesource;}
+	
+	if(functionDef==2){	
+	flashNew.data.configBit.output_rotation=rotation;}
+		
+
+
+	if((  flashNew.data.outputPulsePeriod  											!=flash.data.outputPulsePeriod) 										|| 
+		 (  flashNew.data.outputPulseIncFactor										!=flash.data.outputPulseIncFactor) 									||
+		 (  flashNew.data.configBit.output_energy_pulse_source		!=flash.data.configBit.output_energy_pulse_source) 	||
+		 (  flashNew.data.configBit.output_rotation								!=flash.data.configBit.output_rotation)
+	){
+	
+		save_lock=1;
+			 
+		currentSaveMenu=save_option_menu;		 
+			 
+		entered=0;	 
+			 
+	}else{current_menu=settings_menu;}	
+ }
+	
+	
+	
 	
 }
 

@@ -11,7 +11,7 @@
 
 union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 
-	static uint16_t counter=9;
+	static uint16_t counter=0;
 	static union uAdcData rms={0};
 	static union uAdcData rms_sum={0};
 	float inverse_avg_sample=1.0f;
@@ -134,9 +134,10 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 float back_y=0,back_x=0;
 
 
-void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x){
+void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x, union uAdcData tRMS){
 	
 		
+	 static uint8_t counter=20;
 
 
 		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
@@ -146,26 +147,52 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Qa=(quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2;
 		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
 		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
+	
+		x->Power.Sa=tRMS.data.Van*tRMS.data.Ia;
+		x->Power.Sb=tRMS.data.Vbn*tRMS.data.Ib;
+		x->Power.Sc=tRMS.data.Vcn*tRMS.data.Ic;
+	
+	
+		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
+		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
+		x->Power.Stotal=x->Power.Sa + x->Power.Sb + x->Power.Sc;
+	
+	/*
+		counter++;
+		switch(counter){
+		
+			case 1:arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));break;
+			case 2:arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));break;
+			case 3:arm_sqrt_f32((x->Power.Pc*x->Power.Pb + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));break;
+			case 4:arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal + x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));break;
+			case 5:counter=0;break;
+		
+		}
 	 
 		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));//cau
 		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));//cau
 		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));//cau
-	
-		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
-		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
-		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));//cau
+		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));//cau */
 	
 	
-		x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;
-		x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;
-		x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : 100.0f*x->Power.Pc/x->Power.Sc;
-		x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : 100.0f*x->Power.Ptotal/x->Power.Stotal;
+		
+		counter++;
+		switch(counter){
+		
+		case 1:x->Power.PFa 			= x->Power.Sa==0 			?  indefinite : 100.0f*x->Power.Pa/x->Power.Sa;break;
+		case 2:x->Power.PFb 			= x->Power.Sb==0 			?  indefinite : 100.0f*x->Power.Pb/x->Power.Sb;break;
+		case 3:x->Power.PFc 			= x->Power.Sc==0 			?  indefinite : 100.0f*x->Power.Pc/x->Power.Sc;break;
+		case 4:x->Power.PFtotal 	= x->Power.Stotal==0 	?  indefinite : 100.0f*x->Power.Ptotal/x->Power.Stotal;break;
 		
 		
-		x->Power.ratioA 			= x->Power.Pa==0 			?  indefinite : 100.0f*x->Power.Qa/x->Power.Pa;
-		x->Power.ratioB 			= x->Power.Pb==0 			?  indefinite : 100.0f*x->Power.Qb/x->Power.Pb;
-		x->Power.ratioC 			= x->Power.Pc==0 			?  indefinite : 100.0f*x->Power.Qc/x->Power.Pc;
-		x->Power.ratioTotal 	= x->Power.Ptotal==0 	?  indefinite : 100.0f*x->Power.Qtotal/x->Power.Ptotal;
+		case 5:x->Power.ratioA 			= x->Power.Pa==0 			?  indefinite : 100.0f*x->Power.Qa/x->Power.Pa;break;
+		case 6:x->Power.ratioB 			= x->Power.Pb==0 			?  indefinite : 100.0f*x->Power.Qb/x->Power.Pb;break;
+		case 7:x->Power.ratioC 			= x->Power.Pc==0 			?  indefinite : 100.0f*x->Power.Qc/x->Power.Pc;break;
+		case 8:x->Power.ratioTotal 	= x->Power.Ptotal==0 	?  indefinite : 100.0f*x->Power.Qtotal/x->Power.Ptotal;break;
+		
+		case 9:counter=0;	
+		
+		}
 		
 		
 }
@@ -418,7 +445,7 @@ void signal_spectra(
 	x_error=h->qBuffer[pCounter]-rtInput;
 	h->qBuffer[pCounter]=rtInput;
 
-	for(i=0;i<19;i++){
+	for(i=0;i<20;i++){
 
 	temp_real =twBufferReal[i+1]* (h->foutReal[i]+x_error)-twBufferImag[i+1]*h->foutImag[i];
 	temp_imag= twBufferImag[i+1]* (h->foutReal[i]+x_error)+twBufferReal[i+1]*h->foutImag[i];
@@ -505,7 +532,7 @@ for(i=0;i<6;i++){
 	first_imag=100.0f/(first_mag);	
 	bin_array[i][0]=100.0;
 	
-	for(j=1;j<20;j++){
+	for(j=1;j<21;j++){
 	
 	bin_array[i][j]=
 		
@@ -514,7 +541,7 @@ for(i=0;i<6;i++){
 	 }
   }else{
 		
-		for(j=1;j<20;j++){
+		for(j=1;j<21;j++){
 		bin_array[i][j]=0;
 		
 	 }

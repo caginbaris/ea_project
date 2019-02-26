@@ -52,7 +52,7 @@ void pushButtonHandling(){
 		}
 
 		
-		blank_parameter=off_delay(pressed_button!=invalid,blank_parameter,100,&blanking_time_counter);
+		blank_parameter=off_delay(pressed_button!=invalid,blank_parameter,50,&blanking_time_counter);
 		
 		
 
