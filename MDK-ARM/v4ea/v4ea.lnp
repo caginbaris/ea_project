@@ -53,6 +53,7 @@
 "v4ea\flashupdate.o"
 "v4ea\ios.o"
 "v4ea\record.o"
+"v4ea\waveformsnap.o"
 "v4ea\modbus_rtu_slave.o"
 "v4ea\modbus_map.o"
 "v4ea\configdatahandling.o"

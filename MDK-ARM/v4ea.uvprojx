@@ -396,9 +396,9 @@
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>9</RVCTCodeConst>
-                  <RVCTZI>4</RVCTZI>
-                  <RVCTOtherData>4</RVCTOtherData>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
                   <ModuleSelection>0</ModuleSelection>
                   <IncludeInBuild>2</IncludeInBuild>
                   <AlwaysBuild>2</AlwaysBuild>
@@ -1654,6 +1654,11 @@
               <FileName>record.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\record.c</FilePath>
+            </File>
+            <File>
+              <FileName>waveformSnap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\waveformSnap.c</FilePath>
             </File>
           </Files>
         </Group>

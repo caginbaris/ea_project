@@ -12,7 +12,6 @@ LR_IROM1 0x08000000 0x00020000  {    ; load region size_region
     converison.o (+RO +ZI +RW)
     prefilter.o (+RO +ZI +RW)
     phaseCompensation.o (+RO +ZI +RW)
-    measurement_data.o (+RO)
     measurement_functions.o (+RO +ZI +RW)
     measurement_routines.o (+RO +ZI +RW)
    .ANY (+RW +ZI)

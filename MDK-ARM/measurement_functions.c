@@ -396,6 +396,9 @@ power_scaled->Power.Qtotal=power.Power.Qtotal*TR.PT;
 power_scaled->Power.Stotal=power.Power.Stotal*TR.PT;
 
 
+energy_scaling(energy,&energy_scaled);
+
+
 }
 
 

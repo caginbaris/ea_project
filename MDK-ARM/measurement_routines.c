@@ -63,7 +63,6 @@ void measurement_routines(){
 	//energy calculations
 	
 	energy_calculations(power_iq,&energy );
-	//energy_scaling(energy,&energy_scaled);
 	
 	//symmetrical components
 	
