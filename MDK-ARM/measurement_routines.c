@@ -20,8 +20,8 @@ union thdData thd={0};
 
 union uAdcData  inphaseData={0};
 union uAdcData  quadData={0};
-union uAdcData  fundRMS={0};
-union uAdcData  trueRMS={0};
+union uAdcData  fundRMS={0},fundRMS_scaled={0};
+union uAdcData  trueRMS={0},trueRMS_scaled={0};
 union uAdcData  phase={0};
 
 struct sensorRatios TR={1.0f,1.0f,1.0f};

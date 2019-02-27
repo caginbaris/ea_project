@@ -294,8 +294,8 @@ float pfilter(float rtInput, float yback,float* xback);
 // extern data
 extern float inphase_coeffs[];
 extern float quad_coeffs[];
-extern union uAdcData  fundRMS;
-extern union uAdcData  trueRMS;
+extern union uAdcData  fundRMS,fundRMS_scaled;
+extern union uAdcData  trueRMS,trueRMS_scaled;
 extern union powerParameters  power_iq;
 extern union powerParameters  power_scaled;
 extern struct energyParameters  energy;

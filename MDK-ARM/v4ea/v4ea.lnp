@@ -42,7 +42,6 @@
 "v4ea\stm32f3xx_hal_i2c_ex.o"
 "v4ea\system_stm32f3xx.o"
 "v4ea\menu_routines.o"
-"v4ea\menu_data.o"
 "v4ea\menu_init.o"
 "v4ea\measurement_data.o"
 "v4ea\measurement_functions.o"

@@ -32,17 +32,17 @@ union uAdcData true_RMS(union uAdcData input,uint8_t numberOfPeriod){
 	
 	switch(counter){
 	
-		case 0:arm_sqrt_f32(rms_sum.buffer[0]*inverse_avg_sample,&rms.buffer[0]);rms.buffer[0]*=TR.VT;rms_sum.buffer[0]=0.0f;break;
-		case 1:arm_sqrt_f32(rms_sum.buffer[1]*inverse_avg_sample,&rms.buffer[1]);rms.buffer[1]*=TR.VT;rms_sum.buffer[1]=0.0f;break;
-		case 2:arm_sqrt_f32(rms_sum.buffer[2]*inverse_avg_sample,&rms.buffer[2]);rms.buffer[2]*=TR.VT;rms_sum.buffer[2]=0.0f;break;
+		case 0:arm_sqrt_f32(rms_sum.buffer[0]*inverse_avg_sample,&rms.buffer[0]);rms_sum.buffer[0]=0.0f;break;
+		case 1:arm_sqrt_f32(rms_sum.buffer[1]*inverse_avg_sample,&rms.buffer[1]);rms_sum.buffer[1]=0.0f;break;
+		case 2:arm_sqrt_f32(rms_sum.buffer[2]*inverse_avg_sample,&rms.buffer[2]);rms_sum.buffer[2]=0.0f;break;
 		
-		case 3:arm_sqrt_f32(rms_sum.buffer[3]*inverse_avg_sample,&rms.buffer[3]);rms.buffer[3]*=TR.CT;rms_sum.buffer[3]=0.0f;break;
-		case 4:arm_sqrt_f32(rms_sum.buffer[4]*inverse_avg_sample,&rms.buffer[4]);rms.buffer[4]*=TR.CT;rms_sum.buffer[4]=0.0f;break;
-		case 5:arm_sqrt_f32(rms_sum.buffer[5]*inverse_avg_sample,&rms.buffer[5]);rms.buffer[5]*=TR.CT;rms_sum.buffer[5]=0.0f;break;
+		case 3:arm_sqrt_f32(rms_sum.buffer[3]*inverse_avg_sample,&rms.buffer[3]);rms_sum.buffer[3]=0.0f;break;
+		case 4:arm_sqrt_f32(rms_sum.buffer[4]*inverse_avg_sample,&rms.buffer[4]);rms_sum.buffer[4]=0.0f;break;
+		case 5:arm_sqrt_f32(rms_sum.buffer[5]*inverse_avg_sample,&rms.buffer[5]);rms_sum.buffer[5]=0.0f;break;
 		
-		case 6:arm_sqrt_f32(rms_sum.buffer[6]*inverse_avg_sample,&rms.buffer[6]);rms.buffer[6]*=TR.VT;rms_sum.buffer[6]=0.0f;break;
-		case 7:arm_sqrt_f32(rms_sum.buffer[7]*inverse_avg_sample,&rms.buffer[7]);rms.buffer[7]*=TR.VT;rms_sum.buffer[7]=0.0f;break;
-		case 8:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[8]);rms.buffer[8]*=TR.VT;rms_sum.buffer[8]=0.0f;break;
+		case 6:arm_sqrt_f32(rms_sum.buffer[6]*inverse_avg_sample,&rms.buffer[6]);rms_sum.buffer[6]=0.0f;break;
+		case 7:arm_sqrt_f32(rms_sum.buffer[7]*inverse_avg_sample,&rms.buffer[7]);rms_sum.buffer[7]=0.0f;break;
+		case 8:arm_sqrt_f32(rms_sum.buffer[8]*inverse_avg_sample,&rms.buffer[8]);;rms_sum.buffer[8]=0.0f;break;
 		
 		
 		default: break;
@@ -130,6 +130,8 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 
 
 }
+
+
 
 float back_y=0,back_x=0;
 
@@ -346,6 +348,57 @@ void energy_scaling(struct energyParameters x,struct scaled_energy_parameters *y
 float sumI0=0,sumI1=0,sumI2=0;	
 
 
+
+void scaled_parameters(union uAdcData tRMS,union uAdcData fRMS,union powerParameters power,union uAdcData *tRMS_scaled,union uAdcData *fRMS_scaled,union powerParameters *power_scaled){
+	
+//true-----------------------------	
+tRMS_scaled->data.Van=tRMS.data.Van*TR.VT;
+tRMS_scaled->data.Vbn=tRMS.data.Vbn*TR.VT;
+tRMS_scaled->data.Vcn=tRMS.data.Vcn*TR.VT;
+	
+tRMS_scaled->data.Vab=tRMS.data.Vab*TR.VT;
+tRMS_scaled->data.Vbc=tRMS.data.Vbc*TR.VT;
+tRMS_scaled->data.Vca=tRMS.data.Vca*TR.VT;	
+
+tRMS_scaled->data.Ia=tRMS.data.Ia*TR.CT;
+tRMS_scaled->data.Ib=tRMS.data.Ib*TR.CT;
+tRMS_scaled->data.Ic=tRMS.data.Ic*TR.CT;
+
+//fund-----------------------------
+fRMS_scaled->data.Van=fRMS.data.Van*TR.VT;
+fRMS_scaled->data.Vbn=fRMS.data.Vbn*TR.VT;
+fRMS_scaled->data.Vcn=fRMS.data.Vcn*TR.VT;
+	
+fRMS_scaled->data.Vab=fRMS.data.Vab*TR.VT;
+fRMS_scaled->data.Vbc=fRMS.data.Vbc*TR.VT;
+fRMS_scaled->data.Vca=fRMS.data.Vca*TR.VT;	
+
+fRMS_scaled->data.Ia=fRMS.data.Ia*TR.CT;
+fRMS_scaled->data.Ib=fRMS.data.Ib*TR.CT;
+fRMS_scaled->data.Ic=fRMS.data.Ic*TR.CT;		
+
+//power-----------------------------
+
+power_scaled->Power.Pa=power.Power.Pa*TR.PT;
+power_scaled->Power.Pb=power.Power.Pb*TR.PT;
+power_scaled->Power.Pc=power.Power.Pc*TR.PT;
+
+power_scaled->Power.Qa=power.Power.Qa*TR.PT;
+power_scaled->Power.Qb=power.Power.Qb*TR.PT;
+power_scaled->Power.Qc=power.Power.Qc*TR.PT;
+
+power_scaled->Power.Sa=power.Power.Sa*TR.PT;
+power_scaled->Power.Sb=power.Power.Sb*TR.PT;
+power_scaled->Power.Sc=power.Power.Sc*TR.PT;
+
+power_scaled->Power.Ptotal=power.Power.Ptotal*TR.PT;
+power_scaled->Power.Qtotal=power.Power.Qtotal*TR.PT;
+power_scaled->Power.Stotal=power.Power.Stotal*TR.PT;
+
+
+}
+
+
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x){
 
 
@@ -556,16 +609,10 @@ uint8_t i;
 bin_magnitudes();
 thd_calc(&thd);	
 
-//scaled power
-
-for(i=0;i<12;i++){	
-
-	power_scaled.buffer[i]=power_iq.buffer[i]*TR.PT;
-
-}
+//scaled parameters
 	
-	
-	
+scaled_parameters(trueRMS,fundRMS,power_iq,	&trueRMS_scaled,&fundRMS_scaled,&power_scaled);
+
 
 }
 
