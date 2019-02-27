@@ -294,6 +294,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>power_iq</ItemText>
         </Ww>
+        <Ww>
+          <count>27</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>trueRMS</ItemText>
+        </Ww>
+        <Ww>
+          <count>28</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>trueRMS_scaled</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
