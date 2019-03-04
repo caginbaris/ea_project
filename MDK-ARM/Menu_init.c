@@ -96,7 +96,7 @@ struct display_menu_handles Setting_Menu={
 
 struct display_menu_handles Vpn_true_Menu= {
 	
-	/*dynamic data*/ &(trueRMS.data.Van),
+	/*dynamic data*/ &(trueRMS_scaled.data.Van),
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,g,e,r,c,e,k,_,_,_,_}, 
 	
@@ -116,7 +116,7 @@ struct display_menu_handles Vpn_true_Menu= {
 
 struct display_menu_handles Vpn_fund_Menu= {
 	
-	/*dynamic data*/ &(fundRMS.data.Van),
+	/*dynamic data*/ &(fundRMS_scaled.data.Van),
 	
 	/*title*/      	{v,_,f,a,z,_,n,o,t,r,_,a,n,a,_,_,_,_,_,_,_}, 
 	
@@ -136,7 +136,7 @@ struct display_menu_handles Vpn_fund_Menu= {
 
 struct display_menu_handles Vpp_true_Menu= {
 	
-	/*dynamic data*/ &(trueRMS.data.Vab),
+	/*dynamic data*/ &(trueRMS_scaled.data.Vab),
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,g,e,r,c,e,k,_,_,_,_}, 
 	
@@ -155,7 +155,7 @@ struct display_menu_handles Vpp_true_Menu= {
 
 struct display_menu_handles Vpp_fund_Menu= {
 	
-	/*dynamic data*/ &(fundRMS.data.Vab),
+	/*dynamic data*/ &(fundRMS_scaled.data.Vab),
 	
 	/*title*/      	{v,_,_,f,a,z,_,f,a,z,_,a,n,a,_,_,_,_,_,_,_}, 
 	
@@ -175,7 +175,7 @@ struct display_menu_handles Vpp_fund_Menu= {
 
 struct display_menu_handles Ip_true_Menu= {
 	
-	/*dynamic data*/ &(trueRMS.data.Ia),
+	/*dynamic data*/ &(trueRMS_scaled.data.Ia),
 	
 	/*title*/      	{a,k,i,m,_,g,e,r,c,e,k,_,r,m,s,_,_,_,_,_,_}, 
 	
@@ -194,7 +194,7 @@ struct display_menu_handles Ip_true_Menu= {
 
 struct display_menu_handles Ip_fund_Menu= {
 	
-	/*dynamic data*/ &(fundRMS.data.Ia),
+	/*dynamic data*/ &(fundRMS_scaled.data.Ia),
 	
 	/*title*/      	{a,k,i,m,_,_,a,n,a,_,_,r,m,s,_,_,_,_,_,_,_} ,
 	
@@ -213,7 +213,7 @@ struct display_menu_handles Ip_fund_Menu= {
 
 struct display_menu_handles Active_Power_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.Pa),
+	/*dynamic data*/ &(power_scaled.Power.Pa),
 	
 	/*title*/      	{a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_,_,_,_} ,
 	
@@ -232,7 +232,7 @@ struct display_menu_handles Active_Power_Menu= {
 
 struct display_menu_handles Reactive_Power_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.Qa),
+	/*dynamic data*/ &(power_scaled.Power.Qa),
 	
 	/*title*/      	{r,e,a,k,t,i,f,_,g,u,c,l,e,r,_,_,_,_,_,_,_} ,
 	
@@ -251,7 +251,7 @@ struct display_menu_handles Reactive_Power_Menu= {
 
 struct display_menu_handles Apparent_Power_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.Sa),
+	/*dynamic data*/ &(power_scaled.Power.Sa),
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,g,u,c,l,e,r,_,_,_,_,_,_,_} ,
 	
@@ -269,7 +269,7 @@ struct display_menu_handles Apparent_Power_Menu= {
 
 struct display_menu_handles Total_Power_Menu= {
 	
-	/*dynamic data*/ &(power_iq.Power.Sa),
+	/*dynamic data*/ &(power_scaled.Power.Sa),
 	
 	/*title*/      	{t,o,p,l,a,m,_,_,g,u,c,l,e,r,_,_,_,_,_,_,_} ,
 	
@@ -368,7 +368,7 @@ struct display_menu_handles Total_Power_Ratios_Menu= {
 
 struct display_menu_handles Active_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.active_import_a_scaled),
+	/*dynamic data*/ &(energy_scaled.active_import_a),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,a,k,t,i,f,_,_,_,_,_,_} ,
 	
@@ -387,7 +387,7 @@ struct display_menu_handles Active_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.active_import_total_scaled),
+	/*dynamic data*/ &(energy_scaled.active_import_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,t,u,k,e,t,i,m,_} ,
 	
@@ -406,7 +406,7 @@ struct display_menu_handles Active_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Active_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.active_export_a_scaled),
+	/*dynamic data*/ &(energy_scaled.active_export_a),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,a,k,t,i,f,_,_,_,_,_,_,_} ,
 	
@@ -425,7 +425,7 @@ struct display_menu_handles Active_Energy_Export_Menu= {
 
 struct display_menu_handles Active_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.active_export_total_scaled),
+	/*dynamic data*/ &(energy_scaled.active_export_total),
 	
 	/*title*/      	{t,o,p,l,a,m,_,a,k,t,i,f,_,u,r,e,t,i,m,_,_} ,
 	
@@ -449,7 +449,7 @@ struct display_menu_handles Active_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_a_scaled),
+	/*dynamic data*/ &(energy_scaled.reactive_export_a),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_,_,_} ,
 	
@@ -468,7 +468,7 @@ struct display_menu_handles Reactive_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_import_total_scaled),
+	/*dynamic data*/ &(energy_scaled.reactive_import_total),
 	
 	/*title*/      	{t,o,t,a,l,_,r,e,a,k,t,i,f,_,t,u,k,e,t,i,m} ,
 	
@@ -487,7 +487,7 @@ struct display_menu_handles Reactive_Total_Energy_Import_Menu= {
 
 struct display_menu_handles Reactive_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_a_scaled),
+	/*dynamic data*/ &(energy_scaled.reactive_export_a),
 	
 	/*title*/      	{u,r,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_,_,_,_} ,
 	
@@ -505,7 +505,7 @@ struct display_menu_handles Reactive_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_total_scaled),
+	/*dynamic data*/ &(energy_scaled.reactive_export_total),
 	
 	/*title*/      	{t,o,t,a,l,_,r,e,a,k,t,i,f,_,u,r,e,t,i,m,_} ,
 	
@@ -523,7 +523,7 @@ struct display_menu_handles Reactive_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Apparent_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.apparent_energy_a_scaled),
+	/*dynamic data*/ &(energy_scaled.apparent_energy_a),
 	
 	/*title*/      	{g,o,r,u,n,e,n,_,e,n,e,r,j,i,_,_,_,_,_,_,_} ,
 	
@@ -542,7 +542,7 @@ struct display_menu_handles Apparent_Energy_Menu= {
 
 struct display_menu_handles Apparent_Total_Energy_Menu= {
 	
-	/*dynamic data*/ &(energy.reactive_export_total_scaled),
+	/*dynamic data*/ &(energy_scaled.reactive_export_total),
 	
 	/*title*/      	{t,o,t,a,l,_,g,o,r,u,n,e,n,_,e,n,e,r,j,i,_} ,
 	
@@ -826,7 +826,7 @@ struct display_menu_handles thd_I_Menu= {
 
 struct display_menu_handles sym_Vpn_Menu= {
 	
-	/*dynamic data*/ &(sym.data.Vpn_1),
+	/*dynamic data*/ &(sym_scaled.data.Vpn_1),
 	
 	/*title*/      	{v,p,n,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n,_} ,
 	
@@ -845,7 +845,7 @@ struct display_menu_handles sym_Vpn_Menu= {
 
 struct display_menu_handles sym_I_Menu= {
 	
-	/*dynamic data*/ &(sym.data.I_1),
+	/*dynamic data*/ &(sym_scaled.data.I_1),
 	
 	/*title*/      	{a,k,i,m,_,s,i,m,e,t,r,i,k,_,b,i,l,e,s,e,n} ,
 	

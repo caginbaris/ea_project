@@ -196,6 +196,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	measurement_routines();
 	ios();
 	recordEmAll();
+	waveformSnap();
 	
 		
 	refresh_counter++;	

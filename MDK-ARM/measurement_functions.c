@@ -331,7 +331,7 @@ float sumI0=0,sumI1=0,sumI2=0;
 
 
 
-void scaled_parameters(union uAdcData tRMS,union uAdcData fRMS,union powerParameters power,union uAdcData *tRMS_scaled,union uAdcData *fRMS_scaled,union powerParameters *power_scaled){
+void scaled_parameters(union uAdcData tRMS,union uAdcData fRMS,union powerParameters power,union symmetricalComponents sym,union uAdcData *tRMS_scaled,union uAdcData *fRMS_scaled,union powerParameters *power_scaled,union symmetricalComponents *sym_scaled){
 	
 //true-----------------------------	
 tRMS_scaled->data.Van=tRMS.data.Van*TR.VT;
@@ -379,6 +379,15 @@ power_scaled->Power.Stotal=power.Power.Stotal*TR.PT;
 
 
 energy_scaling(energy,&energy_scaled);
+
+
+sym_scaled->data.Vpn_0=sym.data.Vpn_0*TR.VT;
+sym_scaled->data.Vpn_1=sym.data.Vpn_1*TR.VT;
+sym_scaled->data.Vpn_2=sym.data.Vpn_2*TR.VT;
+
+sym_scaled->data.I_0=sym.data.I_0*TR.CT;
+sym_scaled->data.I_1=sym.data.I_1*TR.CT;
+sym_scaled->data.I_2=sym.data.I_2*TR.CT;
 
 
 }
@@ -596,7 +605,7 @@ thd_calc(&thd);
 
 //scaled parameters
 	
-scaled_parameters(trueRMS,fundRMS,power_iq,	&trueRMS_scaled,&fundRMS_scaled,&power_scaled);
+scaled_parameters(trueRMS,fundRMS,power_iq,sym,	&trueRMS_scaled,&fundRMS_scaled,&power_scaled,&sym_scaled);
 
 
 }

@@ -49,6 +49,7 @@ v4ea\main.o: ../Inc/gpio.h
 v4ea\main.o: ..\header_files\menu_definitions.h
 v4ea\main.o: ..\header_files\lcd_definitions.h
 v4ea\main.o: ..\header_files\flash_api.h
+v4ea\main.o: ..\header_files\flashUpdate.h
 v4ea\main.o: ../Inc/Modbus_RTU_Slave.h
 v4ea\main.o: ../Inc/phaseCompensation.h
 v4ea\main.o: ..\header_files\Modbus_Map.h

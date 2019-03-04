@@ -53,6 +53,7 @@
 #include "menu_definitions.h"
 #include "lcd_definitions.h"
 #include "flash_api.h"
+#include "flashUpdate.h"
 #include "Modbus_RTU_Slave.h"
 #include "phaseCompensation.h"
 #include "Modbus_Map.h"
@@ -208,6 +209,7 @@ int main(void)
 	flashRead();
 	flashReadRec();
 	init_flashBackRead();
+	flashUpdate();
 	
 	pLagDef(0.0f,10000,&pc_b12,&pc_b22); // applied to voltage //cau	
 	pLagDef(1.4f,10000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong

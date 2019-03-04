@@ -21,13 +21,13 @@ void  waveformSnap(){
 
 	switch(decimation_count){
 	
-		case 0:snap[0][end_count]=AN_pc.data.Van;	
+		case 1:snap[0][end_count]=AN_pc.data.Van;	
 				   snap[1][end_count]=AN_pc.data.Ia;	break;
 		
-		case 1:snap[2][end_count]=AN_pc.data.Vbn;
+		case 2:snap[2][end_count]=AN_pc.data.Vbn;
 					 snap[3][end_count]=AN_pc.data.Ib;	break;
 		
-		case 2:snap[4][end_count]=AN_pc.data.Vcn;	
+		case 3:snap[4][end_count]=AN_pc.data.Vcn;	
 					 snap[5][end_count]=AN_pc.data.Ic;	break;
 		
 		case 10:decimation_count=0;end_count++;break;

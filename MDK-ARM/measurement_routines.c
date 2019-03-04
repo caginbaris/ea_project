@@ -13,6 +13,7 @@ struct SOS quad_sos[6]={0}; 		// for inphase parameters
 struct SOS inphase_sos[6]={0}; 	// for inphase parameters
 
 union symmetricalComponents sym;
+union symmetricalComponents sym_scaled;
 
 struct spectra harm[6]={0}; 				// spectral analysis
 union thdData thd={0};

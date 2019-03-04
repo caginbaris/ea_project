@@ -1,11 +1,9 @@
 #include "menu_definitions.h"
+#include "measurement_definitions.h"
 #include "flashUpdate.h"
 #include "phaseCompensation.h"
 
-float VT=1.0f;
-float CT=1.0f;
 
-//cau ouput pulse interval
 
 uint16_t baud=19200;
 
@@ -13,8 +11,9 @@ uint16_t baud=19200;
 
 void flashUpdate(void){
 	
-	VT=(flash.data.vt_seconder!=0)?(flash.data.vt_primer/flash.data.vt_seconder):(VT);
-	CT=(flash.data.ct_seconder!=0)?(flash.data.ct_primer/flash.data.ct_seconder):(CT);
+	TR.VT=(flash.data.vt_seconder!=0)?(flash.data.vt_primer/flash.data.vt_seconder):(TR.VT);
+	TR.CT=(flash.data.ct_seconder!=0)?(flash.data.ct_primer/flash.data.ct_seconder):(TR.CT);
+	TR.PT=TR.VT*TR.CT;
 	
 	switch(flash.data.configBit.commBaudRate){
 	

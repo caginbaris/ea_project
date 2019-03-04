@@ -301,6 +301,7 @@ extern union powerParameters  power_iq;
 extern union powerParameters  power_scaled;
 extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
+extern union symmetricalComponents sym_scaled;
 extern float  phase;
 extern const float coeffs_real[];
 extern const float coeffs_imag[];
