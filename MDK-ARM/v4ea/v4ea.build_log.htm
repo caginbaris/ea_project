@@ -3,38 +3,121 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.20.0.0
+IDE-Version: µVision V5.21.1.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Viva Microsoft, Microsoft, LIC=Z3CWF-6XZZ3-22CL4-F73X0-EEBB1-P4HPS
+License Information: Cagin Baris Cengiz, Endoks Energy, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.20
+Toolchain:       MDK-Lite  Version: 5.21a
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 2 (build 183)
-Assembler:       Armasm.exe V5.06 update 2 (build 183)
-Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
-Library Manager: ArmAr.exe V5.06 update 2 (build 183)
-Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
-CPU DLL:         SARMCM3.DLL V5.20
-Dialog DLL:      DCM.DLL V1.13.7.0
-Target DLL:      ULP2CM3.DLL V2.203.29.0
-Dialog DLL:      TCM.DLL V1.14.9.0
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      ULP2CM3.DLL V2.206.10.0
+Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
-C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
-Project File Date:  02/27/2019
+C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\v4ea.uvprojx
+Project File Date:  03/04/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'v4ea'
-"v4ea\v4ea.axf" - 0 Error(s), 0 Warning(s).
+compiling measurement_data.c...
+compiling Menu_init.c...
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+Menu_init.c: 1 warning, 0 errors
+compiling measurement_routines.c...
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+measurement_routines.c: 1 warning, 0 errors
+compiling Menu_routines.c...
+compiling graphing_fuctions.c...
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+graphing_fuctions.c(455): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(row,1,112);}else{
+graphing_fuctions.c(457): warning:  #188-D: enumerated type mixed with another type
+  	if(bin_select<95){digit_transfer_8pt(1,1,112);}else{digit_transfer_8pt(2,1,112);}	
+graphing_fuctions.c(457): warning:  #188-D: enumerated type mixed with another type
+  	if(bin_select<95){digit_transfer_8pt(1,1,112);}else{digit_transfer_8pt(2,1,112);}	
+graphing_fuctions.c(459): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt((row%10),1,118);
+graphing_fuctions.c(489): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(1,5,102);	
+graphing_fuctions.c(493): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(int10,5,106);
+graphing_fuctions.c(494): warning:  #188-D: enumerated type mixed with another type
+  	digit_transfer_8pt(int1,5,112);
+graphing_fuctions.c: 8 warnings, 0 errors
+compiling measurement_functions.c...
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+measurement_functions.c(592): warning:  #177-D: variable "i" was declared but never referenced
+  uint8_t i;
+measurement_functions.c: 2 warnings, 0 errors
+compiling record.c...
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+record.c: 1 warning, 0 errors
+compiling waveformSnap.c...
+waveformSnap.c(43): warning:  #1-D: last line of file ends without a newline
+  }
+waveformSnap.c: 1 warning, 0 errors
+compiling exceptions.c...
+compiling Modbus_Map.c...
+Modbus_Map.c(142): warning:  #1-D: last line of file ends without a newline
+  }
+Modbus_Map.c: 1 warning, 0 errors
+compiling flashDataHandling.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+flashDataHandling.c: 2 warnings, 0 errors
+compiling converison.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+converison.c(24): warning:  #1295-D: Deprecated declaration measurement_routines - give arg types
+  void measurement_routines();
+converison.c: 3 warnings, 0 errors
+compiling main.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+../Src/main.c: 2 warnings, 0 errors
+compiling ios.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+ios.c: 2 warnings, 0 errors
+compiling Modbus_RTU_Slave.c...
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f373xc.h(68): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT"
+  #define __FPU_PRESENT             1U       /*!< STM32F373xC devices provide an FPU */
+..\header_files\menu_definitions.h(262): warning:  #1295-D: Deprecated declaration pushButtonHandling - give arg types
+  void pushButtonHandling();
+Modbus_RTU_Slave.c: 2 warnings, 0 errors
+linking...
+v4ea\v4ea.axf: error: L6050U: The code size of this image (56812 bytes) exceeds the maximum allowed for this version of the linker.
+Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
+"v4ea\v4ea.axf" - 1 Error(s), 26 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Viva\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
+  C:\Users\baris.cengiz\Dropbox\energy analyzer archives\ea_project\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F3xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

@@ -289,6 +289,7 @@ void symmetrical_components(union uAdcData inphase,union uAdcData quad, union sy
 void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
 void harmonics_routine(void);
 float pfilter(float rtInput, float yback,float* xback);
+void  waveformSnap(void);
 
 
 // extern data

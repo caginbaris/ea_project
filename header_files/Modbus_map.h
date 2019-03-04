@@ -111,9 +111,18 @@ union modbusMappingReadData{
 	unsigned char* hIb[20];//153
 	unsigned char* hIc[20];//173
 	
+	
+	unsigned char* sVan[20];//193
+	unsigned char* sVbn[20];//213
+	unsigned char* sVcn[20];//233
+	
+	unsigned char* sIa[20];//253
+	unsigned char* sIb[20];//273
+	unsigned char* sIc[20];//293
+	
 	}data;
 	
-	unsigned char*   buffer[192];	
+	unsigned char*   buffer[313];	
 
 };
 

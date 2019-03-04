@@ -158,25 +158,7 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 		x->Power.Ptotal=x->Power.Pa + x->Power.Pb + x->Power.Pc;
 		x->Power.Qtotal=x->Power.Qa + x->Power.Qb + x->Power.Qc;
 		x->Power.Stotal=x->Power.Sa + x->Power.Sb + x->Power.Sc;
-	
-	/*
-		counter++;
-		switch(counter){
-		
-			case 1:arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));break;
-			case 2:arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));break;
-			case 3:arm_sqrt_f32((x->Power.Pc*x->Power.Pb + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));break;
-			case 4:arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal + x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));break;
-			case 5:counter=0;break;
-		
-		}
-	 
-		arm_sqrt_f32((x->Power.Pa*x->Power.Pa + x->Power.Qa*x->Power.Qa),&(x->Power.Sa));//cau
-		arm_sqrt_f32((x->Power.Pb*x->Power.Pb + x->Power.Qb*x->Power.Qb),&(x->Power.Sb));//cau
-		arm_sqrt_f32((x->Power.Pc*x->Power.Pc + x->Power.Qc*x->Power.Qc),&(x->Power.Sc));//cau
-		arm_sqrt_f32((x->Power.Ptotal*x->Power.Ptotal+x->Power.Qtotal*x->Power.Qtotal),&(x->Power.Stotal));//cau */
-	
-	
+
 		
 		counter++;
 		switch(counter){

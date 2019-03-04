@@ -10,10 +10,10 @@ void  waveformSnap(){
 
 	
 	static uint8_t lock=0;
-	static uint8_t sample_count=0;
 	static uint8_t decimation_count=0;
+	static uint8_t end_count=0;
 	
-	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_start==1 ){lock=1;}
+	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_start==1 ){lock=1;snap_start=0;}
 	
 	
 	if(lock){
@@ -21,37 +21,23 @@ void  waveformSnap(){
 
 	switch(decimation_count){
 	
-		case 0:snap[0][0]=AN_pc.data.Van;	break;
-		case 1:snap[1][0]=AN_pc.data.Vbn;	break;
-		case 2:snap[2][0]=AN_pc.data.Vcn;	break;
+		case 0:snap[0][end_count]=AN_pc.data.Van;	
+				   snap[1][end_count]=AN_pc.data.Ia;	break;
 		
-		case 3:snap[3][0]=AN_pc.data.Ia;	break;
-		case 4:snap[4][0]=AN_pc.data.Ib;	break;
-		case 5:snap[5][0]=AN_pc.data.Ic;	break;
+		case 1:snap[2][end_count]=AN_pc.data.Vbn;
+					 snap[3][end_count]=AN_pc.data.Ib;	break;
 		
-		case 10:decimation_count=0;break;
+		case 2:snap[4][end_count]=AN_pc.data.Vcn;	
+					 snap[5][end_count]=AN_pc.data.Ic;	break;
+		
+		case 10:decimation_count=0;end_count++;break;
 	
 	
 	}
 	
 	decimation_count++;
-
-
-	
-
-		
-		
-	
-	
-	
+	if(end_count>19){lock=0;decimation_count=0;end_count=0;}
 	
 	}
 	
-	
-	
-	
-	
-	
-
-
 }
