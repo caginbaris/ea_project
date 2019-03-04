@@ -13,7 +13,7 @@ void  waveformSnap(){
 	static uint8_t decimation_count=0;
 	static uint8_t end_count=0;
 	
-	if((phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_start==1 ){lock=1;snap_start=0;}
+	if((phase>0.0f && phase<0.017f) && snap_start==1 ){lock=1;snap_start=0;}
 	
 	
 	if(lock){

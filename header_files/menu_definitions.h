@@ -259,7 +259,7 @@ enum input{
 
 
 extern enum input pressed_button;
-void pushButtonHandling();
+void pushButtonHandling(void);
 
 union push_buttons{
 	

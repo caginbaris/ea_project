@@ -225,7 +225,7 @@ void plot_data_formatting(float x,float rms){
 	float pass_level=0;
 	
 	
-	if(fundRMS.data.Van>20.0f && (phase.data.Van>0.0f && phase.data.Van<0.017f) && snap_flag==0 ){snap_flag=1;}
+	if(fundRMS.data.Van>20.0f && (phase>0.0f && phase<0.017f) && snap_flag==0 ){snap_flag=1;}
 	
 	
 	switch(current_menu){

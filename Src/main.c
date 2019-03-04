@@ -102,7 +102,7 @@ float dummy_lag=0;
 
 //comm side entries---start
 
-uint8_t RX_Buffer[100], ReceiveData, ReceiveData2 , RX_Index = 0;
+uint8_t ReceiveData, ReceiveData2 , RX_Index = 0;
 unsigned char rtu_modbusRxBuffer[RX_BUFFER_LIMIT];
 extern uint8_t recComp;
 

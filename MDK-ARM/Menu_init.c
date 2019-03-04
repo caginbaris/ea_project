@@ -1145,42 +1145,42 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		
 		//{	Scope_Van,up_pressed,Apparent_Energy},
-		{	Scope_Van,right_pressed,Scope_Vbn},
+		{	Scope_Van,right_pressed,Scope_Vbn},//94
 		{	Scope_Van,enter_pressed,main_menu},
 		
 		
 		//{	Scope_Vbn,up_pressed,Apparent_Energy},
-		{	Scope_Vbn,right_pressed,Scope_Vcn},
+		{	Scope_Vbn,right_pressed,Scope_Vcn},//96
 		{	Scope_Vbn,left_pressed,Scope_Van},
 		{	Scope_Vbn,enter_pressed,main_menu},
 		
 		
 		//{	Scope_Vcn,up_pressed,Apparent_Energy},
-		{	Scope_Vcn,right_pressed,Scope_Ia},
+		{	Scope_Vcn,right_pressed,Scope_Ia},//99
 		{	Scope_Vcn,left_pressed,Scope_Vbn},
 		{	Scope_Vcn,enter_pressed,main_menu},
 		
 		
 		//{	Scope_Ia,up_pressed,Apparent_Energy},
-		{	Scope_Ia,right_pressed,Scope_Ib},
+		{	Scope_Ia,right_pressed,Scope_Ib},//102
 		{	Scope_Ia,left_pressed,Scope_Vcn},
 		{	Scope_Ia,enter_pressed,main_menu},
 		
 		
 		//{	Scope_Ib,up_pressed,Apparent_Energy},
-		{	Scope_Ib,right_pressed,Scope_Ic},
+		{	Scope_Ib,right_pressed,Scope_Ic},//105
 		{	Scope_Ib,left_pressed,Scope_Ia},
 		{	Scope_Ib,enter_pressed,main_menu},
 		
 		
 		//{	Scope_Ic,up_pressed,Apparent_Energy},
-		{	Scope_Ic,left_pressed,Scope_Ib},
+		{	Scope_Ic,left_pressed,Scope_Ib},//109
 		{	Scope_Ic,enter_pressed,main_menu},
 		
 		
 		/*HARMONIC START*/
 		
-		{Harmonics_Van,down_pressed,Harmonics_Vbn},
+		{Harmonics_Van,down_pressed,Harmonics_Vbn},//111
 		{Harmonics_Vbn,down_pressed,Harmonics_Vcn},
 		{Harmonics_Vcn,down_pressed,Harmonics_Ia},
 		{Harmonics_Ia, down_pressed,Harmonics_Ib},
@@ -1201,31 +1201,31 @@ const struct MENU_TRANSITION menu_transition[]={
 		
 		/*HARMONICS END*/
 		
-		{thd_Vpn,up_pressed,Harmonics_Van},
+		{thd_Vpn,up_pressed,Harmonics_Van},//127
 		{thd_Vpn,right_pressed,thd_I},
 		{thd_Vpn,down_pressed,sym_Vpn},
 		{thd_Vpn,enter_pressed,main_menu},
 		
-		{thd_I,up_pressed,Harmonics_Van},
+		{thd_I,up_pressed,Harmonics_Van},//131
 		{thd_I,left_pressed,thd_Vpn},
 		{thd_I,down_pressed,sym_Vpn},
 		{thd_I,enter_pressed,main_menu},
 		
-		{sym_Vpn,up_pressed,thd_Vpn},
+		{sym_Vpn,up_pressed,thd_Vpn},//135
 		{sym_Vpn,right_pressed,sym_I},
 		{sym_Vpn,down_pressed,unb_Vpn},
 		{sym_Vpn,enter_pressed,main_menu},
 		
-		{sym_I,up_pressed,thd_Vpn},
+		{sym_I,up_pressed,thd_Vpn},//139
 		{sym_I,left_pressed,sym_Vpn},
 		{sym_I,down_pressed,unb_Vpn},
 		{sym_I,enter_pressed,main_menu},
 		
-		{unb_Vpn,up_pressed,sym_Vpn},
+		{unb_Vpn,up_pressed,sym_Vpn},//143
 		{unb_Vpn,right_pressed,unb_I},
 		{unb_Vpn,enter_pressed,main_menu},
 	
-		{unb_I,up_pressed,sym_Vpn},
+		{unb_I,up_pressed,sym_Vpn},//146
 		{unb_I,left_pressed,unb_Vpn},
 		{unb_I,enter_pressed,main_menu},
 		

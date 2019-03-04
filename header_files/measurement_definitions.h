@@ -286,7 +286,7 @@ void energy_calculations(union powerParameters x,struct energyParameters *y );
 void energy_scaling(struct energyParameters x,struct scaled_energy_parameters *y );
 void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms);
 void symmetrical_components(union uAdcData inphase,union uAdcData quad, union symmetricalComponents *x);
-void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase);
+void phaseDetect(union uAdcData inphase,union uAdcData quad,float *phase);
 void harmonics_routine(void);
 float pfilter(float rtInput, float yback,float* xback);
 void  waveformSnap(void);
@@ -301,7 +301,7 @@ extern union powerParameters  power_iq;
 extern union powerParameters  power_scaled;
 extern struct energyParameters  energy;
 extern union symmetricalComponents sym;
-extern union uAdcData  phase;
+extern float  phase;
 extern const float coeffs_real[];
 extern const float coeffs_imag[];
 extern struct spectra  harm[6]; 					// spectral analysis

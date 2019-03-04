@@ -1,17 +1,18 @@
 #include "Modbus_Map.h"
 #include "conversion.h"
 #include "measurement_definitions.h"
+#include "record.h"
 
 
 extern float bin_array[6][20];
 extern float snap[6][20];
+
 
 union modbusMappingReadData readHoldingMap;
 
 void init_Map(void){
 	
 		uint8_t i;
-	
 	
 		readHoldingMap.data.tRMS_Van=(unsigned char*)&(trueRMS_scaled.data.Van);
 		readHoldingMap.data.tRMS_Vbn=(unsigned char*)&(trueRMS_scaled.data.Vbn);	
@@ -122,6 +123,13 @@ void init_Map(void){
 			
 		}
 		
+		
+		for(i=0;i<46;i++){
+			
+		readHoldingMap.data.record[i]=(unsigned char*)(&(rec.word[i]));
+
+		}
+	
 		
 		for(i=0;i<20;i++){
 			

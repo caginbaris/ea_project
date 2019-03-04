@@ -3,3 +3,4 @@ v4ea\modbus_map.o: ..\header_files\Modbus_Map.h
 v4ea\modbus_map.o: ..\header_files\measurement_definitions.h
 v4ea\modbus_map.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 v4ea\modbus_map.o: ..\header_files\conversion.h
+v4ea\modbus_map.o: ../Inc/record.h

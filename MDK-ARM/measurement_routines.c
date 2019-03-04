@@ -22,7 +22,7 @@ union uAdcData  inphaseData={0};
 union uAdcData  quadData={0};
 union uAdcData  fundRMS={0},fundRMS_scaled={0};
 union uAdcData  trueRMS={0},trueRMS_scaled={0};
-union uAdcData  phase={0};
+float  phase;
 
 struct sensorRatios TR={1.0f,1.0f,1.0f};
 
@@ -33,7 +33,7 @@ union powerParameters  power_scaled={0};
 struct energyParameters energy={0};
 struct scaled_energy_parameters energy_scaled;
 
-struct energyParameters energyZero={0};
+
 
 
 float dummy_fund;

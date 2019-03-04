@@ -17,7 +17,7 @@
 #define DEBUG                      0
 
 #define RX_BUFFER_LIMIT            500
-#define TX_BUFFER_LIMIT            1000
+#define TX_BUFFER_LIMIT            500//cau
 #define WRITE_MULTIPLE_BUFFER_LIMIT 100
 #define WRITE_SINGLE_BUFFER_LIMIT   4
 

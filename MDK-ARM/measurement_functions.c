@@ -443,10 +443,10 @@ x->data.UNB_I=(x->data.Vpn_1>eps)?(100.0f*x->data.I_2  /x->data.I_1)  :(0.0f);
 
 //Scope Menus
 
-void phaseDetect(union uAdcData inphase,union uAdcData quad,union uAdcData *phase){
+void phaseDetect(union uAdcData inphase,union uAdcData quad,float *phase){
 
 
-	phase->data.Van=atan2f(-inphase.data.Van,-quad.data.Van);
+	(*phase)=atan2f(-inphase.data.Van,-quad.data.Van);
 	
 
 }
