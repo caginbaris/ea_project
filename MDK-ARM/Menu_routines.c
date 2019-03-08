@@ -8,7 +8,7 @@
 #include "ios.h"
 #include "phaseCompensation.h"
 #include "flashUpdate.h"
-
+#include "exceptions.h"
 
 uint8_t save_lock=0;
 uint8_t currentSaveMenu=0;
@@ -2692,18 +2692,39 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 
 
 void exception_messaging(void){
+	
+	
+	uint8_t column,i;
 
+	enum letter_codes_8pt currentOverload[14]=  		{y,u,k,s,e,k,_,a,k,i,m,_,_,_};
+	enum letter_codes_8pt voltageOverload[14]=  		{y,u,k,s,e,k,_,g,e,r,i,l,i,m};
+	
+	
+	if(exception.all!=0){
+	
+	
+	if(exception.bit.Ia_highLevel|exception.bit.Ib_highLevel|exception.bit.Ic_highLevel){
+	
+	clearColumns(2,0,127);
+	clearColumns(3,0,127);
+	clearColumns(4,0,127);	
+	
+	for(i=0;i<14;i++){
+		
+	column=letter_transfer_8pt(currentOverload[i],2,0);
 
-	if(current_menu>=set_VT){
+	 }
 	
+	}else{
+	
+	
+	for(i=0;i<14;i++){
 		
-		
-	
-	
-	
+	column=letter_transfer_8pt(voltageOverload[i],2,0);
+
+	  }
+	 }
 	}
-	
-
 }
 
 

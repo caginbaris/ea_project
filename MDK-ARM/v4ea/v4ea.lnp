@@ -43,6 +43,7 @@
 "v4ea\system_stm32f3xx.o"
 "v4ea\menu_routines.o"
 "v4ea\menu_init.o"
+"v4ea\initialization.o"
 "v4ea\measurement_data.o"
 "v4ea\measurement_functions.o"
 "v4ea\measurement_routines.o"

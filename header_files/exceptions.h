@@ -37,6 +37,7 @@ uint32_t all;
 extern union exception_defs exception;
 
 void exceptions(void);
+void exception_messaging(void);
 
 #endif
 

@@ -57,6 +57,8 @@
 #include "Modbus_RTU_Slave.h"
 #include "phaseCompensation.h"
 #include "Modbus_Map.h"
+#include "configDataHandling.h"
+#include "exceptions.h"
 
 /* USER CODE END Includes */
 
@@ -238,20 +240,17 @@ int main(void)
 		
 		offline_calculations();	
 		
-		
-
-		
 		pushButtonHandling();
 			
 		if(pressed_button!=invalid ){
 		
 	  current_menu=SELECT_MENU(current_menu,pressed_button);
-			
-
 		
 	  }
 		
 		DISPLAY_MENU();	
+		
+		exception_messaging();
 		
 		pressed_button=invalid;	
 		
@@ -262,6 +261,10 @@ int main(void)
 			
 		refresh_counter=0;
 			
+		}else{
+		
+		configDataHandling();
+
 		}
 		
 		

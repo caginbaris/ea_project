@@ -1,5 +1,6 @@
 
 #include "menu_definitions.h"
+#include "configDataHandling.h"
 
 extern uint8_t save_lock;
 extern uint8_t currentSaveMenu;
@@ -30,36 +31,54 @@ if(configDataReception){
 	if(configDataCheck){
 	configDataCheck=0;
 		
-		configDataError=(flashNew.data.vt_primer>0   && flashNew.data.vt_primer<250000)									?0:1;
-		configDataError=(flashNew.data.vt_seconder>0 && flashNew.data.vt_primer<500)										?0:1;
+		configDataError=(flashNew.data.vt_primer>0 && flashNew.data.vt_primer<VT_limit_primer_limit)					?0:1;
+		configDataError=(flashNew.data.vt_primer>0 && flashNew.data.vt_seconder<VT_limit_primer_limit)				?0:1;
 		
-		configDataError=(flashNew.data.ct_primer>0   && flashNew.data.ct_primer<250000)									?0:1;
-		configDataError=(flashNew.data.ct_seconder>0 && flashNew.data.ct_primer<6)											?0:1;
+		configDataError=(flashNew.data.ct_primer>0 &&flashNew.data.ct_primer<CT_limit_primer_limit)						?0:1;
+		configDataError=(flashNew.data.ct_seconder>0 && flashNew.data.ct_seconder<CT_limit_seconder_limit)		?0:1;
 	
-		configDataError=(flashNew.data.ct_phase_shift>0 	 && flashNew.data.ct_phase_shift<19)					?0:1;
+		configDataError=(flashNew.data.ct_phase_shift<phase_shift_limit)																			?0:1;
 		
-		configDataError=(flashNew.data.outputPulsePeriod>0 && flashNew.data.outputPulsePeriod<19)				?0:1;
-		configDataError=(flashNew.data.outputPulseIncFactor>0 && flashNew.data.outputPulseIncFactor<101)?0:1;
+		configDataError=(flashNew.data.outputPulsePeriod>0 && flashNew.data.outputPulsePeriod<pulse_period_limit)		?0:1;
+		configDataError=(flashNew.data.outputPulseIncFactor>0 && flashNew.data.outputPulseIncFactor>0 && flashNew.data.outputPulseIncFactor<inc_factor_limit)?0:1;
 		
-		configDataError=(flashNew.data.modbusAddress>0 && flashNew.data.modbusAddress<256)							?0:1;
+		configDataError=(flashNew.data.outputPulseIncFactor>0 && flashNew.data.modbusAddress<adress_limit)							?0:1;
 		
-		configDataError=(flashNew.data.configBit.output_option!=0)																			?0:1;
-		configDataError=(flashNew.data.configBit.output_energy_pulse_source<7)													?0:1;
+		configDataError=(flashNew.data.configBit.output_option!=0)							?0:1;
+		configDataError=(flashNew.data.configBit.output_energy_pulse_source<output_energy_pulse_source_limit)							?0:1;
 		
-		configDataError=(flashNew.data.configBit.commBaudRate<7)																				?0:1;
-		configDataError=(flashNew.data.configBit.commMode<4)																						?0:1;
+		configDataError=(flashNew.data.configBit.commBaudRate<comm_baud_rate_limit)																				?0:1;
+		configDataError=(flashNew.data.configBit.commMode<commMode_limit)																									?0:1;
 		
 	}
 	
 	
-	if(configDataCheck){
+	if(configDataError){
 		
 	configDataCheck=0;
 		
 	flash=flashNew;
-	currentSaveMenu=save_option_menu;	
-	//cau menu redirect required	
+	save_lock=1;	
+	currentSaveMenu=saving_menu;	
+
+		
+	//comm initialization req
+		
+		
+	if(	flashNew.data.configBit.commBaudRate!=flash.data.configBit.commBaudRate ||
+			flashNew.data.configBit.commMode!=flash.data.configBit.commMode )	{
+				
+			__disable_irq();	
+		
+			MX_USART3_UART_Init();
+				
+			__enable_irq();		
+	}
 	
+	}else{
+	
+		
+	currentSaveMenu=not_saved_menu;	
 	
 	}
 	
