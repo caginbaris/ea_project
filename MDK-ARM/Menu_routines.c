@@ -2694,33 +2694,44 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 void exception_messaging(void){
 	
 	
-	uint8_t column,i;
+	uint8_t column=0,j;
 
 	enum letter_codes_8pt currentOverload[14]=  		{y,u,k,s,e,k,_,a,k,i,m,_,_,_};
 	enum letter_codes_8pt voltageOverload[14]=  		{y,u,k,s,e,k,_,g,e,r,i,l,i,m};
 	
 	
 	if(exception.all!=0){
-	
-	
-	if(exception.bit.Ia_highLevel|exception.bit.Ib_highLevel|exception.bit.Ic_highLevel){
-	
+		
+	clearColumns(1,0,127);	
 	clearColumns(2,0,127);
 	clearColumns(3,0,127);
 	clearColumns(4,0,127);	
+	clearColumns(5,0,127);	
+	clearColumns(6,0,127);
 	
-	for(i=0;i<14;i++){
+	if(exception.bit.Ia_highLevel|exception.bit.Ib_highLevel|exception.bit.Ic_highLevel){
+	
+	
+	column=0;
+	
+	for(j=0;j<14;j++){
 		
-	column=letter_transfer_8pt(currentOverload[i],2,0);
+	column=letter_transfer_8pt(currentOverload[j],3,column);
 
 	 }
 	
-	}else{
+	}
 	
 	
-	for(i=0;i<14;i++){
+	
+	if(exception.bit.Va_highLevel|exception.bit.Vb_highLevel|exception.bit.Vc_highLevel){
+				
+	
+	column=0;
 		
-	column=letter_transfer_8pt(voltageOverload[i],2,0);
+	for(j=0;j<14;j++){
+		
+	column=letter_transfer_8pt(voltageOverload[j],4,column);
 
 	  }
 	 }

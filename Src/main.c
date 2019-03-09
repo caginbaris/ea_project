@@ -59,6 +59,7 @@
 #include "Modbus_Map.h"
 #include "configDataHandling.h"
 #include "exceptions.h"
+#include "initialization.h"
 
 /* USER CODE END Includes */
 
@@ -216,11 +217,13 @@ int main(void)
 	pLagDef(0.0f,10000,&pc_b12,&pc_b22); // applied to voltage //cau	
 	pLagDef(1.4f,10000,&pc_b1, &pc_b2);   // applied to voltage, //cau fs is wrong
 	
+	brand_initialization();
 	init_conversion();
 	init_LCD();
 	init_backlight();
 	init_Menu();
 	init_Map();
+
 	
 	
 	//rtu_transmitDisable_receiveEnable(); //cau auto de
@@ -238,7 +241,11 @@ int main(void)
 		
 		mp_counter++;
 		
+		initialization_lag();
+		
 		offline_calculations();	
+		
+		//exceptions();
 		
 		pushButtonHandling();
 			
@@ -248,14 +255,27 @@ int main(void)
 		
 	  }
 		
+		
+		
+		if(initialization_flag==0){
+			
 		DISPLAY_MENU();	
 		
 		exception_messaging();
+			
+		}
+		
+		
 		
 		pressed_button=invalid;	
 		
 
 		if(refresh_counter>2500){
+			
+			
+		
+		
+	
 			
 		write_lcd();
 			

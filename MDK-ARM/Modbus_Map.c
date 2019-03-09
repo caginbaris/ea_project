@@ -134,12 +134,11 @@ void init_Map(void){
 		for(i=0;i<20;i++){
 			
 		readHoldingMap.data.sVan[i]=(unsigned char*)(&(snap[0][i]));
-		readHoldingMap.data.sIa[i]=(unsigned char*)(&(snap[1][i]));
-		
-		readHoldingMap.data.sVbn[i]=(unsigned char*)(&(snap[2][i]));		
-		readHoldingMap.data.sIb[i] =(unsigned char*)(&(snap[3][i]));
-		
-		readHoldingMap.data.sVcn[i]=(unsigned char*)(&(snap[4][i]));
+		readHoldingMap.data.sVbn[i]=(unsigned char*)(&(snap[2][i]));
+		readHoldingMap.data.sVcn[i]=(unsigned char*)(&(snap[4][i]));	
+			
+		readHoldingMap.data.sIa[i] =(unsigned char*)(&(snap[1][i]));
+		readHoldingMap.data.sIb[i]=(unsigned char*)(&(snap[3][i]));
 		readHoldingMap.data.sIc[i]=(unsigned char*)(&(snap[5][i]));
 			
 		}

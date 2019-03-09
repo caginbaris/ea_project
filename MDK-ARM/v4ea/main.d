@@ -56,3 +56,4 @@ v4ea\main.o: ..\header_files\Modbus_Map.h
 v4ea\main.o: ..\header_files\measurement_definitions.h
 v4ea\main.o: ..\header_files\configDataHandling.h
 v4ea\main.o: ..\header_files\exceptions.h
+v4ea\main.o: ..\header_files\initialization.h

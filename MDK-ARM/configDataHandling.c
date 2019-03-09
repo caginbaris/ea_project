@@ -75,11 +75,6 @@ if(configDataReception){
 			__enable_irq();		
 	}
 	
-	}else{
-	
-		
-	currentSaveMenu=not_saved_menu;	
-	
 	}
 	
 	

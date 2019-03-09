@@ -26,7 +26,7 @@ extern uint16_t rtu_ModbusRxIndex;
 uint16_t crcRecieved, crcCalculated;
 extern unsigned char rtu_modbusRxBuffer[RX_BUFFER_LIMIT];
 unsigned char rtu_modbusTxBuffer[TX_BUFFER_LIMIT];
-int32_t rtu_modbusWriteBuffer[WRITE_MULTIPLE_BUFFER_LIMIT];
+//int32_t rtu_modbusWriteBuffer[WRITE_MULTIPLE_BUFFER_LIMIT];
 int32_t rtu_modbusSingleWriteBuffer[WRITE_SINGLE_BUFFER_LIMIT];
 uint16_t rtu_modbusRegAdress, rtu_modbusDataLen, rtu_modbusTxLen;
 uint16_t rtu_selectedSlaveID;
@@ -455,7 +455,7 @@ void rtu_transmitData_readHoldingRegister(void)
 
 void rtu_Feeder1DataPrep(void){//jj alternate imp for modbus
 	
-	uint8_t i=0,inc=0;
+	uint16_t i=0,inc=0;
 	
 	
 	inc=(rtu_modbusRegAdress-MODBUS_STARTING_ADRESS)/2;

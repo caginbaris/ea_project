@@ -20,8 +20,9 @@
 
 
 extern const uint8_t LCD_batch_init_array[14];
-extern uint8_t display_buffer[8][128];
 
+extern uint8_t display_buffer[8][128];
+extern uint8_t init_fig[8][128];
 
 extern const uint8_t arial_14ptBitmaps[]; 
 extern const uint16_t Descriptors[][2];

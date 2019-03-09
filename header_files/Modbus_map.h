@@ -123,7 +123,7 @@ union modbusMappingReadData{
 	
 	}data;
 	
-	unsigned char*   buffer[313];	
+	unsigned char*   buffer[358];	
 
 };
 
