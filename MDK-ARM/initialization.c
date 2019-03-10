@@ -14,7 +14,7 @@ void brand_initialization(void){
 
 	enum letter_codes_14pt first[4]=  		{V,I,V,A};
 	enum letter_codes_8pt second[10]=  		{e,l,e,k,t,r,o,n,i,k};
-	
+
 	
 
 	
@@ -37,6 +37,9 @@ void brand_initialization(void){
 		column=letter_transfer_8pt(second[h],5,column);
 
 	 }
+	 
+	 
+	 
 	
 	
 
@@ -52,14 +55,14 @@ void initialization_lag(){
 	
 	if(initialization_counter>1000){
 	
-	display_buffer[0][i]=0;
-	display_buffer[1][i]=0;
-	display_buffer[2][i]=0;
-	display_buffer[3][i]=0;
-	display_buffer[4][i]=0;
-	display_buffer[5][i]=0;
-	display_buffer[6][i]=0;	
-	display_buffer[7][i]=0;	
+	display_buffer[0][i]=0x00;
+	display_buffer[1][i]=0x00;
+	display_buffer[2][i]=0x00;
+	display_buffer[3][i]=0x00;
+	display_buffer[4][i]=0x00;
+	display_buffer[5][i]=0x00;
+	display_buffer[6][i]=0x00;	
+	display_buffer[7][i]=0x00;	
 
 	if((initialization_counter%7)==0){i++;}		
 	

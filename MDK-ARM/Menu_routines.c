@@ -2691,16 +2691,25 @@ void dynamicData_reset(struct display_menu_handles menu_item){
 }
 
 
+
+
+uint8_t blink=0,blink_latch=0;
+
 void exception_messaging(void){
 	
+
+	static uint32_t count=0;
 	
-	uint8_t column=0,j;
+	uint8_t column,j;
+	
+	
 
 	enum letter_codes_8pt currentOverload[14]=  		{y,u,k,s,e,k,_,a,k,i,m,_,_,_};
 	enum letter_codes_8pt voltageOverload[14]=  		{y,u,k,s,e,k,_,g,e,r,i,l,i,m};
 	
+	pulseGen(2000,400,1,&blink,&blink_latch,&count);
 	
-	if(exception.all!=0){
+	if(exception.all!=0 && blink){
 		
 	clearColumns(1,0,127);	
 	clearColumns(2,0,127);
@@ -2708,8 +2717,11 @@ void exception_messaging(void){
 	clearColumns(4,0,127);	
 	clearColumns(5,0,127);	
 	clearColumns(6,0,127);
+		
 	
-	if(exception.bit.Ia_highLevel|exception.bit.Ib_highLevel|exception.bit.Ic_highLevel){
+	
+	
+	if((exception.bit.Ia_highLevel|exception.bit.Ib_highLevel|exception.bit.Ic_highLevel)){
 	
 	
 	column=0;

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [v4ea\v4ea.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image v4ea\v4ea.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sat Mar 09 23:35:05 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun Mar 10 22:25:33 2019
 <BR><P>
 <H3>Maximum Stack Usage =        552 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -349,9 +349,9 @@ Global Symbols
 <P><STRONG><a name="[165]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[83]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations (via Veneer)
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
+<BR><BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations (via Veneer)
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recordEmAll
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
@@ -393,7 +393,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
 </UL>
 
 <P><STRONG><a name="[76]"></a>__aeabi_ui2d</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, dfltui.o(.text))
@@ -401,13 +401,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
 </UL>
 
-<P><STRONG><a name="[125]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
+<P><STRONG><a name="[126]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
 </UL>
 
 <P><STRONG><a name="[16a]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
@@ -502,7 +502,7 @@ Global Symbols
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Enable
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[89]"></a>HAL_ADCEx_InjectedConfigChannel</STRONG> (Thumb, 846 bytes, Stack size 32 bytes, stm32f3xx_hal_adc_ex.o(i.HAL_ADCEx_InjectedConfigChannel))
@@ -591,7 +591,7 @@ Global Symbols
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[e6]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, stm32f3xx_hal_dma.o(i.HAL_DMA_Abort_IT))
@@ -636,11 +636,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashErase
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashErase
 </UL>
 
-<P><STRONG><a name="[12a]"></a>HAL_FLASH_Lock</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f3xx_hal_flash.o(i.HAL_FLASH_Lock))
-<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
+<P><STRONG><a name="[12b]"></a>HAL_FLASH_Lock</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f3xx_hal_flash.o(i.HAL_FLASH_Lock))
+<BR><BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
 </UL>
 
 <P><STRONG><a name="[9e]"></a>HAL_FLASH_Program</STRONG> (Thumb, 200 bytes, Stack size 40 bytes, stm32f3xx_hal_flash.o(i.HAL_FLASH_Program))
@@ -650,11 +650,11 @@ Global Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteD
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteD
 </UL>
 
-<P><STRONG><a name="[128]"></a>HAL_FLASH_Unlock</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f3xx_hal_flash.o(i.HAL_FLASH_Unlock))
-<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
+<P><STRONG><a name="[129]"></a>HAL_FLASH_Unlock</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f3xx_hal_flash.o(i.HAL_FLASH_Unlock))
+<BR><BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
 </UL>
 
 <P><STRONG><a name="[95]"></a>HAL_GPIO_Init</STRONG> (Thumb, 690 bytes, Stack size 40 bytes, stm32f3xx_hal_gpio.o(i.HAL_GPIO_Init))
@@ -675,8 +675,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
 <P><STRONG><a name="[a0]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, stm32f3xx_hal_gpio.o(i.HAL_GPIO_WritePin))
@@ -685,9 +685,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
 </UL>
 
 <P><STRONG><a name="[7d]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal.o(i.HAL_GetTick))
@@ -865,7 +865,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_EnterInitMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[b3]"></a>HAL_SDADC_ConvCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f3xx_hal_sdadc.o(i.HAL_SDADC_ConvCpltCallback))
@@ -933,7 +933,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDADC_InjConvStart
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[b8]"></a>HAL_SDADC_MspInit</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, sdadc.o(i.HAL_SDADC_MspInit))
@@ -987,8 +987,8 @@ Global Symbols
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDADC1_Init
 </UL>
 
-<P><STRONG><a name="[133]"></a>HAL_SPI_GetState</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_GetState))
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<P><STRONG><a name="[134]"></a>HAL_SPI_GetState</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_GetState))
+<BR><BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
 </UL>
 
 <P><STRONG><a name="[c1]"></a>HAL_SPI_Init</STRONG> (Thumb, 542 bytes, Stack size 16 bytes, stm32f3xx_hal_spi.o(i.HAL_SPI_Init))
@@ -1015,8 +1015,8 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
 </UL>
 
 <P><STRONG><a name="[c5]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f3xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
@@ -1087,7 +1087,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
 </UL>
 
 <P><STRONG><a name="[cd]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 1384 bytes, Stack size 24 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_ConfigClockSource))
@@ -1160,7 +1160,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 
 <P><STRONG><a name="[df]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 602 bytes, Stack size 40 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
@@ -1200,7 +1200,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CCxChannelCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
 </UL>
 
 <P><STRONG><a name="[d2]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f3xx_hal_tim.o(i.HAL_TIM_PeriodElapsedCallback))
@@ -1255,10 +1255,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 </UL>
 
-<P><STRONG><a name="[149]"></a>HAL_UART_Transmit_IT</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, stm32f3xx_hal_uart.o(i.HAL_UART_Transmit_IT))
-<BR><BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
+<P><STRONG><a name="[14a]"></a>HAL_UART_Transmit_IT</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, stm32f3xx_hal_uart.o(i.HAL_UART_Transmit_IT))
+<BR><BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
 </UL>
 
 <P><STRONG><a name="[e8]"></a>HAL_UART_TxCpltCallback</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(i.HAL_UART_TxCpltCallback))
@@ -1432,7 +1432,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f373xc.o(RESET)
 </UL>
-<P><STRONG><a name="[143]"></a>SELECT_MENU</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, menu_routines.o(i.SELECT_MENU))
+<P><STRONG><a name="[144]"></a>SELECT_MENU</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, menu_routines.o(i.SELECT_MENU))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SELECT_MENU
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1597,7 +1597,7 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 
-<P><STRONG><a name="[12d]"></a>__ARM_common_memclr4_8</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, graphing_fuctions.o(i.__ARM_common_memclr4_8))
+<P><STRONG><a name="[12e]"></a>__ARM_common_memclr4_8</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, graphing_fuctions.o(i.__ARM_common_memclr4_8))
 <BR><BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;graphBaseLining
 </UL>
 
@@ -1624,7 +1624,7 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 </UL>
 
 <P><STRONG><a name="[10a]"></a>__hardfp_sinf</STRONG> (Thumb, 344 bytes, Stack size 16 bytes, sinf.o(i.__hardfp_sinf))
@@ -1637,7 +1637,7 @@ Global Symbols
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 </UL>
 
 <P><STRONG><a name="[10b]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf.o(i.__hardfp_sqrtf))
@@ -1645,8 +1645,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bin_magnitudes (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bin_magnitudes (via Veneer)
 </UL>
 
 <P><STRONG><a name="[109]"></a>__mathlib_flt_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, funder.o(i.__mathlib_flt_infnan))
@@ -1783,7 +1783,7 @@ Global Symbols
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_CT
 </UL>
 
-<P><STRONG><a name="[145]"></a>configDataHandling</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, configdatahandling.o(i.configDataHandling))
+<P><STRONG><a name="[146]"></a>configDataHandling</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, configdatahandling.o(i.configDataHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = configDataHandling
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1912,19 +1912,20 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[11e]"></a>exception_messaging</STRONG> (Thumb, 184 bytes, Stack size 56 bytes, menu_routines.o(i.exception_messaging))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = exception_messaging &rArr; letter_transfer_8pt
+<P><STRONG><a name="[11e]"></a>exception_messaging</STRONG> (Thumb, 220 bytes, Stack size 56 bytes, menu_routines.o(i.exception_messaging))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = exception_messaging &rArr; pulseGen
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearColumns
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseGen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[13e]"></a>fallingEdgeDetectionWithOffDelay</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, aux_functions.o(i.fallingEdgeDetectionWithOffDelay))
+<P><STRONG><a name="[13f]"></a>fallingEdgeDetectionWithOffDelay</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, aux_functions.o(i.fallingEdgeDetectionWithOffDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fallingEdgeDetectionWithOffDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
 <P><STRONG><a name="[11a]"></a>flashData2LCD</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, lcd_routines.o(i.flashData2LCD))
@@ -1934,71 +1935,71 @@ Global Symbols
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicData_CT
 </UL>
 
-<P><STRONG><a name="[11f]"></a>flashErase</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashErase))
+<P><STRONG><a name="[120]"></a>flashErase</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashErase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = flashErase &rArr; HAL_FLASHEx_Erase &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASHEx_Erase
 </UL>
-<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
+<BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
 </UL>
 
-<P><STRONG><a name="[120]"></a>flashRead</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashRead))
+<P><STRONG><a name="[121]"></a>flashRead</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = flashRead &rArr; flashReadD
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadD
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[121]"></a>flashReadD</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashReadD))
+<P><STRONG><a name="[122]"></a>flashReadD</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashReadD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = flashReadD
 </UL>
-<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
 </UL>
 
-<P><STRONG><a name="[123]"></a>flashReadF</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashReadF))
+<P><STRONG><a name="[124]"></a>flashReadF</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, flashdatahandling.o(i.flashReadF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = flashReadF
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
+<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
 </UL>
 
-<P><STRONG><a name="[122]"></a>flashReadRec</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flashdatahandling.o(i.flashReadRec))
+<P><STRONG><a name="[123]"></a>flashReadRec</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flashdatahandling.o(i.flashReadRec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = flashReadRec &rArr; flashReadF
 </UL>
-<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadF
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadF
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[124]"></a>flashUpdate</STRONG> (Thumb, 166 bytes, Stack size 8 bytes, flashupdate.o(i.flashUpdate))
+<P><STRONG><a name="[125]"></a>flashUpdate</STRONG> (Thumb, 166 bytes, Stack size 8 bytes, flashupdate.o(i.flashUpdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = flashUpdate &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
 </UL>
 
-<P><STRONG><a name="[127]"></a>flashWrite</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, flashdatahandling.o(i.flashWrite))
+<P><STRONG><a name="[128]"></a>flashWrite</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, flashdatahandling.o(i.flashWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = flashWrite &rArr; flashWriteD &rArr; HAL_FLASH_Program &rArr; FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Unlock
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Lock
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteD
-<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashErase
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Unlock
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Lock
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteD
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashErase
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
 </UL>
 
-<P><STRONG><a name="[129]"></a>flashWriteD</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, flashdatahandling.o(i.flashWriteD))
+<P><STRONG><a name="[12a]"></a>flashWriteD</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, flashdatahandling.o(i.flashWriteD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = flashWriteD &rArr; HAL_FLASH_Program &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Program
 </UL>
-<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
+<BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
 </UL>
 
 <P><STRONG><a name="[112]"></a>formatDynamicData</STRONG> (Thumb, 252 bytes, Stack size 16 bytes, menu_routines.o(i.formatDynamicData))
@@ -2014,16 +2015,16 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hline
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_memclr4_8
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hline
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_memclr4_8
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
 <P><STRONG><a name="[f]"></a>graphDataTransfer</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, graphing_fuctions.o(i.graphDataTransfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = graphDataTransfer &rArr; scope_plotting
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
+<BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
@@ -2031,10 +2032,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = harmonicBaseLine &rArr; menu_unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hline
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hline
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
@@ -2042,40 +2043,40 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = harmonicDataTransfer &rArr; vline_dotted
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digit_transfer_8pt
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline_dotted
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline_dotted
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vline
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ui_limiter
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[12b]"></a>hline</STRONG> (Thumb, 100 bytes, Stack size 4 bytes, graphing_fuctions.o(i.hline))
+<P><STRONG><a name="[12c]"></a>hline</STRONG> (Thumb, 100 bytes, Stack size 4 bytes, graphing_fuctions.o(i.hline))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = hline
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBaseLine
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;graphBaseLining
 </UL>
 
-<P><STRONG><a name="[14c]"></a>i_limiter</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, aux_functions.o(i.i_limiter))
-<BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
+<P><STRONG><a name="[14d]"></a>i_limiter</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, aux_functions.o(i.i_limiter))
+<BR><BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_plotting
 </UL>
 
-<P><STRONG><a name="[132]"></a>init_LCD</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, lcd_routines.o(i.init_LCD))
+<P><STRONG><a name="[133]"></a>init_LCD</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, lcd_routines.o(i.init_LCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = init_LCD &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_GetState
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_GetState
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[140]"></a>init_Map</STRONG> (Thumb, 480 bytes, Stack size 12 bytes, modbus_map.o(i.init_Map))
+<P><STRONG><a name="[141]"></a>init_Map</STRONG> (Thumb, 480 bytes, Stack size 12 bytes, modbus_map.o(i.init_Map))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = init_Map
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[134]"></a>init_Menu</STRONG> (Thumb, 666 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
+<P><STRONG><a name="[135]"></a>init_Menu</STRONG> (Thumb, 666 bytes, Stack size 8 bytes, menu_init.o(i.init_Menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init_Menu
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
@@ -2083,7 +2084,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[135]"></a>init_backlight</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lcd_routines.o(i.init_backlight))
+<P><STRONG><a name="[136]"></a>init_backlight</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lcd_routines.o(i.init_backlight))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = init_backlight &rArr; HAL_TIM_PWM_Start &rArr; TIM_CCxChannelCmd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
@@ -2092,7 +2093,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[136]"></a>init_conversion</STRONG> (Thumb, 190 bytes, Stack size 8 bytes, converison.o(i.init_conversion))
+<P><STRONG><a name="[137]"></a>init_conversion</STRONG> (Thumb, 190 bytes, Stack size 8 bytes, converison.o(i.init_conversion))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = init_conversion &rArr; HAL_ADCEx_Calibration_Start &rArr; ADC_Enable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_OC_Start_IT
@@ -2104,29 +2105,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[137]"></a>init_flashBackRead</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flashdatahandling.o(i.init_flashBackRead))
+<P><STRONG><a name="[138]"></a>init_flashBackRead</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flashdatahandling.o(i.init_flashBackRead))
 <BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[138]"></a>initialization_lag</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, initialization.o(i.initialization_lag))
+<P><STRONG><a name="[139]"></a>initialization_lag</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, initialization.o(i.initialization_lag))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = initialization_lag &rArr; off_delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[13a]"></a>inputHandling</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, ios.o(i.inputHandling))
+<P><STRONG><a name="[13b]"></a>inputHandling</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, ios.o(i.inputHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = inputHandling &rArr; HAL_GPIO_ReadPin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;risingEdgeDetectionWithOnDelay
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fallingEdgeDetectionWithOffDelay
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;risingEdgeDetectionWithOnDelay
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fallingEdgeDetectionWithOffDelay
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ios
 </UL>
@@ -2134,8 +2135,8 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>ios</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ios.o(i.ios))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ios &rArr; outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
@@ -2189,7 +2190,7 @@ Global Symbols
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atMainOperation
 </UL>
 
-<P><STRONG><a name="[14b]"></a>loading_bar</STRONG> (Thumb, 62 bytes, Stack size 20 bytes, menu_routines.o(i.loading_bar))
+<P><STRONG><a name="[14c]"></a>loading_bar</STRONG> (Thumb, 62 bytes, Stack size 20 bytes, menu_routines.o(i.loading_bar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = loading_bar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
@@ -2198,20 +2199,20 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 290 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 552<LI>Call Chain = main &rArr; offline_calculations &rArr; scaled_parameters &rArr; energy_scaling
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations (via Veneer)
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialization_lag
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Map
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations (via Veneer)
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialization_lag
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flashBackRead
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Menu
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Map
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashReadRec
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashRead
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exception_messaging
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configDataHandling
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configDataHandling
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brand_initialization
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SELECT_MENU
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SELECT_MENU
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM5_Init
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
@@ -2227,15 +2228,15 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISPLAY_MENU
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_lcd
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_backlight
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pLagDef (via Veneer)
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_conversion
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[12f]"></a>menu_unit_transfer</STRONG> (Thumb, 170 bytes, Stack size 36 bytes, lcd_routines.o(i.menu_unit_transfer))
+<P><STRONG><a name="[130]"></a>menu_unit_transfer</STRONG> (Thumb, 170 bytes, Stack size 36 bytes, lcd_routines.o(i.menu_unit_transfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = menu_unit_transfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicBaseLine
@@ -2252,41 +2253,41 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearColumns
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_routines.o(.data)
 </UL>
-<P><STRONG><a name="[139]"></a>off_delay</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, aux_functions.o(i.off_delay))
+<P><STRONG><a name="[13a]"></a>off_delay</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, aux_functions.o(i.off_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = off_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialization_lag
+<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialization_lag
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;savingScreen
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;saveScreen
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;notSavedScreen
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[13b]"></a>on_delay</STRONG> (Thumb, 60 bytes, Stack size 4 bytes, aux_functions.o(i.on_delay))
+<P><STRONG><a name="[13c]"></a>on_delay</STRONG> (Thumb, 60 bytes, Stack size 4 bytes, aux_functions.o(i.on_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = on_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushButtonHandling
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[13c]"></a>on_off_delay</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, aux_functions.o(i.on_off_delay))
+<P><STRONG><a name="[13d]"></a>on_off_delay</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, aux_functions.o(i.on_off_delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = on_off_delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outputHandling
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[13f]"></a>outputHandling</STRONG> (Thumb, 256 bytes, Stack size 16 bytes, ios.o(i.outputHandling))
+<P><STRONG><a name="[140]"></a>outputHandling</STRONG> (Thumb, 256 bytes, Stack size 16 bytes, ios.o(i.outputHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = outputHandling &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_off_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ios
 </UL>
@@ -2295,22 +2296,23 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_iq (via Veneer)
 </UL>
 
-<P><STRONG><a name="[14e]"></a>plot_data_formatting</STRONG> (Thumb, 208 bytes, Stack size 0 bytes, graphing_fuctions.o(i.plot_data_formatting))
-<BR><BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine
+<P><STRONG><a name="[14f]"></a>plot_data_formatting</STRONG> (Thumb, 208 bytes, Stack size 0 bytes, graphing_fuctions.o(i.plot_data_formatting))
+<BR><BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine
 </UL>
 
-<P><STRONG><a name="[153]"></a>pulseGen</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, aux_functions.o(i.pulseGen))
+<P><STRONG><a name="[11f]"></a>pulseGen</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, aux_functions.o(i.pulseGen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pulseGen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exception_messaging
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine (via Veneer)
 </UL>
 
-<P><STRONG><a name="[142]"></a>pushButtonHandling</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, pb_handling.o(i.pushButtonHandling))
+<P><STRONG><a name="[143]"></a>pushButtonHandling</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, pb_handling.o(i.pushButtonHandling))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = pushButtonHandling &rArr; HAL_GPIO_ReadPin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2351,47 +2353,47 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
 
-<P><STRONG><a name="[13d]"></a>risingEdgeDetectionWithOnDelay</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, aux_functions.o(i.risingEdgeDetectionWithOnDelay))
+<P><STRONG><a name="[13e]"></a>risingEdgeDetectionWithOnDelay</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, aux_functions.o(i.risingEdgeDetectionWithOnDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = risingEdgeDetectionWithOnDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
+<BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inputHandling
 </UL>
 
-<P><STRONG><a name="[147]"></a>rtu_Feeder1DataPrep</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_Feeder1DataPrep))
+<P><STRONG><a name="[148]"></a>rtu_Feeder1DataPrep</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_Feeder1DataPrep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = rtu_Feeder1DataPrep &rArr; rtu_crcCalculation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
+<BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
 </UL>
 
-<P><STRONG><a name="[146]"></a>rtu_ModbusFrameProcessing</STRONG> (Thumb, 288 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_ModbusFrameProcessing))
+<P><STRONG><a name="[147]"></a>rtu_ModbusFrameProcessing</STRONG> (Thumb, 288 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_ModbusFrameProcessing))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = rtu_ModbusFrameProcessing &rArr; rtu_getFeeder1_writeMultipleRegisters &rArr; rtu_crcCalculation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
+<BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[148]"></a>rtu_crcCalculation</STRONG> (Thumb, 150 bytes, Stack size 4 bytes, modbus_rtu_slave.o(i.rtu_crcCalculation))
+<P><STRONG><a name="[149]"></a>rtu_crcCalculation</STRONG> (Thumb, 150 bytes, Stack size 4 bytes, modbus_rtu_slave.o(i.rtu_crcCalculation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = rtu_crcCalculation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_getFeeder1_writeMultipleRegisters
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_Feeder1DataPrep
 </UL>
 
-<P><STRONG><a name="[14a]"></a>rtu_getFeeder1_writeMultipleRegisters</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_getFeeder1_writeMultipleRegisters))
+<P><STRONG><a name="[14b]"></a>rtu_getFeeder1_writeMultipleRegisters</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, modbus_rtu_slave.o(i.rtu_getFeeder1_writeMultipleRegisters))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = rtu_getFeeder1_writeMultipleRegisters &rArr; rtu_crcCalculation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
+<BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_IT
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_crcCalculation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtu_ModbusFrameProcessing
 </UL>
 
 <P><STRONG><a name="[84]"></a>saveEmAll</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, menu_routines.o(i.saveEmAll))
@@ -2404,33 +2406,33 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearColumns
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_routines.o(.data)
 </UL>
 <P><STRONG><a name="[2]"></a>savingScreen</STRONG> (Thumb, 174 bytes, Stack size 32 bytes, menu_routines.o(i.savingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = savingScreen &rArr; flashWrite &rArr; flashWriteD &rArr; HAL_FLASH_Program &rArr; FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
+<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearColumns
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loading_bar
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;off_delay
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWrite
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loading_bar
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> menu_routines.o(.data)
 </UL>
-<P><STRONG><a name="[12e]"></a>scope_plotting</STRONG> (Thumb, 156 bytes, Stack size 40 bytes, graphing_fuctions.o(i.scope_plotting))
+<P><STRONG><a name="[12f]"></a>scope_plotting</STRONG> (Thumb, 156 bytes, Stack size 40 bytes, graphing_fuctions.o(i.scope_plotting))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = scope_plotting
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i_limiter
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i_limiter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;graphDataTransfer
 </UL>
 
-<P><STRONG><a name="[14d]"></a>scope_routine</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, graphing_fuctions.o(i.scope_routine))
-<BR><BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plot_data_formatting
+<P><STRONG><a name="[14e]"></a>scope_routine</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, graphing_fuctions.o(i.scope_routine))
+<BR><BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plot_data_formatting
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines (via Veneer)
 </UL>
@@ -2448,7 +2450,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = staticDataSingle &rArr; menu_unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_14pt
@@ -2459,7 +2461,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = staticDataTripple &rArr; menu_unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_14pt
@@ -2470,7 +2472,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = staticDataTrippleTotalPower &rArr; menu_unit_transfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symbol_transfer
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menu_unit_transfer
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;line_highlighter
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_8pt
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;letter_transfer_14pt
@@ -2563,7 +2565,7 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>toSettingsDetect</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, menu_routines.o(i.toSettingsDetect))
 <BR>[Address Reference Count : 1]<UL><LI> menu_init.o(.data)
 </UL>
-<P><STRONG><a name="[130]"></a>ui_limiter</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, aux_functions.o(i.ui_limiter))
+<P><STRONG><a name="[131]"></a>ui_limiter</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, aux_functions.o(i.ui_limiter))
 <BR><BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
 </UL>
 
@@ -2575,7 +2577,7 @@ Global Symbols
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dynamicDataSingle
 </UL>
 
-<P><STRONG><a name="[12c]"></a>vline</STRONG> (Thumb, 320 bytes, Stack size 28 bytes, graphing_fuctions.o(i.vline))
+<P><STRONG><a name="[12d]"></a>vline</STRONG> (Thumb, 320 bytes, Stack size 28 bytes, graphing_fuctions.o(i.vline))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = vline
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2583,7 +2585,7 @@ Global Symbols
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;graphBaseLining
 </UL>
 
-<P><STRONG><a name="[131]"></a>vline_dotted</STRONG> (Thumb, 336 bytes, Stack size 28 bytes, graphing_fuctions.o(i.vline_dotted))
+<P><STRONG><a name="[132]"></a>vline_dotted</STRONG> (Thumb, 336 bytes, Stack size 28 bytes, graphing_fuctions.o(i.vline_dotted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = vline_dotted
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonicDataTransfer
@@ -2593,7 +2595,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback
 </UL>
 
-<P><STRONG><a name="[144]"></a>write_lcd</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, lcd_routines.o(i.write_lcd))
+<P><STRONG><a name="[145]"></a>write_lcd</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, lcd_routines.o(i.write_lcd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = write_lcd &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
@@ -2602,22 +2604,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[14f]"></a>bin_magnitudes</STRONG> (Thumb, 372 bytes, Stack size 72 bytes, measurement_functions.o(i.bin_magnitudes))
+<P><STRONG><a name="[150]"></a>bin_magnitudes</STRONG> (Thumb, 372 bytes, Stack size 72 bytes, measurement_functions.o(i.bin_magnitudes))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = bin_magnitudes &rArr; __hardfp_sqrtf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf (via Veneer)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations
+<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations
 </UL>
 
-<P><STRONG><a name="[151]"></a>energy_accumulator</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, measurement_functions.o(i.energy_accumulator))
-<BR><BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_calculations
+<P><STRONG><a name="[152]"></a>energy_accumulator</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, measurement_functions.o(i.energy_accumulator))
+<BR><BR>[Called By]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_calculations
 </UL>
 
-<P><STRONG><a name="[150]"></a>energy_calculations</STRONG> (Thumb, 1382 bytes, Stack size 24 bytes, measurement_functions.o(i.energy_calculations))
+<P><STRONG><a name="[151]"></a>energy_calculations</STRONG> (Thumb, 1382 bytes, Stack size 24 bytes, measurement_functions.o(i.energy_calculations))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = energy_calculations
 </UL>
-<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_accumulator
+<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_accumulator
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
 </UL>
@@ -2634,10 +2636,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
 </UL>
 
-<P><STRONG><a name="[152]"></a>harmonics_routine</STRONG> (Thumb, 214 bytes, Stack size 24 bytes, measurement_functions.o(i.harmonics_routine))
+<P><STRONG><a name="[153]"></a>harmonics_routine</STRONG> (Thumb, 214 bytes, Stack size 24 bytes, measurement_functions.o(i.harmonics_routine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = harmonics_routine &rArr; pulseGen
 </UL>
-<BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseGen (via Veneer)
+<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseGen (via Veneer)
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;signal_spectra
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;measurement_routines
@@ -2652,25 +2654,25 @@ Global Symbols
 <P><STRONG><a name="[8d]"></a>measurement_routines</STRONG> (Thumb, 404 bytes, Stack size 120 bytes, measurement_routines.o(i.measurement_routines))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = measurement_routines &rArr; power_calculations_iq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine (via Veneer)
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scope_routine (via Veneer)
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;true_RMS
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;symmetrical_components
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_calculations_iq
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phaseDetect
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iq_generation
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fund_RMS
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_calculations
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_calculations
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback (via Veneer)
 </UL>
 
-<P><STRONG><a name="[141]"></a>offline_calculations</STRONG> (Thumb, 184 bytes, Stack size 208 bytes, measurement_functions.o(i.offline_calculations))
+<P><STRONG><a name="[142]"></a>offline_calculations</STRONG> (Thumb, 184 bytes, Stack size 208 bytes, measurement_functions.o(i.offline_calculations))
 <BR><BR>[Stack]<UL><LI>Max Depth = 544<LI>Call Chain = offline_calculations &rArr; scaled_parameters &rArr; energy_scaling
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bin_magnitudes
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4 (via Veneer)
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4 (via Veneer)
 <LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scaled_parameters
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bin_magnitudes
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main (via Veneer)
 </UL>
@@ -2683,14 +2685,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConvCpltCallback (via Veneer)
 </UL>
 
-<P><STRONG><a name="[126]"></a>pLagDef</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, phasecompensation.o(i.pLagDef))
+<P><STRONG><a name="[127]"></a>pLagDef</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, phasecompensation.o(i.pLagDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = pLagDef &rArr; __hardfp_sinf &rArr; __mathlib_rredf2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf (via Veneer)
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf (via Veneer)
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf (via Veneer)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate (via Veneer)
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashUpdate (via Veneer)
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main (via Veneer)
 </UL>
 
@@ -2716,13 +2718,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4 (via Veneer)
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;energy_scaling
 </UL>
-<BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations
+<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;offline_calculations
 </UL>
 
 <P><STRONG><a name="[154]"></a>signal_spectra</STRONG> (Thumb, 86 bytes, Stack size 4 bytes, measurement_functions.o(i.signal_spectra))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = signal_spectra
 </UL>
-<BR>[Called By]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
+<BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;harmonics_routine
 </UL>
 
 <P><STRONG><a name="[159]"></a>symmetrical_components</STRONG> (Thumb, 554 bytes, Stack size 16 bytes, measurement_functions.o(i.symmetrical_components))
