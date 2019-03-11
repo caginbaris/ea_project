@@ -1,6 +1,8 @@
 
 #include "menu_definitions.h"
 #include "configDataHandling.h"
+#include "flash_api.h"
+#include "flashUpdate.h"
 
 extern uint8_t save_lock;
 extern uint8_t currentSaveMenu;
@@ -58,8 +60,10 @@ if(configDataReception){
 	configDataCheck=0;
 		
 	flash=flashNew;
-	save_lock=1;	
-	currentSaveMenu=saving_menu;	
+		
+	flashWrite();
+		
+	flashUpdate();	
 
 		
 	//comm initialization req
