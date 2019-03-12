@@ -60,6 +60,7 @@
 #include "configDataHandling.h"
 #include "exceptions.h"
 #include "initialization.h"
+#include "device_command.h"
 
 /* USER CODE END Includes */
 
@@ -244,6 +245,8 @@ int main(void)
 		initialization_lag();
 		
 		offline_calculations();	
+		
+		commandHandling();
 		
 		//exceptions();
 		

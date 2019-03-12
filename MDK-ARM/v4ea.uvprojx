@@ -1678,7 +1678,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1748,7 +1748,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1923,7 +1923,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -1983,7 +1983,7 @@
                     <vShortEn>2</vShortEn>
                     <vShortWch>2</vShortWch>
                     <v6Lto>0</v6Lto>
-                    <v6WtE>0</v6WtE>
+                    <v6WtE>2</v6WtE>
                     <v6Rtti>2</v6Rtti>
                     <VariousControls>
                       <MiscControls></MiscControls>
@@ -2004,6 +2004,16 @@
               <FileName>alarms.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\alarms.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>commands</GroupName>
+          <Files>
+            <File>
+              <FileName>device_command.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\device_command.c</FilePath>
             </File>
           </Files>
         </Group>

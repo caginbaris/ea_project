@@ -328,25 +328,7 @@ void rtu_getFeeder1_writeMultipleRegisters(void)
 	
     rtu_ModbusRxIndex = 7;
 	
-		#if 0
-			for(i=0;i<rtu_modbusDataLen;i+=2){
-	
-			if (rtu_modbusRegAdress == (READ_IN_CH1+i)){
-				
-			flashNew.bBuffer[a+3] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
-			flashNew.bBuffer[a+2] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
-			flashNew.bBuffer[a+1] = rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
-			flashNew.bBuffer[a] 	= rtu_modbusRxBuffer[rtu_ModbusRxIndex++];
-			
-			rtu_modbusRegAdress += 2;
-      if (rtu_modbusRegAdress == rtu_modbusEndingAdress) rtu_modbusRegAdress = 0;	
-				
-			a+=4;
-			
-				}
-			
-			}
-			#endif
+
 
 			
 			a=(rtu_modbusRegAdress-MODBUS_STARTING_ADRESS)*2;
@@ -496,44 +478,4 @@ void rtu_writeSingleRegister(void)
 
 
 
-void updateModbusConfig(){//cau
-	
-	//adress
-	
-	rtu_deviceSlaveID[0]=flash.data.modbusAddress;
-	
-  //baud rate section
-	
-	switch(flash.data.configBit.commBaudRate){
-		
-		case 0	:huart3.Init.BaudRate = 4800;break;
-		case 1	:huart3.Init.BaudRate = 9600;break;
-		case 2	:huart3.Init.BaudRate = 19200;break;
-		case 3	:huart3.Init.BaudRate = 38400;break;
-		case 4	:huart3.Init.BaudRate = 57600;break;
-		default	:huart3.Init.BaudRate = 19200;break;
-		
-	}
-	
-	
-	switch(flash.data.configBit.commMode){ //cau
-	
-		case 0: huart3.Init.Parity = UART_PARITY_NONE ; 
-						huart3.Init.StopBits = UART_STOPBITS_2  ;break;
-		
-		case 1: huart3.Init.Parity = UART_PARITY_EVEN ; 
-						huart3.Init.StopBits = UART_STOPBITS_1;break;
-		
-		case 2: huart3.Init.Parity = UART_PARITY_ODD ; 
-						huart3.Init.StopBits = UART_STOPBITS_1  ;break;
-		
-		case 3: huart3.Init.Parity = UART_PARITY_NONE ; 
-						huart3.Init.StopBits = UART_STOPBITS_1  ;break;
-		
-		default: huart3.Init.Parity = UART_PARITY_NONE ; 
-						 huart3.Init.StopBits = UART_STOPBITS_2  ;break;
-		
-	}
-	
 
-}

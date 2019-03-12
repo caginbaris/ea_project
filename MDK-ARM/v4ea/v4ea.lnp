@@ -60,6 +60,7 @@
 "v4ea\configdatahandling.o"
 "v4ea\exceptions.o"
 "v4ea\alarms.o"
+"v4ea\device_command.o"
 --library_type=microlib --strict --scatter "v4ea\v4ea.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
