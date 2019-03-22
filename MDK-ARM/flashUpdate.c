@@ -43,6 +43,7 @@ void flashUpdate(void){
 	TR.CT=(flash.data.ct_seconder!=0)?(flash.data.ct_primer/flash.data.ct_seconder):(TR.CT);
 	TR.PT=TR.VT*TR.CT;
 	
+	#if 0
 	
 	rtu_deviceSlaveID[0] = flash.data.modbusAddress; //cau
 	
@@ -81,6 +82,8 @@ void flashUpdate(void){
 	UART3_Init();
 	
 	pLagDef(flash.data.ct_phase_shift*0.1f,10000,&pc_b12,&pc_b22); // applied to voltage 		
+	
+	#endif
 	
 }
 
