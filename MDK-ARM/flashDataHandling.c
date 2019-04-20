@@ -4,8 +4,8 @@
 #include "record.h"
 
 #define sentinelAdress     (ADDR_FLASH_PAGE_30)
-#define dataStartAddress  (sentinelAdress+4)
-#define recStartAddress			(ADDR_FLASH_PAGE_31)
+#define dataStartAddress   (sentinelAdress+4)
+#define recStartAddress			(ADDR_FLASH_PAGE_31)//cau
 
 #define sentinelValue 0xA1B2C3D4
 
@@ -126,7 +126,7 @@ void flashRead(void){
 void flashReadRec(void){
 	
 	
-	flashReadF(dataStartAddress,rec.word,flashWordSize);
+	//flashReadF(dataStartAddress,rec.word,flashWordSize);
 	
 }
 

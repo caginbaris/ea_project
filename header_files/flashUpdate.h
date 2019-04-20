@@ -3,12 +3,7 @@
 
 #include <stdint.h>
 
-extern float VT;
-extern float CT;
 
-//cau ouput pulse interval
-
-extern uint16_t baud;
 
 void flashUpdate(void);
 

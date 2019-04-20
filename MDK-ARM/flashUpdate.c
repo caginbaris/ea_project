@@ -39,8 +39,10 @@ void UART3_Init(void)
 
 void flashUpdate(void){
 	
-	TR.VT=(flash.data.vt_seconder!=0)?(flash.data.vt_primer/flash.data.vt_seconder):(TR.VT);
-	TR.CT=(flash.data.ct_seconder!=0)?(flash.data.ct_primer/flash.data.ct_seconder):(TR.CT);
+	
+	
+	TR.VT=(flash.data.vt_seconder>=1.0f)?(flash.data.vt_primer/flash.data.vt_seconder):(TR.VT);
+	TR.CT=(flash.data.ct_seconder>=1.0f)?(flash.data.ct_primer/flash.data.ct_seconder):(TR.CT);
 	TR.PT=TR.VT*TR.CT;
 	
 	#if 0
