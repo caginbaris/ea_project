@@ -133,7 +133,8 @@ void fund_RMS(union uAdcData inphase,union uAdcData quad,union uAdcData *rms){
 
 
 
-float back_y=0,back_x=0;
+float back_pya=0,back_pyb=0,back_pyc=0;
+float back_qya=0,back_qyb=0,back_qyc=0;
 
 
 void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union powerParameters *x, union uAdcData tRMS){
@@ -142,13 +143,13 @@ void power_calculations_iq(union uAdcData inphase,union uAdcData quad, union pow
 	 static uint8_t counter=20;
 
 
-		x->Power.Pa=(inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2;
-		x->Power.Pb=(inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Pc=pfilter((inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2,x->Power.Pc,&back_y);
+		x->Power.Pa=pfilter((inphase.data.Van*inphase.data.Ia + quad.data.Van*quad.data.Ia)*i2,x->Power.Pa,&back_pya);
+		x->Power.Pb=pfilter((inphase.data.Vbn*inphase.data.Ib + quad.data.Vbn*quad.data.Ib)*i2,x->Power.Pb,&back_pyb);
+		x->Power.Pc=pfilter((inphase.data.Vcn*inphase.data.Ic + quad.data.Vcn*quad.data.Ic)*i2,x->Power.Pc,&back_pyc);
 
-		x->Power.Qa=(quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2;
-		x->Power.Qb=(quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2;
-		x->Power.Qc=(quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2;
+		x->Power.Qa=pfilter((quad.data.Van*inphase.data.Ia - inphase.data.Van*quad.data.Ia)*i2,x->Power.Qa,&back_qya);
+		x->Power.Qb=pfilter((quad.data.Vbn*inphase.data.Ib - inphase.data.Vbn*quad.data.Ib)*i2,x->Power.Qb,&back_qya);
+		x->Power.Qc=pfilter((quad.data.Vcn*inphase.data.Ic - inphase.data.Vcn*quad.data.Ic)*i2,x->Power.Qc,&back_qya);
 	
 		x->Power.Sa=tRMS.data.Van*tRMS.data.Ia;
 		x->Power.Sb=tRMS.data.Vbn*tRMS.data.Ib;
@@ -598,7 +599,7 @@ for(i=0;i<6;i++){
 
 void offline_calculations(){
 	
-uint8_t i;
+
 
 bin_magnitudes();
 thd_calc(&thd);	
