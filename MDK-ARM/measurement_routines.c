@@ -41,6 +41,9 @@ float dummy_fund;
 
 void measurement_routines(){
 	
+	
+	
+	
 
 	//true RMS
 	
@@ -60,7 +63,7 @@ void measurement_routines(){
 	
 	power_calculations_iq(inphaseData,quadData,&power_iq,trueRMS);
 	
-	
+	#if 1
 	//energy calculations
 	
 	energy_calculations(power_iq,&energy );
@@ -81,7 +84,7 @@ void measurement_routines(){
 	
 	harmonics_routine();//cau
 	
-
+	#endif
 	
 	
 }

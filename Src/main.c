@@ -275,11 +275,7 @@ int main(void)
 
 		if(refresh_counter>2500){
 			
-			
-		
-		
-	
-			
+
 		write_lcd();
 			
 		refresh_counter=0;
