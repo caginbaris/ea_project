@@ -217,6 +217,7 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	if(x.Power.Pa<=0.0f && x.Power.Qa>=0.0f){y->active_export_a+=x.Power.Pa*energy_constant; y->reactive_import_a+=x.Power.Qa*energy_constant;}
 	if(x.Power.Pa<=0.0f && x.Power.Qa<=0.0f){y->active_export_a+=x.Power.Pa*energy_constant; y->reactive_export_a+=x.Power.Qa*energy_constant;}
 		
+	
 		
 	if(x.Power.Pb>=0.0f && x.Power.Qb>=0.0f){y->active_import_b+=x.Power.Pb*energy_constant; y->reactive_import_b+=x.Power.Qb*energy_constant;}
 	if(x.Power.Pb>=0.0f && x.Power.Qb<=0.0f){y->active_import_b+=x.Power.Pb*energy_constant; y->reactive_export_b+=x.Power.Qb*energy_constant;}
@@ -234,11 +235,15 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	if(x.Power.Ptotal<=0.0f && x.Power.Qtotal<=0.0f){y->active_export_total+=x.Power.Ptotal*energy_constant; y->reactive_export_total+=x.Power.Qtotal*energy_constant;}
 
 		
+	#if 0	
+		
 	y->apparent_energy_a		+=x.Power.Sa*energy_constant; 
 	y->apparent_energy_b		+=x.Power.Sb*energy_constant;
 	y->apparent_energy_c		+=x.Power.Sc*energy_constant;
 	y->apparent_energy_total+=x.Power.Stotal*energy_constant;
 		
+	#endif	
+	
 	
 	energy_accumulator(&(y->active_import_a)			,&(y->active_import_counter_a));	
 	energy_accumulator(&(y->active_import_b)			,&(y->active_import_counter_b));	
@@ -261,14 +266,14 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	energy_accumulator(&(y->reactive_export_c)		,&(y->reactive_export_counter_c));														
 	energy_accumulator(&(y->reactive_export_total),&(y->reactive_export_counter_total));		
 
-	
+	#if 0
 	
 	energy_accumulator(&(y->apparent_energy_a)		,&(y->apparent_counter_a));	
 	energy_accumulator(&(y->apparent_energy_b)		,&(y->apparent_counter_b));	
 	energy_accumulator(&(y->apparent_energy_c)		,&(y->apparent_counter_c));	
 	energy_accumulator(&(y->apparent_energy_total),&(y->apparent_counter_total));	
 	
-	
+	#endif 
 	
 	y->active_import_a_scaled			=(y->active_import_counter_a)		*inc_resolution;
 	y->active_import_b_scaled			=(y->active_import_counter_b)		*inc_resolution;
@@ -290,10 +295,14 @@ void energy_calculations(union powerParameters x,struct energyParameters *y ){
 	y->reactive_export_c_scaled			=(y->reactive_export_counter_c)		*inc_resolution;
 	y->reactive_export_total_scaled	=(y->reactive_export_counter_total)*inc_resolution;
 	
+	#if 0
+	
 	y->apparent_energy_a_scaled			=(y->apparent_counter_a)		*inc_resolution;
 	y->apparent_energy_b_scaled			=(y->apparent_counter_b)		*inc_resolution;
 	y->apparent_energy_c_scaled			=(y->apparent_counter_c)		*inc_resolution;
 	y->apparent_energy_total_scaled	=(y->apparent_counter_total)*inc_resolution;
+	
+	#endif 
 	
 }
 

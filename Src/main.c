@@ -273,7 +273,7 @@ int main(void)
 		pressed_button=invalid;	
 		
 
-		if(refresh_counter>2500){
+		if(refresh_counter>5000){
 			
 
 		write_lcd();

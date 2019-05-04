@@ -7,8 +7,8 @@
 
 
 
-enum menu_list current_menu=set_VT  ;
-enum menu_list previous_menu=Vpp_true;
+enum menu_list current_menu=Vpn_true  ;
+enum menu_list previous_menu=Vpp_fund ;
 
 enum main_menu_list    main_menu_entry=Active_Energy_main;
 enum setting_menu_list setting_menu_entry=setting_output;
@@ -449,7 +449,7 @@ struct display_menu_handles Active_Total_Energy_Export_Menu= {
 
 struct display_menu_handles Reactive_Energy_Import_Menu= {
 	
-	/*dynamic data*/ &(energy_scaled.reactive_export_a),
+	/*dynamic data*/ &(energy_scaled.reactive_import_a),
 	
 	/*title*/      	{t,u,k,e,t,i,l,e,n,_,r,e,a,k,t,i,f,_,_,_,_} ,
 	
